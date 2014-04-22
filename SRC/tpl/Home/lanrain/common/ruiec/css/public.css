@@ -1,0 +1,241 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* -------------------- Site: 微智创官网  Author: nuobeika  Updated:޸ 2013-5-29 09:21:10  Updated by: 微智创 -------------------- */ 
+
+/* -------------------- Website initialization -------------------- */
+* {padding:0; margin:0;}
+html,body,div,span,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,fieldset,legend,label,img,a { border:none;}
+div { margin:0 auto;}
+table{ border-collapse:collapse;}
+body {font-size:12px; font-family: "microsoft yahei", Arial, SimSun; color:#1a1a1a; background:#fff; }
+a:link,a:visited{color:#1a1a1a; text-decoration:none;}
+a:hover{color:#000; text-decoration:none;}
+a:active{color:#000; text-decoration:none;}
+img{border:none; float:none; vertical-align:top;}
+ul,ol {list-style:none;}
+h1{font-size:22px; font-weight:500;}
+h2{font-size:20px; font-weight:500;}
+h3{font-size:18px; font-weight:500;}
+h4{font-size:16px; font-weight:500;}
+h5{font-size:14px; font-weight:500;}
+h6{font-size:12px; font-weight:500;}
+p {}
+a.underline:link,a.underline:visited { color:#454545;} 
+a.underline:hover { text-decoration:underline;}
+/* ------------------ Picture Handle ------------------   */
+.PictureHandle img { behavior:url("iepngfix.htc");}
+.PictureHandle input { behavior:url("iepngfix.htc");}
+
+/* -------------------- menu --------------------   */
+.MenuBg { height:36px;}
+ul.Menu { float:left;}
+ul.Menu li { float:left; padding:7px 15px; font-size:16px;}
+ul.Menu li a:link,ul.Menu li a:visited { color:#1a1a1a;}
+ul.Menu li a:hover { color:#1570a6;}
+
+.MenuBg .FloatRight a:hover { text-decoration:underline;}
+
+.MenuChildren a,.MenuChildren a:link,.MenuChildren a:visited { color:#fff;}
+.MenuChildren a:hover { text-decoration:underline;}
+/* 走进微智创 二级菜单 */
+.ProSer1 { position:absolute; left:-500px; top:-500px; width:160px; z-index:99; overflow:hidden; padding-top:9px; display:none;}
+.ProSer1 .ProSerCont { padding:20px; overflow:hidden; background-color:#046; color:#fff;}
+.ProSer1 ul { padding:5px 10px; overflow:hidden;}
+.ProSer1 li { width:120px; background:url(../images/Dot3.jpg) no-repeat left 12px; padding:2px 0 2px 10px; line-height:20px; overflow:hidden;}
+.ProSer1 .ProSerTitle { width:100px; padding:0 10px; background-color:#07b; height:30px; line-height:30px;}
+/* 产品与服务 二级菜单 */
+.ProSer2 { position:absolute; left:-500px; top:-500px; width:530px; z-index:99; overflow:hidden; padding-top:9px; display:none;}
+.ProSerPic { width:17px; height:9px; position:absolute; left:200px; top:0px; background:url(../images/ProSer.gif) no-repeat left top;}
+.ProSer2 .ProSerCont { width:470px; padding:30px; overflow:hidden; background-color:#046; color:#fff;}
+.ProSer2 .FloatLeft,.ProSer2 .FloatRight { width:220px; overflow:hidden;}
+.ProSer2 ul { padding:5px 10px; overflow:hidden;}
+.ProSer2 li { width:190px; background:url(../images/Dot3.jpg) no-repeat left 12px; padding:2px 0 2px 10px; line-height:20px; overflow:hidden;}
+.ProSer2 .ProSerTitle { width:200px; padding:0 10px; background-color:#07b; height:30px; line-height:30px;}
+
+
+
+/* -------------------- top --------------------  */
+.TopBg { height:38px; border-bottom:1px solid #d6d6d6; line-height:38px; background-color:#323232; color:#dddddd;}
+.Top { position:relative;}
+.TopBg .FloatLeft a,.TopBg .FloatLeft a:link,.TopBg .FloatLeft a:visited { color:#00ccff;}
+.TopBg .FloatLeft a:hover { text-decoration:underline;}
+/*.TopBg .FloatRight { padding-right:130px;}*/
+.TopBg .FloatRight a,.TopBg .FloatRight a:link,.TopBg .FloatRight a:visited { color:#dddddd;}
+.TopBg .FloatRight a:hover { text-decoration:underline;}
+.LangOpt { position:absolute; right:10px; top:2px;}
+
+.Logo {}
+.Tel {}
+.TopRight { width:555px; overflow:hidden;}
+.TopSearch { padding-top:28px; overflow:hidden;}
+.SearchCont { float:left; width:300px; height:24px; line-height:24px; border:1px solid #969696; border-right:none;}
+.SearchBtn { float:left; width:26px; height:26px; background:url(../images/SearchBtn.jpg) no-repeat left top; cursor:pointer; border:none;}
+
+/* -------------------- banner --------------------  */
+.MainBanner { width:100%; min-width:1180px; height:427px; overflow:hidden; background-position:center top; background-repeat:no-repeat; position:relative; border-top:5px solid #eeeeee;}
+.MainBannerTxt { position:absolute;/* top:50px; left:50px; color:#fff; background-color:#7cbb00;*/ padding:40px; overflow:hidden; z-index:10; left:50%;}
+.MainBanBg { width:100%; min-width:1180px; background:url(../images/BanBg.jpg) repeat; filter:alpha(opacity=10); -moz-opacity:0.1; -khtml-opacity:0.1; opacity:0.1; height:560px; position:absolute; left:0; top:0; z-index:5;}
+.MainBanURL { position:absolute; padding:5px 20px; overflow:hidden; left:50%; z-index:15; font-size:22px; line-height:30px; color:#fff;}
+.MainBanURL a:link,.MainBanURL a:visited { color:#fff;}
+.MainBanURL a:hover { text-decoration:underline;}
+/* -------------------- bottom --------------------  */
+/* 语言选择 */
+.LanguageCont { overflow:hidden; padding-bottom:30px;}
+.LanguageCont li { float:left; text-align:center; width:98px; overflow:hidden;}
+.LanguageCont li p { font-size:12px; line-height:16px; padding-top:10px; color:#fff;}
+
+.Footer { padding:60px 0 40px;}
+.FootMenu { text-align:right; line-height:22px; font-size:14px; overflow:hidden;}
+.FootMenu a { color:#1570a6; padding:0 15px;}
+.FootMenu a:link,.FootMenu a:visited { color:#1570a6;}
+.FootMenu a:hover { text-decoration:underline;}
+.Address { text-align:right; line-height:22px; padding-top:5px; overflow:hidden;}
+.FootLogo { text-align:right; overflow:hidden;}
+/* Foot Menu */
+.FootMenuPic { width:100%; min-width:1180px; padding-bottom:30px; overflow:hidden;}
+.FootMenuPic li { float:left; width:160px; padding:4px; height:60px;}
+/* -------------------- width --------------------  */
+.widthMAX { width:100%; min-width:1180px;}
+.width1180 { width:1180px;}
+.width930 {width:930px;}
+.width750 { width:750px}
+.width668 { width:668px}
+.width570 { width:570px}
+.width500 { width:500px}
+.width400 { width:400px}
+.width300 { width:300px}
+
+/* -------------------- height --------------------  */
+.height150 { height:150px;}
+
+/* -------------------- other --------------------  */
+.B5Be8e8e8 { border-bottom:5px solid #e8e8e8;}
+.UrlBtn { float:left; padding:0 20px; height:37px; line-height:37px; font-size:18px; text-align:center; overflow:hidden;}
+.UrlBtnApply { float:none; margin:10px auto 20px; width:210px;}
+.UrlBtn a:link,.UrlBtn a:visited { color:#fff;}
+.UrlBtn a:hover {}
+
+.BorFootDF { border-bottom:1px solid #dfdfdf; padding-bottom:5px;}
+
+.BlueBtn { background-color:#007cc3; padding:0 15px; font-size:16px; line-height:36px; height:36px; overflow:hidden; border:0; color:#fff; cursor:pointer;}
+/* page paging */
+.PageCont { height:28px; width:100%; overflow:hidden;}
+.MaxPage { line-height:28px; height:28px; overflow:hidden; width:100%;}
+.MaxPage a { float:left; display:block; font-size:22px; padding:0 15px;}
+.MaxPage a:hover { color:#3877c7;}
+.MaxPage a.PagePrev1 { width:28px; height:28px; background:url(../images/NewPrev1.jpg) no-repeat 15px top;}
+.MaxPage a.PagePrev1:hover { background:url(../images/NewPrev2.jpg) no-repeat 15px top;}
+.MaxPage span.PagePrev1 { width:28px; height:28px; background:url(../images/NewPrev1.jpg) no-repeat 15px top;}
+.MaxPage a.PageNext1 { width:28px; height:28px; background:url(../images/NewNext1.jpg) no-repeat 15px top;}
+.MaxPage a.PageNext1:hover { background:url(../images/NewNext2.jpg) no-repeat 15px top;}
+.MaxPage span.PageNext1 { width:28px; height:28px; background:url(../images/NewNext1.jpg) no-repeat 15px top;}
+.MaxPage span { float:left; display:block; font-size:22px; padding:0 15px; color:#3877c7;}
+/* -------------------- font-size -------------------- */
+.Font58_68 { font-size:58px; line-height:65px;}
+.Font50_60 { font-size:50px; line-height:55px;}
+.Font50_65 { font-size:50px; line-height:65px;}
+.Font48_60 { font-size:48px; line-height:60px;}
+.Font46_60 { font-size:46px; line-height:60px;}
+.Font40_50 { font-size:40px; line-height:45px;}
+.Font36_60 { font-size:36px; line-height:60px;}
+.Font36_45 { font-size:36px; line-height:45px;}
+.Font30_60 { font-size:30px; line-height:60px;}
+.Font28_45 { font-size:28px; line-height:45px;}
+.Font28_36 { font-size:28px; line-height:36px;}
+.Font24_36 { font-size:24px; line-height:36px;}
+.Font25_35 { font-size:25px; line-height:35px;}
+.Font20_30 { font-size:20px; line-height:30px;}
+.Font18_60 { font-size:18px; line-height:60px;}
+.Font18_30 { font-size:18px; line-height:30px;}
+.Font18_24 { font-size:18px; line-height:24px;}
+.Font16_35 { font-size:16px; line-height:35px;}
+.Font14_30 { font-size:14px; line-height:30px;}
+.Font14_22 { font-size:14px; line-height:22px;}
+/* -------------------- color --------------------  */
+.Cwhite { color:white; }
+.Cred { color:red;}
+.Cpublic { color:#03f;}
+.C454545 { color:#454545;}
+.C6fba2c { color:#6fba2c;}
+.C007cc3 { color:#007cc3;}
+.C3877c7 { color:#3877c7;}
+.Ccf274b { color:#cf274b;}
+.C097cde { color:#097cde;}
+.C1570a6 { color:#1570a6;}
+.Cf75b42 { color:#f75b42;}
+.C52b529 { color:#52b529;}
+.C2e8bf0 { color:#2e8bf0;}
+.Ced1919 { color:#ed1919;}
+.Cf25a29 { color:#f25a29;}
+.C81b72f { color:#81b72f;}
+.C7b7b7b { color:#7b7b7b;}
+.Bg2e8bf0 { background-color:#2e8bf0;}
+.Bgefefef { background-color:#efefef;}
+.Bgd90073 { background-color:#d90073;}
+.Bg00a1f1 { background-color:#00a1f1;}
+.Bgfb0 { background-color:#fb0;}
+.Bg7cbb00 { background-color:#7cbb00;}
+.Bgf65314 { background-color:#f65314;}
+.Bg0cf { background-color:#0cf;}
+.Bg7db133 { background-color:#7db133;}
+.Bge8e8e8 { background-color:#e8e8e8;}
+.Bgf90 { background-color:#f90;}
+.Bg0ea0ed { background-color:#0ea0ed;}
+.Bg0bd531 { background-color:#0bd531;}
+.Bg1560a6 { background-color:#1560a6;}
+.Bg0d4d94 { background-color:#0d4d94;}
+.Bg9d9d9d { background-color:#9d9d9d;}
+.Bgf25a29 { background-color:#f25a29;}
+.Bg323232 { background-color:#323232;}
+.Bg0094a7 { background-color:#0094a7;}
+.Bgb11a41 { background-color:#b11a41;}
+.Bg090 { background-color:#090;}
+.Bg0058cc { background-color:#0058cc;}
+.Bg2e8bf0 { background-color:#2e8bf0;}
+.Bgc8200f { background-color:#c8200f;}
+.Bgd74f2a { background-color:#d74f2a;}
+.Bga400ac { background-color:#a400ac;}
+.Bg603dbb { background-color:#603dbb;}
+.Bg03d8ca { background-color:#03d8ca;}
+.Bgff6 { background-color:#ff6;}
+.Bg1570a6 { background-color:#1570a6;}
+.Bg397fc2 { background-color:#397fc2;}
+.Bgf18c38 { background-color:#f18c38;}
+.Bg61b42f { background-color:#61b42f;}
+.Bgcf274b { background-color:#cf274b;}
+.Bg86c028 { background-color:#86c028;}
+.Bgeb5803 { background-color:#eb5803;}
+/* -------------------- Basic Settings -------------------- */
+.FloatLeft{float:left; margin:0;}
+.FloatRight { float:right; margin:0;}
+.MarginTop { margin-top:15px;}
+.MarginTop10 { margin-top:10px;}
+.MarginTop50 { margin-top:50px;}
+.PaddingLeft { padding-left:15px;}
+.PaddingLeft35 { padding-left:35px;}
+.PaddingTop { padding-top:15px;}
+.PaddingUD50 { padding:50px 0;}
+.U30D50 { padding:30px 0 50px;}
+.AlignCenter { text-align:center;}
+.OverHid { overflow:hidden;}
+.BoldMax { font-weight:bold;}
+.clear{display:block; clear:both; overflow:hidden; height:0px; }
+.ellipsis{ display:block; overflow:hidden; text-align:left; -o-text-overflow:ellipsis; text-overflow:ellipsis; white-space: nowrap; }
+
+/* 登录框 */
+#send-form{width:535px;height:307px; display:none; text-align:left}
+#send-form .title{ width:100%; overflow:hidden;height:56px;line-height:56px; color:Red; text-align:center;}
+#send-form .title label{display:block;width:100px;color:#5ba607;font-size:14px;font-weight:bold; margin-left:25px}
+#send-form .title a{display:block;width:29px;height:24px;background:url(/images/131212/close.png) no-repeat;float:right;margin-top:16px;margin-right:10px;}
+#send-form .title a:hover{background-position:-43px 0;}
+#send-form .form { width:395px; overflow:hidden; margin:0 auto}
+#send-form .form p{ margin-bottom:18px}
+#send-form .form p label{display:block;width:74px;height:36px;line-height:36px;color:#5ba607; float:left; text-align:right; font-size:13px}
+#send-form .form p a{ color:#444; font-size:12px; margin-left:10px}
+#send-form .form p .dynamic{ margin-left:74px; color:#999; text-align:left; display:block; margin-top:5px}
+#send-form .captcha_p{ height:36px; vertical-align:middle}
+#send-form .captcha_p label{ color:#444}
+#send-form .captcha_p .img{float:left; display:block; margin-left:5px}
+#send-form .bsinput{ border:none; background:url(/images/131212/ipt.gif) no-repeat left center; width:238px; height:36px; text-indent:5px}
+#send-form .captcha{border:none; background:url(/images/131212/captcha.gif) no-repeat left center; width:84px; height:36px; text-indent:5px; float:left}
+#send-form .loginbt{ background:none; border:none; background:url(/images/131212/rbt.gif) no-repeat left center; width:74px; height:35px; line-height:35px; color:#fff; font-weight:bold; cursor:pointer; text-align:center; margin-left:75px}

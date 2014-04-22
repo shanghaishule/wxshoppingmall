@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* News Menu */
+.NewsMenu { width:220px; overflow:hidden;}
+.NewsMenu li { padding-bottom:18px; width:220px; height:50px; line-height:50px; text-align:center; overflow:hidden; font-size:25px;}
+.NewsMenu li a { display:block; background-color:#454545; color:#fff; width:220px; height:50px; overflow:hidden;}
+.NewsMenu li a:link,.NewsMenu li a:visited { color:#fff;}
+.NewsMenu li a:hover { background-color:#3877c7;}
+.NewsMenu li a.Active { background-color:#3877c7;}
+
+/* Info Center */
+.InfoCenterCont { width:914px; border:1px solid #e3e3e3; overflow:hidden;}
+.InfoCenterCont a:hover { text-decoration:underline;}
+.InfoCenterTitle { background:url(../images/InfoCenterTitle.jpg) repeat-x; height:47px; line-height:47px;}
+.InfoCenterTitle div { float:left; font-size:25px; padding-left:19px; width:285px;}
+
+.InfoCenter1 { border-right:1px solid #e3e3e3; width:304px;}
+.InfoCenter2 { width:304px;}
+
+.InfoContTitle { width:264px; height:22px; padding:10px 20px; background-color:#f3f3f3; line-height:22px; border-top:1px solid #e3e3e3;}
+.InfoContTitle img { float:left;}
+.InfoContTitle span { float:left; color:#3877c7; padding-left:5px; font-size:18px;}
+.InfoContTitle a { float:right; color:#989898;}
+.InfoContTitle a:link,.InfoContTitle a:visited { color:#989898;}
+
+.InfoContent { width:264px; height:225px; padding:25px 20px; overflow:hidden;}
+.InfoContent ul { width:264px; height:225px; overflow:hidden;}
+.InfoContent li { width:250px; height:45px; font-size:16px; line-height:45px; overflow:hidden; -o-text-overflow:ellipsis; text-overflow:ellipsis; white-space:nowrap; background:url(../images/Dot6.jpg) no-repeat left center; padding-left:14px;}
+.InfoContent a:link,.InfoContent a:visited { color:#333;}
+
+.InfoTeShuPic { width:271px; height:169px; overflow:hidden; padding-top:40px;}
+.InfoTeShuTxt { width:271px; height:50px; font-size:20px; line-height:25px; padding:25px 0 33px; overflow:hidden;}
+
+/* News List */
+.NewListCont { width:920px; overflow:hidden;}
+.NewListCont dl { float:left; width:460px; padding-bottom:65px; overflow:hidden; height:120px;}
+.NewListCont dt { float:left; width:150px; height:82px; border:1px solid #e3e3e3; overflow:hidden;}
+.NewListCont dd { float:left; padding-left:15px; width:280px; overflow:hidden;}
+.NewListCont dd a:hover { text-decoration:underline;}
+.NewListName { font-size:20px;}
+.NewListTime { color:#9b9b9b;}
+.NewListContent {color:#454545;}
+
+/* News Show */
+.NewShowCont { width:920px; overflow:hidden;}
+.NewShowTitle { width:100%; overflow:hidden; text-align:center; padding:15px 0 10px; font-size:24px; line-height:30px;}
+.NewShowTime { width:100%; overflow:hidden; text-align:center; padding:0 0 15px; font-size:14px; line-height:30px; border-bottom:1px solid #e5e5e5;}
+
+.NewShowPic { padding-top:30px; overflow:hidden;}
+
+.NewShowContent { padding:30px; overflow:hidden;}
+.NewShowTxt { overflow:hidden; padding:15px 30px; font-size:14px; line-height:24px; border-bottom:1px solid #e5e5e5;}
+
+.Related  { overflow:hidden; padding:0 0 15px; width:860px; font-size:14px; line-height:24px; border:1px solid #e5e5e5;}
+.Related div { overflow:hidden; border-bottom:1px solid #e5e5e5; font-size:25px; background:url(../images/InfoCenterTitle.jpg) repeat-x; height:47px; line-height:47px; padding:0 25px;}
+.Related ul { margin:0 auto; padding-top:15px; overflow:hidden; width:810px;}
+.Related li { height:40px; font-size:16px; line-height:40px; overflow:hidden; white-space:nowrap; background:url(../images/Dot6.jpg) no-repeat left center; padding-left:14px;}
+.Related li span { padding-left:25px; color:#999; font-size:14px;}
+.Related a:hover { text-decoration:underline;}
+
+.微智创Share { width:100%;}
+.PrevNext { padding:15px 0 0 30px; font-size:18px; overflow:hidden; line-height:30px; border-top:1px solid #dedede;}
+.PrevNext dl { width:100%; overflow:hidden;}
+.PrevNext dt { float:left; width:80px; overflow:hidden;}
+.PrevNext dd { float:left; width:760px; overflow:hidden; -o-text-overflow:ellipsis; text-overflow:ellipsis; white-space: nowrap;}
+.PrevNext a:hover { text-decoration:underline;}

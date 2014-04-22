@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>功能介绍－{lanrain::C('site_title')}</title>
+<include file="Public:header2"/>
+<style type="text/css">
+.main{
+padding: 10px 0 0 10px;;
+border: 1px solid #c7cdd6;
+background: #f5f6f7;
+box-shadow: 0px 1px 3px #ccc;
+}
+
+#table {width:100%;background:#ffffff; overflow:auto;}
+.menubg{
+/*background: url({lanrain::RES}/images/img/current-.gif) repeat-y 170px top;*/
+overflow-x: hidden;
+overflow-y: auto;
+border-top:1px solid #EEEEEE;
+border-left:1px solid #EEEEEE;
+}
+.menu0 div{
+line-height:20px;
+display:block;
+float:left;
+padding:2px 0px;
+width:155px;
+text-align: left;
+text-indent: 10px;
+cursor:pointer;
+color:  #000000;
+border-right: 1px solid #EEEEEE;
+border-bottom: 1px solid #EEEEEE;
+font-size:12px;position: relative;
+}
+.menu0 div.hover{
+color: #FFFFFF;
+text-shadow: 0 1px 1px #467809;
+
+background-color:#08a006;
+/*background:#fff url({lanrain::RES}/images/img/current.gif) no-repeat right center;*/
+}
+.menu0 div span{
+ background: url({lanrain::RES}/images/img/icon_new.gif) no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: block;
+    height: 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 23px;
+    z-index: 10;
+right: 5px;
+    top: 6px;
+}
+#main0 div{margin:15px 10px;
+display: none;text-decoration: none; word-wrap: break-word;
+}
+#main0 div.block{margin:15px;
+
+display: block;text-decoration: none;word-wrap: break-word;
+}
+h3{ font-size: 16px; color:#08a006}
+.marginb{ margin-bottom:15px;display: block;}
+#mediaplayer {
+	
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 615px;
+    position: relative;
+    width: 820px;
+	top:0;
+	right:0;
+}
+.section { border:0; margin:0; padding:0}
+.section p{padding-top:0;margin-top:0; font-size:14px;/*text-indent: 2em;*/}
+.normalContent {
+    padding: 20px;
+}
+
+</style>
+<script>
+function setTab(m,n){
+var tli=document.getElementById("menu"+m).getElementsByTagName("div");
+var mli=document.getElementById("main"+m).getElementsByTagName("div");
+for(i=0;i<tli.length;i++){
+   tli[i].className=i==n?"hover":"";
+   mli[i].style.display=i==n?"block":"none";
+}
+}
+</script>
+<br></br>
+<div class="main" style="margin-top:20px;">
+   
+<div class="qtcontent">
+<div class="intro">
+	<div class="normalTitle"><h2>{lanrain::C('site_name')}功能简介</h2></div>
+	<div class="normalContent">
+		<div class="section">
+		    <div id="table">
+				<div class="menubg">
+					<div class="menu0" id="menu0">
+						<div class="" onClick="setTab(0,0)">1.天气查询(语音)</div>
+						<div class="" onClick="setTab(0,1)">2.快递查询</div>
+						<div class="" onClick="setTab(0,2)">3.手机归属地查询</div>
+						<div class="" onClick="setTab(0,3)">4.身份证查询</div>
+						<div class="" onClick="setTab(0,4)">5.公交查询</div>
+						<div class="" onClick="setTab(0,5)">6.火车查询</div>
+						<div class="" onClick="setTab(0,6)">7.健康指数查询</div>
+						<div class="" onClick="setTab(0,7)">8.实时翻译(语音)</div>
+						<div class="" onClick="setTab(0,8)">9.百度百科</div>
+						<div class="" onClick="setTab(0,9)">10.百度问答</div>
+						<div class="" onClick="setTab(0,10)">11.人品计算</div>
+						<div class="" onClick="setTab(0,11)">12.笑话</div>
+						<div class="" onClick="setTab(0,12)">13.糗事</div>
+						<div class="" onClick="setTab(0,13)">14.谜语</div>
+						<div class="" onClick="setTab(0,14)">15.解梦</div>
+						<div class="" onClick="setTab(0,15)">16.成语接龙</div>
+						<div class="" onClick="setTab(0,16)">17.成语字典</div>
+						<div class="" onClick="setTab(0,17)">18.陪聊</div>
+						<div class="" onClick="setTab(0,18)">19.机器人学习功能</div>
+						<div class="" onClick="setTab(0,19)">20.自定义图文回复</div>
+						<div class="" onClick="setTab(0,20)">21.藏头藏尾诗</div>
+						<div class="" onClick="setTab(0,21)">22.诗歌接龙</div>
+						<div class="" onClick="setTab(0,22)">23.诗歌赏析</div>
+						<div class="" onClick="setTab(0,23)">24.网络音乐搜索</div>
+						<div class="" onClick="setTab(0,24)">25.网络电影搜索</div>
+						<div class="" onClick="setTab(0,25)">26.文字转语音</div>
+						<div class="" onClick="setTab(0,26)">27.股票查询</div>
+						<div class="" onClick="setTab(0,27)">28.彩票查询</div>
+						<div class="" onClick="setTab(0,28)">29.英语4-6级(12年12月)</div>
+						<div class="" onClick="setTab(0,29)">30.黄金白银期货</div>
+						<div class="" onClick="setTab(0,30)">31.文字转语音</div>
+						<div class="" onClick="setTab(0,31)">32.淘宝客模块</div>
+						<div class="" onClick="setTab(0,32)">33.周边商铺</div>
+						<div class="" onClick="setTab(0,33)">34.刮刮卡刮奖活动</div>
+						<div class="" onClick="setTab(0,34)">35.幸运大转盘活动</div>
+						<div class="" onClick="setTab(0,35)">36.优惠券活动</div>
+						<div class="" onClick="setTab(0,36)">37.周边生活地图版<span class="new"></span></div>
+						<div class="" onClick="setTab(0,37)">38.步行导<span class="new"></span>航</div>
+						<div class="" onClick="setTab(0,38)">39.驾车导<span class="new"></span>航</div>
+						<div class="" onClick="setTab(0,39)">40.路况查询<span class="new"></span></div>
+						<div class="" onClick="setTab(0,40)">41.直接显示周边<span class="new"></span></div>
+						<div class="" onClick="setTab(0,41)">42.公交换乘地图版<span class="new"></span></div>
+						<div class="" onClick="setTab(0,42)">43.查询药价<span class="new"></span></div>
+						<div class="" onClick="setTab(0,43)">44.投票活动<span class="new"></span></div>
+						<div class="" onClick="setTab(0,44)">45.自定义LBS数据<span class="new"></span></div>
+						<div class="hover" onClick="setTab(0,45)">46.淘宝天猫店铺推广<span class="new"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">try{Dd('webpage_7').className='left_menu_on';}catch(e){}</script>
+<include file="Public:footer"/>

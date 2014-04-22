@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>公司介绍-微智创</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/myself.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+    <script type="text/javascript" src="/commons/getjs.ashx"></script>
+    <meta property="qc:admins" content="11146776766251536654" />
+    <script type="text/javascript">
+        $(function () {
+            if (IsLogin == "1") {
+                $("#login").html("  您好， 欢迎您!&nbsp;<a href=\"/user/main.aspx\">会员中心</a>&nbsp; | &nbsp;<a href=\"/logOut.aspx\">退出</a>");
+            }
+        });
+    </script>
+</head>
+<body>
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p id="login">
+                        您好， 欢迎您!&nbsp;<a href="/login.aspx">登录</a>&nbsp; | &nbsp;<a href="/register.aspx#reg">注册</a>
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="/About.html">微智创</a>|<a href="/product.html">微网站</a>|<a href="/product.html">微信商城</a><span
+                            class="tel">0755-33581131</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">
+                <!--logo-->
+                <div class="logo">
+                    <a href="#">
+                        <img src="images/logo.jpg" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                    <ul>
+                        <li><a class="select" href="/">首页</a></li>
+                        <li><a href="/About.html">走进微智创</a> </li>
+                        <li><a href="/product.html">产品与服务</a> </li>
+                        <li><a href="/InfoCenter.aspx">微智创学院 </a></li>
+                        <li><a href="/canvass.aspx">渠道代理</a></li>
+                        <li><a href="/contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容页barner-->
+    <div id="contBarner">
+        <div class="barner_contact">
+            <img src="images/about_barner.jpg" width="1600" height="425" />
+        </div>
+    </div>
+    <!--container首页内容-->
+    <div id="container">
+        <div class="resize">
+            <!--关于我们-->
+            <div class="aboutBox">
+                <div class="about_left">
+                    <ul>
+                        <li class="select"><a href="#md1">关于微智创</a></li>
+                        <li><a href="#md2">使命和愿景</a></li>
+                        <li><a href="#md3">公司理念</a></li>
+                        <li><a href="#md4">加入我们</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="about_right">
+                    <div class="c_box select" md="#md1">
+                        <div class="c_tit">
+                            <h1>
+                                关于微智创</h1>
+                            <h3>
+                                About Us</h3>
+                        </div>
+                        <div class="c_cont">
+                            <p>
+                                微智创是源中瑞实验室自主研发的旗下品牌，微智创是中国领先的微信解决方案提供商，国内领先的基于微信公众平台的营销工具，已服务数万家企业，最早被认可的、最信赖的优质微信解决方案提供商。因为对企业移动互联网布局的突出贡献，微智创已获得了包括中国互联网协会、中国互联网数据中心、等官方权威行业协会的认可，并已达成战略合作伙伴关系。</p>
+                            <img src="images/about_img1.jpg" width="924" height="314" />
+                        </div>
+                    </div>
+                    <div class="c_box" md="#md2">
+                        <div class="c_tit">
+                            <h1>
+                                使命和愿景</h1>
+                            <h3>
+                                What We Believe</h3>
+                        </div>
+                        <div class="c_cont">
+                            <h2>
+                                我们的使命</h2>
+                            <small>——致力于为企业提供整套微信解决方案，基于微信开放平台，团队成功研发了业内领先的微信商业产品</small>
+                            <p>
+                                微智创致力于为企业提供整套微信解决方案，基于微信开放平台，团队成功研发了业内领先的微信商业产品，最终为用户实现形象展示、品牌增值、渠道拓展、资讯发布、互动交流等功能，获得所有客户的一致好评。被众多传统行业及营销人士称为“市场营销大变革的引领者”。至今已成功研发包括政务、银行、证劵、家居、商超、快消等近50个行业微信解决方案。</p>
+                            <h2>
+                                我们的愿景</h2>
+                            <small>——致力于为合作伙伴创造价值，打造中国最好的移动应用技术服务平台</small>
+                            <p>
+                               源中瑞实验室以“引领电子商务整合应用，为企业创造价值”为使命，坚持科技和商业模式创新，助力企业率先迈入移动电商时代。</p>
+                            <img src="images/about_img2.jpg" width="924" height="314" />
+                        </div>
+                    </div>
+                    <div class="c_box" md="#md3">
+                        <div class="c_tit">
+                            <h1>
+                                公司理念</h1>
+                            <h3>
+                                Philosophy</h3>
+                        </div>
+                        <div class="c_cont Philosophy">
+                            <dl>
+                                <dt>
+                                    <h2>
+                                        诚信为本</h2>
+                                </dt>
+                                <dd>
+                                    诚信是最明亮的灯塔,诚信是最娇美的鲜花,诚信是最无瑕的珍珠。<br />
+                                    诚，乃信之本；无诚，何以言信？诚而有信，方为人生。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h2>
+                                        服务至上</h2>
+                                </dt>
+                                <dd>
+                                    “勿以善小而不为”<br />
+                                    服务无止境，用心服务到永远，我们用心追求客户满意。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h2>
+                                        超越自我</h2>
+                                </dt>
+                                <dd>
+                                    真正的强者，是指那些敢于挑战自我、超越自我，最后获得成功的“勇士”们。<br />
+                                    人生不在于长与短，而在于顿悟的早与晚，与其让生命生锈，不如让生命发光发热。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h2>
+                                        勇创辉煌</h2>
+                                </dt>
+                                <dd>
+                                    生命的美丽并不在于身体的完整与否，真正的美是在行动，是在内心深处。<br />
+                                    诚，乃信之本；无诚，何以言信？诚而有信，方为人生。</dd>
+                            </dl>
+                            <img src="images/about_img3.jpg" width="924" height="314" />
+                        </div>
+                    </div>
+                    <div class="c_box" md="#md4">
+                        <div class="c_tit">
+                            <h1>
+                                加入我们</h1>
+                            <h3>
+                                Join Us</h3>
+                        </div>
+                        <div class="c_cont joinUs">
+                            <dl>
+                                <dt>一、市场营销人员(15名)</dt>
+                                <dd>
+                                    1、具有1年以上工作经验、普通话标准、良好的电话营销技巧、对网络营销感兴趣；</dd>
+                                <dd>
+                                    2、工作认真负责、有耐心、进取心、应变能力强、善于沟通、表达能力强、积极开拓业务；</dd>
+                                <dd>
+                                    3、在相关公司做过市场营销一年以上（在网络公司做过市场营销的优先）；</dd>
+                                <dd>
+                                    4、具有积极的进取心和自学能力，具有良好的团队协作精神；</dd>
+                            </dl>
+                            <dl>
+                                <dt>二、商务经理(3名)</dt>
+                                <dd>
+                                    1、市场营销或计算机相关专业；</dd>
+                                <dd>
+                                    2、具有1年以上的行业销售管理工作经验，自备摩托车；</dd>
+                                <dd>
+                                    3、具有团队培训和管理能力、应聘时要提供业绩证明；</dd>
+                                <dd>
+                                    4、具有大型网络公司的销售团队管理经验、能够带领6-15人的销售团队；</dd>
+                                <dd>
+                                    5、具有积极的进取心和自学能力，具有良好的团队协作精神；</dd>
+                            </dl>
+                            <dl>
+                                <dt>三、WEB程序员(5名)</dt>
+                                <dd>
+                                    1、懂得PHP 开发网站，熟练运用C#语言；</dd>
+                                <dd>
+                                    2、懂得数据库SQL Server，懂得存储过程；</dd>
+                                <dd>
+                                    3、至少有半年以上的开发经验，至少有1个代表作品；</dd>
+                                <dd>
+                                    4、具有积极的进取心和自学能力，具有良好的团队协作精神；</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer底部-->
+    <div id="footer">
+        <div class="resize">
+            <div class="f_left">
+                <a href="#">
+                    <img src="images/wzc_img_78.jpg" width="279" height="58" /></a>
+            </div>
+            <div class="f_center">
+               <p>
+                    <a class="first" href="/About.html">走进微智创</a>| <a href="/product.html">产品与服务</a>|
+                    <a href="/InfoCenter.aspx">微智创学院</a>| <a href="/canvass.aspx">渠道代理</a>| <a href="/contact.html">
+                        联系我们</a>
+                </p>
+                <p>
+                    微智创 微信公众平台营销源码 帮助您快速搭建属于自己的营销平台,构建自己的客户群体。<br />
+                    大转盘、刮刮卡，会员卡,优惠卷,订餐,订房等营销模块,客户易用,易懂,易营销（Ruicms-3易服务理念）。<br />
+                    微智创 多用户微信营销系统(c)2013 Ruicms版权所有 粤ICP备11077838号-3</p>
+            </div>
+            <div class="f_right">
+                <dl>
+                    <dt>
+                        <img src="images/wzc_2wm.jpg" width="110" height="110" /></dt>
+                    <dd>
+                        扫二维码关注我们</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

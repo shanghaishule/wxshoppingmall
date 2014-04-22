@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+
+/*----validateInfo----*/
+.tipText{width:24px; height:26px; display:inline-block; *display:inline; *zoom:1; font-style:normal; margin-top:8px; float:right; *float:none;}
+ 
+
+.tipErr{width:24px; height:26px; display:inline-block; *display:inline; *zoom:1; font-style:normal; margin-top:8px; float:right; *float:none;background:url(../images/register_icon2.png) center center no-repeat;}
+ 
+
+.tipSucc{width:24px; height:26px; display:inline-block; *display:inline; *zoom:1; font-style:normal; margin-top:8px; float:right; *float:none; background:url(../images/register_icon1.png) center center no-repeat;}
+ 
+
+.clear{ clear:both;}
+ 

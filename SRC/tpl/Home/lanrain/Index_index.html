@@ -1,0 +1,326 @@
+<include file="Public:header"/>
+    
+    <!--幻灯片加载-->
+    <div id="barner">
+        <div class="resize">
+            <!--barner切换图效果-->
+            <div class="barImg">
+                <div class="b_cont">
+                    <ul>
+                        <li btncolor="#00aeed"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img1.png" width="735" height="353" /></li>
+                        <li btncolor="#7dbe00"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img2.png" width="735" height="353" /></li>
+                        <li btncolor="#ff9f26"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img3.png" width="735" height="353" /></li>
+                    </ul>
+                </div>
+                <div class="b_btn">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <!--登录-->
+            <form action="{lanrain::U('Users/checklogin')}" method="post" id="tform">
+            <div class="loginbox">
+                <div class="l_cont">
+                    <ul>
+                        <li>
+                            <h3><span style="float: right; font-size: 14px; color: Red;" id="errtitle"></span>登录微服客</h3>
+                        </li>
+                        <li class="textbox">
+                            <input class="l_text" type="text" name='username' id='tbxName' tabindex="1" placeholder="用户名" />
+                        </li>
+                        <li class="textbox">
+                            <input class="l_text l_pass" type="password" name='password' id='tbxPwd' tabindex="2" value="" placeholder="密码"/>
+                        </li>
+                        <li>
+                            <input class="l_sub yy" type="submit" value="登录" onclick="return CheckUserIndex();" />
+                        </li>
+                        <li>
+							<a href="{lanrain::U('Index/register')}">注册帐号</a> <!--| <a href="{lanrain::U('Index/retrievepwd')}">忘记密码</a> -->
+						</li>
+                    </ul>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!--container首页内容-->
+    <div id="container">
+        <div class="resize">
+            <!--错过的机会-->
+            <div class="ty_box box_lose">
+                <div class="ty_tit">
+                    <h2>错过的不是一次机会，<span>而是一个时代</span></h2>
+                </div>
+                <div class="ty_cont">
+                    <div class="cont_left">
+                        <ul>
+                            <li>错过了五年前的<font class="color_o">淘宝</font></li>
+                            <li>错过了三年前的<font class="color_r">微博</font></li>
+                            <li>你是否还会错过2013年的<font class="color_g">微信?</font></li>
+                            <li>据官方数据统计，微信用户量已经突破5亿！</li>
+                            <li>微信自媒体正改变人们的习惯的同时也将</li>
+                            <li class="bg_none">改变商业与营销的方式</li>
+                            <li><font class="color_g">微信</font>已经成为新的商家必争之战战略高地</li>
+                            <li>有先觉之明的企业已经开始了微信掘金</li>
+                        </ul>
+                    </div>
+                    <div class="cont_right">
+                        <div class="loseAni">
+                            <img class="Ani_hand" src="{lanrain::RES}/ruiec/images/wzc_hand.jpg" width="450" height="379" />
+                            <img class="Ani_icon1" src="{lanrain::RES}/ruiec/images/wzc_icon_1.png" width="12" height="13" />
+                            <img class="Ani_icon2" src="{lanrain::RES}/ruiec/images/wzc_icon_2.png" width="14" height="14" />
+                            <img class="Ani_icon3" src="{lanrain::RES}/ruiec/images/wzc_icon_3.png" width="27" height="28" />
+                            <img class="Ani_icon4" src="{lanrain::RES}/ruiec/images/wzc_icon_4.png" width="33" height="33" />
+                            <img class="Ani_icon5" src="{lanrain::RES}/ruiec/images/wzc_icon_5.jpg" width="38" height="40" />
+                            <img class="Ani_icon6" src="{lanrain::RES}/ruiec/images/wzc_icon_6.jpg" width="47" height="49" />
+                            <img class="Ani_icon7" src="{lanrain::RES}/ruiec/images/wzc_icon_7.jpg" width="52" height="55" />
+                            <img class="Ani_icon8" src="{lanrain::RES}/ruiec/images/wzc_icon_8.jpg" width="50" height="55" />
+                            <img class="Ani_icon9" src="{lanrain::RES}/ruiec/images/wzc_icon_9.jpg" width="75" height="80" />
+                            <img class="Ani_icon10" src="{lanrain::RES}/ruiec/images/wzc_icon_10.jpg" width="78" height="81" />
+                            <img class="Ani_icon11" src="{lanrain::RES}/ruiec/images/wzc_icon_11.jpg" width="100" height="106" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--微商城-->
+            <div class="ty_box box_mark">
+                <div class="ty_tit">
+                    <h3>微商城<span>Micro Mark</span></h3>
+                </div>
+                <div class="ty_cont">
+                    <div class="cont_left">
+                        <div class="gifbox">
+                            <img src="{lanrain::RES}/ruiec/images/pm.gif" width="350" height="194" />
+                            <img class="phone" src="{lanrain::RES}/ruiec/images/wzc_phone.png" width="130" height="181" />
+                        </div>
+                    </div>
+                    <div class="cont_right">
+                        <dl>
+                            <dt>微信就能开商城，扫描二维码，<font class="color_g">关注</font>就能购买</dt>
+                            <dd>
+                                <p>
+                                    小微信大商城！<br />
+                                    微信社交是一种生活方式<br />
+                                    微信购物是一种购物方式<br />
+                                    微信购物分享更是一种营销方式<br />
+                                    我开店啦~~~一键分享自己的店铺产品，让更多人知晓！<br />
+									小小二维码拥有6亿人的市场……<br />
+                                    <a class="btn btn_join" href="{lanrain::U('Index/register')}"></a><a class="btn btn_sq" href="{lanrain::U('Index/canvass')}">
+                                    </a>
+                                </p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <!--产品功能介绍-->
+            <div class="ty_box box_fun">
+                <div class="ty_tit">
+                    <h3>产品功能介绍<span>Function</span></h3>
+                </div>
+                <div class="ty_cont">
+                    <ul>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>微官网系统</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>快速打造个性化微信官网</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img2.png" width="88" height="56" /><p>微商城系统</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>通过微信开店，快速拓展市场</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img3.png" width="68" height="59" /><p>微团购系统</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>通过微信就能团购，分享团购，生意无限</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img4.png" width="60" height="60" /><p>微游戏系统</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>刮刮卡、大转盘、摇一摇等游戏互动，快速增粉</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img5.png" width="88" height="62" /><p>微信会员卡</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>关注微信就可成为会员，会员管理高效智能</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img6.png" width="68" height="63" /><p>自定义菜单</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>随需求而定随需要而链</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>微信CRM</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>高效管理微信粉丝<br />轻松实现精准营销</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img8.png" width="62" height="53" /><p>LBS回复</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>LBS范围内精准定位一键导航商家地理位置</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img9.png" width="60" height="60" /><p>数据魔方</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>轻松了解买家<br />不错过任何一个客户</dd>
+                            </dl>
+                        </li>
+                        <li><a href="javascript:void(0)">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img10.png" width="88" height="57" /><p>智能路由</p>
+                        </a>
+                            <dl>
+                                <dt></dt>
+                                <dd>用户到店关注微信就可上网<br />留住用户很简单</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--推荐-->
+            <div class="ty_box box_tj">
+                <div class="ty_cont">
+                    <div class="cont_left">
+                        <dl>
+                            <dt>不盲目推荐，</dt>
+                            <dd>只为企业开发适合的网络营销产品</dd>
+                        </dl>
+                        <dl>
+                            <dt>懂传统企业，</dt>
+                            <dd>让移动营销脚踏实地！杜绝虚空！</dd>
+                            <dd><small>跳开微信营销培训、网路营销培训等诸多难以落地的选择，减少机会成本</small></dd>
+                        </dl>
+                    </div>
+                    <div class="cont_right">
+                        <img src="{lanrain::RES}/ruiec/images/wzc_img_48.jpg" width="532" height="323" />
+                    </div>
+                </div>
+            </div>
+            <!--91%拥有公众平台-->
+            <div class="ty_box box_public">
+                <div class="ty_cont">
+                    <div class="cont_left">
+                        <iframe src="{lanrain::RES}/ruiec/3dShow/demo.html" width="660" height="420" frameborder="0"></iframe>
+                    </div>
+                    <div class="cont_right">
+                        <dl>
+                            <dt>为什么<font class="color_o">91%</font>的500强企业都拥有<br />了微信公众平台？</dt>
+                            <dd>
+                                <p>
+                                    近9亿移动互联网用户量庞大，未来的市场所在；<br />
+                                    率先把握县级，抢占移动互联网的传播先机；<br />
+                                    传统营销模式滞后，移动网络营销更快速及时；<br />
+                                    更贴身、更实时的互动和服务，提高客户粘度；<br />
+                                    增强和仿古品牌知名度；</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <!--7大保障-->
+            <div class="ty_box box_ensure">
+                <div class="ty_tit">
+                    <h2>微服客智能服务平台的<span>7大保障</span></h2>
+                </div>
+                <div class="ty_cont">
+                    <div class="bzbox">
+                        <ul>
+                            <li class="box">
+                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1.png" />
+                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1_change.png" />
+                            </li>
+                            <li class="box">
+                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2.png" />
+                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2_change.png" />
+                            </li>
+                            <li class="box">
+                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3.png" />
+                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3_change.png" />
+                            </li>
+                            <li class="box">
+                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4.png" />
+                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4_change.png" />
+                            </li>
+                        </ul>
+                        <img class="bg" src="{lanrain::RES}/ruiec/images/wzc_img_55.jpg" width="831" height="279" />
+                    </div>
+                </div>
+            </div>
+            <!--他们都在使用-->
+            <div class="ty_box box_brand">
+                <div class="ty_tit">
+                    <h2>他们都在使用<span>微服客智能服务平台</span></h2>
+                </div>
+                <div class="ty_cont">
+                    <dl>
+                        <dt>
+							<a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_62.jpg" width="784" height="302" /></a>
+						</dt>
+                        <dd>
+                            <p></p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <!--成功案例-->
+            <div class="ty_box box_case">
+                <div class="ty_tit">
+                    <h2>微服客的<span>成功案例</span></h2>
+                </div>
+                <div class="ty_cont">
+                    <div class="scollImg">
+                        <div class="scroll-left">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_left.jpg" width="27" height="37" />
+                        </div>
+                        <div class="scroll-center">
+                            <ul>
+                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_72.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_73.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_74.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_75.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_76.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_77.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_81.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_79.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_80.jpg" width="182" height="278" /></a></li>
+                            </ul>
+                        </div>
+                        <div class="scroll-right">
+                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_right.jpg" width="27" height="37" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<include file="Public:footer"/>
+
+</body>
+</html>

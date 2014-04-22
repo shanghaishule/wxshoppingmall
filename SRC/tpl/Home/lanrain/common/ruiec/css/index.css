@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* -------------------- banner --------------------  */
+.MainBan { height:573px; position:relative; overflow:hidden; border-top:7px solid #eeeeee;}
+.BanContBg { width:100%; min-width:1180px; background:url(../images/BanBg.jpg) repeat; filter:alpha(opacity=20); -moz-opacity:0.2; -khtml-opacity:0.2; opacity:0.2; height:563px; position:absolute; left:0; top:0; z-index:10;}
+.MainBan ul.BanPic { width:100%; min-width:1180px; height:580px; position:absolute; left:0; top:0; overflow:hidden; z-index:0;}
+.MainBan ul.BanPic li { width:100%; min-width:1180px; height:580px; overflow:hidden; position:absolute; left:0; top:0; background-position:center top; background-repeat:no-repeat;}
+.MainBan ul.BanTxt { width:100%; min-width:1180px; position:absolute; left:0; top:0; overflow:hidden; padding-top:190px; z-index:20;}
+.MainBan ul.BanTxt li { width:100%; min-width:1180px; text-shadow:1px 1px 1px #666; text-align:center;}
+.MainBan ul.BanTxt li .BanTxt1 { font-size:55px; line-height:60px;}
+.MainBan ul.BanTxt li .BanTxt2 { font-size:30px; line-height:36px; padding-top:10px;}
+.MainBan ul.BanBtn { width:1180px; height:170px; left:50%; margin-left:-590px; bottom:10px; z-index:30; position:absolute;}
+.MainBan ul.BanBtn li { float:left; padding:20px; width:196px; height:110px; overflow:hidden; color:#fff; margin-top:20px; cursor:pointer;}
+.MainBan ul.BanBtn li .BanTxt1 { font-size:20px; line-height:26px;}
+.MainBan ul.BanBtn li .BanTxt2 { font-size:16px; line-height:24px; padding-top:10px;}
+.MainBan ul.BanBtn li.Active { height:130px; margin-top:0;}
+
+
+.FttCont { float:left; width:366px; overflow:hidden; padding-right:41px;}
+.FttContPic { width:366px; overflow:hidden;}
+.FttContName { width:366px; font-size:24px; color:#1570a6; padding-top:15px; line-height:30px; overflow:hidden;}
+.FttContTitle { width:366px; overflow:hidden; font-size:14px; line-height:22px; padding-top:10px; font-weight:bold;}
+.FttContent { width:366px; overflow:hidden; padding-top:10px; line-height:22px;}
+
+/* 客户见证 */
+.WitCont { width:930px; height:171px; overflow:hidden; position:relative;}
+#WitCont { width:9999999px; position:absolute; top:0; left:0;}
+.WitCont dl { float:left; overflow:hidden; padding:28px; width:874px; height:115px; background-color:#4d8914;}
+.WitCont dt { float:left; width:151px; overflow:hidden;}
+.WitCont dd { float:right; width:695px; overflow:hidden; color:#fff; line-height:22px;}
+
+/* 新闻动态 */
+.NewCont { float:left; width:366px; overflow:hidden; padding-right:41px; padding-bottom:20px;}
+.NewCont a:link,.NewCont a:visited { color:#fff;}
+.NewCont a:hover { text-decoration:underline;}
+.NewContName { width:366px; font-size:24px; line-height:30px; padding:10px 0; overflow:hidden;}
+.NewContent { color:#fff; padding:20px; width:326px; font-size:12px; line-height:22px; _line-height:20px; overflow:hidden;}
+.NewContent ul li { width:326px; height:22px; _height:20px; overflow:hidden;}
+.NewContent ul li a { float:left; height:22px; overflow:hidden;}
+.NewContent ul li span { float:right;}
+.NewContent img.FloatLeft { margin-left:5px; margin-top:5px;}
+
+/* 友情链接 */
+.LinksImg { position:relative; height:85px; overflow:hidden;}
+.LinksImg ul { position:absolute; width:9999999px; left:0; top:0; padding:20px 0; height:45px; padding-left:2px; overflow:hidden;}
+.LinksImg li { float:left; width:180px; height:45px; overflow:hidden; padding:0 8px;}
+
+.LinkTxt { overflow:hidden; padding-bottom:50px;}
+.LinkTxt li { float:left; width:131px; text-align:center; height:22px; line-height:22px; overflow:hidden; -o-text-overflow:ellipsis; text-overflow:ellipsis; white-space: nowrap; font-size:14px;}
+.LinkTxt li a:link,.LinkTxt li a:visited { color:#fff;}
+.LinkTxt li a:hover { text-decoration:underline;}
+
+/* 案例 */
+.CaseCont { position:relative; height:630px;}
+#CaseCont { width:9999999px; height:630px; position:absolute; top:0; left:0;}
+#CaseCont .FloatLeft { width:590px;}
+.CaseCont dl { float:left; overflow:hidden; width:590px; padding:20px 0 25px; height:165px;}
+.CaseCont dt { float:left; width:218px; height:163px; border:1px solid #e8e8e8;}
+.CaseCont dd { float:left; width:300px; padding-left:30px; overflow:hidden;}
+.CaseName { width:300px; color:#1570a6; font-size:16px; line-height:22px; font-weight:bold; height:22px; overflow:hidden;}
+.CaseAbout { width:300px; padding:5px 0; font-size:14px; line-height:20px; height:80px; overflow:hidden;}

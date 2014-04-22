@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>var SITEURL='';</script>
+<title> {lanrain::C('site_title')} {lanrain::C('site_name')}</title>
+<link href="{lanrain::RES}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{lanrain::RES}/css/stylet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{lanrain::RES}/js/jquery.min.js"></script>
+<script type="text/javascript" src="{lanrain::RES}/js/main.js"></script>
+<script type="text/javascript" src="{lanrain::RES}/js/common.js"></script>
+
+
+<script type="text/javascript">
+function ying(){
+	 document.getElementById('tiduser').style.display="none";
+	 document.getElementById('quit').style.display="block";
+}
+function xian(){
+	 document.getElementById('tiduser').style.display="block";
+	 document.getElementById('quit').style.display="none";
+}
+setTimeout(xian,5000);
+</script>
+
+<script type="text/javascript">
+function clickTwoMenu(num){
+	$("div[id^='TwoMenu-0']").hide();
+	$('#TwoMenu-0'+num).show();
+	$("div[id^='contab-0']").hide();
+	$('#contab-0'+num).show();
+	
+}
+
+function getHost()
+{
+	var p,t,i, d = window.location.host;
+	d = (p=d.indexOf(':'))!=-1?d.substr(0, p):d;	 
+	var t="";
+	if(d.substr(0,3)=='www'){
+		d = d.substr(4);
+	}
+	var t= window.location.search.replace("?","");
+
+	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	document.body.style.height="100%";
+	document.body.style.overflow="hidden";
+    document.body.style.overflowY="hidden";
+	document.body.style.overflowX="hidden";
+	
+	
+}
+window.onload =getHost;
+</script>
+</head>
+
+<body>
+<div id="herder" >
+	<div id="top" class="shadow">
+		<img src="__ROOT__/images/logo.png" />
+		
+		<a href="{lanrain::U('Home/Index/index')}" >首页</a>
+		<a href="{lanrain::U('Home/Index/fc')}" >功能介绍</a>
+		<a href="{lanrain::U('Home/Index/about')}" >关于我们</a>
+		<a href="{lanrain::U('Home/Index/price')}" >资费说明</a>
+		<a href="{lanrain::U('User/Index/index')}" >管理中心</a>
+        <a href="{lanrain::U('Home/Index/help')}" >帮助中心</a>
+		<a class="line" ></a>
+        <a href="#" class="a" id="tiduser" onmouseover="ying();" >您好：<span>{lanrain:$Think.session.uname}</span></a>
+		<a href="#" class="a1" id="quit" onclick="Javascript:window.open('{lanrain::U('Home/Users/logout')}')" onLoad=setTimeout("abc.style.display='none'",5000) >安全退出</a>
+	</div>
+</div>
+<div id="Frame" class="shadow">
+	<div id="nav">
+		<img src="{lanrain:$wecha.headerpic}" width="50" height="50" />
+		<ul class="ul">
+			<li><strong>{lanrain:$wecha.wxname}</strong><span class="vipimgbig vip-iconbig<php>echo $_SESSION['gid']-1;</php>"></span></li>
+			<li>微信号：{lanrain:$wecha.weixin}</li>
+		</ul>
+		<ul class="ul2">
+			<li>VIP有效时间：<if condition="$_SESSION['viptime'] neq 0">{lanrain:$thisUser.viptime|date="Y-m-d",###}<else/>vip0不限时间</if></li>
+			<li>图文自定义：{lanrain:$thisUser.diynum}/{lanrain:$userinfo.diynum}</li>
+		</ul>
+		<ul>
+			<li>活动创建数：{lanrain:$thisUser.activitynum}/{lanrain:$userinfo.activitynum}</li>
+			<li>请求数：{lanrain:$thisUser.connectnum}/{lanrain:$userinfo.connectnum}</li>
+		</ul>
+		<ul>
+			<li>请求数剩余：<php>echo ($userinfo['connectnum']-$_SESSION['connectnum']);</php></li>
+			<li>已使用：<php>echo $_SESSION['diynum'];</php></li>
+		</ul>
+		<ul>
+			<li>当月赠送请求数：{lanrain:$userinfo.connectnum}</li>
+			<li>当月剩余请求数：<php>echo $userinfo['connectnum']-$_SESSION['connectnum'];</php></li>
+		</ul>
+	</div>
+    <div id="floatline"></div>
+	<div id="Menu">
+		<div class="top">
+			<?php foreach($allfunction as $value){ if(MODULE_NAME == $value['funname']){ ?>
+				<img src="{lanrain::RES}/images/TwoMenu-ico-<?php echo $value['funtype']; ?>.png" />
+				<a><?php echo $value['funtype']; ?></a>
+				<span><?php echo "- ".$value['name']; ?></span>
+			<?php break;}} ?>
+		</div>
+		<div class="TwoMenu">
+			<?php foreach($allfunctiontype as $typekey => $typevalue){ ?>
+				<a href="javascript:void(0);" onclick="clickTwoMenu(<?php echo $typekey+1; ?>)">
+					<img src="{lanrain::RES}/images/TwoMenu-ico-<?php echo $typevalue['funtype']; ?>t.png" />
+					<span><?php echo $typevalue['funtype']; ?></span>
+	            </a>
+				<div id="TwoMenu-0<?php echo $typekey+1; ?>" <?php $result='style="display: none;"'; foreach($allfunction as $allval){ if(MODULE_NAME.$typevalue['funtype'] == $allval['funname'].$allval['funtype']){ $result='style="display: block;"';}}  echo $result;?> > 
+            		<img src="{lanrain::RES}/images/TwoMenu-ico-<?php echo $typevalue['funtype']; ?>.png" />
+            		<a class="a"><?php echo $typevalue['funtype']; ?></a>
+            	</div>
+			<?php } ?>
+		</div>
+		<div class="ThreeMenu">
+			<?php foreach($allfunctiontype as $typekey => $typevalue){ ?>
+				<div class="contab" id="contab-0<?php echo $typekey+1; ?>" <?php $result='style="display: none;"'; foreach($allfunction as $allval){ if(MODULE_NAME.$typevalue['funtype'] == $allval['funname'].$allval['funtype']){ $result='style="display: block;"';}}  echo $result;?> >
+					<?php foreach($allfunction as $allfunvalue2){ if($allfunvalue2['funtype'] == $typevalue['funtype']){ ?>
+		                <a href="
+			                <?php 
+			                	$para=''; 
+			                	switch($allfunvalue2['funname']){case 'Function': $para='&id='.session('wxid'); break; case 'Product': $para='&dining=1'; break;}  
+			                	echo 'index.php?g=User&m='.$allfunvalue2['funname'].'&a='.$allfunvalue2['actname'].'&token='.$token.$para; 
+			                ?>" class="<?php echo $allfunvalue2['funcolor']; ?>" >
+		                	<img src="{lanrain::RES}/images/ico-<?php echo $allfunvalue2['name']; ?>.png" /><span><?php echo $allfunvalue2['name']; ?></span>
+		                </a>
+					<?php }} ?>
+	            </div>
+            <?php } ?>
+		</div>
+	</div>
+	<div id="Content" ></div>
+	

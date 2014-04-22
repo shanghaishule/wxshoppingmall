@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>微网站-微智创</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/myself.js"></script>   
+    <script type="text/javascript" src="/commons/getjs.ashx"></script>
+    <script type="text/javascript">
+        $(function () {
+            if (IsLogin == "1") {
+                $("#login").html("  您好， 欢迎您!&nbsp;<a href=\"/user/main.aspx\">会员中心</a>&nbsp; | &nbsp;<a href=\"/logOut.aspx\">退出</a>");
+            }
+        });
+    </script>
+</head>
+<body>
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p id="login">
+                        您好， 欢迎您!&nbsp;<a href="/login.aspx">登录</a>&nbsp; | &nbsp;<a href="/register.aspx#reg">注册</a>
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="/About.html">微智创</a>|<a href="/product.html">微网站</a>|<a href="/product.html">微信商城</a><span
+                            class="tel">0755-33581131</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">
+                <!--logo-->
+                <div class="logo">
+                    <a href="/">
+                        <img src="images/logo.jpg" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                    <ul>
+                        <li><a class="select" href="/">首页</a></li>
+                        <li><a href="/About.html">走进微智创</a> </li>
+                        <li><a href="/product.html">产品与服务</a> </li>
+                        <li><a href="/InfoCenter.aspx">微智创学院 </a></li>
+                        <li><a href="/canvass.aspx">渠道代理</a></li>
+                        <li><a href="/contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容页barner-->
+<div id="contBarner">
+	<div class="barner_contact">
+		<img src="images/product_barner.jpg" width="1600" height="425" />
+    </div>
+</div>
+<!--container首页内容-->
+<div id="container">
+	<div class="resize">
+    	<!--产品与服务-->
+    	<div class="product">
+        	<div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl1">
+                    	<dt>【关注时推送图文】</dt>
+                        <dd><h3>向粉丝更直观的展示企业形象</h3></dd>
+                        <dd>我们认为：</dd>
+                        <dd>公众平台要直接面向粉丝展示企业形象和产品！</dd>
+                        <dd>我们认为：</dd>
+                        <dd>让粉丝回复"1"才能查看信息的行为很傻！</dd>
+                        <dd>我们实现：</dd>
+                        <dd>当客户首次关注时，直接推送企业形象</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_06.jpg" width="625" height="316" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl2">
+                    	<dt>【微官网】</dt>
+                        <dd><h3>让您的微网站绝对与众不同</h3></dd>
+                        <dd>微网站有多种风格的行业模版，精致美观</dd>
+                        <dd>适合各类企业使用</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_13.jpg" width="605" height="301" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl3">
+                    	<dt>【会员卡系统】</dt>
+                        <dd><h3>全面替代传统会员卡</h3></dd>
+                        <dd>发卡零成本，携带方便，同时实现会员卡储值</dd>
+                        <dd>和积分等功能</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_20.jpg" width="625" height="346"/>
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl4">
+                    	<dt>【微游戏】</dt>
+                        <dd><h3>互动营销 引爆人气</h3></dd>
+                        <dd>大转盘、刮刮卡、水果达人 客户互动很轻松</dd>
+                        <dd>适合各类企业使用</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_26.jpg" width="513" height="348"/>
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl5">
+                    	<dt>【优惠券】</dt>
+                        <dd><h3>精美互动优惠券随心制作</h3></dd>
+                        <dd>向所有粉丝自助发行优惠券，</dd>
+                        <dd>优惠券使用数据让你明明白白。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_33.jpg" width="523" height="358" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl6">
+                    	<dt>【一键拨号+一键导航】</dt>
+                        <dd><h3>让客户快速找到你！</h3></dd>
+                        <dd>让微信实现APP的功能</dd>
+                        <dd>却不用话费APP高额的开发成本</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_39.jpg" width="564" height="311" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl7">
+                    	<dt>【与公众平台无缝接入】</dt>
+                        <dd><h3>微网站内容可设置关键字回复</h3></dd>
+                        <dd>所有微网站中显示的所有文章及板块，都可以通过设置</dd>
+                        <dd>关键词，而实现自动回复。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_45.jpg" width="546" height="328" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl8">
+                    	<dt>【微报名】</dt>
+                        <dd><h3>通过微信报名预约</h3></dd>
+                        <dd>客户报名数据清晰可见</dd>
+                        <dd>和报名电话说再见吧！</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<Img src="images/product_img_51.jpg" width="450" height="410"/>
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl9">
+                    	<dt>【微信投票系统】</dt>
+                        <dd><h3>微信投票，最简单实用的投票系统</h3></dd>
+                        <dd>客户随时随地的完成调查，</dd>
+                        <dd>帮助企业收集市场数据。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_58.jpg" width="450" height="429" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl10">
+                    	<dt>【微信喜帖】</dt>
+                        <dd><h3>微信喜帖，玩出不一样的婚礼</h3></dd>
+                        <dd>喜帖通过微信发送；</dd>
+                        <dd>亲朋好友在线祝福；</dd>
+                        <dd>宾客名单实时统计。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_70.jpg" width="505" height="301" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl11">
+                    	<dt>【LBS查询功能】</dt>
+                        <dd><h3>快速查找您周边的门店</h3></dd>
+                        <dd>回复您当前的位置，</dd>
+                        <dd>快速找到周边离你最近的服务网点。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_77.jpg" width="570" height="351" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl12">
+                    	<dt>【自定义菜单上线】</dt>
+                        <dd><h3>微智创 全面对接自定义菜单</h3></dd>
+                        <dd>玩转自定义菜单 微信轻松变APP</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_81.jpg" width="499" height="449" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl13">
+                    	<dt>【车主关怀系统】</dt>
+                        <dd><h3>汽车4S行业 最新微信应用</h3></dd>
+                        <dd>违章查询 保养提醒 保险提醒 车检提醒</dd>
+                        <dd>四大功能全面服务您的爱车！</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_95.jpg" width="505" height="453" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl14">
+                    	<dt>【微订单】</dt>
+                        <dd><h3>微订单，扩展微信预定通道，让您轻松胜过对手！</h3></dd>
+                        <dd>预约试驾 汽车4S店最时尚、最便捷的揽客方式。</dd>
+                        <dd>KTV预约 微信一点就能够完成包厢预约，更潮、更快、更及时。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_105.jpg" width="586" height="332" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fl">
+                	<dl class="dl15">
+                    	<dt>【微团购】</dt>
+                        <dd><h3>微团购功能支持企业在官方微信中轻松创建团购活动！</h3></dd>
+                        <dd>支持两种团购模式：</dd>
+                        <dd>限价模式：直接设置低价进行团购</dd>
+                        <dd>议价模式：人数越多团购价就越低（自动调价）</dd>
+                    </dl>
+                </div>
+                <div class="p_img fr">
+                	<img src="images/product_img_110.jpg" width="425" height="375" />
+                </div>
+            </div>
+            <div class="pBox">
+            	<div class="p_text fr">
+                	<dl class="dl16">
+                    	<dt>【微商城】</dt>
+                        <dd><h3>在微信公众号里开网店</h3></dd>
+                        <dd>在线浏览、选购产品、加入购物车、支付、填写配送地址，实现微信在线购物，</dd>
+                        <dd>通过支付宝付款；保障企业和顾客的安全和利益。</dd>
+                    </dl>
+                </div>
+                <div class="p_img fl">
+                	<img src="images/product_img_120.jpg" width="441" height="368" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer底部-->
+<div id="footer">
+	<div class="resize">
+    	<div class="f_left">
+        	<a href="#"><img src="images/wzc_img_78.jpg" width="279" height="58" /></a>
+        </div>
+        <div class="f_center">
+        	<p>
+                    <a class="first" href="/About.html">走进微智创</a>| <a href="/product.html">产品与服务</a>|
+                    <a href="/InfoCenter.aspx">微智创学院</a>| <a href="/canvass.aspx">渠道代理</a>| <a href="/contact.html">
+                        联系我们</a>
+                </p>
+            <p>微智创 微信公众平台营销源码 帮助您快速搭建属于自己的营销平台,构建自己的客户群体。<br />大转盘、刮刮卡，会员卡,优惠卷,订餐,订房等营销模块,客户易用,易懂,易营销（Ruicms-3易服务理念）。<br />微智创 多用户微信营销系统(c)2013 Ruicms版权所有 粤ICP备11077838号-3</p> 
+        </div>
+        <div class="f_right">
+        	<dl>
+            	<dt><img src="images/wzc_2wm.jpg" width="110" height="110" /></dt>
+                <dd>扫二维码关注我们</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--ios系统链接效果-->
+<div id="iosLink">
+	<ul>
+    	<li>
+        	<a href="#link1">
+            	<img src="images/product_icon1.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>关注时推送图文</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link2">
+            	<img src="images/product_icon2.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微官网</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link3">
+            	<img src="images/product_icon3.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>会员卡系统</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link4">
+            	<img src="images/product_icon4.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微游戏</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link5">
+            	<img src="images/product_icon5.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>优惠券</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link6">
+            	<img src="images/product_icon6.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>一键拨号+一键导航</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link7">
+            	<img src="images/product_icon7.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>与公众平台无缝接入</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link8">
+            	<img src="images/product_icon8.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微报名</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link9">
+            	<img src="images/product_icon9.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微信投票系统</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link10">
+            	<img src="images/product_icon10.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微信喜帖</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link11">
+            	<img src="images/product_icon11.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>LBS查询功能</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link12">
+            	<img src="images/product_icon12.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>自定义菜单上线</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+            
+        </li>
+    	<li>
+        	<a href="#link13">
+            	<img src="images/product_icon13.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>车主关怀系统</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link14">
+            	<img src="images/product_icon14.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微订单</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+        	<a href="#link15">
+            	<img src="images/product_icon15.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微团购</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        </li>
+    	<li>
+       		<a href="#link16">
+                <img src="images/product_icon16.png" width="50"  height="50" />
+                <div class="f_text">
+                    <div class="f_top">
+                        <p>微商城</p>
+                    </div>
+                    <div class="f_cont"></div>
+                </div>
+            </a>
+        	
+        </li>
+    </ul>
+</div>
+</body>
+</html>

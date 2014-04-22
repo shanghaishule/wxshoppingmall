@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<script src="/weTall/static/js/jquery/jquery.js"></script>
+	<script src="/weTall/static/js/jquery/plugins/jquery.tools.min.js"></script>
+	<script src="/weTall/static/js/jquery/plugins/formvalidator.js"></script>
+	<script src="/weTall/static/js/pinphp.js"></script>
+	<script src="/weTall/static/js/admin.js"></script>
+	<link rel="stylesheet" type="text/css" href="/weTall/static/css/admin/style.css" />
+	<link href="/weTall/static/css/admin/style.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="/weTall/static/js/calendar/calendar-blue.css"/>
+	<script type="text/javascript" src="/weTall/static/js/calendar/calendar.js"></script>	
+	<title>管理中心</title>
+	<script>
+	var URL = '/weTall/index.php/admin-ad';
+	var SELF = '/weTall/index.php?g=admin&m=adforhome&a=index';
+	var ROOT_PATH = '/weTall';
+	var APP	 =	 '/weTall/index.php';
+	//语言项目
+	var lang = new Object();
+	lang.connecting_please_wait = "请稍后...";lang.confirm_title = "提示消息";lang.move = "移动";lang.dialog_title = "消息";lang.dialog_ok = "确定";lang.dialog_cancel = "取消";lang.please_input = "请输入";lang.please_select = "请选择";lang.not_select = "不选择";lang.all = "所有";lang.input_right = "输入正确";lang.plsease_select_rows = "请选择要操作的项目！";lang.upload = "上传";lang.uploading = "上传中";lang.upload_type_error = "不允许上传的文件类型！";lang.upload_size_error = "文件大小不能超过{sizeLimit}！";lang.upload_minsize_error = "文件大小不能小于{minSizeLimit}！";lang.upload_empty_error = "文件为空，请重新选择！";lang.upload_nofile_error = "没有选择要上传的文件！";lang.upload_onLeave = "正在上传文件，离开此页将取消上传！";	
+
+	(function (d) {
+	    d['okValue'] = lang.dialog_ok;
+	    d['cancelValue'] = lang.dialog_cancel;
+	    d['title'] = lang.dialog_title;
+	})($.dialog.defaults);
+	</script>
+	<script src="/weTall/static/js/jquery/plugins/listTable.js"></script>
+	<script>
+	$(function(){
+		$('.J_tablelist').listTable();
+	});
+	</script>
+</head>
+
+<body>
+<div class="subnav">
+    <div class="content_menu ib_a blue line_x">
+    	<a class="add fb J_showdialog" href="javascript:void(0);" data-uri="/weTall/index.php?g=admin&m=account&a=genbill" data-title="生成账单" data-id="genbill" data-width="520" data-height="100"><em>生成账单</em></a>
+    </div>
+</div>
+<div class="pad_lr_10">
+    <form name="searchform" method="get" >
+    <table width="100%" cellspacing="0" class="search_form">
+        <tbody>
+            <tr>
+            <td>
+            <div class="explain_col">
+            	<input type="hidden" name="g" value="System" />
+                <input type="hidden" name="m" value="Statistics" />
+                <input type="hidden" name="a" value="index" />
+                <input type="hidden" name="menuid" value="{Lanrain:$menuid}" />
+            	账单单号:
+                <input name="billnum" type="text" class="input-text" size="25" value="{Lanrain:$search.billnum}" />
+				生成时间 :
+                <input type="text" name="time_start" id="J_time_start" class="date" size="12" value="{Lanrain:$search.time_start}">
+                -
+                <input type="text" name="time_end" id="J_time_end" class="date" size="12" value="{Lanrain:$search.time_end}">
+          		状态 :
+		        <select name="status" >
+		        <option value="">--所有--</option>
+		        <?php foreach($account_status as $key=>$item){ ?>
+                <option <?php if($search['status']==$key) echo "selected=''"; ?> value="<?php echo $key; ?>"><?php echo $item; ?></option>
+                <?php } ?>
+		        </select>
+		                      商家:
+		        <select name="shop" >
+		        <option value="">--所有--</option>
+		        <?php foreach($account_shop as $key=>$item){ ?>
+                <option <?php if($search['shop']==$key) echo "selected=''"; ?> value="<?php echo $key; ?>"><?php echo $item; ?></option>
+                <?php } ?>
+		        </select>                
+				<input type="submit" name="search" class="btn" value="搜索" />
+        	</div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+    
+    <div class="J_tablelist table_list">
+    <table width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <!--th><span data-tdtype="order_by" data-field="id">ID</span></th-->
+                <th><span data-tdtype="order_by" data-field="shop">商家</span></th>
+                <th><span data-tdtype="order_by" data-field="billnum">账单单号</span></th>
+                <th><span data-tdtype="order_by" data-field="status">状态</span></th>
+                <th><span data-tdtype="order_by" data-field="gen_time">生成时间</span></th>
+                <th><span data-tdtype="order_by" data-field="start_time">账单统计时间段</span></th>
+                <th><span data-tdtype="order_by" data-field="totalamt">账单总金额(元)</span></th>
+                <th><span data-tdtype="order_by" data-field="rate">扣率</span></th>
+                <th><span data-tdtype="order_by" data-field="yingjie">应结金额(元)</span></th>
+                <th width="80">管理操作</th>
+            </tr>
+        </thead>
+    	<tbody>
+            <volist name="list" id="val" >
+            <tr>
+                <!--td align="center">{Lanrain:$val.id}</td-->
+                <td align="center"><?php foreach($shopinfo as $item){ if($val['tokenTall']==$item['tokenTall']) echo $item['name']; } ?></td>
+                <td align="center"><span data-tdtype="view" data-field="billnum" data-id="{Lanrain:$val.billnum}" class="tdview" >{Lanrain:$val.billnum}</span></td>
+                <td align="center"><b><?php foreach($account_status as $key=>$item){ if($val['status']==$key){echo $item; }}?></b></td>
+                <td align="center"><?php if($val['gen_time']){ echo date('Y-m-d H:i:s',$val['gen_time']); }?></td>
+                <td align="center"><b><?php if($val['start_time']){ echo date('Y-m-d H:i:s',$val['start_time']); }?> -- <?php if($val['end_time']){ echo date('Y-m-d H:i:s',$val['end_time']); }?></b></td>
+                <td align="center" class="red">{Lanrain:$val.totalamt}</td>
+                <td align="center">{Lanrain:$val.rate}</td>
+                <td align="center" class="red">{Lanrain:$val.yingjie}</td>
+                <td align="center">
+                <a href="{Lanrain::U('Statistics/edit',array('id'=>$val['id']))}">编辑</a>
+                <if condition = "$val['status'] eq '0' ">
+                    <a href="javascript:void(0);" class="J_confirmurl" data-uri="{Lanrain::U('Statistics/delete', array('id'=>$val['id']))}" data-msg="确认删除该账单吗？">删除</a>
+                </if>
+                </td>
+            </tr>
+            </volist>
+    	</tbody>
+    </table>
+    </div>
+    <div class="btn_wrap_fixed">
+    	<div id="pages">{Lanrain:$page}</div>
+    </div>
+</div>
+<script type="text/javascript">
+Calendar.setup({
+	inputField : "J_time_start",
+	ifFormat   : "%Y-%m-%d",
+	showsTime  : false,
+	timeFormat : "24"
+});
+Calendar.setup({
+	inputField : "J_time_end",
+	ifFormat   : "%Y-%m-%d",
+	showsTime  : false,
+	timeFormat : "24"
+});
+</script>
+</body>
+</html>

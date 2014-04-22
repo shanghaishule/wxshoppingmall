@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0px; padding:0px;}
+body{font:12px  "微软雅黑",Arial, Helvetica, sans-serif; overflow:hidden; background:url(../images/resiter_bg.jpg) center top  no-repeat;}
+ul{list-style:none;}
+a{text-decoration:none; cursor:pointer; outline:None;}
+img{border:0px;}
+
+#rlBox{width:1600px; height:765px; margin:30 auto; background:url(../images/register_hand.png) center top no-repeat; position:absolute; bottom:-765px; left:50%; margin-left:-800px; }
+#rlBox .contbox{width:932px; height:640px;  position:absolute; bottom:90px; left:50%; margin-left:-466px; overflow:hidden;}
+#rlBox .contbox .cont_left{width:305px; float:left; height:640px; overflow:hidden; }
+#rlBox .contbox .cont_left .logoBox{width:100%; height:140px;}
+#rlBox .contbox .cont_left .logoBox img{ margin:42px 0 0 25px;} 
+#rlBox .contbox .textBox{width:100%; height:350px;}
+#rlBox .contbox .textBox ul li{width:305px; height:350px; position:relative; float:left; background:#19c1d3; border-radius:5px;}
+#rlBox .contbox .textBox ul li.li1{background:#19c1d3;}
+#rlBox .contbox .textBox ul li.li2{background:#ff940c;}
+#rlBox .contbox .textBox ul li.li3{background:#ffd523;}
+#rlBox .contbox .textBox ul li.li3 .wx{ position:absolute; left:50px; top:130px;}
+#rlBox .contbox .textBox ul li dl{ position:absolute; top:38px; left:18px; color:#fff;}
+#rlBox .contbox .textBox ul li dl.dl2{top:39px; left:19px; color:#333;}
+#rlBox .contbox .textBox ul li dl dt{font-size:30px; font-weight:bold; padding-bottom:10px;}
+#rlBox .contbox .textBox ul li dl dd{ font-size:14px;}
+#rlBox .contbox .textBox ul li dl dd p{line-height:24px;}
+#rlBox .contbox .textBox ul li dl dd p strong{font-size:18px; line-height:40px;}
+#rlBox .contbox .copBox{width:285px; height:110px; padding:20px 10px; }
+#rlBox .contbox .copBox p{ font-size:14px; color:#777; line-height:24px;}
+#rlBox .contbox .cont_right{width:625px; height:640px;  float:right;}
+#rlBox .contbox .cont_right .r_tit{height:74px; line-height:74px; padding:0 26px; position:relative;}
+#rlBox .contbox .cont_right .r_tit h2{color:#fff; font-size:30px; position:absolute; top:0px; left:26px;}
+#rlBox .contbox .cont_right .r_tit h2.h2{color:#666; top:2px; left:28px;}
+#rlBox .contbox .cont_right .r_tit a.back{width:35px; height:35px; background:url(../images/register_back.png) no-repeat; display:block; position:absolute; top:20px; right:20px;}
+#rlBox .contbox .cont_right .r_cont ul{width:445px; margin:65px auto;}
+#rlBox .contbox .cont_right .r_cont ul li{margin-bottom:10px; width:100%; overflow:hidden;}
+#rlBox .contbox .cont_right .r_cont ul li label{height:48px; line-height:48px; width:70px; display:inline-block; *display:inline; *zoom:1; float:left; color:#fff; font-size:14px; text-align:right; padding-right:10px;}
+#rlBox .contbox .cont_right .r_cont ul li .r_text{width:306px; height:14px; line-height:14px; border-radius:5px; background:#fff; border:none; padding:17px 10px; float:left;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox{ display:inline-block; *display:inline; *zoom:1; position:relative; height:48px; overflow:hidden; line-height:48px;  width:336px; overflow:hidden; }
+#rlBox .contbox .cont_right .r_cont ul li .tbox .r_text{position:absolute; top:0px; left:0px; font-size:14px;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox i{position:absolute; top:0px; left:5px; font-style:normal; color:#999; font-size:14px;}
+#rlBox .contbox .cont_right .r_cont ul li .icon{width:24px; height:26px; display:inline-block; *display:inline; *zoom:1; font-style:normal; margin-top:8px; float:right; *float:none; }
+#rlBox .contbox .cont_right .r_cont ul li .icon_yes{background:url(../images/register_icon1.png) center center no-repeat;}
+#rlBox .contbox .cont_right .r_cont ul li .icon_wrong{background:url(../images/register_icon2.png) center center no-repeat;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox .r_code{width:146px;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox .change{ position:absolute; left:280px; font-size:14px; color:#fff;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox .code_img{position:absolute; top:3px ;left:180px;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox label{ float:left; font-size:14px; color:#fff; vertical-align:middle; width:120px;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox label .r_che{ margin-right:5px; vertical-align:middle;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox p{float:right; color:#19c1d3;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox p a{color:#19c1d3; font-size:14px;}
+#rlBox .contbox .cont_right .r_cont ul li .tbox .r_sub{width:336px; height:48px; line-height:48px; color:#fff; background:#19c1d3; border:None; border-radius:5px; font-size:16px; font-weight:bold; cursor:pointer;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox strong{ float:left; font-size:14px; font-weight:normal; color:#fff;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox strong i{position:relative; font-size:24px; font-weight:normal; color:#19c1d3;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox small{float:right;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox small a{display:inline-block; *display:inline; *zoom:1; background:url(../images/register_icon3.png) no-repeat; height:35px; width:35px; margin-left:3px;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox small .dsf1{background-position:0px 0px;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox small .dsf2{background-position:0px -35px;}
+#rlBox .contbox .cont_right .r_cont ul li .rzbox small .dsf3{background-position:0px -70px;}

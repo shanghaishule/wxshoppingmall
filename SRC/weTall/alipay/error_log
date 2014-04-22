@@ -1,0 +1,1 @@
+[17-Feb-2014 00:13:56] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/bestchoi/public_html/weTall/alipay/alipayapi.php:7) in /home/bestchoi/public_html/weTall/alipay/DB.php on line 3

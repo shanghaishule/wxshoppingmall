@@ -1,0 +1,17 @@
+﻿@charset "utf-8";
+
+/*----validateInfo----*/
+.tipText{float:left; width:auto; height:34px; line-height:34px; overflow:hidden; background: url(/images/validate/red_logn.png) repeat-x 0px -156px;}
+.tipText .lef{float:left; width:10px; *height:34px; overflow:hidden;background:url(/images/validate/ok_left_gray.png) no-repeat 0 0px;}
+.tipText .cent{float:left; padding:0 5px;}
+.tipText .rig{float:right; width:5px; *height:34px; overflow:hidden; background:url(/images/validate/ok_right.png) no-repeat 0 0;}
+
+.tipErr{float:left; width:auto; height:34px; line-height:34px; overflow:hidden;  background: url(/images/validate/red_logn.png) repeat-x 0px -195px;}
+.tipErr .lef{float:left; width:10px; *height:34px; overflow:hidden; background:url(/images/validate/no_left_gray.png) no-repeat 0 0px;}
+.tipErr .cent{float:left; padding:0 5px 0 17px; background: url(/images/validate/red_logn.png) repeat-x 3px -241px;}
+.tipErr .rig{float:right; width:5px; *height:34px; overflow:hidden; background:url(/images/validate/no_right.png) no-repeat 0 0px;}
+
+.tipSucc{float:left; width:auto; height:34px; line-height:34px; overflow:hidden;  background: url(/images/validate/red_logn.png) repeat-x 0px -277px;}
+.tipSucc .lef{float:left; width:10px; *height:34px; overflow:hidden;background:url(/images/validate/Succ_left_gray.png) no-repeat 0 0px;}
+.tipSucc .cent{float:left; padding:0 5px 0 17px; background: url(/images/validate/ico_ok.gif) no-repeat 0 50%;}
+.tipSucc .rig{float:right; width:5px; *height:34px; overflow:hidden; background:url(/images/validate/Succ_right.png) no-repeat 0 0;}

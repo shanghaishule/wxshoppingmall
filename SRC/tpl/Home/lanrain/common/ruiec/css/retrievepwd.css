@@ -1,0 +1,60 @@
+﻿
+.ln-md {width:100%; float:left; padding:10px; overflow:hidden;}
+
+/*RetrievePassword*/
+.repasstop {width:984px; height:40px; background:url(../Images/Pass_1.gif) no-repeat; margin-bottom:10px;}
+.repasstop2 {width:984px; height:40px; background:url(../Images/Pass_2.gif) no-repeat; margin-bottom:10px;}
+.repasstop3 {width:984px; height:40px; background:url(../Images/Pass_3.gif) no-repeat; margin-bottom:10px;}
+.pssnavli {width:308px; float:left; text-align:center; line-height:40px;}
+
+.pasin {padding:10px 10px 0 0; }
+.pafint14 {font-size:14px;}
+
+/*PasswordLogin*/
+.paloinfo { width: 777px; height: 40px; padding: 10px 0; }
+.paloin { border: 1px solid #eee; }
+.palistpic { width: 547px; height: 30px; line-height: 30px; background: url(../Images/Upic/Log1.gif) no-repeat; }
+.palistpictwo { width: 547px; height: 30px; line-height: 30px; background: url(../Images/Upic/Log2.gif) no-repeat; }
+.palistpicthre { width: 547px; height: 30px; line-height: 30px; background: url(../Images/Upic/Log3.gif) no-repeat; }
+.ptextone { width: 180px; height: 30px; line-height: 30px; text-align: center; display: block; }
+.pzi { font-size: 14px; font-weight: bold; }
+.pcolors { color: #fffd55; }
+.pcolortwo { color: #617307; }
+.pcolorthr { color: #262626; }
+.paloin .paltits { font-size: 18px; height: 40px; line-height: 40px; color: #000; font-weight: bold; margin-left: 30px; }
+.palorgt { width: 615px; }
+.palocon { width: 615px; }
+.palocon li { width: 615px; line-height: 35px; display: inline; float: left; margin-bottom: 8px; }
+.paloinone { width: 60px; float: left; font-size: 14px; margin-left: 65px; display: inline; text-align: right; }
+.palointhre { width: 115px; float: left; font-size: 14px; text-align: right; margin-left: 9px; display: inline; }
+.palointwo { width: 400px; float: left; text-align: left; }
+.palofonts { color: #1c1c1c; }
+.palobotts { padding-bottom: 20px; }
+.paloimgsone { width: 75px; height: 75px; background: url(../Images/Upic/IconList.gif) scroll 0 -361px no-repeat; margin-left: 65px; display: inline; }
+.paloimgstwo { width: 75px; height: 75px; background: url(../Images/Upic/IconList.gif) scroll 0 -463px no-repeat; margin-left: 65px; display: inline; }
+.plaoppts { width: 150px; height: 75px; margin-left: 15px; margin-top: 15px; display: inline; }
+
+.lo_box {width:98%; border:1px solid #ccc; background:#f9f9f9; margin:0 auto; float:left;}
+.lo_box .libcons {width:665px; padding:10px; float:left; margin-top:20px;}
+.lo_box .libcons li { line-height:30px; margin:10px 0;  float:left; width:665px;}
+.lo_box .libcons li .loone {width:100px; float:left; text-align:right;}
+.lo_box .libcons li .lotwo {width:400px; float:left; text-align:left;}
+.lo_box .loimg {width:298px; height:380px; float:right;}
+.loinput {width:213px; height:28px; line-height:28px; border-top:1px solid #a2a2a2; border-left:1px solid #a2a2a2; border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;}
+.codepg {margin-top:0; display:block;}
+.marptits {margin-left:50px;}
+.marptits2 {margin-left:140px;}
+.tisimt {width:309px;height:26px;left: 336px;top: 123px;}
+.tisimt .lfttst {width:7px; height:26px; background:url(../Images/ade.gif) scroll 0 -175px; float:left;}
+.tisimt .lftmidds {width:298px; height:26px; line-height:26px; background:url(../Images/Tmidd.gif) repeat-x; float:left;}
+.tisimt .lfttst2{width:4px; height:26px; background:url(../Images/ade.gif) scroll -16px -175px; float:left;}
+.lotitlesrd {font-size:16px; font-weight:bold; color:#ef4901;float: left;}
+.rctitext {width:580px; height:182px; line-height:28px; border-top:1px solid #a2a2a2; border-left:1px solid #a2a2a2; font-size:14px; line-height:25px; border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;}
+
+.okinfos { width: 150px; height: 85px; }
+.okinfos-butyess { width: 115px; height: 37px; background: url(../Images/AllPic.gif) scroll -97px -204px; border: 0; cursor: pointer; font-size: 16px; padding-left: 17px; font-weight: bold; color: #fff; }
+.okinfos-butters { width: 117px; height: 40px; }
+.okinfos-shoppings { width: 117px; height: 30px; line-height: 30px; text-align: center; }
+
+.regist_okbut {width:180px; height:38px; background:url(../Images/ade.gif) scroll 0 -270px; border:0; cursor:pointer; font-size:16px; padding-left:20px; font-weight:bold; color:#fff;}
+

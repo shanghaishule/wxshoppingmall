@@ -1,0 +1,78 @@
+
+<style>
+.action {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 1px 1px 3px #666666;
+    width: 359px;
+}
+td{text-align: -webkit-left;}
+</style>
+
+	<form action="" method="post" id="realinfo_form">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+		<tr bgcolor="#F1F1F1">
+			<td align="right" height="42" width="">父级菜单：</td>
+			<td>
+				<div class="mr15 l">
+				<select name="pid" id="pid">
+					<option selected="selected" value="0">请选择菜单</option>
+					<volist id="class" name="class">
+						<option  value="{lanrain:$class.id}">{lanrain:$class.title}</option>
+					</volist>
+				</select>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" height="42" width="">主菜单名称:</td>
+			<td>
+				<div class="mr15 l">
+				<input id="menu_title" class="txt" name="title" title="主菜单名称" value="" type="text"></div>
+				<div class="system l"></div>
+			</td>
+		</tr>
+		<tr bgcolor="#F1F1F1">
+			<td align="right" height="42">类型：　</td>
+			<td>
+				<div class="mr15 l">
+				<input type="radio" name="menutype" checked="checked" id="menutype1" value="keyword">关联关键词
+				<input type="radio" name="menutype" id="menutype2" value="url">外链接url
+				</div>
+				<div class="system l"></div>
+			</td>
+		</tr>
+		<tr bgcolor="#F1F1F1">
+			<td align="right" height="42" width=""></td>
+			<td>
+				<div class="mr15 l"><input class="txt" name="menutypeval" value="" type="text"></div>
+				<div class="system l"></div>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" height="42">显示：　</td>
+			<td>
+				<div class="mr15 l">
+				<input type="radio" name="is_show" value="1">是&nbsp;
+				<input type="radio" name="is_show" checked="checked" value="0">否&nbsp;
+				</div>
+				<div class="system l"></div>
+			</td>
+		</tr>
+		<tr bgcolor="#F1F1F1">
+			<td align="right" height="42">排序:</td>
+			<td>
+				<div class="mr15 l">
+				<input id="sortid" class="txt" name="sort" title="排序" value="" type="text"></div>
+				<div class="system l"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="42">&nbsp;</td>
+			<td>
+				<input class="btn" type="submit" name="submit" value="提交">
+			</td>
+		</tr>
+			
+	</tbody></table>
+</form>

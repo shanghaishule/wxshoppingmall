@@ -1,0 +1,1 @@
+var IsLogin='0'; 
