@@ -52,7 +52,14 @@ class UsersAction extends BackAction{
         }else{
             $role = M('User_group')->field('id,name')->where('status = 1')->select();
             $this->assign('role',$role);
-            $userinfo = M('User')->field('id, username')->where('status = 1')->select();
+            
+            //dump($_SESSION);exit;
+            if ($_SESSION["username"] == "admin") {
+            	$wherestr = " 1=1 ";
+            }else{
+            	$wherestr = " username = '".$_SESSION["username"]."' ";
+            }            
+            $userinfo = M('User')->field('id, username')->where('status = 1 and '.$wherestr)->select();
             $this->assign('userinfo',$userinfo);
             
             $this->assign('tpltitle','添加');

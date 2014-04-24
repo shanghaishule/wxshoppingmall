@@ -1,14 +1,15 @@
 <?php
 class TokenAction extends BackAction{
 	public function index(){
-		
+		$belong_where_wx = "";
 		$frontuser = M('Users')->where($this->belong_where)->select();
 		foreach ($frontuser as $val){
 			$belong_where_wx .= $val['id'].',';
 		}
 		
 		$map = array();
-		$map['uid']  = array('in',$belong_where_wx);
+		if($belong_where_wx != "")
+			$map['uid']  = array('in',$belong_where_wx);
 		
 		$UserDB = D('Wxuser');
 		$count = $UserDB->where($map)->count();

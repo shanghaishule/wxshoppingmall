@@ -1,8 +1,7 @@
-<include file="Index:header"/>
+<include file="Public:head"/>
 <div class="content"  style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;"  >
 <div class="usercontent" style="margin-top:20px;">
 <ul>
-<!--<li><a href="" class="gold" title="查看金币历史记录" ><p><strong>账户金币总数：</strong>5</p><p>已消费金币数：0</p></a></li>-->
 <li class="addli"><a class="addwx" title="添加微信公众号" onclick="location.href='{lanrain::U('Index/add')}';">添加微信公众号</a></li>
 <li style="height:47px;line-height:47px;color:red;padding:10px;">请添加公众帐号,进入功能管理,再进行功能测试，</li>
 </ul>
@@ -23,14 +22,14 @@
                 <TR></TR>                
                  <volist name="info" id="vo"> 
 					<TR>
-					  <TD><p><a href="{lanrain::U('Function/index',array('id'=>$vo['id'],'token'=>$vo['token']))}" title="点击进入功能管理"><img src="{lanrain:$vo.headerpic}" width="40" height="40"></a></p><p>{lanrain:$vo.wxname}</p></TD>
+					  <TD><p><a href="javascript:void(0);"><img src="{lanrain:$vo.headerpic}" width="40" height="40"></a></p><p>{lanrain:$vo.wxname}</p></TD>
 					  <TD align="center"><php>if($_SESSION['gid']>1){echo $_SESSION['gid']-1;}else{echo 0;}</php></TD>
 					  <TD><p>创建时间:{lanrain:$vo.createtime|date="Y-m-d",###}</p><p>到期时间:{lanrain:$viptime|date="Y-m-d",###}</p><p><!--a   href="{lanrain::U('Alipay/index')}" id="smemberss" class="green"><em>升降级vip续费</em></a--></p></Td>
 					  <TD><p>图文：<php>echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did'];</php></p></TD>
 					   <TD><p>总请求数:<php>echo $_SESSION['connectnum']</php></p><p> 本月请求数:<php>echo $group[$_SESSION['gid']]['cid'];</php></p></TD>
 					  
 					  <TD class="norightborder">　<a href="{lanrain::U('Index/edit',array('id'=>$vo['id']))}">编辑</a>　<a  href="{lanrain::U('Index/del',array('id'=>$vo['id']))};">删除</a>　
-					  <a href="{lanrain::U('Function/index',array('id'=>$vo['id'],'token'=>$vo['token']))}" class="btnGreens" >功能管理</a>
+					  
 					  <a href="{lanrain::U('Home/Index/help',array('id'=>$vo['id'],'token'=>$vo['token']))}" class="btnGreens" >API接口</a>
 					  </TD>
 					</TR>

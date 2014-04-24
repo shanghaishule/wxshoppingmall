@@ -22,7 +22,7 @@ class UserAction extends BackAction{
 
     // 添加用户
     public function add(){
-    	$this->error('新增用户将新增一套功能列表，因此关闭此功能!');
+    	//$this->error('新增用户将新增一套功能列表，因此关闭此功能!');
     	
         $UserDB = D("User");
         if(isset($_POST['dosubmit'])) {

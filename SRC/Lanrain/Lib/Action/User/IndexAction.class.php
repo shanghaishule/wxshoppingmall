@@ -16,31 +16,39 @@ class IndexAction extends UserAction{
 		$this->assign('info',$info);
 		$this->assign('group',$groups);
 		$this->assign('page',$page->show());
+		
 		$this->display();
 	}
 	//添加公众帐号
 	public function add(){
-		$randLength=6;
-		$chars='abcdefghijklmnopqrstuvwxyz';
+		//每个用户只能创建一个公众帐号
+		$cnt = M('wxuser')->where(array('uid'=>session('uid')))->count();
+		//dump($cnt);exit;
+		if ($cnt < 1) {
+			$randLength=6;
+			$chars='abcdefghijklmnopqrstuvwxyz';
+			
+			$len=strlen($chars);
+			$randStr='';
+			for ($i=0;$i<$randLength;$i++){
+				$randStr.=$chars[rand(0,$len-1)];
+			}
+			$tokenvalue=$randStr.time();
+			$this->assign('tokenvalue',$tokenvalue);
+			$this->assign('email',time().'@yourdomain.com');
+			//地理信息
+			if (C('baidu_map_api')){
+				//$locationInfo=json_decode(file_get_contents('http://api.map.baidu.com/location/ip?ip='.$_SERVER['REMOTE_ADDR'].'&coor=bd09ll&ak='.C('baidu_map_api')),1);
+				///$this->assign('province',$locationInfo['content']['address_detail']['province']);
+				//$this->assign('city',$locationInfo['content']['address_detail']['city']);
+				//var_export($locationInfo);
+			}
 		
-		$len=strlen($chars);
-		$randStr='';
-		for ($i=0;$i<$randLength;$i++){
-			$randStr.=$chars[rand(0,$len-1)];
+			
+			$this->display();
+		}else{
+			$this->error("一个用户只能添加一个公众号！");
 		}
-		$tokenvalue=$randStr.time();
-		$this->assign('tokenvalue',$tokenvalue);
-		$this->assign('email',time().'@yourdomain.com');
-		//地理信息
-		if (C('baidu_map_api')){
-			//$locationInfo=json_decode(file_get_contents('http://api.map.baidu.com/location/ip?ip='.$_SERVER['REMOTE_ADDR'].'&coor=bd09ll&ak='.C('baidu_map_api')),1);
-			///$this->assign('province',$locationInfo['content']['address_detail']['province']);
-			//$this->assign('city',$locationInfo['content']['address_detail']['city']);
-			//var_export($locationInfo);
-		}
-	
-		
-		$this->display();
 	}
 	public function edit(){
 		$id=$this->_get('id','intval');
@@ -72,6 +80,7 @@ class IndexAction extends UserAction{
 		}else{
 			$this->error('您的VIP等级所能创建的公众号数量已经到达上限，请购买后再创建',U('User/Index/index'));exit();
 		}
+		
 		//$this->all_insert('Wxuser');
 		//
 		$db=D('Wxuser');

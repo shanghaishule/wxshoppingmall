@@ -9,8 +9,11 @@ class MemberAction extends BackAction
 
 	public function index() {
     	$mod = $this->_mod_;
+    	$map = array();
+    	$map['role']  = array('eq',0);
+    	 
     	//dump($mod);exit;
-    	$this->_list($mod);
+    	$this->_list($mod, $map);
     	$this->display();
     }
 
