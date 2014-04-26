@@ -23,6 +23,15 @@ class baseAction extends Action
         C($setting);
         //发送邮件
         $this->assign('async_sendmail', session('async_sendmail'));
+        
+        //dump($_SESSION);exit;
+        
+        $allfunction = M('Function')->where(array('belonguser'=>session('belonguser')))->select();
+        $allfunctiontype = M('Function')->Distinct(true)->field('funtype')->where(array('belonguser'=>session('belonguser'),'funtype'=>array('neq','默认')))->order('usenum')->select();
+        $this->assign('allfunction',$allfunction);
+        $this->assign('allfunctiontype',$allfunctiontype);
+        
+        
     }
     
     public function _empty() {

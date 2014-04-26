@@ -40,9 +40,8 @@
 <td><div class="cateimg"><img src="{lanrain:$vo.img}" class="cateimg_small"  /><img src="{lanrain:$vo.img}" class="cateimg_big"  /></div></td>
 <td>{lanrain:$vo.url}</td>
 <td class="norightborder">
-	<a target="ddd" href="{lanrain::U('Wap/Index/flash',array('token'=>$_SESSION['token']))}">查看</a>
 	<a target="ddd" href="{lanrain::U('Flash/edit',array('id'=>$vo['id']))}">编辑</a>
-	<a href="{lanrain::U('Flash/del',array('id'=>$vo['id']))}">删除</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Flash/del',array('id'=>$vo['id']))}');">删除</a>
 </td>
 </tr>
 </volist>

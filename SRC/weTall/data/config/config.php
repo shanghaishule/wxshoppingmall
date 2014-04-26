@@ -15,4 +15,5 @@ return array(
     'SHOW_PAGE_TRACE' => false,
 		
 	'PARENT_URL'=>$parent_url,
+	'PARENT_RES'=>$parent_url.'/tpl/User/default/common',
 );

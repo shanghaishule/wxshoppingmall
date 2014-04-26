@@ -78,6 +78,7 @@ class itemAction extends backendAction {
     	$tokenTall = $this->getTokenTall();
     	$this->assign('tokenTall',$tokenTall);
         if (IS_POST) {
+        	dump($_POST);exit;
         	//得到商品的尺码和颜色
         	$colors = $_POST['color'];
         	$colorstr = "";

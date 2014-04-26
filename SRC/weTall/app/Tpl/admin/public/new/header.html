@@ -1,19 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script>var SITEURL='';</script>
-<title> {lanrain::C('site_title')} {lanrain::C('site_name')}</title>
-<link href="{lanrain::RES}/css/style.css" rel="stylesheet" type="text/css" />
-<link href="{lanrain::RES}/css/stylet.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/demo.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<link href="__STATIC__/css/admin/style.css" rel="stylesheet"/>
 
-<script type="text/javascript" src="{lanrain::RES}/js/jquery.min.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/js/main.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/js/common.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/js/plugins/formvalidator.js"></script>
+<link href="__PARENTURL__/tpl/User/default/common/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PARENTRES__/css/stylet.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PARENTRES__/css/demo.css" />
+<script type="text/javascript" src="__PARENTRES__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PARENTRES__/js/main.js"></script>
+<script type="text/javascript" src="__PARENTRES__/js/common.js"></script>
 
-<script type="text/javascript">
+
+<script src="__STATIC__/js/jquery/plugins/jquery.tools.min.js"></script>
+<script src="__STATIC__/js/jquery/plugins/formvalidator.js"></script>
+<script src="__STATIC__/js/pinphp.js"></script>
+<script src="__STATIC__/js/admin.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="__STATIC__/js/calendar/calendar-blue.css"/>
+	<script type="text/javascript" src="__STATIC__/js/calendar/calendar.js"></script>
+	
+	<script type="text/javascript">
 function ying(){
 	 document.getElementById('tiduser').style.display="none";
 	 document.getElementById('quit').style.display="block";
@@ -49,16 +59,33 @@ $(document).ready(function(){
 	
 	<?php $result=''; 
 		foreach($allfunction as $allval){ 
-			if(MODULE_NAME == $allval['funname']){ 
+			if(strtolower('WeTall_'.MODULE_NAME) == strtolower($allval['funname'])){ 
 				$result = "$('#".$allval['funtype']."').slideDown('fast');";
 			}
 		}
 		echo $result;
+		
 	?>
 	
 });
+
+//初始化弹窗
+(function (d) {
+    d['okValue'] = lang.dialog_ok;
+    d['cancelValue'] = lang.dialog_cancel;
+    d['title'] = lang.dialog_title;
+})($.dialog.defaults);
 </script>
 
+<present name="list_table">
+<script src="__STATIC__/js/jquery/plugins/listTable.js"></script>
+<script>
+$(function(){
+	$('.J_tablelist').listTable();
+});
+</script>
+</present>	
+	
 </head>
 
 <body>
@@ -101,4 +128,5 @@ $(document).ready(function(){
 		</ul>
 	</div>
 	<div id="Content" ></div>
+	
 	

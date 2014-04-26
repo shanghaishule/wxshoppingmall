@@ -100,7 +100,8 @@ cursor:pointer;text-decoration:none;overflow:visible;text-align:center;zoom:1;wh
 
 /*操作条*/
 .btn_wrap,.btn_wrap_fixed{padding:4px 10px; background:#FFFFE1; line-height:normal; border-top: 1px #a5bcf4 solid;}
-.btn_wrap_fixed{position:fixed; bottom:0; left:0; width:100%; z-index:5; _position: absolute; _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);}
+/*.btn_wrap_fixed{position:fixed; bottom:0; left:0; width:100%; z-index:5; _position: absolute; _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);}*/
+.btn_wrap_fixed{bottom:0; left:0; _position: absolute; _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);}
 .select_all input{ margin: 0 5px;}
 
 /*字段排序*/

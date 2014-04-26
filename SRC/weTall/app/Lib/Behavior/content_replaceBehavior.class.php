@@ -27,6 +27,12 @@ class content_replaceBehavior extends Behavior {
         } else {
             $replace['__PARENTURL__'] = rtrim(__ROOT__,'weTall/');
         }
+        $parent_res = C('PARENT_RES');
+        if ($parent_url != '') {
+        	$replace['__PARENTRES__'] = $parent_res;
+        } else {
+        	$replace['__PARENTRES__'] = rtrim(__ROOT__,'weTall/').'/tpl/User/default/common';
+        }
         
         //附件地址
         $replace['__UPLOAD__'] = __ROOT__.'/data/upload';
