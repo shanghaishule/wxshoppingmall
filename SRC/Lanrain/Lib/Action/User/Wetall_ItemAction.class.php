@@ -7,11 +7,12 @@ class WeTall_ItemAction extends UserAction{
 		foreach ($catelist as $val){
 			$cate_list[$val['id']]=$val['name'];
 		}
+		$this->assign('cate_list',$cate_list);
+		
 		$brandlist= $this->_brand=M('brandlist')->where(array('status'=>1, 'tokenTall'=>$this->getTokenTall()))->order('ordid asc,id asc')->select();
 		foreach ($brandlist as $val){
 			$brand_list[$val['id']]=$val['name'];
 		}
-		$this->assign('cate_list',$cate_list);
 		$this->assign('brand_list',$brand_list);
 	}
 	

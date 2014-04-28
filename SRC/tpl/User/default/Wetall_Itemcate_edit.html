@@ -1,0 +1,67 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script>
+	KindEditor.ready(function(K){
+		var editor = K.editor({
+			allowFileManager:true
+		});
+        
+		K('#upload').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic').val(url);
+						}else{
+							K('#pic').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+	<div class="cLineB"><h4>分类{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="msgWrap">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_Itemcate/edit')}">
+	<input type="hidden" name="id" value="{lanrain:$info.id}" />
+	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+	<TBODY>
+		<tr>
+			<th>分类名称 :</th>
+			<td><input type="text" required="" class="px" name="name" value="{lanrain:$info.name}" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>分类图片 :</th>
+			<td><input type='text' class='px' id='pic' value='{lanrain:$info.img}' name='img' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br /></td>
+		</tr>
+		<tr>
+			<th>所属分类 :</th>
+			<td><select name="pid" class="pt" style="width:250px">
+				<option value="">--请选择--</option>
+				<volist name='cate_list' id='vo' >
+				<option value="{lanrain:$key}" <eq name="key" value="$info['pid']">selected="selected"</eq> >{lanrain:$vo}</option>
+				</volist>
+				</select>
+			</td>
+		</tr>
+		<TR>
+			<TH></TH>
+			<TD><button type="submit"  name="button"  class="btnGreen left" >保存</button>
+	  		<div class="clr"></div>
+	  		</TD>
+		</TR>
+	</TBODY>
+	</TABLE>
+	</form>
+	</div> 
+</div>
+<include file="Public:footer"/>
