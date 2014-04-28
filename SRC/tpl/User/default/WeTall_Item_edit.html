@@ -41,6 +41,7 @@
         var colorid=$("#color");
         colorid.append("<input class='px' name='color[]' type='text'>&nbsp;");
     }
+
 	$(function(){
     	$('#free').change(function(){
         	if($(this).val()==2)
@@ -67,14 +68,7 @@
             $('#address_form').hide();
         }
     }
-	
-	$(function() {
-		$.formValidator.initConfig({formid:"info_form",autotip:true});
-		$("#title").formValidator({onshow:'请填写商品名称'}).inputValidator({min:1,onerror:'请填写商品名称'});
-		$("#price").formValidator({onshow:'请填写商品价格'}).inputValidator({min:1,onerror:'请填写商品价格'});
-		$("#goods_stock").formValidator({onshow:'请填写商品库存'}).inputValidator({min:1,onerror:'请填写商品库存'});
-	});
-	
+
 </script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 	<div class="cLineB"><h4>商品{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
@@ -84,7 +78,7 @@
 	<TBODY>
 		<tr>
 			<th>商品名称 :</th>
-			<td><input type="text" class="px" name="title" id="title" style="width:500px"></td>
+			<td><input type="text" required="" class="px" name="title" id="title" style="width:500px"></td>
 		</tr>			
 		<tr>
 			<th>商品简介 :</th>
@@ -151,8 +145,8 @@
 		</tr>
 		<tr id="address_form" style="display:none;">
 			<th></th>
-			<td> 
-		           平邮:<input onkeyup="value=value.replace(/[^\d\.]/g,'')" type="text" name="pingyou" class="px"/>
+			<td>
+			平邮:<input onkeyup="value=value.replace(/[^\d\.]/g,'')" type="text" name="pingyou" class="px"/>
 		           快递:<input onkeyup="value=value.replace(/[^\d\.]/g,'')" type="text" name="kuaidi" class="px"/>
 		    EMS:<input onkeyup="value=value.replace(/[^\d\.]/g,'')" type="text" name="ems" class="px"/>
 		    </td>
