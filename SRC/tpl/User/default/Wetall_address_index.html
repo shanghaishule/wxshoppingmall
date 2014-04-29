@@ -1,0 +1,48 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<a target="ddd" href="{lanrain::U('Wetall_address/edit')}" class="btnGrayS vm bigbtn" >添加发货地址</a>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>默认</th>
+<th>联系人</th>
+<th>所在地区</th>
+<th>详细地址</th>
+<th>邮政编码</th>
+<th>手机号码</th>
+<th>电话号码	</th>
+<th>公司名称</th>
+<th style=" width:100px;" class="norightborder">操作</th>
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center"><input name="isno" <if condition='$val.isno eq 1'>checked=""</if> type="radio" value="{lanrain:$val.id}"></td>
+<td align="center">{lanrain:$val.contacts}</td>
+<td align="center">{lanrain:$val.Province}{lanrain:$val.City}{lanrain:$val.Area}</td>
+<td align="center">{lanrain:$val.address}</td>
+<td align="center">{lanrain:$val.postcode}</td>
+<td align="center">{lanrain:$val.mobile}</td>
+<td align="center">{lanrain:$val.phone}</td>
+<td align="center">{lanrain:$val.name}</td>
+<td align="center" >
+	<a href="{lanrain::U('Wetall_address/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_address/del',array('id'=>$val['id']))}');">删除</a>
+</td>
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>

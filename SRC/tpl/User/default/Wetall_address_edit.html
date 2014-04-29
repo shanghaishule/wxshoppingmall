@@ -1,0 +1,70 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script type="text/javascript" src='{lanrain::STATICS}/weixin/js/dizhi.js'></script>
+<script type="text/javascript" src='{lanrain::STATICS}/weixin/js/diqu.js'></script>
+
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+	<div class="cLineB"><h4>发货地址{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="msgWrap">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_address/edit')}">
+	<input type="hidden" name="id" value="{lanrain:$info.id}" />
+	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+	<TBODY>
+		<tr>
+			<th>联系人：</th>
+			<td><input value="{lanrain:$info.contacts}" type="text" required="" class="px" name="contacts" id="contacts" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>所在地区：</th>
+			<td>
+			<select id="Province" name="Province" required=""></select>
+			<select id="City" name="City"></select>
+			<select id="Area" name="Area"></select>
+			</td>
+		</tr>
+		<tr>
+			<th>详细地址：</th>
+			<td><input value="{lanrain:$info.address}" type="text" required="" class="px" name="address" id="address" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>邮政编码：</th>
+			<td><input value="{lanrain:$info.postcode}" type="text" class="px" name="postcode" id="postcode" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>手机号码：</th>
+			<td><input value="{lanrain:$info.mobile}" type="text" class="px" name="mobile" id="mobile" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>电话号码：</th>
+			<td><input value="{lanrain:$info.phone}" type="text" class="px" name="phone" id="phone" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>公司名称：</th>
+			<td><input value="{lanrain:$info.name}" type="text" class="px" name="name" id="name" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>是否默认：</th>
+			<td><input <if condition='$info.isno eq 1'>checked="checked"</if> type="checkbox" value="1" name="isno" id="isno" class="px" >（设为默认发货地址）</td>
+		</tr>
+		
+		<TR>
+			<TH></TH>
+			<TD><button type="submit"  name="button"  class="btnGreen left" >保存</button>
+	  		<div class="clr"></div>
+	  		</TD>
+		</TR>
+	</TBODY>
+	</TABLE>
+	</form>
+	<script>
+		new PCAS("Province","City","Area","{lanrain:$info.Province}","{lanrain:$info.City}","{lanrain:$info.Area}");
+</script>
+	
+	</div> 
+</div>
+<include file="Public:footer"/>

@@ -2,7 +2,7 @@ select concat('truncate table ',table_name,';')  into outfile 'd:/tc.sql'
 from information_schema.tables where table_schema='wxshoppingmall'
 and table_name not in ('tp_access','tp_admin','tp_admin_role','tp_delivery','tp_dream',
 'tp_function','tp_menu','tp_node','tp_role','tp_role_user','tp_set_tax','tp_setting',
-'tp_user','tp_user_group','tp_weather','tp_weather') ;
+'tp_user','tp_user_group','tp_weather','tp_weather','tp_adboard') ;
 
 -- ===================
 
@@ -10,7 +10,6 @@ truncate table tp_account_bill_dtl;
 truncate table tp_account_bill_mst;
 truncate table tp_account_setting;
 truncate table tp_ad;
-truncate table tp_adboard;
 truncate table tp_address;
 truncate table tp_adforhome;
 truncate table tp_adma;
