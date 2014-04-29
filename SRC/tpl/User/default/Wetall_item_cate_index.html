@@ -1,7 +1,7 @@
 <include file="Public:head"/>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineC" style="line-height: 32px;">
-	<a target="ddd" href="{lanrain::U('Wetall_Itemcate/edit')}" class="btnGrayS vm bigbtn" >添加分类</a>
+	<a target="ddd" href="{lanrain::U('Wetall_item_cate/edit')}" class="btnGrayS vm bigbtn" >添加分类</a>
 </div>
 <div class="msgWrap form">
 <div class="bdrcontent">
@@ -23,8 +23,8 @@
 <td align="center">{lanrain:$val.url}</td>
 <td align="center">{lanrain:$val.pcate}</td>
 <td align="center" >
-	<a href="{lanrain::U('Wetall_Itemcate/edit',array('id'=>$val['id']))}">编辑</a>
-	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_Itemcate/del',array('id'=>$val['id']))}');">删除</a>
+	<a href="{lanrain::U('Wetall_item_cate/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_item_cate/del',array('id'=>$val['id']))}');">删除</a>
 </td>
 </tr>
 </volist>

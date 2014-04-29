@@ -7,14 +7,14 @@
 
 
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
-	<div class="cLineB"><h4>品牌{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="cLineB"><h4>快递方式{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
 	<div class="msgWrap">
-	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_Brandlist/edit')}">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_delivery/edit')}">
 	<input type="hidden" name="id" value="{lanrain:$info.id}" />
 	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
 	<TBODY>
 		<tr>
-			<th>品牌名称 :</th>
+			<th>快递方式名称 :</th>
 			<td><input type="text" required="" class="px" name="name" value="{lanrain:$info.name}" style="width:500px"></td>
 		</tr>
 		<TR>

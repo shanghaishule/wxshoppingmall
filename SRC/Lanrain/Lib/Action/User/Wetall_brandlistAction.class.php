@@ -1,5 +1,5 @@
 <?php
-class Wetall_BrandlistAction extends UserAction{
+class Wetall_brandlistAction extends UserAction{
 	public function _initialize() {
 		parent::_initialize();
 		$this->_mod = D('brandlist');
@@ -38,7 +38,7 @@ class Wetall_BrandlistAction extends UserAction{
 			}
 
 			if ($result !== false) {
-				$this->success('成功！', U('Wetall_Brandlist/index'));
+				$this->success('成功！', U('Wetall_brandlist/index'));
 			} else {
 				$this->error('失败！');
 			}

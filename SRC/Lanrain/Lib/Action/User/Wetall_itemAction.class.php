@@ -1,5 +1,5 @@
 <?php
-class WeTall_ItemAction extends UserAction{
+class WeTall_itemAction extends UserAction{
 	public function _initialize() {
 		parent::_initialize();
 		$this->_mod = D('item');

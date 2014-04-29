@@ -1,15 +1,8 @@
 <?php
-class Wetall_ItemcateAction extends UserAction{
+class Wetall_deliveryAction extends UserAction{
 	public function _initialize() {
 		parent::_initialize();
-		$this->_mod = D('item_cate');
-		
-		$catelist = M('item_cate')->where(array('status'=>1, 'tokenTall'=>$this->getTokenTall()))->order('ordid asc,id asc')->select();
-		foreach ($catelist as $val){
-			$cate_list[$val['id']]=$val['name'];
-		}
-		$this->assign('cate_list',$cate_list);
-		
+		$this->_mod = D('delivery');
 	}
 	
 	
@@ -17,16 +10,8 @@ class Wetall_ItemcateAction extends UserAction{
 		$tokenTall = $this->getTokenTall();
 		$map = array();
 		$map['tokenTall'] = $tokenTall;
-		$list_tmp = $this->_mod->where($map)->select();
-		foreach ($list_tmp as $list_one){
-			$is_allcate = $list_one['name'] == '全部商品' ? 'allcate' : 'cate&cid='.$list_one['id'];
-			$list_one['url'] = $_SERVER['HTTP_HOST']."/weTall/index.php?m=book&a=".$is_allcate."&tokenTall=".$this->getTokenTall();
-			$list_one['pcate'] = $this->_mod->where(array('id'=>$list_one['pid']))->getField('name');
-			$list[] = $list_one;
-		}
-		
-		$this->assign('list', $list);
-		$this->assign('list_table', true);
+		$mod = $this->_mod;
+		!empty($mod) && $this->_list($mod, $map);
 		$this->display();
 	}
 
@@ -43,11 +28,6 @@ class Wetall_ItemcateAction extends UserAction{
 				$this->error($this->_mod->getError());
 			}
 			$data['tokenTall'] = $tokenTall;
-			//生成spid
-			$data['spid'] = $this->_mod->get_spid($data['pid']);
-			$data['status'] = 1;
-			$data['is_index'] = 1;
-			//dump($data);exit;
 			
 			if ($_POST['id'] != "") {
 				//编辑
@@ -58,7 +38,7 @@ class Wetall_ItemcateAction extends UserAction{
 			}
 
 			if ($result !== false) {
-				$this->success('成功！', U('Wetall_Itemcate/index'));
+				$this->success('成功！', U('Wetall_delivery/index'));
 			} else {
 				$this->error('失败！');
 			}
@@ -85,12 +65,6 @@ class Wetall_ItemcateAction extends UserAction{
 	
 		$ids = $this->_get('id');
 		if ($ids) {
-			$count=M('item')->where("cate_id in (".$ids.")")->count();
-			if($count>0)
-			{
-				$this->error('分类被商品引用，不能删除');
-			}
-			 
 			if (false !== $this->_mod->delete($ids)) {
 				$this->success('删除成功！');
 			} else {
