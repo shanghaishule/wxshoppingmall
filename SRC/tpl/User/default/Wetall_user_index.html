@@ -1,0 +1,38 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<!--div class="cLineC" style="line-height: 32px;">
+	<a target="ddd" href="{lanrain::U('Wetall_user/edit')}" class="btnGrayS vm bigbtn" >添加会员</a>
+</div -->
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>会员名</th>
+<th>微信号</th>
+<th>最后登陆时间</th>
+<!-- th style=" width:100px;" class="norightborder">操作</th -->
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center">{lanrain:$val.username}</td>
+<td align="center">{lanrain:$val.email}</td>
+<td align="center">{lanrain:$val.last_login_time|date='Y-m-d H:i:s',###}</td>
+<!--td align="center" >
+	<a href="{lanrain::U('Wetall_user/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_user/del',array('id'=>$val['id']))}');">删除</a>
+</td-->
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>
