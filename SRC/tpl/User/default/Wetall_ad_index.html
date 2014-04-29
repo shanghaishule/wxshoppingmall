@@ -1,0 +1,42 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<a target="ddd" href="{lanrain::U('Wetall_ad/edit')}" class="btnGrayS vm bigbtn" >添加广告</a>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>广告名称</th>
+<th>广告链接</th>
+<th>广告图片</th>
+<th>广告位</th>
+<th>有效时间</th>
+<th style=" width:50px;" class="norightborder">操作</th>
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center">{lanrain:$val.name}</td>
+<td align="center">{lanrain:$val.url}</td>
+<td align="center"><div class="cateimg"><img src="{lanrain:$val.content}" class="cateimg_small"  /><img src="{lanrain:$val.content}" class="cateimg_big"  /></div></td>
+<td align="center">{lanrain:$adboard_list[$val['board_id']]}</td>
+<td align="center">{lanrain:$val.start_time|date='Y-m-d H:i:s',###}  ~  {lanrain:$val.end_time|date='Y-m-d H:i:s',###}</td>
+<td align="center" >
+	<a href="{lanrain::U('Wetall_ad/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_ad/del',array('id'=>$val['id']))}');">删除</a>
+</td>
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>

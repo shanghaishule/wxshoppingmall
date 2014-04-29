@@ -1,0 +1,102 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script src="{lanrain::RES}/js/date/WdatePicker.js"></script>
+<script>
+	KindEditor.ready(function(K){
+		var editor = K.editor({
+			allowFileManager:true
+		});
+        
+		K('#upload').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic').val(url);
+						}else{
+							K('#pic').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		
+		K('#upload2').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic2').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic2').val(url);
+						}else{
+							K('#pic2').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+	<div class="cLineB"><h4>广告{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="msgWrap">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_ad/edit')}">
+	<input type="hidden" name="id" value="{lanrain:$info.id}" />
+	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+	<TBODY>
+		<tr>
+			<th>广告名称 :</th>
+			<td><input type="text" required="" class="px" name="name" value="{lanrain:$info.name}" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>广告链接 :</th>
+			<td><input type="text" class="px" name="url" value="{lanrain:$info.url}" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>广告位 :</th>
+			<td><select name="board_id" class="pt" style="width:250px">
+				<volist name='adboard_list' id='vo' >
+				<option value="{lanrain:$key}" <eq name="key" value="$info['adboard']">selected="selected"</eq> >{lanrain:$vo}</option>
+				</volist>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>广告图片 :</th>
+			<td><input type='text' class='px' id='pic' value='{lanrain:$info.content}' name='content' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br /></td>
+		</tr>
+		<!--tr>
+			<th>扩展图片 :</th>
+			<td><input type='text' class='px' id='pic2' value='{lanrain:$info.extimg}' name='extimg' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload2' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br /></td>
+		</tr-->
+		<tr>
+			<th>广告描述 :</th>
+			<td><input type="text" class="px" name="desc" value="{lanrain:$info.desc}" style="width:500px"></td>
+		</tr>
+		<tr>
+			<th>广告时间：</th>
+			<td><input type="text" class="px" <if condition="$info.start_time neq ''">value="{lanrain:$info.start_time|date='Y-m-d H:i:s',###}"</if> name="start_time" onClick="WdatePicker()" />                
+				到
+				<input type="text" class="px" <if condition="$info.end_time neq ''">value="{lanrain:$info.end_time|date='Y-m-d H:i:s',###}"</if> name="end_time" onClick="WdatePicker()"  /> 
+			</td>
+		</tr>
+		<TR>
+			<TH></TH>
+			<TD><button type="submit"  name="button"  class="btnGreen left" >保存</button>
+	  		<div class="clr"></div>
+	  		</TD>
+		</TR>
+	</TBODY>
+	</TABLE>
+	</form>
+	</div> 
+</div>
+<include file="Public:footer"/>
