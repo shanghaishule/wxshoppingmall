@@ -1,0 +1,63 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::RES}/css/diymen/tipswindown.css" type="text/css" media="all" />
+<script type="text/javascript" src="{lanrain::RES}/css/diymen/tipswindown.js"></script> 
+<script type="text/javascript">
+function openpage(str) {
+	tipsWindown("修改订单金额","iframe:"+str,"500","400","true","","true","leotheme");
+}
+</script>
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_order/index')}">
+	订单号：<input type="text" name="orderId" class="px" value="{lanrain:$searcharr.orderId}">
+	订单状态：
+	<select name="status" class="pt">
+	<option value="" <if condition="$searcharr.status eq '' ">selected="selected"</if> >--全部--</option>
+	<volist name='order_status' id='vo' >
+	<option value="{lanrain:$key}" <eq name="key" value="$searcharr['status']">selected="selected"</eq> >{lanrain:$vo}</option>
+	</volist>
+	</select>
+	
+	<button type="submit"  name="button"  class="btnGreen right" >模糊查询</button>
+	</form>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>订单编号&状态</th>
+<th>订单金额</th>
+<th>收货人&电话</th>
+<th>支付&配送</th>
+<th>下单&付款时间</th>
+<th style=" width:50px;" class="norightborder">操作</th>
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center">{lanrain:$val.orderId}<br/>{lanrain:$order_status[$val['status']]}</td>
+<td align="center">¥{lanrain:$val.order_sumPrice}</td>
+<td align="center">{lanrain:$val.address_name}({lanrain:$val.userName})<br/>{lanrain:$val.mobile}</td>
+<td align="center">{lanrain:$supportmetho[$val['supportmetho']]}<br/>{lanrain:$freetype[$val['freetype']]}</td>
+<td align="center">{lanrain:$val.add_time|date='Y-m-d H:i:s',###}<br>~<br><if condition="$val.support_time neq '' ">{lanrain:$val.support_time|date='Y-m-d H:i:s',###}</if></td>
+<td align="center" >
+	<a href="{lanrain::U('Wetall_order/edit',array('id'=>$val['id']))}">查看</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_order/del',array('id'=>$val['id']))}');">删除</a>
+	<a href="javascript:openpage('{lanrain::U('Wetall_order/update',array('id'=>$val['id']))}');">修改金额</a> 
+	
+</td>
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>

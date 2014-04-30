@@ -1,0 +1,107 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th colspan="4">基本信息</th>
+</tr>
+</thead>
+<tr>
+<td align="center">订单编号：{lanrain:$info.orderId}</td>
+<td align="center">订单状态：{lanrain:$order_status[$info['status']]}</td>
+<td align="center" class="red">商品总额：¥{lanrain:$info.goods_sumPrice}</td>
+<td align="center" class="red">订单总额：¥{lanrain:$info.order_sumPrice}</td>
+</tr>
+<tr>
+<td align="center">下单时间：{lanrain:$info.add_time|date='Y/m/d H:i:s',###}</td>
+<td align="center">付款时间：<if condition="$info.support_time neq ''">{lanrain:$info.support_time|date='Y/m/d H:i:s',###}</if></td>
+<td align="center">支付方式：{lanrain:$supportmetho[$info['supportmetho']]}</td>
+<td align="center">客户要求：{lanrain:$info.note}</td>
+</tr>
+</table>
+
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th colspan="3">配送信息</th>
+</tr>
+</thead>
+<tr>
+<td align="center">配送方式：{lanrain:$freetype[$info['freetype']]}</td>
+<td align="center">运送费用：{lanrain:$info.freeprice}</td>
+<td align="center">配送快递：{lanrain:$info.userfree}</td>
+</tr>
+<tr>
+<td align="center">快递单号：{lanrain:$info.freecode}</td>
+<td align="center">出库时间：<if condition="$info.fahuo_time neq ''">{lanrain:$info.fahuo_time|date='Y/m/d H:i:s',###}</if></td>
+<td align="center">发货地址：<if condition="$info.fahuoaddress neq ''">{lanrain:$fahuoaddress.contacts}（{lanrain:$fahuoaddress.mobile}）{lanrain:$fahuoaddress.Province} {lanrain:$fahuoaddress.City} {lanrain:$fahuoaddress.Area} {lanrain:$fahuoaddress.address}<if condition="$fahuoaddress.postcode neq ''">（邮编：{lanrain:$fahuoaddress.postcode}）</if></if></td>
+</tr>
+</table>
+
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th colspan="4">收货人信息</th>
+</tr>
+</thead>
+<tr>
+<td align="center">收货人账号：{lanrain:$info.userName}</td>
+<td align="center">收货人：{lanrain:$info.address_name}</td>
+<td align="center">联系手机：{lanrain:$info.mobile}</td>
+<td align="center">收货地址：{lanrain:$info.address}</td>
+</tr>
+</table>
+
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th colspan="5">商品信息</th>
+</tr>
+<tr>
+<th>商品图片</th>
+<th>商品名称</th>
+<th>单价</th>
+<th>数量</th>
+<th>小计</th>
+</tr>
+</thead>
+<volist name='order_detail' id='vo' >
+<tr>
+<td align="center"><div class="cateimg"><img src="{lanrain:$vo.img}" class="cateimg_small"  /><img src="{lanrain:$vo.img}" class="cateimg_big"  /></div></td>
+<td align="center">{lanrain:$vo.title}</td>
+<td align="center">¥{lanrain:$vo.price}</td>
+<td align="center">{lanrain:$vo.quantity}</td>
+<td align="center" class="red">¥<?php echo $vo['price']*$vo['quantity']; ?></td>
+</tr>
+</volist>
+</table>
+
+</div>
+
+<div style="text-align:center; margin-bottom:20px">
+	<switch name="info.status" >
+	<case value="1"><!-- 待付款-->
+		<a href="{lanrain::U('Wetall_order/status',array('orderId'=>$info['orderId'],'status'=>2,'tokenTall'=>$info['tokenTall']))}" class="btnGreen">设为已付款</a>
+	</case>
+	<case value="2"><!-- 待发货-->
+		<a href="{lanrain::U('Wetall_order/fahuo',array('id'=>$info['id'],'tokenTall'=>$info['tokenTall']))}" class="btnGreen">发货</a>
+	</case>
+	<case value="3"><!-- 待收货 -->
+		<if condition="(strtotime('+7 days', $info['fahuo_time']) gt time() ) ">
+			<a href="javascript:alert('发货7天之后才允许后台收货！');" class="btnGreen">设为已收货</a>
+		<else />
+			<a href="{lanrain::U('Wetall_order/status',array('orderId'=>$info['orderId'],'status'=>4,'tokenTall'=>$info['tokenTall']))}" class="btnGreen">设为已收货</a>
+		</if>
+	</case>
+	<default />
+	</switch>
+	<a href="{lanrain::U('Wetall_order/index',array('tokenTall'=>$info['tokenTall']))}" class="btnGreen">返回列表</a>
+</div>
+
+</div>
+
+</div>
+
+<include file="Public:footer"/>

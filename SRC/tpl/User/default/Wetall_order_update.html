@@ -1,0 +1,16 @@
+<form method="post" action="{lanrain::U('Wetall_order/update')}">
+<input type="hidden" name="id" value="{lanrain:$info.id}" />
+<TABLE style="width:100%">
+<TBODY>
+	<tr>
+		<th>订单金额 :</th>
+		<td><input type="text" name="order_sumPrice" value="{lanrain:$info.order_sumPrice}" ></td>
+	</tr>
+	<TR>
+		<TH></TH>
+		<TD><button type="submit"  name="button" >保存</button>
+  		</TD>
+	</TR>
+</TBODY>
+</TABLE>
+</form>

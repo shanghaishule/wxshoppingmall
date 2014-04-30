@@ -1,0 +1,52 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+	<div class="cLineB"><h4>发货管理</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="msgWrap">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_order/fahuo')}">
+	<input type="hidden" name="id" value="{lanrain:$info.id}" />
+	<input type="hidden" value="{lanrain:$info.orderId}" name="orderId"  />
+	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+	<TBODY>
+		<tr>
+			<th>快递方式 :</th>
+			<td>
+			<select name="delivery" class="pt" style="width:250px" required="" >
+				<option value="">--请选择--</option>
+				<volist name='deliveryList' id='vo' >
+				<option value="{lanrain:$vo.name}">{lanrain:$vo.name}</option>
+				</volist>
+				<option value="0">--无需物流--</option>
+			</select>
+		</tr>
+		<tr>
+			<th>快递单号 :</th>
+			<td><input type="text" class="px" name="deliverycode" style="width:300px"></td>
+		</tr>
+		<tr>
+			<th>发货地址 :</th>
+			<td>
+			<volist name='addressList' id='vo'>
+			<input <if condition="$vo.isno eq 1">checked=""</if>  type="radio" name="address" id="address" value="{lanrain:$vo.id}" class="input-text">"{lanrain:$vo.contacts}（"{lanrain:$vo.mobile}）"{lanrain:$vo.Province}"{lanrain:$vo.City}"{lanrain:$vo.Area}"{lanrain:$vo.address}（邮编：<if condition="$vo.postcode eq ''">-<else/>"{lanrain:$vo.postcode}</if>） <br>
+			</volist>
+			</td>
+		</tr>
+		
+		<TR>
+			<TH></TH>
+			<TD><button type="submit"  name="button"  class="btnGreen left" >保存</button>
+	  		<div class="clr"></div>
+	  		</TD>
+		</TR>
+	</TBODY>
+	</TABLE>
+	</form>
+	</div> 
+</div>
+<include file="Public:footer"/>
