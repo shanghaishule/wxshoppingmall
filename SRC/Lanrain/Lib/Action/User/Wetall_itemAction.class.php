@@ -1,5 +1,5 @@
 <?php
-class WeTall_itemAction extends UserAction{
+class Wetall_itemAction extends UserAction{
 	public function _initialize() {
 		parent::_initialize();
 		$this->_mod = D('item');
@@ -18,7 +18,9 @@ class WeTall_itemAction extends UserAction{
 	
 	
 	public function index(){
+		$tokenTall = $this->getTokenTall();
 		$map = array();
+		$map['tokenTall'] = $tokenTall;
 		$mod = $this->_mod;
 		!empty($mod) && $this->_list($mod, $map);
 		$this->display();
@@ -30,33 +32,13 @@ class WeTall_itemAction extends UserAction{
 		
 		//提交，有id则为编辑，无id则为新增
 		if (IS_POST) {
-			dump($_POST);exit;
+			//dump($_POST);exit;
 			
-			//得到商品的尺码和颜色
-			$colors = $_POST['color'];
-			$colorstr = "";
-			foreach($colors as $val){
-				$colorstr = $colorstr."|".$val;
-			}
-			$sizes = $_POST['size'];
-			$sizestr = "";
-			foreach($sizes as $val2){
-				$sizestr = $sizestr."|".$val2;
-			}
-			 
 			//获取数据
 			if (false === $data = $this->_mod->create()) {
 				$this->error($this->_mod->getError());
 			}
-			if( !$data['cate_id']||!trim($data['cate_id']) ){
-				$this->error('请选择商品分类');
-			}
-			 
-			if($_POST['brand']==''){
-				$this->error('请选择品牌');
-			}
-			 
-	
+			
 			//必须上传图片
 			if (empty($_POST['img'])) {
 				$this->error('请上传商品图片');
@@ -73,7 +55,7 @@ class WeTall_itemAction extends UserAction{
 			}else {
 				$data['tuijian']=0;
 			}
-	
+
 			if($_POST['free']==1)
 			{
 				$data['free']=1;
@@ -85,41 +67,43 @@ class WeTall_itemAction extends UserAction{
 				$data['ems']=$this->_post('ems');
 			}
 
-			//保存一份到相册
-			$data['imgs'] =  array('url' => $data['img']);
 			$data['tokenTall'] = $tokenTall;
-			//加入颜色和尺码
-			$data["size"]=$sizestr;
-			$data["color"]=$colorstr;
-			dump($data);exit;	
 			
-			$this->_mod->create($data);
-			$item_id = $this->_mod->add();
-
-			if ($item_id) {
-				//商品相册处理
-				if (isset($data['imgs']) && $data['imgs']) {
-					$item_img_mod = D('item_img');
-					foreach ($data['imgs'] as $_img) {
-						$_img['item_id'] = $item_id;
-						$item_img_mod->create($_img);
-						$item_img_mod->add();
-					}
+			//dump($data);exit;	
+			
+			if ($_POST['id'] != "") {
+				//编辑
+				$result = $this->_mod->save($data);
+				if ($result !== false) {
+					//相册更新
+					$_img['url'] = $data['img'];
+					M('item_img')->where(array('item_id'=>$data['id']))->save($_img);
+					$this->success('成功！', U('Wetall_item/index'));
+				} else {
+					$this->error('失败！');
 				}
-			
-				$this->success(L('operation_success'));
 			} else {
-				$this->error(L('operation_failure'));
-				
+				//新增
+				$data['add_time'] = time();
+				$result = $this->_mod->add($data);
+				if ($result !== false) {
+					//保存一份到相册
+					$_img['item_id'] = $result;
+					$_img['url'] = $data['img'];
+					$_img['add_time'] = time();
+					M('item_img')->add($_img);
+					$this->success('成功！', U('Wetall_item/index'));
+				} else {
+					$this->error('失败！');
+				}
 			}
-			
-			
-			
 		} 
 		//非提交，有id为编辑展示，无id为新增展示
 		else {
 			if ($id) {
 				$myaction = "编辑";
+				$info = $this->_mod->where(array('id'=>$id))->find();
+				$this->assign('info',$info);
 			}else{
 				$myaction = "新增";
 			}
@@ -130,7 +114,19 @@ class WeTall_itemAction extends UserAction{
 		}
 	}
 
-
+	public function del()
+	{
+		$id = $this->_get('id');
+		$item = $this->_mod->where(array('id'=>$id))->find();
+		if ($item) {
+			M('item_img')->where(array('item_id'=>$item['id']))->delete();
+			$this->_mod->where(array('id'=>$item['id']))->delete();
+				
+			$this->success('删除成功！');
+		} else {
+			$this->error('找不到这个商品！');
+		}
+	}
 
 
 
