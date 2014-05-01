@@ -16,3 +16,8 @@ CREATE TABLE `tp_alipay_biz` (
   `tokenTall` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+//前台用户增加联系人、联系方式、联系地址
+alter table tp_users add `contact` varchar(255) NOT NULL DEFAULT '';
+alter table tp_users add `phone` varchar(255) NOT NULL DEFAULT '';
+alter table tp_users add `address` varchar(255) NOT NULL DEFAULT '';

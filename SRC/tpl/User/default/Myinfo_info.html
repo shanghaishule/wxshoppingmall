@@ -1,0 +1,60 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+          <div class="cLineB"><h4>完善资料</h4></div>
+          <form method="post" action="{lanrain::U('User/Myinfo/info')}" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{lanrain:$info.id}">
+          <div class="msgWrap">
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <th>头像：</th>
+                  <td><a href="{lanrain::U('User/Myinfo/userpic')}"><eq name="info.headerpic" value="">设置头像<else/><div class="cateimg"><img src="{lanrain:$info.headerpic}" class="cateimg_small"  /><img src="{lanrain:$headerpic}" class="cateimg_big"  /></div> </eq></a></td>
+                </tr>
+                <tr>
+                  <th>用户名：</th>
+                  <td>{lanrain:$info.username}</td>
+                </tr>
+                <tr>
+                  <th>创建时间：</th>
+                  <td>{lanrain:$info.createtime|date="Y-m-d",###}</td>
+                </tr>
+                <tr>
+                  <th>等级：</th>
+                  <td><span class="red">{lanrain:$groupinfo[$info['gid']]}</span></td>
+                </tr>
+                <tr>
+                  <th>有效时间：</th>
+                  <td><span class="red">{lanrain:$info.viptime|date="Y-m-d",###}</span></td>
+                </tr>
+                <tr>
+                  <th>联系人：</th>
+                  <td><input type="text" required="" class="px" name="contact" value="{lanrain:$info.contact}" size="50px"><span class="red">*</span></td>
+                </tr>
+                <tr>
+                  <th>联系方式：</th>
+                  <td><input type="text" required="" name="phone" value="{lanrain:$info.phone}" class="px" size="50px"><span class="red">*</span></td>
+                </tr>
+                <tr>
+                  <th>联系邮箱：</th>
+                  <td><input type="text" required="" name="email" value="{lanrain:$info.email}" class="px" size="50px"><span class="red">*</span></td>
+                </tr>
+                <tr>
+                  <th>联系地址：</th>
+                  <td><input type="text" required="" name="address" value="{lanrain:$info.address}" class="px" size="80px"><span class="red">*</span></td>
+                </tr> 
+                <tr>
+                  <th></th>
+                  <td><button type="submit" class="btnGreen" id="saveSetting">保存</button></td>
+                </tr>
+            </table>
+            
+          </div>
+          </form>
+</div>
+
+<include file="Public:footer"/>	
