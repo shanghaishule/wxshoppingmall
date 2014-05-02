@@ -21,7 +21,7 @@ class UserAction extends BaseAction{
 			$this->redirect('Home/Index/login');
 		}
 		
-		$allfunction = M('Function')->where(array('belonguser'=>session('belonguser')))->select();
+		$allfunction = M('Function')->where(array('belonguser'=>session('belonguser')))->order('id')->select();
 		$allfunctiontype = M('Function')->Distinct(true)->field('funtype')->where(array('belonguser'=>session('belonguser'),'funtype'=>array('neq','默认')))->order('usenum')->select();
 		$this->assign('allfunction',$allfunction);
 		$this->assign('allfunctiontype',$allfunctiontype);
