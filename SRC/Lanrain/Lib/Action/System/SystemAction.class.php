@@ -39,7 +39,7 @@ class SystemAction extends BackAction{
 			$title = M('node')->where('id=2')->find();
 			$this->assign('title',$title[title]);
 			*/
-			$this->assign('title',"欢迎");
+			$this->assign('title',"欢迎页");
 		}else{
 			$roleid["pid"] = $_GET['pid'];
 			$roleid["role_id"] = session('roleid');
@@ -70,6 +70,41 @@ class SystemAction extends BackAction{
 		
 		$this->assign('shop_cnt',$shop_cnt);
 		$this->assign('order_amt',$order_amt);
+		
+		
+		if(IS_POST){
+			$wherestr = " 1=1 ";
+			$start_time = $this->_post('start_time');
+			if ($start_time != "") {
+				$start_time .= " 00:00:00";
+				$wherestr .= " and dt >= UNIX_TIMESTAMP('".$start_time."') ";
+			}
+			$search['start_time'] = $start_time;
+		
+			$end_time = $this->_post('end_time');
+			if ($end_time != "") {
+				$end_time .= " 23:59:59";
+				$wherestr .= " and dt <= UNIX_TIMESTAMP('".$end_time."') ";
+			}
+			$search['end_time'] = $end_time;
+		
+			$this->assign('searcharr',$search);
+			//dump($wherestr);exit;
+			//dump($search);exit;
+		}else{
+			$wherestr = "dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY))";
+		}
+		$Model = M();
+		$stat_PV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
+		//dump($stat_PV);exit;
+		$this->assign('stat_PV', $stat_PV);
+		
+		$stat_UV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(DISTINCT remote_ip) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
+		//dump($stat_UV);exit;
+		$this->assign('stat_UV', $stat_UV);
+		
+	
+		
 		$this->display();
 	}
 }

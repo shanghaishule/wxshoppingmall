@@ -19,7 +19,7 @@ img{vertical-align:top;}
 .dis {display:none}
 
 .content {height:100%;overflow:hidden;padding:10px 0 30px 10px;}
-.box {float:left;widtH:48%;margin:0px 0 2px 10px;_display:inline;padding-bottom:12px;height:380px;background:url(main/boxb.png) no-repeat center bottom;}
+.box {float:left;widtH:96%;margin:0px 0 2px 10px;_display:inline;padding-bottom:12px;height:90%;background:url(main/boxb.png) no-repeat center bottom;}
 .box h3 {border:1px solid #DADADA;background:url(main/boxbg.png) repeat-x;height:33px;line-height:33px;color:#4D4D4D;font-weight:bold;padding:0 14px}
 .box .con {padding:4px;height:336px;border:1px solid #DADADA;border-top:0;background:#F2F2F2;}
 .box .dcon {padding:20px 20px 0;height:324px}

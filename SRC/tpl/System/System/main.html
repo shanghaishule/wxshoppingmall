@@ -2,28 +2,104 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>后台首页</title>
-<link href="{lanrain::RES}/images/main.css" type="text/css" rel="stylesheet">
-<meta http-equiv="x-ua-compatible" content="ie=7" />
+<script src="./tpl/User/default/common/js/date/WdatePicker.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript">
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '流量数据图'
+        },
+        subtitle: {
+            text: 'PV/UV'
+        },
+        xAxis: [{
+            categories: [ <volist name="stat_PV" id="vo">'{lanrain:$vo.DT}',</volist> ]
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'UV',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'PV',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        series: [{
+            name: 'PV',
+            type: 'column',
+            yAxis: 1,
+            data: [<volist name="stat_PV" id="vo">{lanrain:$vo.CNT},</volist>],
+            tooltip: {
+                valueSuffix: ''
+            }
+
+        }, {
+            name: 'UV',
+            type: 'spline',
+            data: [<volist name="stat_UV" id="vo">{lanrain:$vo.CNT},</volist>],
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+    });
+});
+
+
+</script>
+
+
 </head>
-<body style="background:none">
-<div class="content">
-<div class="box">
-	<h3></h3>
-    <div class="con dcon">
-    <div class="update">
-    </div>
-    </div>
+<body>
+<div style="border:2px solid #ddd; background:#fff; border-radius:10px; padding:10px; overflow:hidden; margin-bottom:10px;">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('System/main')}">
+		<span style="margin-right:50px">已入驻店铺：{lanrain:$shop_cnt} 家</span>
+		日期：<input type="text" style="width:150px" <if condition="$searcharr['start_time'] neq ''">value="{lanrain:$searcharr['start_time']}"</if> name="start_time" onClick="WdatePicker()" />                
+		到
+		<input type="text" style="width:150px" <if condition="$searcharr['end_time'] neq ''">value="{lanrain:$searcharr['end_time']}"</if> name="end_time" onClick="WdatePicker()"  /> 
+		<button type="submit"  name="button"  style="height:30px; width:50px;" >查看</button>
+	</form>
 </div>
-<div class="box">
-	<h3></h3>
-    <div class="con dcon">
-    <div class="update">
-    </div>
-    </div>
-</div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto; border:2px solid #ddd; background:#fff; border-radius:10px; padding:10px; overflow:hidden; margin-bottom:10px;"></div>
+    
 
-
-</div>
 </body>
 </html>
