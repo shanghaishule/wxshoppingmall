@@ -154,7 +154,7 @@
          <div id="slider" class="slider" style="overflow: hidden; visibility: visible; list-style: none outside none; position: relative;">
              <ul id="sliderlist" class="sliderlist" style="position: relative; overflow: hidden; transition: left 600ms ease 0s; width: 784px; left: 202px;">
                  <volist name="img_list" id="img">
-                     <li style="float: left; display: block; width: 596px;"><a class="group1" href="{:attach(get_thumb($img['url'], '_b'), 'item')}"><img  width="90%" height="85%" src="{:attach(get_thumb($img['url'], '_b'), 'item')}"></li>
+                     <li style="float: left; display: block; width: 596px;"><a class="group1" href="{:$img['url']}"><img  width="90%" height="85%" src="{:$img['url']}"></li>
                  </volist>
              </ul>
             <div id="pagenavi">
@@ -187,9 +187,11 @@
          <div class="ware_text">
              <div class="rate">
                 <h2 class="ware_title">{$item.title}</h2>       	
-                <span class="letterprice">现价: </span>
+                <span class="letter1">现价：</span>
                 <span ectype="goods_price" class="fontColor3">¥{$item.price}</span><br>                       
-                <span class="letter1">品牌:</span>{$item.brand}<br>销售情况:售出 {$item.buy_num}件<br>所在地区:中国 
+                <span class="letter1">品牌：</span>{$item.brand}<br>
+                <span class="letter1">售出：</span>{$item.buy_num}件<br>
+                <span class="letter1">地区：</span>中国 
 			</div>
             <div class="handle">
 
@@ -240,7 +242,7 @@
 
                 </ul></if>
                 <ul>
-                    <li class="handle_title">购买数量:</li>
+                    <li class="handle_title">数量：</li>
                     <li>
                         <input type="text" value="1" id="quantity" name="" class="text width1" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeyup="this.value=this.value.replace(/\D/g,'')" />件（库存<span ectype="goods_stock" class="stock">{$item.goods_stock}</span>件）
                     </li>

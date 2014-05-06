@@ -1,5 +1,7 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+@include_once("./slimstat/inc.stats.php");
+
 if (get_magic_quotes_gpc()) {
     function stripslashes_deep($value)
     {

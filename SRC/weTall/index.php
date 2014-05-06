@@ -23,4 +23,7 @@ define('RUNTIME_PATH', PIN_DATA_PATH . 'runtime/');
 define('HTML_PATH', PIN_DATA_PATH . 'html/');
 /* DEBUG开关*/
 define('APP_DEBUG', true);
+
+@include_once("../slimstat/inc.stats.php");
+
 require("./_core/setup.php");

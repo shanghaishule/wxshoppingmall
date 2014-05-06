@@ -33,9 +33,19 @@ class Wetall_orderAction extends UserAction{
 			}
 			$search['status'] = $status;
 			//dump($map);exit;
-			$this->assign('searcharr',$search);
+			
+		}else{
+			//兼容URL传参
+			$get_status = $this->_get('status');
+			if ($get_status == "") {
+				$map['status'] = array('neq', 0);
+			}else{
+				$map['status'] = $get_status;
+			}
+			$search['status'] = $get_status;
+			
 		}
-		
+		$this->assign('searcharr',$search);
 		
 		$mod = $this->_mod;
 		!empty($mod) && $this->_list($mod, $map);

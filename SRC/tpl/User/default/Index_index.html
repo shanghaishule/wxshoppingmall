@@ -1,5 +1,131 @@
 <include file="Public:head"/>
+<script src="{lanrain::RES}/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '流量数据图'
+        },
+        subtitle: {
+            text: 'PV/UV'
+        },
+        xAxis: [{
+            categories: [ <volist name="stat_PV" id="vo">'{lanrain:$vo.DT}',</volist> ]
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'UV',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'PV',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        series: [{
+            name: 'PV',
+            type: 'column',
+            yAxis: 1,
+            data: [<volist name="stat_PV" id="vo">{lanrain:$vo.CNT},</volist>],
+            tooltip: {
+                valueSuffix: ''
+            }
+
+        }, {
+            name: 'UV',
+            type: 'spline',
+            data: [<volist name="stat_UV" id="vo">{lanrain:$vo.CNT},</volist>],
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+    });
+});
+
+
+
+</script>
+<div class="cLineC" style="line-height: 32px;">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Index/index')}">
+		<span style="margin-right:50px">商店：{lanrain:$shopinfo.name}</span>
+		日期：<input type="text" class="px" <if condition="$searcharr['start_time'] neq ''">value="{lanrain:$searcharr['start_time']}"</if> name="start_time" onClick="WdatePicker()" />                
+		到
+		<input type="text" class="px" <if condition="$searcharr['end_time'] neq ''">value="{lanrain:$searcharr['end_time']}"</if> name="end_time" onClick="WdatePicker()"  /> 
+		<button type="submit"  name="button"  class="btnGreen" >查看</button>
+	</form>
+</div>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<div id="content" style="border:2px solid #ddd; background:#fff; border-radius:10px; padding:10px; overflow:hidden; margin:10px 0px;">
+
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th colspan="4">商城提醒</th>
+</tr>
+</thead>
+<tr>
+<td align="center">订单提醒：</td>
+<td align="center">
+<a href="{lanrain::U('Wetall_order/index',array('status'=>1, 'tokenTall'=>$tokenTall))}">待付款订单 [<span class="red">{lanrain:$count.fukuan}</span>]</a>
+<a href="{lanrain::U('Wetall_order/index',array('status'=>2, 'tokenTall'=>$tokenTall))}">待发货订单 [<span class="red">{lanrain:$count.fahuo}</span>]</a>
+<a href="{lanrain::U('Wetall_order/index',array('status'=>3, 'tokenTall'=>$tokenTall))}">待收货订单 [<span class="red">{lanrain:$count.yfahuo}</span>]</a>
+<a href="{lanrain::U('Wetall_order/index',array('status'=>4, 'tokenTall'=>$tokenTall))}">已完成订单 [<span class="red">{lanrain:$count.end}</span>]</a>
+</td>
+</tr>
+<tr>
+<td align="center">商品信息：</td>
+<td align="center">
+<a href="{lanrain::U('Wetall_item/index',array('status'=>1,'tokenTall'=>$tokenTall))}">出售中商品 [<span class="red">{lanrain:$count.buycount}</span>]</a>
+</td>
+</tr>
+<tr>
+<td align="center">财务信息：</td>
+<td align="center">
+已成交总计 [<span class="red">￥{lanrain:$count.totalamt}</span>]
+</td>
+</tr>
+
+</table>
+</div>
 
 </div>
 

@@ -50,7 +50,7 @@ $(function(){
         <volist name='vo_group.item' id='vo'>
            <li id="cart_item_{$vo.id}">
               <p class="goods_info">
-                  <span class="img"><a href="{:U('Item/index',array('id'=>$vo['id'],'tokenTall'=>$tokenTall))}" ><img src="{:attach(get_thumb($vo['img'], '_m'), 'item')}" height="80" width="80"></a></span>
+                  <span class="img"><a href="{:U('Item/index',array('id'=>$vo['id'],'tokenTall'=>$tokenTall))}" ><img src="{:$vo['img']}" height="80" width="80"></a></span>
                   <span class="tit">
                       <a href="{:U('Item/index',array('id'=>$vo['id'],'tokenTall'=>$tokenTall))}" >{$vo.name}</a><br>
                       <span>大小:</span><span class="price1">{$vo.size}</span><br>
