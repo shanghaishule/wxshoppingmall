@@ -390,6 +390,24 @@ class orderAction extends userbaseAction {
 			$this->redirect('user/index',array('tokenTall'=>$tokenTall));
 		}
 		
+		$alipay_person = "";
+		$alipay_biz = "";
+		$wxpay = "";
+		if (M('alipay_person')->where(array('tokenTall'=>$tokenTall))->find()){
+			$alipay_person = "ok";
+		}
+		if (M('alipay_biz')->where(array('tokenTall'=>$tokenTall))->find()){
+			$alipay_biz = "ok";
+		}
+		if (M('wxpay')->where(array('tokenTall'=>$tokenTall))->find()){
+			$wxpay = "ok";
+		}
+		$this->assign('alipay_person', $alipay_person);
+		$this->assign('alipay_biz', $alipay_biz);
+		$this->assign('wxpay', $wxpay);
+		
+		$this->assign('current_user',$_SESSION['user_info']['username']);
+		
 		$this->display();
 	}
 	
@@ -498,17 +516,10 @@ class orderAction extends userbaseAction {
 					// 商户的业务逻辑
 					if ($validResp){
 						// 服务器应答签名验证成功
-						// 写入文件
-						$filename = 'order_push.txt';
-						$fh = fopen($filename, "w");
-						//请求报文
-						fwrite($fh, "订单推送请求报文：". $this->transUpmpInfo($req)."\r\n");
-						//应答报文
-						fwrite($fh, "订单推送应答报文：". $this->transUpmpInfo($resp)."\r\n");
 	
 						// 准备支付控件所需信息
 						// urlEncode(base64(tn=流水号,resultURL=urlEcode(交易结果展示url),usetestmode=true|false))
-						$strOrderInfo = "tn=".$resp['tn'].",ResultURL=".urlencode($this->_server('HTTP_ORIGIN')."/weTall/index.php?m=order&a=notify_kongjian&dingdanhao=".$alldingdanhao."&rid=").",UseTestMode=true";
+						$strOrderInfo = "tn=".$resp['tn'].",ResultURL=".urlencode($this->_server('HTTP_ORIGIN')."/weTall/index.php?m=order&a=notify_kongjian&dingdanhao=".$alldingdanhao."&rid=").",UseTestMode=false";
 						// base64加密
 						$strOrderInfo = base64_encode($strOrderInfo);
 						// 转换字符串
@@ -516,8 +527,7 @@ class orderAction extends userbaseAction {
 						// 输出支付控件所需信息到页面
 						$this->assign('strOrderInfo',$strOrderInfo);
 						
-						//关闭文件
-						fclose($fh);
+
 						//成功信息
 						$connectInfo = '1';
 					}else {
@@ -540,26 +550,25 @@ class orderAction extends userbaseAction {
 			}
 			elseif (1 == $payment_id)
 			{
-				//支付宝
-				/*
-				foreach ($all_order_arr as $dingdanhao){
-					$data['supportmetho']=1;
-					if(M('item_order')->where("userId='".$this->visitor->info['id']."' and orderId='".$dingdanhao['orderid']."'")->data($data)->save())
-					{
-						//成功就继续
-					}else
-					{
-						$this->error('操作失败!');
-					}
+				//支付宝个人转账支付
+				$tokenTall = $this->getTokenTall();
+				$alipay=M('alipay_person')->where(array('tokenTall'=>$tokenTall))->find();
+				if ($alipay){
+					echo "<script>location.href='alipay/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
+				}else{
+					$this->error('未找到支付宝个人转账支付相关配置信息！');
 				}
-				*/
-				$alipay=M('alipay')->find();
-				echo "<script>location.href='alipay/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
-			
+			}
+			elseif (5 == $payment_id)
+			{
+				//支付宝商家即时到帐
+				$tokenTall = $this->getTokenTall();
+				$alipay=M('alipay_biz')->where(array('tokenTall'=>$tokenTall))->find();
+				echo "<script>location.href='wapapli/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
 			}
 			else 
 			{
-				$this->error('操作失败!');
+				$this->error('操作失败！请选择付款方式。');
 			}
 		}
 	}
@@ -699,16 +708,6 @@ class orderAction extends userbaseAction {
 			// 商户的业务逻辑
 			if ($validResp){
 				// 服务器应答签名验证成功
-				// 写入文件
-				$filename = 'order_query.txt';
-				$fh = fopen($filename, "w");
-				//请求报文
-				fwrite($fh, "订单查询请求报文：". $this->transUpmpInfo($req)."\r\n");
-				//应答报文
-				fwrite($fh, "订单查询应答报文：". $this->transUpmpInfo($resp)."\r\n");
-				//关闭文件
-				fclose($fh);
-				
 				if (""!=$resp['transStatus'] && "00"==$resp['transStatus']) {
 					return "paid";
 				}else{
@@ -725,4 +724,72 @@ class orderAction extends userbaseAction {
 		}
 	}
 
+
+	public function wxpay()
+	{
+		if(IS_POST)
+		{
+			//支付方式
+			$payment_id=$_POST['payment_id'];
+			$alldingdanhao=$_POST['dingdanhao']; //取得支付号
+			$all_order_arr = M('order_merge')->where("mergeid='".$alldingdanhao."'")->select();
+			$all_order_price = 0;
+			//xxl start
+			$orderinfos = array();
+			$orderInfo = array();
+			//xxl end
+			foreach ($all_order_arr as $dingdanhao){
+				$item_order=M('item_order')->where("userId='".$this->visitor->info['id']."' and orderId='".$dingdanhao['orderid']."'")->find();
+				!$item_order && $this->_404();
+				$all_order_price = $all_order_price + floatval($item_order['order_sumPrice']);
+	
+				//xxl start 短信提醒
+				$order_detail=M('order_detail');
+				$order_title_arr = $order_detail->field('title')->where("orderId='".$dingdanhao['orderid']."'")->select();
+				$order_titles = "";
+				foreach ($order_title_arr as $order_title){
+					$order_titles = $order_titles.$order_title['title']." ";
+				}
+	
+				$orderInfo['orderid']=$dingdanhao['orderid'];
+				$orderInfo['address_name']=$item_order['address_name'];
+				$orderInfo['mobile']=$item_order['mobile'];
+				$orderInfo['title']=$order_titles;
+				$orderinfos[] = $orderInfo;
+	
+				//xxl end
+			}
+			//xxl start
+			$_SESSION['orderinfos'] = $orderinfos;
+			//xxl end
+	
+			if (4 == $payment_id)
+			{
+				//微信支付
+				$wxpay=M('wxpay')->find();
+				$this->assign('wxname', $wxpay['wxname']);
+				$this->assign('tokenTall', $wxpay['tokenTall']);
+				$this->assign('appId', $wxpay['appId']);
+				$this->assign('paySignKey', $wxpay['paySignKey']);
+				$this->assign('appSecret', $wxpay['appSecret']);
+				$this->assign('partnerId', $wxpay['partnerId']);
+				$this->assign('partnerKey', $wxpay['partnerKey']);
+				$this->assign('notify_url', $wxpay['notify_url']);
+				$this->assign('success_url', $wxpay['success_url']);
+				$this->assign('fail_url', $wxpay['fail_url']);
+				$this->assign('cancel_url', $wxpay['cancel_url']);
+	
+				$this->assign('alldingdanhao', $alldingdanhao);
+				$this->assign('ordersumPrice', $all_order_price*100);  //支付用，精确到分
+				$this->assign('ordersumPrice_act', $all_order_price);  //显示用
+				$this->display();
+			}
+			else
+			{
+				$this->error('操作失败!');
+			}
+		}
+	}
+	
+	
 }

@@ -1,0 +1,68 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_wxpay_rights/index')}">
+		<span style="margin-right:50px">微信支付维权信息</span>
+		购买用户：<input name="openid" type="text" class="px" value="{lanrain:$search.openid}" />
+		通知类型：<select name="msgtype" class="px">
+				<option value="">--所有--</option>
+				<option value="request" <eq name="search.msgtype" value="request">selected</eq> >request</option>
+				<option value="reject" <eq name="search.msgtype" value="reject">selected</eq> >reject</option>
+				<option value="confirm" <eq name="search.msgtype" value="confirm">selected</eq> >confirm</option>
+				</select>
+		投诉单号：<input name="feedbackid" type="text" class="px" value="{lanrain:$search.feedbackid}" />		
+		<button type="submit"  name="button"  class="btnGreen" >查看</button>
+	</form>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>购买用户</th>
+<th>公众号</th>
+<th>时间</th>
+<th>通知类型</th>
+<th>投诉单号</th>
+<th>交易号</th>
+<th>投诉原因</th>
+<th>用户希望解决方案</th>
+<th>其他信息</th>
+<th>签名</th>
+<th>签名方式</th>
+<th>状态</th>
+<th>操作</th>
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center">{lanrain:$val.openid}</td>
+<td align="center">{lanrain:$val.appid}</td>
+<td align="center">{lanrain:$val.timestamp|date='Y-m-d H:i:s',###}</td>
+<td align="center" <eq name="val.msgtype" value="confirm">style="color:green"<else/>style="color:red"</eq> >{lanrain:$val.msgtype}</td>
+<td align="center">{lanrain:$val.feedbackid}</td>
+<td align="center">{lanrain:$val.transid}</td>
+<td align="center">{lanrain:$val.reason}</td>
+<td align="center">{lanrain:$val.solution}</td>
+<td align="center">{lanrain:$val.extinfo}</td>
+<td align="center">{lanrain:$val.appsignature}</td>
+<td align="center">{lanrain:$val.signmethod}</td>
+<td align="center">{lanrain:$val.status}</td>
+<td align="center">
+<if condition="($val.status eq 0) AND (($val.msgtype eq 'request') OR ($val.msgtype eq 'reject')) ">
+	<a href="{lanrain::U('Wetall_wxpay_rights/updatefeedback', array('id'=>$val['id']))}">通知微信该投诉已处理</a>
+</if> 
+</td>
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>

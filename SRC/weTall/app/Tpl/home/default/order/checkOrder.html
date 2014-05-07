@@ -52,7 +52,7 @@ $(function(){
                 <div class="ware">
                 <volist name='item_detail' id='item' >
                      <ul class="order_detail_list">
-                       <li><img src="{:attach(get_thumb($item['img'], '_b'), 'item')}" height="50" width="50"></li>
+                       <li><img src="{:$item['img']}" height="50" width="50"></li>
                        <li>品名:{$item.title}</li>
                        <li>大小:{$item.size}</li>
                        <li>颜色:{$item.color}</li>

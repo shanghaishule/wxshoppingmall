@@ -160,7 +160,16 @@ class Wetall_orderAction extends UserAction{
 			$date['fahuo_time']=time();
 			$date['status']=3;
 			if($mod->where("orderId='".$data['orderId']."'")->data($date)->save()){
-				$this->success('发货成功！', U('Wetall_order/index'));
+				$orderinfo = $mod->where("orderId='".$data['orderId']."'")->find();
+				if ($orderinfo['supportmetho'] == 4) {
+					if($this->orderWxDeliver($data['orderId'])){
+						$this->success('发货成功！', U('Wetall_order/index'));
+					}else{
+						$this->error('微信发货通知失败');
+					}
+				} else {
+					$this->success('发货成功！', U('Wetall_order/index'));
+				}
 			} else {
 				$this->error('发货失败！');
 			}
@@ -175,6 +184,81 @@ class Wetall_orderAction extends UserAction{
 			$this->display();
 		}
 	}
+	
+	
+
+	/*订单微信发货接口*/
+	public function orderWxDeliver($num="")
+	{
+	
+		if ($num != "") {
+			header('Content-Type:text/html;charset=utf-8');
+			$wetallroute = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
+			//dump($wetallroute);exit;
+			include $wetallroute."/weTall/wxpay/config.php";
+			//dump($config);exit;
+			include $wetallroute."/weTall/wxpay/lib.php";
+	
+			//取支付信息
+			$zhifuhaoArr = M('order_merge')->where(array('orderid'=>$num))->find();
+			$zhifuhao = $zhifuhaoArr['mergeid'];
+			$payinfoArr = M('wxpay_history')->where(array('out_trade_no'=>$zhifuhao))->find();
+			$parameter = array(
+					'appid' => $config['appId'],
+					'openid' => $payinfoArr['openid'], // 购买用户的 OpenId，这个已经放在最终支付结果通知的 PostData 里了
+					'transid' => $payinfoArr['transaction_id'], // 交易单号
+					'out_trade_no' => $payinfoArr['out_trade_no'], // 本站订单号
+					'deliver_timestamp' => mktime(), // 发货时间戳，这里指得是 linux 时间戳
+					'deliver_status' => '1', // 发货状态，1 表明成功，0 表明失败，失败时需要在 deliver_msg 填上失败原因
+					'deliver_msg' => 'ok' // 是发货状态信息，失败时可以填上 UTF8 编码的错误提示信息，比如“该商品已退款”
+			);
+			//dump($parameter);exit;
+			$wechat = new Wechat;
+			//dump($wechat);exit;
+				
+			$result = $wechat->delivernotify($config, $parameter);
+			//dump($result);exit;
+			if (($result['errcode'] == 0) && ($result['errmsg'] == 'ok')) { //成功
+				return true;
+			}else{
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
+	
+	 
+	/*订单微信查询接口*/
+	public function orderWxQuery($num="")
+	{
+		$num = $num == "" ? $_GET['orderId'] : $num;
+		 
+		$zhifuhao=M('order_merge')->where(array('orderid'=>$num))->getField('mergeid');
+		 
+		if ($zhifuhao != "") {
+			header('Content-Type:text/html;charset=utf-8');
+			$wetallroute = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
+			include $wetallroute."/weTall/wxpay/config.php";
+			//dump($config);exit;
+			include $wetallroute."/weTall/wxpay/lib.php";
+			$wechat = new Wechat;
+			$result = $wechat->orderquery($config, $zhifuhao);
+			if (($result['errcode'] == 0) && ($result['errmsg'] == 'ok')) { //成功返回
+				if ($result['order_info']['ret_code'] == 0 && $result['order_info']['trade_state'] == "0") {
+					$this->success('该订单已支付成功！');
+				}else{
+					$this->error('该订单支付失败！'.'['.$result['order_info']['ret_code'].']'.$result['order_info']['ret_msg']);
+				}
+	
+			}else{
+				$this->error('该订单查询失败！'.'['.$result['errcode'].']'.$result['errmsg']);
+			}
+		}else {
+			$this->error("没有取到订单号！");
+		}
+	}
+	
 	
 }
 ?>

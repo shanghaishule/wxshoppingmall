@@ -17,7 +17,7 @@
 
 require_once("alipay.config.php");
 require_once("lib/alipay_notify.class.php");
-include_once('DB.php');
+
 //计算得出通知验证结果
 $alipayNotify = new AlipayNotify($alipay_config);
 $verify_result = $alipayNotify->verifyNotify();
@@ -60,12 +60,6 @@ if($verify_result) {//验证成功
 			//调试用，写文本函数记录程序运行情况是否正常
 			//logResult("这里写入想要调试的代码变量值，或其他运行的结果记录");
 			
-			if(!empty($out_trade_no))
-			{
-				$sql="update tp_item_order set `status`=2, `supportmetho`=1, support_time=".time().", sellerRemark='支付宝交易号：".$trade_no."' where `status`=1 and orderId in (select orderid from tp_order_merge where mergeid = '".$out_trade_no."')";
-				mysql_query($sql,$conn);
-			}
-			
 			echo "success";		//请不要修改或删除
 		}
 		else if ($_POST['trade_status'] == 'TRADE_SUCCESS') {
@@ -78,12 +72,6 @@ if($verify_result) {//验证成功
 	
 			//调试用，写文本函数记录程序运行情况是否正常
 			//logResult("这里写入想要调试的代码变量值，或其他运行的结果记录");
-			
-			if(!empty($out_trade_no))
-			{
-				$sql="update tp_item_order set `status`=2, `supportmetho`=1, support_time=".time().", sellerRemark='支付宝交易号：".$trade_no."' where `status`=1 and orderId in (select orderid from tp_order_merge where mergeid = '".$out_trade_no."')";
-				mysql_query($sql,$conn);
-			}
 			
 			echo "success";		//请不要修改或删除
 		}

@@ -1,0 +1,52 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_wxpay_alarm/index')}">
+		<span style="margin-right:50px">微信支付告警信息</span>
+		错误类型：<input type="text" class="px" name="errortype" value="{lanrain:$search.errortype}" />
+		<button type="submit"  name="button"  class="btnGreen" >查看</button>
+	</form>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>公众号</th>
+<th>错误类型</th>
+<th>错误描述</th>
+<th>错误详情</th>
+<th>时间</th>
+<th>签名</th>
+<th>签名方式</th>
+<th>状态</th>
+<!-- th style=" width:100px;" class="norightborder">操作</th -->
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center">{lanrain:$val.appid}</td>
+<td align="center">{lanrain:$val.errortype}</td>
+<td align="center">{lanrain:$val.description}</td>
+<td align="center">{lanrain:$val.alarmcontent}</td>
+<td align="center">{lanrain:$val.timestamp|date='Y-m-d H:i:s',###}</td>
+<td align="center">{lanrain:$val.appsignature}</td>
+<td align="center">{lanrain:$val.signmethod}</td>
+<td align="center">{lanrain:$val.status}</td>
+<!--td align="center" >
+	<a href="{lanrain::U('Wetall_user/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_user/del',array('id'=>$val['id']))}');">删除</a>
+</td-->
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>

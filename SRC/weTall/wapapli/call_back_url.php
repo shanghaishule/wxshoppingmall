@@ -47,19 +47,21 @@ if($verify_result) {//验证成功
 		//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
 		//如果有做过处理，不执行商户的业务程序
 	
-		/*
+		
 			if(!empty($out_trade_no))
 			{
-				$sql="update weixin_item_order set status=2,support_time=".time()." where orderId='".$out_trade_no."'";
-				mysql_query($sql,$conn);
+				$alldingdanhao = $out_trade_no; //取得支付号
+				$query = "SELECT * FROM tp_order_merge WHERE mergeid='".$alldingdanhao."'";
+				if ($resultq = mysql_query($query,$conn)) {
+					while ($row = $resultq->fetch_row()) {
+						$query_item = "update tp_item_order set status=2, supportmetho=5, support_time=".time()." WHERE orderId='".$row[1]."' and status=1;";
+						mysql_query($query_item,$conn);
+					}
+					$resultq->close();
+				
+				}
 			}
-		*/
-			if(!empty($out_trade_no))
-			{
-				$sql="update tp_item_order set `status`=2, `supportmetho`=1, support_time=".time().", sellerRemark='支付宝交易号：".$trade_no."' where `status`=1 and orderId in (select orderid from tp_order_merge where mergeid = '".$out_trade_no."')";
-				mysql_query($sql,$conn);
-			}
-
+		
 		
  ?>
  
