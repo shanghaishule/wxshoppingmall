@@ -17,9 +17,9 @@
   </TD>
   <TD rowspan="7" valign="top">
 	  <div style="margin-left:20px">
-		<img id="pic" src="<if condition="$vo['starpicurl'] eq 0">{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-lottery-start.jpg<else/>{lanrain:$vo.starpicurl}</if>" width="373px" >	
+		<img id="pic" src="<if condition="$vo['starpicurl'] eq 0">./tpl/Wap/default/common/css/guajiang/images/activity-lottery-start.jpg<else/>{lanrain:$vo.starpicurl}</if>" width="373px" >	
 		<br />
-		<input class="px"  name="starpicurl" value="{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-lottery-start.jpg"   onclick="document.getElementById('pic').src=this.value;" style="width:363px;"  />
+		<input class="px"  name="starpicurl" value="./tpl/Wap/default/common/css/guajiang/images/activity-lottery-start.jpg"   onclick="document.getElementById('pic').src=this.value;" style="width:363px;"  />
 		<br />
 		填写活动开始图片网址
 	  </div>
@@ -80,8 +80,8 @@
   				<td><input type="input" class="px" id="endtite" value="<if condition="$vo['endtite'] eq ''">幸运大转盘活动已经结束了<else/>{lanrain:$vo.endtite}</if>" name="endtite" style="width:350px" />
   					<br />
   					请不要多于50字! </td>
-  				<td rowspan="4" valign="top"><div style="margin-left:20px"><img  id="end" src="<if condition="$vo['endpicurl'] eq 0">{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-lottery-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  width="373px"/> <br />
-  					<input class="px"  name="endpicurl" value="{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-lottery-end.jpg"  onchange="document.getElementById('end').src=this.value;"  style="width:363px;"  />
+  				<td rowspan="4" valign="top"><div style="margin-left:20px"><img  id="end" src="<if condition="$vo['endpicurl'] eq 0">./tpl/Wap/default/common/css/guajiang/images/activity-lottery-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  width="373px"/> <br />
+  					<input class="px"  name="endpicurl" value="./tpl/Wap/default/common/css/guajiang/images/activity-lottery-end.jpg"  onchange="document.getElementById('end').src=this.value;"  style="width:363px;"  />
   					<br />
   					填写活动结束图片网址 </div></td>
   				</tr>

@@ -2,20 +2,20 @@
         <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
           <div class="cLineB">
               <h4 class="left">幸运大转盘活动信息 ({lanrain:$count}) 条<span class="FAQ">你本月有 {lanrain:$group.activitynum} 次机会可免收活动创建费，已经使用了 {lanrain:$activitynum} 次机会!</span></h4>
-                  <div class="searchbar right">  <form method="get"  action="index.php"  >
+                  <!--div class="searchbar right">  <form method="get"  action="{lanrain::U('User/Lottery/index')}"  >
                   <input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索"  name="keyz" value="">
                   <input type="hidden" name="ac" value="activity-lottery-list"  />
                   <input type="hidden" name="id" value="9878"  />
                   <input type="hidden" name="wxid" value="gh_423dwjkewad"  />
                  
-                  <input type="submit" value="搜索" id="msgSearchBtn" href="" class="btnGrayS" title="搜索">
+                  <input type="submit" value="搜索" id="msgSearchBtn" class="btnGrayS" title="搜索">
                   </form>
-                  </div>
+                  </div-->
               <div class="clr"></div>
           </div>
           <div class="cLine">
             <div class="pageNavigator left">
-			<a href='/index.php?g=User&m=Lottery&a=add' title='新增幸运大转盘活动' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/img/activity-lottery.png" class="vm" />新增幸运大转盘活动</a>
+			<a href="{lanrain::U('User/Lottery/add')}" title='新增幸运大转盘活动' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/img/activity-lottery.png" class="vm" />新增幸运大转盘活动</a>
               
             </div>
           

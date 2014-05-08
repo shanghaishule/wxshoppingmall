@@ -12,14 +12,14 @@
   <th valign="top"><span class="red">*</span>关键词：</th>
   <td><input type="input" class="px" id="keyword" value="{lanrain:$vo.keyword}" name="keyword" style="width:400px"><br>
   	<span class="red">只能写一个关键词</span>，用户输入此关键词将会触发此活动。</td>
-  <td rowspan="7" valign="top"><div style="margin-left:20px"><img id="pic" src="{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg" width="373px">
+  <td rowspan="7" valign="top"><div style="margin-left:20px"><img id="pic" src="./tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg" width="373px">
 <br>
-<input class="px" name="starpicurl" value="<if condition="$vo['starpicul'] eq ''">{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg<else/>{picms:$vo.starpicurl}</if>" onclick="document.getElementById('pic').src=this.value;" style="width:363px;">
+<input class="px" name="starpicurl" value="<if condition="$vo['starpicul'] eq ''">./tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg<else/>{picms:$vo.starpicurl}</if>" onclick="document.getElementById('pic').src=this.value;" style="width:363px;">
 <br>
   	填写活动开始图片网址
-  </div><div style="margin-left:20px"><img id="zjpic" src="{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg" width="373px">
+  </div><div style="margin-left:20px"><img id="zjpic" src="./tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg" width="373px">
 <br>
-<input class="px" name="zjpic" value="<if condition="$vo['zjpic'] eq ''">{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg<else/>{picms:$vo.zjpic}</if>" onclick="document.getElementById('zjpic').src=this.value;" style="width:363px;">
+<input class="px" name="zjpic" value="<if condition="$vo['zjpic'] eq ''">./tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg<else/>{picms:$vo.zjpic}</if>" onclick="document.getElementById('zjpic').src=this.value;" style="width:363px;">
 <br>
   	填写中奖后显示的头部图片地址
      <br>
@@ -74,8 +74,8 @@
   				<td><input type="input" class="px" id="endtite" value="{lanrain:$vo.endtite}" name="endtite" style="width:400px">
   					<br>
   					请不要多于50字! </td>
-  				<td rowspan="4" valign="top"><div style="margin-left:20px"><img id="end" src="{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg" width="373px"> <br>
-  					<input class="px" name="endpicurl" onchange="document.getElementById('end').src=this.value;" value="<if condition="$vo['zjpic'] eq ''">{lanrain::C('site_url')}/tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg<else/>{picms:$vo.endpicurl}</if>" style="width:363px;">
+  				<td rowspan="4" valign="top"><div style="margin-left:20px"><img id="end" src="./tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg" width="373px"> <br>
+  					<input class="px" name="endpicurl" onchange="document.getElementById('end').src=this.value;" value="<if condition="$vo['zjpic'] eq ''">./tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg<else/>{picms:$vo.endpicurl}</if>" style="width:363px;">
   					<br>
   					填写活动结束图片网址 </div></td>
   				</tr>

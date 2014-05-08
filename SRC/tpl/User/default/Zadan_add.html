@@ -19,7 +19,7 @@
 	  <div style="margin-left:20px">
 		<img id="pic" src="<if condition="$vo['starpicurl'] eq ''">{lanrain::RES}/images/img/activity-zadan-start.jpg<else/>{lanrain:$vo.starpicurl}</if>" width="373px" >	
 		<br />
-		<input class="px"  name="starpicurl" value="<if condition="$vo['starpicurl'] eq ''">{lanrain::C('site_url')}/tpl/User/default/common/images/img/activity-zadan-start.jpg<else/>{lanrain:$vo.starpicurl}</if>"   onclick="document.getElementById('pic').src=this.value;" style="width:363px;"  />
+		<input class="px"  name="starpicurl" value="<if condition="$vo['starpicurl'] eq ''">./tpl/User/default/common/images/img/activity-zadan-start.jpg<else/>{lanrain:$vo.starpicurl}</if>"   onclick="document.getElementById('pic').src=this.value;" style="width:363px;"  />
 		<br /><input name="type" value="4" type="hidden"   />
 		填写活动开始图片网址
 	  </div>
@@ -76,8 +76,8 @@
   					<br />
   					请不要多于50字! </td>
   				<td rowspan="4" valign="top"><div style="margin-left:20px"><img  id="end" src="<if condition="$vo['endpicurl'] eq ''">
-				{lanrain::C('site_url')}/tpl/User/default/common/images/img/activity-zadan-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  width="373px"/> <br />
-  					<input class="px"  name="endpicurl" value="<if condition="$vo['endpicurl'] eq ''">{lanrain::C('site_url')}/tpl/User/default/common/images/img/activity-zadan-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  onchange="document.getElementById('end').src=this.value;"  style="width:363px;"  />
+				./tpl/User/default/common/images/img/activity-zadan-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  width="373px"/> <br />
+  					<input class="px"  name="endpicurl" value="<if condition="$vo['endpicurl'] eq ''">./tpl/User/default/common/images/img/activity-zadan-end.jpg<else/>{lanrain:$vo.endpicurl}</if>"  onchange="document.getElementById('end').src=this.value;"  style="width:363px;"  />
   					<br />
   					填写活动结束图片网址 </div></td>
   				</tr>
