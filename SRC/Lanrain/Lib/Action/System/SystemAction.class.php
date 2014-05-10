@@ -46,6 +46,7 @@ class SystemAction extends BackAction{
 			$roleid["level"] = array(array('neq',0),array('neq',1), 'and');
 			$access = M('access')->where($roleid)->select();
 			$where['title'] = array(array('neq',"首页"));
+			$where['display'] = array('neq',0);
 			$nav=M('node')->where($where)->select();
 			foreach ($nav as $menuNav){
 				foreach ($access as $acessnav){

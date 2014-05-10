@@ -70,6 +70,10 @@ class IndexAction extends UserAction{
 						)
 				);
 				
+				
+				$info_notice = M('info_notice')->where(array('status'=>1))->select();
+				$this->assign('info_notice', $info_notice);
+				
 				$this->display();
 			}
 		}

@@ -91,7 +91,7 @@ $(function () {
 <body>
 <div style="border:2px solid #ddd; background:#fff; border-radius:10px; padding:10px; overflow:hidden; margin-bottom:10px;">
 	<form id="info_form" class="form" method="post" action="{lanrain::U('System/main')}">
-		<span style="margin-right:50px">已入驻店铺：{lanrain:$shop_cnt} 家</span>
+		<span style="margin-right:50px; color:red;">已入驻店铺：{lanrain:$shop_cnt} 家</span>
 		日期：<input type="text" style="width:150px" <if condition="$searcharr['start_time'] neq ''">value="{lanrain:$searcharr['start_time']}"</if> name="start_time" onClick="WdatePicker()" />                
 		到
 		<input type="text" style="width:150px" <if condition="$searcharr['end_time'] neq ''">value="{lanrain:$searcharr['end_time']}"</if> name="end_time" onClick="WdatePicker()"  /> 
