@@ -1,0 +1,38 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<!-- loading插件 -->
+<script src="{lanrain::STATICS}/jQuery/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="{lanrain::STATICS}/showLoading/css/showLoading.css" />
+<script src="{lanrain::STATICS}/showLoading/js/jquery.showLoading.min.js"></script>
+
+
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+	<div class="cLineB"><h4>同步天猫</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+	<div class="msgWrap">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_import/data_excel')}">
+	<input type="hidden" name="id" value="{lanrain:$info.id}" />
+	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+	<TBODY>
+		<tr>
+			<th>天猫店铺网址域名:</th>
+			<td><input type="text" required="" class="px" name="url" value="" style="width:500px">
+			<br/>
+			<span>例如：http://girdear.tmall.com</span>
+			</td>
+		</tr>
+		<TR>
+			<TH></TH>
+			<TD><button type="submit"  name="button"  class="btnGreen left" onclick="javascript:jQuery('body').showLoading();">开始</button>
+	  		<div class="clr"></div>
+	  		</TD>
+		</TR>
+	</TBODY>
+	</TABLE>
+	</form>
+	</div> 
+</div>
+<include file="Public:footer"/>
