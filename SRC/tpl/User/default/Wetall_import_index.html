@@ -1,0 +1,48 @@
+<include file="Public:head"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+<div class="cLineC" style="line-height: 32px;">
+	<a href="{lanrain::U('Wetall_import/data_excel')}" class="btnGrayS vm bigbtn" >同步天猫商品</a>
+	<a href="{lanrain::U('Wetall_import/data_update')}" class="btnGrayS vm bigbtn" >查看数据更新</a>
+	<if condition="$im_message['text'] neq ''">{Lanrain:$im_message.text}<a href="{lanrain::U('Wetall_import/deletemessage')}"><img height="15" width="15" src="./tpl/User/default/common/images/icons/delete.png" /></a></if>
+</div>
+<div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
+<th>商品图片</th>
+<th>商品名称</th>
+<th>商品价格</th>
+<th>同步时间</th>
+<th>商品描述</th>
+<th>商品颜色</th>
+<th style=" width:50px;" class="norightborder">操作</th>
+</tr>
+</thead>
+<volist name="list" id="val">
+<tr>
+<td align="center"><div class="cateimg"><img src="{lanrain:$val.img}" class="cateimg_small"  /><img src="{lanrain:$val.img}" class="cateimg_big"  /></div></td>
+<td align="center">{Lanrain:$val.title}</td>
+<td align="center">{lanrain:$val.price}</td>
+<td align="center">{lanrain:$val.add_time|date='Y-m-d H:i:s',###}</td>
+<!-- td align="center">{Lanrain:$val.info}</td -->
+<td align="center">……</td>
+<td align="center">{Lanrain:$val.color}</td>
+
+<td align="center" >
+	<a href="{lanrain::U('Wetall_import/edit',array('id'=>$val['id']))}">编辑</a>
+	<a href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Wetall_import/del',array('id'=>$val['id']))}');">删除</a>
+</td>
+</tr>
+</volist>
+</table>
+</div>
+</div>
+<div class="footactions" style="padding-left:10px">
+	<div class="pages">{lanrain:$page}</div>
+</div>
+</div>
+</div>
+
+<include file="Public:footer"/>
