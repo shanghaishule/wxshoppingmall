@@ -3,7 +3,8 @@
 *{margin:0px; padding:0px;}
 body{ background:#fff; font:12px "微软雅黑",Arial, Helvetica, sans-serif; color:#333; overflow-x:hidden;}
 img{border:0px;}
-ul{list-style:none;}
+ul{list-style:none;position: relative;
+/*left: 30%;*/}
 a{text-decoration:none; cursor:pointer;}
 .fl{float:left;}
 .fr{float:right;}
@@ -18,7 +19,8 @@ a{text-decoration:none; cursor:pointer;}
 .ty_box .ty_tit{ width:100%; overflow:hidden;}
 .ty_box .ty_tit h2{font-size:36px; color:#f39800 ;text-align:center;}
 .ty_box .ty_tit h2 span{color:#00aeed;}
-.ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;}
+./*ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;}*/
+ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .ty_box .ty_cont .cont_left{float:left;}
 .ty_box .ty_cont .cont_right{float:right;}
 
@@ -34,9 +36,9 @@ a{text-decoration:none; cursor:pointer;}
 .shorcutbox .s_right .tel{display:inline-block; *display:inline; *zoom:1; height:15px; line-height:15px;  background:url(../images/wzc_icon_tel.png) left center no-repeat; padding-left:20px; margin-left:15px;}
 .navbox{height:60px; line-height:60px; padding:10px 0; border-bottom:3px solid #e5e5e5;}
 .navbox .logo{float:left; width:300px; height:58px;}
-.navbox .nav{float:right;}
-.navbox .nav ul li{float:left; margin-right:10px; position:relative;}
-.navbox .nav ul li a{  font-size:16px; color:#000; padding:5px 20px; }
+.navbox .nav{float:left;}
+.navbox .nav ul li{float:left; margin-right:30px; position:relative;}
+.navbox .nav ul li a{ font-family: 微软雅黑, Arial, Helvetica, sans-serif; font-size: 18px; padding:5px 20px; }
 .navbox .nav ul li a:hover,.navbox .nav ul li a.select{color:#fff;background:#00aeed; box-shadow:3px 3px 0px #999; -webkit-box-shadow:3px 3px 0px #999; -moz-box-shadow:3px 3px 0px #999;}
 .navbox .nav ul li ul{position:absolute; top:50px; left:0px;border:1px solid #eee; display:none; }
 .navbox .nav ul li:Hover ul{display:block;}
@@ -46,12 +48,12 @@ a{text-decoration:none; cursor:pointer;}
 #barner{height:425px; width:100%; background:#00aeed;}
 #barner .resize{position:relative; height:425px;}
 .barImg{position:absolute; top:0px; left:0px; height:425px; width:1200px;}
-.barImg .b_cont ul li{ position:absolute; top:20px; left:20px; display:none;}
+.barImg .b_cont ul li{ position:absolute; top:20px; left:10px; display:none; }
 .barImg .b_cont{width:1200px; height:425px; position:absolute; top:0px; left:0px;}
 .barImg .b_btn{position:absolute; left:0px; bottom:30px;}
 .barImg .b_btn ul li{width:24px; height:24px; background:#00aeed; border:1px solid #fff; cursor:pointer; float:left; margin-right:10px;}
 .loginbox{position:absolute; top:40px; right:0px; width:326px; height:356px; background:url(../images/login_bg.png) center center no-repeat;}
-.loginbox .l_cont{background:#fff; width:250px; height:274px; padding:25px; border:1px solid #ccc; margin:12px 0 0 12px; position:relative;}
+.loginbox .l_cont{background:#fff; right: 190px; width:250px; height:274px; padding:25px; border:1px solid #ccc; margin:12px 0 0 12px; position:relative;}
 .loginbox .l_cont .lbox{position:absolute; top:20px; left:20px; width:254px; height:287px;}
 .loginbox .l_cont .box2 h3{text-align:center; font-size:20px; color:#00a8ed;}
 .loginbox .l_cont .box2 h4{ font-size:16px; color:#fd9726; font-weight:normal; margin-top:10px;}
@@ -166,28 +168,28 @@ a{text-decoration:none; cursor:pointer;}
 .barner_zs{background:url(../images/wzc_jmImg_03.jpg) left top  repeat-x; width:100%; height:425px; position:relative;}
 .barner_zs .zs_barnerCenter{ position:absolute; width:1600px; height:425px; left:50%; top:50%; margin-left:-800px; margin-top:-212px;}
 .zsBox{width:100%; overflow:hidden; padding-top:30px;}
-.zsBox .ty_tit{text-align:center;}
+.zsBox .ty_tit{text-align:center; margin-right:200px}
 .zsBox .ty_tit h2{font-size:47px; color:#ff6700; font-weight:bold;}
 .zsBox .ty_tit h2 span{ color:#23aeed;}
 .zsBox .ty_cont{padding-top:20px; width:100%; overflow:hidden;}
 .zsBox .ty_cont .c_left{float:left;}
-.zsBox .ty_cont .c_right{float:right;}
+.zsBox .ty_cont .c_right{float:left;}
 .zsBox1{width:1200px; }
 .zsBox1 .zs_top{height:7px; width:1200px; background:url(../images/wzc_jmImg_47.png) repeat-x;}
 .zsBox1 .zs_cen{background:#1079f0; width:1142px; padding:30px 29px;}
-.zsBox1 .zs_cen p{padding-top:10px; line-height:30px; color:#fff; font-size:16px;}
+.zsBox1 .zs_cen p{padding-top:10px; line-height:30px; color:#fff; width:950px; font-size:16px;}
 .zsBox1 .zs_bot{background:url(../images/wzc_jmImg_48.png) repeat-x; height:7px; width:1200px;}
 .zsBox2 .statistics{width:420px; height:370px; position:relative; border:none;}
 .zsBox2 .statistics img{position:absolute; left:0px ;bottom:0px; height:0px;}
 .zsBox2 .zs_left{width:470px; padding:0 30px; background:url(../images/wzc_jmImg_12.jpg) right center no-repeat; float:left;}
-.zsBox2 .zs_right{width:550px; float:right;}
+.zsBox2 .zs_right{width:550px; float:left;}
 .zsBox2 .zs_right dl{padding-top:30px;}
 .zsBox2 .zs_right dl dt{font-size:36px; color:#23aeed; font-weight:bold;}
 .zsBox2 .zs_right dl dt span{color:#ff6700;}
 .zsBox2 .zs_right dl dd{padding-top:20px;}
 .zsBox2 .zs_right dl dd p{font-size:18px; line-height:36px; color:#333;}
-.zsBox3 dl{float:left;  text-align:center; height:330px; margin-right:45px; width:370px;} 
-.zsBox3 dl dt{ display:block; text-align:center; line-height:230px; color:#fff; font-size:48px; font-weight:bold; width:370px; height:230px;}
+.zsBox3 dl{float:left;  text-align:center; height:330px; margin-right:2px; width:28%;} 
+.zsBox3 dl dt{ display:block; text-align:center; line-height:230px; color:#fff; font-size:48px; font-weight:bold;height:230px;}
 .zsBox3 dl dd{padding-top:15px; font-size:14px;}
 .zsBox3 dl.green dt{background:#1bbc9b;}
 .zsBox3 dl.orange dt{background:#f39c11;}
@@ -223,6 +225,7 @@ a{text-decoration:none; cursor:pointer;}
 .zsBox5 .ty_cont .c_right ul .money11{left:150px; top:90px;}
 .zsBox5 .ty_cont .c_right ul .money12{left:250px; top:300px;}
 .zsBox6 .ty_cont{text-align:center;} 
+.zsBox6 .ty_cont img{margin-right:200px} 
 .zsBox7 .ty_cont{text-align:center;}
 .zsBox8 .ty_cont .tree{width:1200px; height:440px; margin:0 auto; background:url(../images/wzc_jmImg_17.jpg) center top no-repeat; }
 .zsBox8 .ty_cont .tree dl{padding-bottom:10px;}
@@ -247,7 +250,7 @@ a{text-decoration:none; cursor:pointer;}
 .zsBox9 .ty_cont .condiction .c_right dl{position:absolute; top:160px; left:155px; width:130px; height:130px;}
 .zsBox9 .ty_cont .condiction .c_right dl dt{font-size:36px; font-weight:bold; color:#fff; text-align:center; border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:10px;}
 .zsBox9 .ty_cont .condiction .c_right dl dd{color:#fff; font-size:14px;}
-.zsBox10 {width:1200px; height:446px; background:url(../images/wzc_jmImg_38.jpg) center center no-repeat;}
+.zsBox10 {width:1000px; height:446px; background:url(../images/wzc_jmImg_38.jpg) center center no-repeat;}
 .zsBox10 .ty_tit{padding-top:70px;}
 .zsBox10 .ty_cont{padding-top:76px;}
 .zsBox10 .ty_cont ul{margin-left:52px;}
@@ -282,7 +285,7 @@ a{text-decoration:none; cursor:pointer;}
 
 /*---------联系我们--------------*/
 .barner_contact{width:1600px; height:425px; margin:0 auto; position:relative;}
-.barner_contact img{position:absolute; top:0px; left:50%; margin-left:-800px;}
+.barner_contact img{position:absolute; top:0px; left:520px; margin-left:-800px;}
 .contact{margin-top:20px;}
 .contact .c_tit{padding-bottom:10px; border-bottom:1px dashed #ccc;}
 .contact .c_tit h2{ font-size:30px; font-weight:normal;}

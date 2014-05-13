@@ -1,5 +1,76 @@
-<include file="Public:header"/>
-    
+<include file="Public_header"/>
+<include Public_header/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		淘天天，致力于做最专业的微信电商开发运营服务商!
+	</title>
+	<link rel="stylesheet" type="text/css" href="./Common/ruiec/css/style.css" />
+	<script type="text/javascript" src="./Common/ruiec/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./Common/ruiec/js/myself.js"></script>
+	<meta name="Keywords" content="微信营销|淘天天|微信公众平台" />
+	<meta name="Description" content="淘天天，致力于做最专业的微信电商开发运营服务商!" />
+	<script type="text/javascript" src="./Common/ruiec/js/131212/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+</head>
+<body>
+	
+	<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNjY4NjQ0NTdkZA==" />
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p>
+						您好， 欢迎您!&nbsp;<a href="{lanrain::U('Index/login')}">登录</a>
+						<!-- &nbsp; | &nbsp;<a href="{lanrain::U('Index/register')}">注册</a>  -->
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="{lanrain::U('User/Index/index')}">管理中心</a><span class="tel">0571-87901075</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">
+                <!--logo-->
+                <div class="logo">
+                    <a href="javascript:void(0)"><img src="./Common/ruiec/images/logo.png" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                   <!--  <ul>
+                        <li><a href="{lanrain::U('Index_index')}" <php>if(ACTION_NAME == 'index') echo 'class="select"'</php> >首页</a></li>
+                        <li><a href="{lanrain::U('Index/about')}" <php>if(ACTION_NAME == 'about') echo 'class="select"'</php> >走进淘天天</a> </li>
+                        <li><a href="{lanrain::U('Index/product')}" <php>if(ACTION_NAME == 'product') echo 'class="select"'</php> >产品特色</a> </li>
+                        <li><a href="{lanrain::U('Index/canvass')}" <php>if(ACTION_NAME == 'canvass') echo 'class="select"'</php> >渠道代理</a></li>
+                        <li><a href="{lanrain::U('Index/contact')}" <php>if(ACTION_NAME == 'contact') echo 'class="select"'</php> >联系我们</a></li>
+                    </ul>--> 
+                    <ul>
+                    	<li><a href="Index_index.html">首页</a></li>
+                    	<li><a href="Index_about.html">走进淘天天</a></li>
+                    	<li><a href="Index_product.html">产品特色</a></li>
+                    	<li><a href="Index_canvass.html">渠道代理</a></li>
+                    	<li><a href="Index_contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+     <!--导航块-->
+       
     <!--幻灯片加载-->
     <div id="barner">
         <div class="resize">
@@ -7,9 +78,9 @@
             <div class="barImg">
                 <div class="b_cont">
                     <ul>
-                        <li btncolor="#00aeed"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img1.png" width="735" height="353" /></li>
-                        <li btncolor="#7dbe00"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img2.png" width="735" height="353" /></li>
-                        <li btncolor="#ff9f26"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img3.png" width="735" height="353" /></li>
+                        <li btncolor="#00aeed"><img src="./Common/ruiec/images/wzc_barner_img1.png" width="735" height="353" /></li>
+                        <li btncolor="#7dbe00"><img src="./Common/ruiec/images/wzc_barner_img2.png" width="735" height="353" /></li>
+                        <li btncolor="#ff9f26"><img src="./Common/ruiec/images/wzc_barner_img3.png" width="735" height="353" /></li>
                     </ul>
                 </div>
                 <div class="b_btn">
@@ -23,7 +94,7 @@
                 <div class="l_cont">
                     <ul>
                         <li>
-                            <h3><span style="float: right; font-size: 14px; color: Red;" id="errtitle"></span>登录微信商城</h3>
+                            <h3><span style="float: right; font-size: 14px; color: Red;" id="errtitle"></span>登录淘天天</h3>
                         </li>
                         <li class="textbox">
                             <input class="l_text" type="text" name='username' id='tbxName' tabindex="1" placeholder="用户名" />
@@ -66,18 +137,18 @@
                     </div>
                     <div class="cont_right">
                         <div class="loseAni">
-                            <img class="Ani_hand" src="{lanrain::RES}/ruiec/images/wzc_hand.jpg" width="450" height="379" />
-                            <img class="Ani_icon1" src="{lanrain::RES}/ruiec/images/wzc_icon_1.png" width="12" height="13" />
-                            <img class="Ani_icon2" src="{lanrain::RES}/ruiec/images/wzc_icon_2.png" width="14" height="14" />
-                            <img class="Ani_icon3" src="{lanrain::RES}/ruiec/images/wzc_icon_3.png" width="27" height="28" />
-                            <img class="Ani_icon4" src="{lanrain::RES}/ruiec/images/wzc_icon_4.png" width="33" height="33" />
-                            <img class="Ani_icon5" src="{lanrain::RES}/ruiec/images/wzc_icon_5.jpg" width="38" height="40" />
-                            <img class="Ani_icon6" src="{lanrain::RES}/ruiec/images/wzc_icon_6.jpg" width="47" height="49" />
-                            <img class="Ani_icon7" src="{lanrain::RES}/ruiec/images/wzc_icon_7.jpg" width="52" height="55" />
-                            <img class="Ani_icon8" src="{lanrain::RES}/ruiec/images/wzc_icon_8.jpg" width="50" height="55" />
-                            <img class="Ani_icon9" src="{lanrain::RES}/ruiec/images/wzc_icon_9.jpg" width="75" height="80" />
-                            <img class="Ani_icon10" src="{lanrain::RES}/ruiec/images/wzc_icon_10.jpg" width="78" height="81" />
-                            <img class="Ani_icon11" src="{lanrain::RES}/ruiec/images/wzc_icon_11.jpg" width="100" height="106" />
+                            <img class="Ani_hand" src="./Common/ruiec/images/wzc_hand.jpg" width="450" height="379" />
+                            <img class="Ani_icon1" src="./Common/ruiec/images/wzc_icon_1.png" width="12" height="13" />
+                            <img class="Ani_icon2" src="./Common/ruiec/images/wzc_icon_2.png" width="14" height="14" />
+                            <img class="Ani_icon3" src="./Common/ruiec/images/wzc_icon_3.png" width="27" height="28" />
+                            <img class="Ani_icon4" src="./Common/ruiec/images/wzc_icon_4.png" width="33" height="33" />
+                            <img class="Ani_icon5" src="./Common/ruiec/images/wzc_icon_5.jpg" width="38" height="40" />
+                            <img class="Ani_icon6" src="./Common/ruiec/images/wzc_icon_6.jpg" width="47" height="49" />
+                            <img class="Ani_icon7" src="./Common/ruiec/images/wzc_icon_7.jpg" width="52" height="55" />
+                            <img class="Ani_icon8" src="./Common/ruiec/images/wzc_icon_8.jpg" width="50" height="55" />
+                            <img class="Ani_icon9" src="./Common/ruiec/images/wzc_icon_9.jpg" width="75" height="80" />
+                            <img class="Ani_icon10" src="./Common/ruiec/images/wzc_icon_10.jpg" width="78" height="81" />
+                            <img class="Ani_icon11" src="./Common/ruiec/images/wzc_icon_11.jpg" width="100" height="106" />
                         </div>
                     </div>
                 </div>
@@ -90,8 +161,8 @@
                 <div class="ty_cont">
                     <div class="cont_left">
                         <div class="gifbox">
-                            <img src="{lanrain::RES}/ruiec/images/pm.gif" width="350" height="194" />
-                            <img class="phone" src="{lanrain::RES}/ruiec/images/wzc_phone.png" width="130" height="181" />
+                            <img src="./Common/ruiec/images/pm.gif" width="350" height="194" />
+                            <img class="phone" src="./Common/ruiec/images/wzc_phone.png" width="130" height="181" />
                         </div>
                     </div>
                     <div class="cont_right">
@@ -121,7 +192,7 @@
                 <div class="ty_cont">
                     <ul>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>微官网系统</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>微官网系统</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -129,7 +200,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img2.png" width="88" height="56" /><p>微商城系统</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img2.png" width="88" height="56" /><p>微商城系统</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -137,7 +208,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>淘宝天猫一键导入</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>淘宝天猫一键导入</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -145,7 +216,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img4.png" width="60" height="60" /><p>微游戏系统</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img4.png" width="60" height="60" /><p>微游戏系统</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -153,7 +224,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img5.png" width="88" height="62" /><p>微信会员卡</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img5.png" width="88" height="62" /><p>微信会员卡</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -161,7 +232,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img6.png" width="68" height="63" /><p>自定义菜单</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img6.png" width="68" height="63" /><p>自定义菜单</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -169,7 +240,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>微信CRM</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>微信CRM</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -177,7 +248,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img8.png" width="62" height="53" /><p>LBS回复</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img8.png" width="62" height="53" /><p>LBS回复</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -185,7 +256,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img9.png" width="60" height="60" /><p>数据魔方</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img9.png" width="60" height="60" /><p>数据魔方</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -193,7 +264,7 @@
                             </dl>
                         </li>
                         <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>灵活付款</p>
+                            <img src="./Common/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>灵活付款</p>
                         </a>
                             <dl>
                                 <dt></dt>
@@ -218,7 +289,7 @@
                         </dl>
                     </div>
                     <div class="cont_right">
-                        <img src="{lanrain::RES}/ruiec/images/wzc_img_48.jpg" width="532" height="323" />
+                        <img src="./Common/ruiec/images/wzc_img_48.jpg" width="532" height="323" />
                     </div>
                 </div>
             </div>
@@ -226,7 +297,7 @@
             <div class="ty_box box_public">
                 <div class="ty_cont">
                     <div class="cont_left">
-                        <iframe src="{lanrain::RES}/ruiec/3dShow/demo.html" width="660" height="420" frameborder="0"></iframe>
+                        <iframe src="./Common/ruiec/3dShow/demo.html" width="660" height="420" frameborder="0"></iframe>
                     </div>
                     <div class="cont_right">
                         <dl>
@@ -246,41 +317,41 @@
             <!--7大保障-->
             <div class="ty_box box_ensure">
                 <div class="ty_tit">
-                    <h2>微信商城智能服务平台的<span>7大保障</span></h2>
+                    <h2>淘天天智能服务平台的<span>7大保障</span></h2>
                 </div>
                 <div class="ty_cont">
                     <div class="bzbox">
                         <ul>
                             <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1_change.png" />
+                                <img class="img1" src="./Common/ruiec/images/wzc_fun_fun1.png" />
+                                <img class="img2" src="./Common/ruiec/images/wzc_fun_fun1_change.png" />
                             </li>
                             <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2_change.png" />
+                                <img class="img1" src="./Common/ruiec/images/wzc_fun_fun2.png" />
+                                <img class="img2" src="./Common/ruiec/images/wzc_fun_fun2_change.png" />
                             </li>
                             <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3_change.png" />
+                                <img class="img1" src="./Common/ruiec/images/wzc_fun_fun3.png" />
+                                <img class="img2" src="./Common/ruiec/images/wzc_fun_fun3_change.png" />
                             </li>
                             <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4_change.png" />
+                                <img class="img1" src="./Common/ruiec/images/wzc_fun_fun4.png" />
+                                <img class="img2" src="./Common/ruiec/images/wzc_fun_fun4_change.png" />
                             </li>
                         </ul>
-                        <img class="bg" src="{lanrain::RES}/ruiec/images/wzc_img_55.jpg" width="831" height="279" />
+                        <img class="bg" src="./Common/ruiec/images/wzc_img_55.jpg" width="831" height="279" />
                     </div>
                 </div>
             </div>
             <!--他们都在使用-->
             <div class="ty_box box_brand">
                 <div class="ty_tit">
-                    <h2>他们都在使用<span>微信商城智能服务平台</span></h2>
+                    <h2>他们都在使用<span>淘天天智能服务平台</span></h2>
                 </div>
                 <div class="ty_cont">
                     <dl>
                         <dt>
-							<a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_62.jpg" width="784" height="302" /></a>
+							<a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_62.jpg" width="784" height="302" /></a>
 						</dt>
                         <dd>
                             <p></p>
@@ -291,28 +362,28 @@
             <!--成功案例-->
             <div class="ty_box box_case">
                 <div class="ty_tit">
-                    <h2>微信商城的<span>成功案例</span></h2>
+                    <h2>淘天天的<span>成功案例</span></h2>
                 </div>
                 <div class="ty_cont">
                     <div class="scollImg">
                         <div class="scroll-left">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_left.jpg" width="27" height="37" />
+                            <img src="./Common/ruiec/images/wzc_icon_left.jpg" width="27" height="37" />
                         </div>
                         <div class="scroll-center">
                             <ul>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_72.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_73.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_74.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_75.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_76.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_77.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_81.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_79.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_80.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_72.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_73.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_74.jpg" width="182" height="278" /></a></li>
+                                <li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_75.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_76.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_77.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_81.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_79.jpg" width="182" height="278" /></a></li>
+								<li><a href="javascript:void(0)"><img src="./Common/ruiec/images/wzc_img_80.jpg" width="182" height="278" /></a></li>
                             </ul>
                         </div>
                         <div class="scroll-right">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_right.jpg" width="27" height="37" />
+                            <img src="./Common/ruiec/images/wzc_icon_right.jpg" width="27" height="37" />
                         </div>
                     </div>
                 </div>
@@ -321,6 +392,28 @@
     </div>
 
 <include file="Public:footer"/>
-
+    <!--footer底部-->
+    <div id="footer">
+        <div class="resize">
+            <div class="f_left">
+                <a href="javascript:void(0)"><img src="./Common/ruiec/images/register_logo.png" width="240" height="70" /></a>
+            </div>
+            <div class="f_center">
+                <p>
+                    <a class="first" href="{lanrain::U('Index/about')}">走进淘天天</a>| <a href="{lanrain::U('Index/product')}">产品特色</a>| <a href="{lanrain::U('Index/canvass')}">渠道代理</a>| <a href="{lanrain::U('Index/contact')}">联系我们</a>
+                </p>
+                <p>
+                    淘天天 致力于做最专业的微信电商开发运营服务商!<br />
+                    淘天天 多用户微信营销系统(c)版权所有
+				</p>
+            </div>
+            <div class="f_right">
+                <dl>
+                    <dt><img src="./Common/ruiec/images/wzc_2wm.jpg" width="110" height="110" /></dt>
+                    <dd>扫二维码关注我们</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

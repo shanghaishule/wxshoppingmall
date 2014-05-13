@@ -1,11 +1,79 @@
-<include file="Public:header"/>
-    <link href="{lanrain::RES}/ruiec/css/131212/web.css" rel="stylesheet" type="text/css" />
-    <link href="{lanrain::RES}/ruiec/js/chosen/chosen.css" rel="stylesheet" type="text/css" />
-    <script src="{lanrain::RES}/ruiec/js/common/jquery.validator.js" type="text/javascript"></script>
-    <script src="{lanrain::RES}/ruiec/js/common/formValidatorRegex.js" type="text/javascript"></script>
-    <script src="{lanrain::RES}/ruiec/js/chosen/chosen.jquery.js" type="text/javascript"></script>
-    <script src="{lanrain::RES}/ruiec/js/common/area.js" type="text/javascript"></script>
-    <link href="{lanrain::RES}/ruiec/css/validate_gray.css" rel="stylesheet" type="text/css" />
+﻿<include file="Public:header"/>
+<include file="Public_header"/>
+<include Public_header/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		淘天天，致力于做最专业的微信电商开发运营服务商!
+	</title>
+	<link rel="stylesheet" type="text/css" href="./Common/ruiec/css/style.css" />
+	<script type="text/javascript" src="./Common/ruiec/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./Common/ruiec/js/myself.js"></script>
+	<meta name="Keywords" content="微信营销|淘天天|微信公众平台" />
+	<meta name="Description" content="淘天天，致力于做最专业的微信电商开发运营服务商!" />
+	<script type="text/javascript" src="./Common/ruiec/js/131212/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+</head>
+<body>
+	
+	<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNjY4NjQ0NTdkZA==" />
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p>
+						您好， 欢迎您!&nbsp;<a href="{lanrain::U('Index/login')}">登录</a>
+						<!-- &nbsp; | &nbsp;<a href="{lanrain::U('Index/register')}">注册</a>  -->
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="{lanrain::U('User/Index/index')}">管理中心</a><span class="tel">0571-87901075</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">
+                <!--logo-->
+                <div class="logo">
+                    <a href="javascript:void(0)"><img src="./Common/ruiec/images/logo.png" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                   <!--  <ul>
+                        <li><a href="{lanrain::U('Index_index')}" <php>if(ACTION_NAME == 'index') echo 'class="select"'</php> >首页</a></li>
+                        <li><a href="{lanrain::U('Index/about')}" <php>if(ACTION_NAME == 'about') echo 'class="select"'</php> >走进淘天天</a> </li>
+                        <li><a href="{lanrain::U('Index/product')}" <php>if(ACTION_NAME == 'product') echo 'class="select"'</php> >产品特色</a> </li>
+                        <li><a href="{lanrain::U('Index/canvass')}" <php>if(ACTION_NAME == 'canvass') echo 'class="select"'</php> >渠道代理</a></li>
+                        <li><a href="{lanrain::U('Index/contact')}" <php>if(ACTION_NAME == 'contact') echo 'class="select"'</php> >联系我们</a></li>
+                    </ul>--> 
+                    <ul>
+                    	<li><a href="Index_index.html">首页</a></li>
+                    	<li><a href="Index_about.html">走进淘天天</a></li>
+                    	<li><a href="Index_product.html">产品特色</a></li>
+                    	<li><a href="Index_canvass.html">渠道代理</a></li>
+                    	<li><a href="Index_contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link href="./Common/ruiec/css/131212/web.css" rel="stylesheet" type="text/css" />
+    <link href="./Common/ruiec/js/chosen/chosen.css" rel="stylesheet" type="text/css" />
+    <script src="./Common/ruiec/js/common/jquery.validator.js" type="text/javascript"></script>
+    <script src="./Common/ruiec/js/common/formValidatorRegex.js" type="text/javascript"></script>
+    <script src="./Common/ruiec/js/chosen/chosen.jquery.js" type="text/javascript"></script>
+    <script src="./Common/ruiec/js/common/area.js" type="text/javascript"></script>
+    <link href="./Common/ruiec/css/validate_gray.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         function NavHeight(id) {
             var obj = $("#" + id);
@@ -34,19 +102,19 @@
 		<div class="imgcloud">
 			<ul>
 				<li>
-					<img height="425" src="{lanrain::RES}/ruiec/images/wzc_zs_cloud.png" width="1600" /></li>
+					<img height="425" src="./Common/ruiec/images/wzc_zs_cloud.png" width="1600" /></li>
 			</ul>
 		</div>
-		<img class="zs_barnerCenter" height="425" src="{lanrain::RES}/ruiec/images/wzc_zs_text.png" width="1600" /></div>
+		<img class="zs_barnerCenter" height="425" src="./Common/ruiec/images/wzc_zs_text.png" width="1600" /></div>
 </div>
 <!--container首页内容--><div id="container">
 	<div class="resize">
-<!--招商内容块1(微信商城改变...)-->		<div class="zsBox zsBox1">
+<!--招商内容块1(淘天天改变...)-->		<div class="zsBox zsBox1">
 			<div class="zs_top">
 				&nbsp;</div>
 			<div class="zs_cen">
 				<p>
-				如果您对无线互联网的未来充满了无限的畅想，如果您相信未来移动互联会成为我们的一种生活方式，如果您想通过帮助传统企业主去创造价值让他们跟随这移动互联网的大潮前进，如果你也爱于创想，勇于创新，那么请您跟随我们一起，去创造一个属于我们的最专业的移动互联微电商的未来。加盟热线：0571-87901075
+				如果您对无线互联网的未来充满了无限的畅想，如果您相信未来移动互联会成为我们的一种生活方式，如果您想通过帮助传统企业主去创造价值让他们跟随这移动互联网的大潮前进，如果你也爱于创想，勇于创新，那么请您跟随我们一起，去创造一个属于我们的最专业的移动互联微电商的未来。加盟热线：021-58649823
 				</p>
 			</div>
 			<div class="zs_bot">
@@ -56,7 +124,7 @@
 <div class="zsBox zsBox2">
 			<div class="zs_left">
 				<div class="statistics">
-					<img src="{lanrain::RES}/ruiec/images/wzc_tj_k6.png" width="420" /> <img src="{lanrain::RES}/ruiec/images/wzc_tj_k5.png" width="420" /> <img src="{lanrain::RES}/ruiec/images/wzc_tj_k4.png" width="420" /> <img src="{lanrain::RES}/ruiec/images/wzc_tj_k3.png" width="420" /> <img src="{lanrain::RES}/ruiec/images/wzc_tj_k2.png" width="420" /> <img src="{lanrain::RES}/ruiec/images/wzc_tj_k1.png" width="420" /> <img height="370" src="{lanrain::RES}/ruiec/images/wzc_tj_k7.png" /></div>
+					<img src="./Common/ruiec/images/wzc_tj_k6.png" width="420" /> <img src="./Common/ruiec/images/wzc_tj_k5.png" width="420" /> <img src="./Common/ruiec/images/wzc_tj_k4.png" width="420" /> <img src="./Common/ruiec/images/wzc_tj_k3.png" width="420" /> <img src="./Common/ruiec/images/wzc_tj_k2.png" width="420" /> <img src="./Common/ruiec/images/wzc_tj_k1.png" width="420" /> <img height="370" src="./Common/ruiec/images/wzc_tj_k7.png" /></div>
 			</div>
 			<div class="zs_right">
 				<dl>
@@ -73,7 +141,7 @@
 					</dd>
 				</dl>
 			</div>
-		</div>
+	  </div>
 <!--招商内容块3(6亿人..）-->		<div class="zsBox zsBox3">
 			<dl class="green">
 				<dt>
@@ -101,7 +169,7 @@
 			</div>
 			<div class="ty_cont">
 				<div class="c_left">
-					<img height="664" src="{lanrain::RES}/ruiec/images/wzc_jmImg_16.jpg" width="514" /></div>
+					<img height="664" src="./Common/ruiec/images/wzc_jmImg_16.jpg" width="514" /></div>
 				<div class="c_right">
 					<dl>
 						<dt>
@@ -121,35 +189,35 @@
 <!--招商模块6（七大功能模式)-->		<div class="zsBox zsBox6">
 			<div class="ty_tit">
 				<h2>
-					微信商城移动互联网营销的<span>七大功能模式</span></h2>
+					淘天天移动互联网营销的<span>七大功能模式</span></h2>
 			</div>
 			<div class="ty_cont">
-				<img height="399" src="{lanrain::RES}/ruiec/images/wzc_jmImg_28.jpg" width="994" /></div>
+				<img height="399" src="./Common/ruiec/images/wzc_jmImg_28.jpg" width="994" /></div>
 		</div>
 <!--招商模块7（七大保障）-->		<div class="zsBox zsBox7">
 			<div class="ty_tit">
 				<h2>
-					微信商城智能服务平台的<span>七大保障</span></h2>
+					淘天天智能服务平台的<span>七大保障</span></h2>
 			</div>
 			<div class="ty_cont">
 				<div class="bzbox">
 					<ul>
 						<li class="box">
-							<img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1.png" /> <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1_change.png" /></li>
+							<img class="img1" src="./Common/ruiec/images/wzc_fun_fun1.png" /> <img class="img2" src="./Common/ruiec/images/wzc_fun_fun1_change.png" /></li>
 						<li class="box">
-							<img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2.png" /> <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2_change.png" /></li>
+							<img class="img1" src="./Common/ruiec/images/wzc_fun_fun2.png" /> <img class="img2" src="./Common/ruiec/images/wzc_fun_fun2_change.png" /></li>
 						<li class="box">
-							<img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3.png" /> <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3_change.png" /></li>
+							<img class="img1" src="./Common/ruiec/images/wzc_fun_fun3.png" /> <img class="img2" src="./Common/ruiec/images/wzc_fun_fun3_change.png" /></li>
 						<li class="box">
-							<img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4.png" /> <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4_change.png" /></li>
+							<img class="img1" src="./Common/ruiec/images/wzc_fun_fun4.png" /> <img class="img2" src="./Common/ruiec/images/wzc_fun_fun4_change.png" /></li>
 					</ul>
-					<img class="bg" height="279" src="{lanrain::RES}/ruiec/images/wzc_img_55.jpg" width="831" /></div>
+					<img class="bg" height="279" src="./Common/ruiec/images/wzc_img_55.jpg" width="831" /></div>
 			</div>
 		</div>
-<!--招商模块8（微信商城的实力）-->		<div class="zsBox zsBox8">
+<!--招商模块8（淘天天的实力）-->		<div class="zsBox zsBox8">
 			<div class="ty_tit">
 				<h2>
-					微信商城的<span>实力</span></h2>
+					淘天天的<span>实力</span></h2>
 			</div>
 			<div class="ty_cont">
 				<div class="tree">
@@ -168,9 +236,9 @@
 							<dt>
 								懂服务</dt>
 							<dd>
-								1、微信商城成立之前即拥有多年的SaaS从业经验，深知企业级软件产品的商业价值在于服务；</dd>
+								1、淘天天成立之前即拥有多年的SaaS从业经验，深知企业级软件产品的商业价值在于服务；</dd>
 							<dd>
-								2、微信商城为企业提供实施服务</dd>
+								2、淘天天为企业提供实施服务</dd>
 							<dd>
 								3、运维支持服务</dd>
 							<dd>
@@ -182,7 +250,7 @@
 							<dt>
 								懂企业</dt>
 							<dd>
-								微信商城团队拥有多年传统企业网络营销、无线互联网、企业经营、电子商务开展等多方经验，能够在最短时间能推断出企业适合的移动网络营销解决方案，不多花一分钱，尽量少走弯路，</dd>
+								淘天天团队拥有多年传统企业网络营销、无线互联网、企业经营、电子商务开展等多方经验，能够在最短时间能推断出企业适合的移动网络营销解决方案，不多花一分钱，尽量少走弯路，</dd>
 						</dl>
 						<dl class="dl2">
 							<dt>
@@ -225,13 +293,13 @@
 						<h3>
 							欢迎拨打招商咨询电话：</h3>
 						<p>
-							0571-87901075</p>
+							021-58649823</p>
 					</div>
 					<div class="c_right">
 						<ul>
 							<li class="li1">
 								<p>
-									认同微信商城的产品服务及运营模式</p>
+									认同淘天天的产品服务及运营模式</p>
 							</li>
 							<li class="li2">
 								<p>
@@ -262,6 +330,7 @@
 					加盟流程4步走</h2>
 			</div>
 			<div class="ty_cont">
+				<img ./Common/ruiec/images/wzc_jmImg_38.jpg/>
 				<ul>
 					<li>
 						拨打相关渠道经理电话，确认合作意向</li>
@@ -324,7 +393,7 @@
                             </tr>
                             <tr>
                                 <th>
-                                    您是通过何种方式了解微信商城平台？
+                                    您是通过何种方式了解淘天天平台？
                                 </th>
                                 <td>
                                     <label>
@@ -351,8 +420,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>
-                                    &nbsp;
+                                <th>&nbsp;
+                                    
                                 </th>
                                 <td>
                                     <input type="submit" id="ConfirmBtn" value="确认提交" class="f_sub" />
@@ -365,20 +434,16 @@
                             <dt>联系方式</dt>
                             <dd>
                                 <p>
-                                    公司：杭州雷兆信息技术有限公司</p>
+                                    公司：上海蜀乐网络科技有限公司</p>
                                 <p>
-                                    邮箱：1484289494@qq.com</p>
+                                    邮箱：shule_weixin@163.com</p>
+                               
                                 <p>
-                                    传真：0571-87901076</p>
+                                    全国统一客服热线：021-58649823</p>
+                                <p>上海浦东新区浙桥路277号碧云大厦3座1220室杭州下沙经济技术开发区华元十六街区8楼</p>
+                               
                                 <p>
-                                    全国统一客服热线：0571-87901075</p>
-                                <p>
-                                    公司地址：杭州下沙经济技术开发区华元十六街区8楼</p>
-                                <p> 
-                               QQ：吕先生 1484289494、郑先生 2198738059、岑先生 485903410
-                               </p>
-                                <p>
-                                    <strong>7*24小时客服技术支持<i>18958103070</i></strong>
+                                    <strong>7*24小时客服技术支持<i>15214328120</i></strong>
                                 </p>
                             </dd>
                         </dl>
@@ -391,6 +456,29 @@
     <!-- 页面主体结束 -->
 
 <include file="Public:footer"/>
+ <!--footer底部-->
+    <div id="footer">
+        <div class="resize">
+            <div class="f_left">
+                <a href="javascript:void(0)"><img src="./Common/ruiec/images/register_logo.png" width="240" height="70" /></a>
+            </div>
+            <div class="f_center">
+                <p>
+                    <a class="first" href="{lanrain::U('Index/about')}">走进淘天天</a>| <a href="{lanrain::U('Index/product')}">产品特色</a>| <a href="{lanrain::U('Index/canvass')}">渠道代理</a>| <a href="{lanrain::U('Index/contact')}">联系我们</a>
+                </p>
+                <p>
+                    淘天天 致力于做最专业的微信电商开发运营服务商!<br />
+                    淘天天 多用户微信营销系统(c)版权所有
+				</p>
+            </div>
+            <div class="f_right">
+                <dl>
+                    <dt><img src="./Common/ruiec/images/wzc_2wm.jpg" width="110" height="110" /></dt>
+                    <dd>扫二维码关注我们</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
     </form>
 </body>
 </html>

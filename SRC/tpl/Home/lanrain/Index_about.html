@@ -1,8 +1,76 @@
-﻿<include file="Public:header"/>
+﻿<include file="Public_header"/>
+<include Public_header/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		淘天天，致力于做最专业的微信电商开发运营服务商!
+	</title>
+	<link rel="stylesheet" type="text/css" href="./Common/ruiec/css/style.css" />
+	<script type="text/javascript" src="./Common/ruiec/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./Common/ruiec/js/myself.js"></script>
+	<meta name="Keywords" content="微信营销|淘天天|微信公众平台" />
+	<meta name="Description" content="淘天天，致力于做最专业的微信电商开发运营服务商!" />
+	<script type="text/javascript" src="./Common/ruiec/js/131212/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+</head>
+<body>
+	
+	<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNjY4NjQ0NTdkZA==" />
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p>
+						您好， 欢迎您!&nbsp;<a href="{lanrain::U('Index/login')}">登录</a>
+						<!-- &nbsp; | &nbsp;<a href="{lanrain::U('Index/register')}">注册</a>  -->
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="{lanrain::U('User/Index/index')}">管理中心</a><span class="tel">0571-87901075</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">
+                <!--logo-->
+                <div class="logo">
+                    <a href="javascript:void(0)"><img src="./Common/ruiec/images/logo.png" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                   <!--  <ul>
+                        <li><a href="{lanrain::U('Index_index')}" <php>if(ACTION_NAME == 'index') echo 'class="select"'</php> >首页</a></li>
+                        <li><a href="{lanrain::U('Index/about')}" <php>if(ACTION_NAME == 'about') echo 'class="select"'</php> >走进淘天天</a> </li>
+                        <li><a href="{lanrain::U('Index/product')}" <php>if(ACTION_NAME == 'product') echo 'class="select"'</php> >产品特色</a> </li>
+                        <li><a href="{lanrain::U('Index/canvass')}" <php>if(ACTION_NAME == 'canvass') echo 'class="select"'</php> >渠道代理</a></li>
+                        <li><a href="{lanrain::U('Index/contact')}" <php>if(ACTION_NAME == 'contact') echo 'class="select"'</php> >联系我们</a></li>
+                    </ul>--> 
+                    <ul>
+                    	<li><a href="Index_index.html">首页</a></li>
+                    	<li><a href="Index_about.html">走进淘天天</a></li>
+                    	<li><a href="Index_product.html">产品特色</a></li>
+                    	<li><a href="Index_canvass.html">渠道代理</a></li>
+                    	<li><a href="Index_contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!--内容页barner-->
     <div id="contBarner">
         <div class="barner_contact">
-            <img src="{lanrain::RES}/ruiec/images/about_barner.jpg" width="1600" height="425" />
+            <img src="./Common/ruiec/images/about_barner.jpg" width="1600" height="425" />
         </div>
     </div>
     <!--container首页内容-->
@@ -12,22 +80,22 @@
             <div class="aboutBox">
                 <div class="about_left">
                     <ul>
-                        <li class="select"><a href="#md1">关于微信商城</a></li>
+                        <li class="select"><a href="#md1">关于淘天天</a></li>
                         <li><a href="#md2">使命和愿景</a></li>
                         <li><a href="#md3">工作宗旨</a></li>
                         <!--li><a href="#md4">加入我们</a></li-->
-                        <li><a href="{lanrain::U('Index/contact')}">联系我们</a></li>
+                        <li><a href="Index_contact.html">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="about_right">
                     <div class="c_box select" md="#md1">
                         <div class="c_tit">
-                            <h1>关于微信商城</h1>
+                            <h1>关于淘天天</h1>
                             <h3>About Us</h3>
                         </div>
                         <div class="c_cont">
-                            <p>微信商城：以我们的微薄之力服务于客户来创造属于自己的价值，我们是一群互联网爱好者，分布于全国各个互联网和系统开发公司，也有来自于经营天猫店铺的创业者，因为爱好将我们聚集到了一起。从当下开始，我们致力于做最专业的移动微电商产品开发运营服务商，以我们的微薄之力帮助客户创造价值。</p>
-                            <img src="{lanrain::RES}/ruiec/images/about_img1.jpg" width="924" height="314" />
+                            <p>淘天天：以我们的微薄之力服务于客户来创造属于自己的价值，我们是一群互联网爱好者，分布于全国各个互联网和系统开发公司，也有来自于经营天猫店铺的创业者，因为爱好将我们聚集到了一起。从当下开始，我们致力于做最专业的移动微电商产品开发运营服务商，以我们的微薄之力帮助客户创造价值。</p>
+                            <img src="./Common/ruiec/images/about_img1.jpg" width="924" height="314" />
                         </div>
                     </div>
                     <div class="c_box" md="#md2">
@@ -42,7 +110,7 @@
                             <h2>我们的愿景</h2>
                             <small>——致力于做最专业的移动微电商产品开发运营服务商</small>
                             <p>以“引领电子商务整合应用，为企业创造价值”为使命，坚持科技和商业模式创新，充分利用和整合资源，帮助企业降低推广运营成本，助力企业率先迈入移动电商时代。</p>
-                            <img src="{lanrain::RES}/ruiec/images/about_img2.jpg" width="924" height="314" />
+                            <img src="./Common/ruiec/images/about_img2.jpg" width="924" height="314" />
                         </div>
                     </div>
                     <div class="c_box" md="#md3">
@@ -69,7 +137,7 @@
                                 </dt>
                                 <dd>创造需要经得起时间的考验，创造需要经得起结果的考量<br />只有帮助创造，才能实现我们的价值</dd>
                             </dl>
-                            <img src="{lanrain::RES}/ruiec/images/about_img3.jpg" width="924" height="314" />
+                            <img src="./Common/ruiec/images/about_img3.jpg" width="924" height="314" />
                         </div>
                     </div>
                     <!-- div class="c_box" md="#md4">
@@ -113,5 +181,28 @@
     </div>
 
 <include file="Public:footer"/>
+    <!--footer底部-->
+    <div id="footer">
+        <div class="resize">
+            <div class="f_left">
+                <a href="javascript:void(0)"><img src="./Common/ruiec/images/register_logo.png" width="240" height="70" /></a>
+            </div>
+            <div class="f_center">
+                <p>
+                    <a class="first" href="{lanrain::U('Index/about')}">走进淘天天</a>| <a href="{lanrain::U('Index/product')}">产品特色</a>| <a href="{lanrain::U('Index/canvass')}">渠道代理</a>| <a href="{lanrain::U('Index/contact')}">联系我们</a>
+                </p>
+                <p>
+                    淘天天 致力于做最专业的微信电商开发运营服务商!<br />
+                    淘天天 多用户微信营销系统(c)版权所有
+				</p>
+            </div>
+            <div class="f_right">
+                <dl>
+                    <dt><img src="./Common/ruiec/images/wzc_2wm.jpg" width="110" height="110" /></dt>
+                    <dd>扫二维码关注我们</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
