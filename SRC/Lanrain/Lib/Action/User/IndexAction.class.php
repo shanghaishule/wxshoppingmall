@@ -15,10 +15,8 @@ class IndexAction extends UserAction{
 			if ($info['contact'] == "" or $info['phone'] == "" or $info['email'] == "" or $info['address'] == ""){
 				$this->success('请先完善您的资料！', U('Myinfo/info'));
 			}else{
-				
+				$wherestr = " resource like '%weTall%' ";
 				if(IS_POST){
-					
-					$wherestr = " 1=1 ";
 					$start_time = $this->_post('start_time');
 					if ($start_time != "") {
 						$start_time .= " 00:00:00";
@@ -37,7 +35,7 @@ class IndexAction extends UserAction{
 					//dump($wherestr);exit;
 					//dump($search);exit;
 				}else{
-					$wherestr = "dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY))";
+					$wherestr = " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
 				}
 				
 				

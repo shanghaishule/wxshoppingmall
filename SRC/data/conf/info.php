@@ -1,7 +1,7 @@
 <?php 
 return array (
-  'site_name' => '微信商城',
-  'site_title' => '微信商城',
+  'site_name' => '微信商城1',
+  'site_title' => '微信商城1',
   'site_url' => 'localhost',
   'home_token' => 'gmbqsf1389536537',
   'site_my' => '微信商城',

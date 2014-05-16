@@ -72,9 +72,8 @@ class SystemAction extends BackAction{
 		$this->assign('shop_cnt',$shop_cnt);
 		$this->assign('order_amt',$order_amt);
 		
-		
+		$wherestr = " resource like '%weTall%' ";
 		if(IS_POST){
-			$wherestr = " 1=1 ";
 			$start_time = $this->_post('start_time');
 			if ($start_time != "") {
 				$start_time .= " 00:00:00";
@@ -93,7 +92,7 @@ class SystemAction extends BackAction{
 			//dump($wherestr);exit;
 			//dump($search);exit;
 		}else{
-			$wherestr = "dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY))";
+			$wherestr .= " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
 		}
 		$Model = M();
 		$stat_PV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
