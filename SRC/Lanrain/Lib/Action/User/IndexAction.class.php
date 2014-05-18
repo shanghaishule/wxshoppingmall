@@ -35,7 +35,7 @@ class IndexAction extends UserAction{
 					//dump($wherestr);exit;
 					//dump($search);exit;
 				}else{
-					$wherestr = " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
+					$wherestr .= " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
 				}
 				
 				
