@@ -554,6 +554,12 @@ class orderAction extends userbaseAction {
 				$tokenTall = $this->getTokenTall();
 				$alipay=M('alipay_person')->where(array('tokenTall'=>$tokenTall))->find();
 				if ($alipay){
+					//个人支付宝，因为没有反馈，所以前端先置付款方式，后端根据付款方式显示一个确认付款按钮
+					foreach ($all_order_arr as $dingdan){
+						$data['supportmetho']=1;
+						M('item_order')->where("orderId='".$dingdan['orderid']."' and status=1")->data($data)->save();
+					}
+					
 					echo "<script>location.href='alipay/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
 				}else{
 					$this->error('未找到支付宝个人转账支付相关配置信息！');

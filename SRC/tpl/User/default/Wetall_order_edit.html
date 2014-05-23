@@ -83,7 +83,9 @@
 <div style="text-align:center; margin-bottom:20px">
 	<switch name="info.status" >
 	<case value="1"><!-- 待付款-->
+		<if condition="$info['supportmetho'] eq 1">
 		<a href="{lanrain::U('Wetall_order/status',array('orderId'=>$info['orderId'],'status'=>2,'tokenTall'=>$info['tokenTall']))}" class="btnGreen">设为已付款</a>
+		</if>
 	</case>
 	<case value="2"><!-- 待发货-->
 		<a href="{lanrain::U('Wetall_order/fahuo',array('id'=>$info['id'],'tokenTall'=>$info['tokenTall']))}" class="btnGreen">发货</a>

@@ -20,7 +20,7 @@ class Wetall_item_cateAction extends UserAction{
 		$list_tmp = $this->_mod->where($map)->select();
 		foreach ($list_tmp as $list_one){
 			$is_allcate = $list_one['name'] == '全部商品' ? 'allcate' : 'cate&cid='.$list_one['id'];
-			$list_one['url'] = $_SERVER['HTTP_HOST']."/weTall/index.php?m=book&a=".$is_allcate."&tokenTall=".$this->getTokenTall();
+			$list_one['url'] = $_SERVER['SERVER_NAME'].__ROOT__."/weTall/index.php?m=book&a=".$is_allcate."&tokenTall=".$this->getTokenTall();
 			$list_one['pcate'] = $this->_mod->where(array('id'=>$list_one['pid']))->getField('name');
 			$list[] = $list_one;
 		}
@@ -49,12 +49,34 @@ class Wetall_item_cateAction extends UserAction{
 			$data['is_index'] = 1;
 			//dump($data);exit;
 			
+			//同步到商城分类
+			$classifydata = array();
+			$classifydata['name'] = $data['name'];
+			$classifydata['info'] = $data['name'];
+			$classifydata['img'] = $data['img'];
+			$classifydata['status'] = 1;
+			$classifydata['sorts'] = 1;
+			$classifydata['token'] = $data['tokenTall'];
+			
 			if ($_POST['id'] != "") {
 				//编辑
 				$result = $this->_mod->save($data);
+				
+				//同步到商城分类
+				$is_allcate = $data['name'] == '全部商品' ? 'allcate' : 'cate&cid='.$_POST['id'];
+				$classifydata['url'] = __ROOT__."/weTall/index.php?m=book&a=".$is_allcate."&tokenTall=".$this->getTokenTall();
+				//dump($classifydata);exit;
+				M('Classify')->where(array('url'=>$classifydata['url']))->save($classifydata);
+				
 			} else {
 				//新增
 				$result = $this->_mod->add($data);
+				
+				//同步到商城分类
+				$is_allcate = $data['name'] == '全部商品' ? 'allcate' : 'cate&cid='.$result;
+				$classifydata['url'] = __ROOT__."/weTall/index.php?m=book&a=".$is_allcate."&tokenTall=".$this->getTokenTall();
+				M('Classify')->add($classifydata);
+				
 			}
 
 			if ($result !== false) {
@@ -92,6 +114,12 @@ class Wetall_item_cateAction extends UserAction{
 			}
 			 
 			if (false !== $this->_mod->delete($ids)) {
+				
+				//同步到商城分类
+				$classifydata = array();
+				$classifydata['url'] = __ROOT__."/weTall/index.php?m=book&a=cate&cid=".$ids."&tokenTall=".$this->getTokenTall();
+				M('Classify')->where(array('url'=>$classifydata['url']))->delete();
+				
 				$this->success('删除成功！');
 			} else {
 				$this->error('删除失败！');
