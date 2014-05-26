@@ -1,0 +1,185 @@
+﻿@charset "utf-8";
+
+body,html{ width:100%; height:100%; font-size:12px; color:#666666;}
+*{ padding:0; margin:0}
+html,body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td{padding:0px; margin:0px;}
+a{text-decoration: none;}
+img{ border:none;}
+ul,li,dl,dd,dt{list-style-type: none;}
+.cl{ clear:both;}
+
+
+.nm_wap { width: 100%;border-radius: 8px;overflow: hidden;}
+
+/*公告*/
+.nm_advertising{ width:100%; height:59px; line-height:59px; padding-bottom:14px; background:url(../images/lin_new_bottom.jpg) center bottom no-repeat; text-align:center;}
+.nm_advertising a,.nm_advertising span{ display:inline-block;}
+.nm_advertising a{ color:#999;}
+.nm_advertising a:hover{ color:#7da914; text-decoration: underline;}
+.nm_advertising:hover span{ background:url(../images/laba.jpg) left top no-repeat; }
+.nm_advertising span{ width:26px; height:22px; background:url(../images/laba.jpg) right no-repeat; vertical-align:middle; margin-right:10px;}
+.nm_prompt{ height:99px; line-height:99px; text-align: center; font-size:34px; font-family:"微软雅黑","宋体"; color:#999;font-weight: normal}
+.nm_prompt span{ color:#7da914; font-family:"Arial Black", Gadget, sans-serif; font-size:40px;}
+/*/公告*/
+
+/*产品小图标*/
+.servicesBox { width:1070px; height:270px; margin:0 auto; clear:both; line-height:18px; color:#999999; font-size:12px;}
+.servicesBox .serBox {cursor: pointer;
+border: 1px solid #fff;
+display: inline;
+width: 212px;
+height: 250px;
+float: left;
+overflow: hidden;
+background-color: #f7f7f7;
+position: relative;}
+.servicesBox .serBoxOn { font-family:"微软雅黑"; display:none; width:320px; height:270px; background:url(../images/serboxon_bg.gif) repeat 0px 0px; position:absolute; left:0px; top:0px; z-index:19;}
+.servicesBox .serBox .pic1 { width:123px; height:110px; text-align:center; position:absolute; top:22px; right:41px; z-index:99;}
+.servicesBox .serBox .pic2 { width:123px; height:110px; text-align:center; position:absolute; top:22px; left:-110px; z-index:99;}
+.servicesBox .serBox .txt1 { width:212px; height:100px; color:#999999; position:absolute; top:145px; left:0px; z-index:99;}
+.servicesBox .serBox .txt2 { width:212px; height:100px; color:#a9cf4f; position:absolute; top:145px; right:-240px; z-index:99;}
+.servicesBox .serBox span.tit { font-size:16px; display:block; text-align:center;}
+.servicesBox .serBox .txt1 .tit { color:#000000; line-height:30px;}
+.servicesBox .serBox .txt2 .tit { color:#fff; line-height:30px; font-family:"微软雅黑";}
+.servicesBox .serBox p{ padding:0 10px; text-align:center;}
+/*产品小图标*/
+
+/*案例滚动*/
+#case{height:480px; overflow: hidden; background: #eaeaea;}
+#case .caseCon{width:1000px; margin:0 auto;}
+#case .tit{height: 72px; overflow: hidden; border-bottom:1px solid #cfcfcf; position: relative;}
+#case .tit h2{height:42px; color:#333; font-weight: normal; margin-top:30px; line-height: 36px; font-size:24px;}
+#case .tit h2 span{color:#999;}
+#case .tit a{position: absolute; right:0; bottom:10px; padding:5px 10px; border-radius: 8px; background: #333; color: #999;}
+#case .tit a:hover{background: #009900; color:#fff;}
+#case .caseScroll{position: relative;}
+#case .caseScroll .btn span{position: absolute; top:25px; width:43px; height:249px; overflow: hidden; background: url(arr.png) no-repeat; cursor: pointer;}
+    #case .caseScroll .btn {
+        padding:0; margin:0; border:0;
+    }
+#case .caseScroll .btn span.btn_left{left:-40px;}
+#case .caseScroll .btn span.btn_right{right:-40px; background-position: -43px 0;}
+#case .caseScroll .box{width:980px; margin:20px 10px; height: 338px; overflow: hidden; position: relative;}
+#case .caseScroll .box ul{width:904px; position: relative; left:0;}
+#case .caseScroll .box li{width:170px; height:270px; padding:6px 12px 0 12px; background: url(caseBg.png) no-repeat; position: absolute; left:0; top:0; overflow: hidden; margin-right:25px;}
+#case .caseScroll .box li img{ width:170px; height:254px;}
+#case .typical{height:70px; overflow: hidden; margin-top:25px;}
+#case .typical h3{float: left; padding-top:13px; padding-right:10px;}
+#case .typical .logos{float: left; width:900px; overflow: hidden;}
+#case .typical .logos a{margin:0 5px; display:block; width:140px; height:70px; overflow: hidden; float:left;}
+#case .caseScroll .btn span.btn_left:hover{ background:url(arr2.png) 0 0 no-repeat;}
+#case .caseScroll .btn span.btn_right:hover{ background:url(arr2.png) right no-repeat;}
+#case .nm_case_text{ width:100%; height:146px; text-align:center; font-family:"微软雅黑";text-shadow: 0 1px 1px white;}
+#case .nm_case_text p{ color:#9b9a9a; font-size:20px; padding-top:40px;}
+#case .nm_case_text h1{ color:#4f4f4f; font-size:41px; line-height:46px;}
+#case .nm_case_text span{ color:#aba9a9; font-size:8px;}
+/*案例滚动*/
+
+
+/*产品标题*/
+.nm_text_product{ width:100%; height:100px; background:#e5e5e5; text-align:center;text-shadow: 0 1px 1px #fff;}
+.nm_text_product h1{width: auto;margin: 0 auto;font-size: 30px;color: #6f6f6f;font-family: "微软雅黑"; font-weight:inherit; padding-top:20px;}
+.nm_text_product p{font-size: 11px;color: #b7b7b7;font-family: "微软雅黑";text-transform: uppercase;}
+/*产品标题*/
+
+
+/*公告*/
+.simple_box.mp_index {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size:14px;
+		}
+		.simple_box {
+		overflow: hidden;
+		overflow: hidden;
+		padding-left: 20px;
+		color: #222;
+		border: 1px solid #d0d1d3;
+		background-image: url("../images/tab_background.png");
+		line-height: 40px;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		}
+		.simple_box.mp_index dt {
+		float: left;
+		display: block;
+		}
+		.simple_box.mp_index dt i {
+		margin-right: 4px;
+		font-weight: 400;
+		font-style: normal;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 0;
+		}
+		.simple_box.mp_index dd {
+		float: left;
+		float: left;
+		margin-left: 45px;
+		}
+		dd {
+		display: block;
+		-webkit-margin-start: 40px;
+		}
+		.icon20_tip {
+		background: transparent url(images/icon20_tip.png) no-repeat 0 0;
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
+		display: inline-block;
+		}
+		.simple_box.mp_index dd i {
+		display: inline-block;
+		vertical-align: middle;
+		vertical-align: middle;
+		color: #bebebe;
+		margin-right: 8px;
+		margin-top: -0.2em;
+		font-weight: 400;
+		font-style: normal;
+		font-weight: 400;
+		font-style: normal;
+		}
+		.simple_box.mp_index dd a {
+		text-decoration: none;
+		text-decoration: none;
+		color: #222;
+		}
+/*公告*/
+
+/*价格*/
+.jg{
+	display:none;}
+table.imagetable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	width:100%;
+	text-align:center;
+	margin-bottom: 30px;
+
+}
+table.imagetable th {
+	background:#b5cfd2 url('../images/cell-blue.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+	height:30px;
+}
+table.imagetable td {
+	background:#dcddc0 url('../images/cell-grey.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+	height:30px;
+}
+.usable, .unusable{height:24px;display:inline-block;padding-left:28px;line-height:24px;}
+	.usable{background: url(../images/usable.gif) no-repeat 0 50%;}
+	.unusable{background: url(../images/unusable.gif) no-repeat 0 50%;}
+/*价格*/
