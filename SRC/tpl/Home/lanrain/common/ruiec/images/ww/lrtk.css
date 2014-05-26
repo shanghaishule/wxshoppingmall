@@ -1,0 +1,15 @@
+/* 懒人图库 搜集整理 www.lanrentuku.com */
+
+/* css 重置 */
+body,div,ul,li { padding: 0; margin: 0; }
+ul { list-style: none ; }
+img { border: none; }
+a { blr: expression(this.onFocus=this.blur()); outline: none; }
+
+/*本例css*/
+.childbanner { width: 1070px; height: 300px; position: relative; overflow:hidden; margin-bottom: 15px;border-radius: 8px; }
+.childbanner li img{ width:1070px; height:300px;}
+/*数字按钮样式*/
+.childbanner .num { overflow:hidden; height: 8px; position: absolute; bottom:12px; right: 500px; zoom:1; z-index:3;}
+.childbanner .num li { width: 8px; height: 8px; line-height: 25px; text-align: center; font-weight: 400; font-family: "微软雅黑", Arial; color: #FFFFFF; background: #fff; margin-right: 10px; border-radius:50%; cursor:pointer; float: left; }
+.childbanner .num li.on { background: #FF7700; } /*当前项*/

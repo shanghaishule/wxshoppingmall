@@ -1,326 +1,466 @@
 <include file="Public:header"/>
-    
-    <!--幻灯片加载-->
-    <div id="barner">
-        <div class="resize">
-            <!--barner切换图效果-->
-            <div class="barImg">
-                <div class="b_cont">
-                    <ul>
-                        <li btncolor="#00aeed"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img1.png" width="735" height="353" /></li>
-                        <li btncolor="#7dbe00"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img2.png" width="735" height="353" /></li>
-                        <li btncolor="#ff9f26"><img src="{lanrain::RES}/ruiec/images/wzc_barner_img3.png" width="735" height="353" /></li>
-                    </ul>
-                </div>
-                <div class="b_btn">
-                    <ul>
-                    </ul>
-                </div>
-            </div>
-            <!--登录-->
-            <form action="{lanrain::U('Users/checklogin')}" method="post" id="tform">
-            <div class="loginbox">
-                <div class="l_cont">
-                    <ul>
-                        <li>
-                            <h3><span style="float: right; font-size: 14px; color: Red;" id="errtitle"></span>登录微信商城</h3>
-                        </li>
-                        <li class="textbox">
-                            <input class="l_text" type="text" name='username' id='tbxName' tabindex="1" placeholder="用户名" />
-                        </li>
-                        <li class="textbox">
-                            <input class="l_text l_pass" type="password" name='password' id='tbxPwd' tabindex="2" value="" placeholder="密码"/>
-                        </li>
-                        <li>
-                            <input class="l_sub yy" type="submit" value="登录" onclick="return CheckUserIndex();" />
-                        </li>
-                        <!-- li>
-							<a href="{lanrain::U('Index/register')}">注册帐号</a> <!--| <a href="{lanrain::U('Index/retrievepwd')}">忘记密码</a> -->
-						</li -->
-                    </ul>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-    <!--container首页内容-->
-    <div id="container">
-        <div class="resize">
-            <!--错过的机会-->
-            <div class="ty_box box_lose">
-                <div class="ty_tit">
-                    <h2>错过的不是一次机会，<span>而是一个时代</span></h2>
-                </div>
-                <div class="ty_cont">
-                    <div class="cont_left">
-                        <ul>
-                            <li>错过了五年前的<font class="color_o">淘宝</font></li>
-                            <li>错过了三年前的<font class="color_r">微博</font></li>
-                            <li>你是否还会错过2013年的<font class="color_g">微信?</font></li>
-                            <li>据官方数据统计，微信用户量已经突破5亿！</li>
-                            <li>微信自媒体正改变人们的习惯的同时也将</li>
-                            <li class="bg_none">改变商业与营销的方式</li>
-                            <li><font class="color_g">微信</font>已经成为新的商家必争之战战略高地</li>
-                            <li>有先觉之明的企业已经开始了微信掘金</li>
-                        </ul>
-                    </div>
-                    <div class="cont_right">
-                        <div class="loseAni">
-                            <img class="Ani_hand" src="{lanrain::RES}/ruiec/images/wzc_hand.jpg" width="450" height="379" />
-                            <img class="Ani_icon1" src="{lanrain::RES}/ruiec/images/wzc_icon_1.png" width="12" height="13" />
-                            <img class="Ani_icon2" src="{lanrain::RES}/ruiec/images/wzc_icon_2.png" width="14" height="14" />
-                            <img class="Ani_icon3" src="{lanrain::RES}/ruiec/images/wzc_icon_3.png" width="27" height="28" />
-                            <img class="Ani_icon4" src="{lanrain::RES}/ruiec/images/wzc_icon_4.png" width="33" height="33" />
-                            <img class="Ani_icon5" src="{lanrain::RES}/ruiec/images/wzc_icon_5.jpg" width="38" height="40" />
-                            <img class="Ani_icon6" src="{lanrain::RES}/ruiec/images/wzc_icon_6.jpg" width="47" height="49" />
-                            <img class="Ani_icon7" src="{lanrain::RES}/ruiec/images/wzc_icon_7.jpg" width="52" height="55" />
-                            <img class="Ani_icon8" src="{lanrain::RES}/ruiec/images/wzc_icon_8.jpg" width="50" height="55" />
-                            <img class="Ani_icon9" src="{lanrain::RES}/ruiec/images/wzc_icon_9.jpg" width="75" height="80" />
-                            <img class="Ani_icon10" src="{lanrain::RES}/ruiec/images/wzc_icon_10.jpg" width="78" height="81" />
-                            <img class="Ani_icon11" src="{lanrain::RES}/ruiec/images/wzc_icon_11.jpg" width="100" height="106" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--微商城-->
-            <div class="ty_box box_mark">
-                <div class="ty_tit">
-                    <h3>微商城<span>Micro Mark</span></h3>
-                </div>
-                <div class="ty_cont">
-                    <div class="cont_left">
-                        <div class="gifbox">
-                            <img src="{lanrain::RES}/ruiec/images/pm.gif" width="350" height="194" />
-                            <img class="phone" src="{lanrain::RES}/ruiec/images/wzc_phone.png" width="130" height="181" />
-                        </div>
-                    </div>
-                    <div class="cont_right">
-                        <dl>
-                            <dt>微信就能开商城，扫描二维码，<font class="color_g">关注</font>就能购买</dt>
-                            <dd>
-                                <p>
-                                    小微信大商城！<br />
-                                    微信社交是一种生活方式<br />
-                                    微信购物是一种购物方式<br />
-                                    微信购物分享更是一种营销方式<br />
-                                    我开店啦~~~一键分享自己的店铺产品，让更多人知晓！<br />
-									小小二维码拥有6亿人的市场……<br />
-                                    <!-- a class="btn btn_join" href="{lanrain::U('Index/register')}"></a -->
-                                    <a class="btn btn_sq" href="{lanrain::U('Index/canvass')}"></a>
-                                </p>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <!--产品功能介绍-->
-            <div class="ty_box box_fun">
-                <div class="ty_tit">
-                    <h3>产品功能介绍<span>Function</span></h3>
-                </div>
-                <div class="ty_cont">
-                    <ul>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>微官网系统</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>快速打造个性化微信官网</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img2.png" width="88" height="56" /><p>微商城系统</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>通过微信开店，快速拓展市场</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>淘宝天猫一键导入</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>轻松将淘宝店铺迁移至微信平台</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img4.png" width="60" height="60" /><p>微游戏系统</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>刮刮卡、大转盘、摇一摇等游戏互动，快速增粉</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img5.png" width="88" height="62" /><p>微信会员卡</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>关注微信就可成为会员，会员管理高效智能</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img6.png" width="68" height="63" /><p>自定义菜单</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>随需求而定随需要而链</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img7.png" width="95" height="54" /><p>微信CRM</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>高效管理微信粉丝<br />轻松实现精准营销</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img8.png" width="62" height="53" /><p>LBS回复</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>LBS范围内精准定位一键导航商家地理位置</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img9.png" width="60" height="60" /><p>数据魔方</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>轻松了解买家<br />不错过任何一个客户</dd>
-                            </dl>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_fun_img1.png" width="62" height="51" /><p>灵活付款</p>
-                        </a>
-                            <dl>
-                                <dt></dt>
-                                <dd>支持个人支付宝、商家支付宝、微信支付等多种支付方式</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--推荐-->
-            <div class="ty_box box_tj">
-                <div class="ty_cont">
-                    <div class="cont_left">
-                        <dl>
-                            <dt>不盲目推荐，</dt>
-                            <dd>只为企业开发适合的网络营销产品</dd>
-                        </dl>
-                        <dl>
-                            <dt>懂传统企业，</dt>
-                            <dd>让移动营销脚踏实地！杜绝虚空！</dd>
-                            <dd><small>跳开微信营销培训、网路营销培训等诸多难以落地的选择，减少机会成本</small></dd>
-                        </dl>
-                    </div>
-                    <div class="cont_right">
-                        <img src="{lanrain::RES}/ruiec/images/wzc_img_48.jpg" width="532" height="323" />
-                    </div>
-                </div>
-            </div>
-            <!--91%拥有公众平台-->
-            <div class="ty_box box_public">
-                <div class="ty_cont">
-                    <div class="cont_left">
-                        <iframe src="{lanrain::RES}/ruiec/3dShow/demo.html" width="660" height="420" frameborder="0"></iframe>
-                    </div>
-                    <div class="cont_right">
-                        <dl>
-                            <dt>为什么<font class="color_o">91%</font>的500强企业都拥有<br />了微信公众平台？</dt>
-                            <dd>
-                                <p>
-                                    近9亿移动互联网用户量庞大，未来的市场所在；<br />
-                                    率先把握县级，抢占移动互联网的传播先机；<br />
-                                    传统营销模式滞后，移动网络营销更快速及时；<br />
-                                    更贴身、更实时的互动和服务，提高客户粘度；<br />
-                                    增强和仿古品牌知名度；</p>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <!--7大保障-->
-            <div class="ty_box box_ensure">
-                <div class="ty_tit">
-                    <h2>微信商城智能服务平台的<span>7大保障</span></h2>
-                </div>
-                <div class="ty_cont">
-                    <div class="bzbox">
-                        <ul>
-                            <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun1_change.png" />
-                            </li>
-                            <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun2_change.png" />
-                            </li>
-                            <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun3_change.png" />
-                            </li>
-                            <li class="box">
-                                <img class="img1" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4.png" />
-                                <img class="img2" src="{lanrain::RES}/ruiec/images/wzc_fun_fun4_change.png" />
-                            </li>
-                        </ul>
-                        <img class="bg" src="{lanrain::RES}/ruiec/images/wzc_img_55.jpg" width="831" height="279" />
-                    </div>
-                </div>
-            </div>
-            <!--他们都在使用-->
-            <div class="ty_box box_brand">
-                <div class="ty_tit">
-                    <h2>他们都在使用<span>微信商城智能服务平台</span></h2>
-                </div>
-                <div class="ty_cont">
-                    <dl>
-                        <dt>
-							<a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_62.jpg" width="784" height="302" /></a>
-						</dt>
-                        <dd>
-                            <p></p>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-            <!--成功案例-->
-            <div class="ty_box box_case">
-                <div class="ty_tit">
-                    <h2>微信商城的<span>成功案例</span></h2>
-                </div>
-                <div class="ty_cont">
-                    <div class="scollImg">
-                        <div class="scroll-left">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_left.jpg" width="27" height="37" />
-                        </div>
-                        <div class="scroll-center">
-                            <ul>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_72.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_73.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_74.jpg" width="182" height="278" /></a></li>
-                                <li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_75.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_76.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_77.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_81.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_79.jpg" width="182" height="278" /></a></li>
-								<li><a href="javascript:void(0)"><img src="{lanrain::RES}/ruiec/images/wzc_img_80.jpg" width="182" height="278" /></a></li>
-                            </ul>
-                        </div>
-                        <div class="scroll-right">
-                            <img src="{lanrain::RES}/ruiec/images/wzc_icon_right.jpg" width="27" height="37" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNjY4NjQ0NTdkZA==" />
+    <!--header头部-->  
+   
+     <!--导航块-->
+       
+    <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<meta content="width=640px,target-densityDpi=320dpi" name="viewport">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="微信营销|微信接口开发|微信个性定制|上海微信营销">
+<meta name="description" content="微呼应作为微信首家推荐营销服务商，为商家微信公众平台提供全托运营、制定营销方案策略、开发特定功能、全智能客服、个性定制等服务。呼应传媒——因为专注，所以专业。">
+<link rel="icon" href="http://www.echo58.com/images/favicon.ico" type="image/x-icon">
+<script src="./tpl/Home/lanrain/common/ruiec/images/ww/jquery.js"></script>
+<script src="./tpl/Home/lanrain/common/ruiec/images/ww/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+<link href="./tpl/Home/lanrain/common/ruiec/images/ww/global.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./tpl/Home/lanrain/common/ruiec/images/ww/lrtk.css">
+<link rel="stylesheet" type="text/css" href="./tpl/Home/lanrain/common/ruiec/images/ww/style.css">
+<title>呼应-微信首家推荐服务商|微信定制开发|微信管理平台|微信托管|微信营销|微信开发外包</title>
+</head>
+<body style="zoom: 1; ">
+<div id="global">
+  <div id="head">
+    <p class="head_logo">微信首家推荐合作服务商</p>
+    <img src="./tpl/Home/lanrain/common/ruiec/images/call.jpg" class="head_call">
+  </div>
+  <div id="content"> 
+    <!-- 代码 开始 -->
+    <div class="childbanner">
+      <ul class="childbannerpic" style="position: relative; width: 1070px; height: 303px;">
+        <li style="position: absolute; width: 1070px; left: 0px; top: 0px; display: none;"><a href="http://www.echo58.com/platform.html#" target="_blank"><img src="./tpl/Home/lanrain/common/ruiec/images/ww/banner4.jpg"></a></li>
+        <li style="position: absolute; width: 1070px; left: 0px; top: 0px; display: none;"><a href="http://www.echo58.com/platform.html#" target="_blank"><img src="./tpl/Home/lanrain/common/ruiec/images/ww/banner2.jpg"></a></li>
+        <li style="position: absolute; width: 1070px; left: 0px; top: 0px; display: none;"><a href="http://www.echo58.com/platform.html#" target="_blank"><img src="./tpl/Home/lanrain/common/ruiec/images/ww/banner1.jpg"></a></li>
+        <li style="position: absolute; width: 1070px; left: 0px; top: 0px; display: list-item;"><a href="http://www.echo58.com/platform.html#" target="_blank"><img src="./tpl/Home/lanrain/common/ruiec/images/ww/banner3.jpg"></a></li>
+      </ul>
+      <div class="num">
+        <ul><li class="">&nbsp;</li><li class="">&nbsp;</li><li class="">&nbsp;</li><li class="on">&nbsp;</li></ul>
+      </div>
+    </div>
+    <script>
+    /*鼠标移过某个按钮 高亮显示*/
+    $(".prev,.next").hover(function(){
+      $(this).fadeTo("show",0.7);
+    },function(){
+      $(this).fadeTo("show",0.1);
+    })
+    $(".childbanner").slide({ titCell:".num ul" , mainCell:".childbannerpic" , effect:"fold", autoPlay:true, delayTime:1000 , autoPage:true });
+    </script> 
+    <!-- 代码 结束 -->
+   
+   
+    <!-- trade -->
+    <div class="nm_wap"> 
+      <!--产品展示小图标-->
+      <div class="cl" style="width: 100%; position: relative;">
+        <div class="servicesBox">
+          <div id="serBox1" class="serBox" onclick="serFocus(1)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/27.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/27-27.png"></div>
+            <div class="txt1" style="left: 0px;"><span class="tit">微商城</span>
+              <p>小微信也有大商城,电商轻松就能走入微信</p>
+            </div>
+            <div class="txt2" style="right: -240px;"><span class="tit">微商城</span>
+              <p>小微信也有大商城,电商轻松就能走入微信</p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="serBox2" class="serBox" onclick="serFocus(2)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/10.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/10-10.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微会议</span>
+              <p> 专属二维码,
+                一键扫描参加会议 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微会议</span>
+              <p> 专属二维码,
+                一键扫描参加会议 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="serBox3" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/26.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/26-26.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微汽车</span>
+              <p> 预约试驾或保养,车主关怀
+                360度看车应有尽有 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微汽车</span>
+              <p> 预约试驾或保养,车主关怀
+                360度看车应有尽有 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div1" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/11.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/11-11.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微房产</span>
+              <p> 房产行业有力的解决方案
+                360度看房更给力 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微房产</span>
+              <p> 房产行业有力的解决方案
+                360度看房更给力 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div2" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/22.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/22-22.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微餐饮</span>
+              <p> 扫一扫
+                微信也能够实时点餐 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微餐饮</span>
+              <p> 扫一扫
+                微信也能够实时点餐 </p>
+            </div>
+          </div>
+          <div id="Div3" class="serBox" onclick="serFocus(1)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/16.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/16-16.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微旅游</span>
+              <p> 在线订房融入微信
+                酒店营销多一条有力途径 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微旅游</span>
+              <p> 在线订房融入微信
+                酒店营销多一条有力途径 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div4" class="serBox" onclick="serFocus(2)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/21.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/21-21.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微医疗</span>
+              <p> 在线挂号或咨询
+                了解病情 微信都可以 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微医疗</span>
+              <p> 在线挂号或咨询
+                了解病情 微信都可以 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div5" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/ser_box3.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/ser_box3b.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微官网</span>
+              <p> 5分钟轻松建站
+                打造酷炫微官网 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微官网</span>
+              <p> 5分钟轻松建站
+                打造酷炫微官网 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div6" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/33.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/33-33.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微喜帖</span>
+              <p> 电子喜帖 微信来袭
+                提供用户特别服务 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微喜帖</span>
+              <p> 电子喜帖 微信来袭
+                提供用户特别服务 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div7" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/13.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/13-13.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">智能客服</span>
+              <p> 客户问题自动应答
+                无需人工值守 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">智能客服</span>
+              <p> 客户问题自动应答
+                无需人工值守 </p>
+            </div>
+          </div>
+          <div id="Div8" class="serBox" onclick="serFocus(1)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/12.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/12-12.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微会员</span>
+              <p> 方便携带 永不挂失
+                消费积分 一卡配备 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微会员</span>
+              <p> 方便携带 永不挂失
+                消费积分 一卡配备 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div9" class="serBox" onclick="serFocus(2)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/28.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/28-28.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">优惠券</span>
+              <p> 电子券
+                方便 快捷 环保 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">优惠券</span>
+              <p> 电子券
+                方便 快捷 环保 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div10" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/29.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/29-29.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">刮刮乐</span>
+              <p> 趣味游戏
+                吸引用户参与 沉淀用户 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">刮刮乐</span>
+              <p> 趣味游戏
+                吸引用户参与 沉淀用户 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div11" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/17.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/17-17.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">大转盘</span>
+              <p> 趣味游戏
+                吸引用户参与 沉淀用户 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">大转盘</span>
+              <p> 趣味游戏
+                吸引用户参与 沉淀用户 </p>
+            </div>
+          </div>
+          <div id="Div12" class="serBox" onclick="serFocus(1)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/25.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/25-25.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">一站到底</span>
+              <p> 无需人力 电子调研
+                为市场调研加一份有力数据 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">一站到底</span>
+              <p> 无需人力 电子调研
+                为市场调研加一份有力数据 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div13" class="serBox" onclick="serFocus(2)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/18.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/18-18.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">素材管理</span>
+              <p> 可视化图文管理
+                让沟通无障碍 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">素材管理</span>
+              <p> 可视化图文管理
+                让沟通无障碍 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div14" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/24.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/24-24.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微投票</span>
+              <p> 电子调研
+                指引企业方向 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微投票</span>
+              <p> 电子调研
+                指引企业方向 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div15" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/30.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/30-30.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微客服</span>
+              <p> 沟通6亿用户
+                创造无限商机 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微客服</span>
+              <p> 沟通6亿用户
+                创造无限商机 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div16" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/20.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/20-20.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">CRM系统</span>
+              <p> 把握商机
+                用户数据精准分析 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">CRM系统</span>
+              <p> 把握商机
+                用户数据精准分析 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div17" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn"></div>
+            <div class="pic1 mypng"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/32.png"></div>
+            <div class="pic2 mypng"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/32-32.png"></div>
+            <div class="txt1"> <span class="tit">数据魔方</span>
+              <p> 折线图清晰查询数据
+                助力企业营销 </p>
+            </div>
+            <div class="txt2"> <span class="tit">数据魔方</span>
+              <p> 折线图清晰查询数据
+                助力企业营销 </p>
+            </div>
+          </div>
+          <div id="Div18" class="serBox" onclick="serFocus(1)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/31.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/31-31.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微留言</span>
+              <p> 意见？需求？疑问？
+                一键留言  一键回复 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微留言</span>
+              <p> 意见？需求？疑问？
+                一键留言  一键回复 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div19" class="serBox" onclick="serFocus(2)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/14.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/14-14.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微话题</span>
+              <p> 发起话题
+                讨论产品信息 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微话题</span>
+              <p> 发起话题
+                讨论产品信息 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div20" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/8.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/8-8.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微相册</span>
+              <p> 各行各业
+                照片展现轻松搞定 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微相册</span>
+              <p> 各行各业
+                照片展现轻松搞定 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div21" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn" style="display: none;"></div>
+            <div class="pic1 mypng" style="right: 41px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/9.png"></div>
+            <div class="pic2 mypng" style="left: -110px;"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/9-9.png"></div>
+            <div class="txt1" style="left: 0px;"> <span class="tit">微预约</span>
+              <p> 各种预约 一键即可
+                短信邮件会立即通知商户 </p>
+            </div>
+            <div class="txt2" style="right: -240px;"> <span class="tit">微预约</span>
+              <p> 各种预约 一键即可
+                短信邮件会立即通知商户 </p>
+            </div>
+          </div>
+          <div class="fgH20"></div>
+          <div id="Div22" class="serBox" onclick="serFocus(3)">
+            <div class="serBoxOn"></div>		:\ThinkPHP项目\wxshoppingmall\SRC\tpl\Home\lanrain\common\ruiec\images\ww
+            <div class="pic1 mypng"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/15.png"></div>
+            <div class="pic2 mypng"> <img src="./tpl/Home/lanrain/common/ruiec/images/ww/15-15.png"></div>
+            <div class="txt1"> <span class="tit">自定义菜单栏</span>
+              <p> 无需定制 完全自定义
+                无需触发 完全可视化 </p>
+            </div>
+            <div class="txt2"> <span class="tit">自定义菜单栏</span>
+              <p> 无需定制 完全自定义
+                无需触发 完全可视化 </p>
+            </div>
+          </div>
+        </div>
+        <div class="cl"></div>
+      </div>
+      <!--/产品展示小图标--> 
+      <div class="cl"></div>
+    </div>
+    <script type="text/javascript" src="./tpl/Home/lanrain/common/ruiec/images/ww/index.js"></script> 
+    <!-------------------------------------------------->
 <include file="Public:footer"/>
+    <!--footer底部-->
+<script type="text/javascript">
+function showattention(obj){
+document.getElementById(obj).style.display = 'block';
+}
+function closeattention(obj){
+document.getElementById(obj).style.display = 'none';
+}
+/*	function changeOnline(num) {
+if (isNaN(num) && num == "")
+return;
+for (var i = 1; i <=6 ; i++)
+{
+if (i == num)
+{
+$('#onlineSort'+i).attr('class','online_bar expand');
+$('#onlineType'+i).show();
+}
+else
+{z
+$('#onlineSort'+i).attr('class','online_bar collapse');
+$('#onlineType'+i).hide();
+}
+}
+}*/
 
+$(document).ready(function(){
+$("#floatShow").bind("click",function(){
+$('#onlineService').animate({width: 'show', opacity: 'show'}, 'normal',function(){ $('#onlineService').show(); });$('#floatShow').attr('style','display:none');$('#floatHide').attr('style','display:block');
+return false;
+});
+$("#floatHide").bind("click",function(){
+$('#onlineService').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#onlineService').hide(); });$('#floatShow').attr('style','display:block');$('#floatHide').attr('style','display:none');
+});
+$(document).bind("click",function(event){
+if ($(event.target).isChildOf("#online_qq_layer") == false)
+{
+$('#onlineService').animate({width: 'hide', opacity: 'hide'}, 'normal',function(){ $('#onlineService').hide(); });$('#floatShow').attr('style','display:block');$('#floatHide').attr('style','display:none');
+}
+});
+jQuery.fn.isChildAndSelfOf = function(b){
+return (this.closest(b).length > 0);
+};
+jQuery.fn.isChildOf = function(b){
+return (this.parents(b).length > 0);
+};
+$("#floatShow").click();
+$("#floatHide").click();
+});
+
+
+  </script> 
+ 
+
+
+  
 </body>
 </html>
