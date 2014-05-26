@@ -41,14 +41,15 @@ class IndexAction extends UserAction{
 				
 				
 				$Model = M();
-				$stat_PV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
-				//dump($stat_PV);exit;
+				$query_pv = "SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');";
+				$stat_PV = $Model->query($query_pv);
 				$this->assign('stat_PV', $stat_PV);
 				
-				$stat_UV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(DISTINCT remote_ip) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
-				//dump($stat);exit;
+				$query_uv = "SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(DISTINCT remote_ip) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');";
+				$stat_UV = $Model->query($query_uv);
 				$this->assign('stat_UV', $stat_UV);
 				
+				//dump($query_pv); dump($stat_PV); dump($query_uv); dump($stat_UV);exit;
 				
 				$buycount= M('item')->where(array('status'=>1,'tokenTall'=>$tokenTall))->count();
 				$nobuycount= M('item')->where(array('status'=>0,'tokenTall'=>$tokenTall))->count();

@@ -154,7 +154,7 @@
          <div id="slider" class="slider" style="overflow: hidden; visibility: visible; list-style: none outside none; position: relative;">
              <ul id="sliderlist" class="sliderlist" style="position: relative; overflow: hidden; transition: left 600ms ease 0s; width: 784px; left: 202px;">
                  <volist name="img_list" id="img">
-                     <li style="float: left; display: block; width: 596px;"><a class="group1" href="{:$img['url']}"><img  width="90%" height="85%" src="{:$img['url']}"></li>
+                     <li style="float: left; display: block; width: 596px;"><a class="group1" href="{:$img['url']}"><img  width="90%" height="90%" src="{:$img['url']}"></li>
                  </volist>
              </ul>
             <div id="pagenavi">
@@ -187,51 +187,36 @@
          <div class="ware_text">
              <div class="rate">
                 <h2 class="ware_title">{$item.title}</h2>       	
-                <span class="letter1">现价：</span>
-                <span ectype="goods_price" class="fontColor3">¥{$item.price}</span><br>                       
-                <span class="letter1">品牌：</span>{$item.brand}<br>
-                <span class="letter1">售出：</span>{$item.buy_num}件<br>
-                <span class="letter1">地区：</span>中国 
+                <h2 class="ware_title">售价：<span class="fontColor3">¥{$item.price}</span></h2>
+                <span class="letter1" style="margin:0px 5px;">销量：{$item.buy_num}件</span>
+                <span class="letter1" style="margin:0px 5px;">品牌：{$item.brand}</span>
+                
 			</div>
             <div class="handle">
 
            <script type="text/javascript">
-	            function sizetitle(size_title){
-	             $(".size_title").css('background','none');
-		     $("#size" + size_title).css('background','url(__STATIC__/images/xiaokuang.png)');
-		     $("#sizeChoose").val(size_title);
-		    }
-		    function colortitle(color_title){
-	             $(".color_title").css('background','none');
-		     $("#color" + color_title).css('background','url(__STATIC__/images/xiaokuang.png)');
-		     $("#colorChoose").val(color_title);
-		    }
+				function sizetitle(size_title){
+	              $(".size_title").css('background','none');
+		          $("#size" + size_title).css('background','url(__STATIC__/images/xiaokuang.png)');
+		          $("#sizeChoose").val(size_title);
+		        }
+		        function colortitle(color_title){
+	              $(".color_title").css('background','none');
+		          $("#color" + color_title).css('background','url(__STATIC__/images/xiaokuang.png)');
+		          $("#colorChoose").val(color_title);
+		        }
 		  </script>
 		  <style>
-		   .size_title{border:1px solid #d9d9d9;color:black;width:75px;height:24px;background:none;font-size:14px;float:left;margin-left:3px;}
-		   .color_title{border:1px solid #d9d9d9;color:black;width:75px;height:24px;background:none;font-size:14px;float:left;margin-left:3px;}
+		       .size_title{border:1px solid #d9d9d9;color:black;width:75px;height:24px;background:none;font-size:14px;float:left;margin:5px;}
+		       .color_title{border:1px solid #d9d9d9;color:black;width:75px;height:24px;background:none;font-size:14px;float:left;margin-left:5px;}
 		  </style>
-               
-                <if condition="$countSize eq 0">
-                    <input name="size" id="sizeChoose" type="hidden" value="无">
-                <else/>
-                <ul>
-                	<li class="handle_title">型号:</li>
-
-                    <li>
-                    
-                    <volist name='size' id='vo'>
-                    	 <a href="javascript:void(0);" onclick="sizetitle('{$vo}')" ><div class="size_title" id="size{$vo}">{$vo}</div></a>
-                    </volist>
-                    <input name="size" id="sizeChoose" type="hidden" value="">
-
-                    </li>
-                </ul></if>
+                <ul><li class="handle_title">请选择：</li><li class="handle_title" style="color:black;">颜色/尺码</li></ul>
+                
                 <if condition="$countColor eq 0">
                 	<input name="color" id="colorChoose" type="hidden" value="无">
                 <else/>
-                <ul>
-                    <li class="handle_title">颜色:</li>
+                <ul style="font-size:12px; font-color:#999; margin-bottom:10px;">
+                    <li style="margin-right:10px; margin-top:5px;">颜色</li>
                     <li>
                     <volist name='color' id='vo'>
                     	<a href="javascript:void(0);" onclick="colortitle('{$vo}')" ><div class="color_title" id="color{$vo}">{$vo}</div></a>
@@ -240,12 +225,32 @@
                     </li>
                 </ul>
 
-                </ul></if>
-                <ul>
-                    <li class="handle_title">数量：</li>
+                </if>
+                
+                <if condition="$countSize eq 0">
+                    <input name="size" id="sizeChoose" type="hidden" value="无">
+                <else/>
+                <ul style="font-size:12px; font-color:#999">
+                	<li style="margin-right:10px;margin-top:5px;">尺码</li>
+
                     <li>
-                        <input type="text" value="1" id="quantity" name="" class="text width1" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeyup="this.value=this.value.replace(/\D/g,'')" />件（库存<span ectype="goods_stock" class="stock">{$item.goods_stock}</span>件）
+                    <volist name='size' id='vo'>
+                    	 <a href="javascript:void(0);" onclick="sizetitle('{$vo}')" ><div class="size_title" id="size{$vo}">{$vo}</div></a>
+                    </volist>
+                    <input name="size" id="sizeChoose" type="hidden" value="">
                     </li>
+                </ul>
+                </if>
+                
+                <ul  style="font-size:12px; font-color:#999;">
+                    <li style="margin-right:10px;margin-top:10px;">数量</li>
+                    <li style="margin-top:5px;margin-left:5px;">
+                        <a style="float:left;"><img alt="" src="__STATIC__/images/minus.png" style="width:30px; height:30px;"></a>
+                        <input type="text" value="1" id="quantity" name="" 
+                        style="float:left;width:70px;height:30px;line-height:normal;border:1px solid #ddd;border-left:0;border-right:0;background:#fff;font-size:16px;background:#fff;text-align:center"/>
+                        <a style="float:left;"><img alt="" src="__STATIC__/images/plug.png" style="width:30px; height:30px;"></a>
+                    </li>
+                    <li style="margin-left:20px;margin-top:10px;">库存{$item.goods_stock}件</li>
                 </ul>
             </div>
             <ul class="ware_btn">
