@@ -313,7 +313,7 @@ li.q{padding-top:30px;}
 .quTopWrap{ background-color:#004991; width:100%;}
 .quTopWrap img{ width:1067px; display:block; margin:auto auto;}
 
-.quName{ margin:30px auto;width:1200px;}
+.quName{ margin:30px auto;width:1200px;margin-left: 50px;}
 
 .quName .lan{ float:left;width:6px; height:35px;line-height:35px;background-color:#0088c9;}
 .quName .des{color:#0088c9; font-size:34px; line-height:35px; margin-left:30px;}
