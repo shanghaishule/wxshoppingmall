@@ -2,7 +2,7 @@
 
 *{margin:0px; padding:0px;}
 body{ background:#fff; font:12px "微软雅黑",Arial, Helvetica, sans-serif; color:#333; overflow-x:hidden;}
-img{border:0px;margin-right:100px;}
+img{border:0px;}
 ul{list-style:none;position: relative;
 /*left: 30%;*/}
 a{text-decoration:none; cursor:pointer;}
