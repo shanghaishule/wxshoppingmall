@@ -166,7 +166,7 @@ class bookAction extends frontendAction {
     public function allcate(){
     	$tokenTall = $this->getTokenTall();
     	$this->assign('tokenTall',$tokenTall);
-    	
+    	/*
     	$model=new Model();
     	$item=$model->table('tp_item m, tp_item_cate c')
     	->where("m.cate_id=c.id and m.tokenTall='".$tokenTall."'")
@@ -189,18 +189,14 @@ class bookAction extends frontendAction {
     	
     	$this->assign("item1",$item_l1);
     	$this->assign("item2",$item_l2);
+    	*/
     	
-    	//一级菜单
-    	//$iteml["pid"]="0";
-    	//$item_l1=M("item_cate")->where($iteml)->select();
-    	//二级菜单
-    	//$iteml2["pid"]=array("NEQ","0");
-    	//$item_l2=M("item_cate")->where($iteml2)->select();
+    	$where['status']=array('eq',1);
+    	$where['tokenTall']=array('eq',$tokenTall);
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->select();
+    	//var_dump($items);exit;
+    	$this->assign('item_list',$items);
     	
-    	//header("content-Type: text/html; charset=Utf-8");
-    	//dump($item_l1);
-    	//dump($item_l2);
-    	//exit;
     	$this->display();
     }
     

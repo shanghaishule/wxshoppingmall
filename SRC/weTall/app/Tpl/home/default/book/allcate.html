@@ -1,27 +1,69 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/js/weTall/index.css" />
 <include file="public:headtop" />
-<script charset="utf-8" src="__STATIC__/weixin/js/goodsinfo.js" type="text/javascript"></script>
-<script charset="utf-8" src="__STATIC__/weixin/js/jquery.js" type="text/javascript"></script>
-<script charset="utf-8" src="__STATIC__/weixin/js/colorbox.js" type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" href="__STATIC__/weixin/colorbox.css">
 </head>
+
 <body>
 <include file="public:head" />
-  <volist name="item1" id="vo1">  
-    <div class="allcate"><a href="{:U('book/cate',array('cid'=>$vo1['id'],'tokenTall'=>$tokenTall))}">{$vo1.name}</a></div>
-	<div class="childcate">
-		<ul>
-		    <volist name="item2" id="vo2">
-		     <if condition="$vo2['pid'] eq $vo1['id']">
-		     	<li><a href="{:U('book/cate',array('cid'=>$vo2['id'],'tokenTall'=>$tokenTall))}">{$vo2.name}</a></li>
-		     </if>
-		    </volist>
-	    </ul>
-   </div>
- </volist>
- <include file="public:footer" />
+<div class="s_bottom"></div>
+<script type="text/javascript">
+$(function(){
+	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
+});
+var active=0,
+	as=document.getElementById('pagenavi').getElementsByTagName('a');
+	
+for(var i=0;i<as.length;i++){
+	(function(){
+		var j=i;
+		as[i].onclick=function(){
+			t2.slide(j);
+			return false;
+		}
+	})();
+}
+var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:function(index){
+		as[active].className='';
+		active=index;
+		as[active].className='active';
+	}});
+</script>
+
+
+<div id="content">
+    <div class="module_special tbr">
+        <div class="wrap">
+            <div class="wrap_child">
+                <div class="major">
+                     <ul class="list">
+                     <volist name="item_list" id="item">
+                     <li>
+                     <div class="pic">
+                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}"><img  src="{:$item['img']}"></a>
+                     </div>
+                     <div class="good_content">
+                     <h3>
+                     	<a  href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
+                     </h3>
+                     <p>¥{$item.price}<span style="float:right; margin-right:5px;"><img src="__STATIC__/weixin/images/bg5.png" height="10px"></span></p>
+                     </div>
+                     <span class="show_good">
+                     	<a  href="{:U('Item/index',array('id'=>$item['id']))}"></a>
+                     </span>
+                     </li>
+                     </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+
+<include file="public:footer" />
+
 </body>
 </html>

@@ -111,15 +111,15 @@ class IndexAction extends BaseAction{
 	public function addHead(){
 echo <<< EOT
 <style type="text/css">
-#nav_zcb {width:100%; max-width:320px; position: relative; margin: 0 auto; left:0px; top:0px; z-index: 100; display:block; box-shadow:0 2px 3px #d9d9d9;}
-#nav_zcb ul.navlist_zcb { position: relative; z-index:9999; height:45px; margin:0 auto; border-bottom:1px solid #ccc;box-shadow:0 2px 3px #d9d9d9;}
-#nav_zcb .navlist_zcb li { float: left; margin: 0px 20px;width:12%;height:45px;  position:relative;}
+#nav_zcb {width:100%; min-width:320px; max-width:640px; position: relative; margin: 0 auto; left:0px; top:0px; z-index: 100; display:block; box-shadow:0 1px 1px #d9d9d9;}
+#nav_zcb ul.navlist_zcb { position: relative; z-index:9999; height:45px; margin:0 auto; border-bottom:1px solid #ccc;box-shadow:0 1px 1px #d9d9d9;}
+#nav_zcb .navlist_zcb li { float: left; width:25%; height:45px;  position:relative;}
 #nav_zcb .navlist_zcb li span{ display:inline-block; width:100%; height:45px; cursor:pointer;}
 #nav_zcb .navlist_zcb li a{ display:block; height:45px;}
-#nav_zcb .navlist_zcb li#n_0 span{ background:url(./weTall/static/weixin/images/dingcan/icon5.png) no-repeat center center;}
-#nav_zcb .navlist_zcb li#n_1 span{ background:url(./weTall/static/weixin/images/dingcan/icon10.png) no-repeat center center;}
-#nav_zcb .navlist_zcb li#n_2 span{ background:url(./weTall/static/weixin/images/dingcan/icon9.png) no-repeat center center;}
-#nav_zcb .navlist_zcb li#n_3 span{ background:url(./weTall/static/weixin/images/dingcan/icon11.png) no-repeat center center;}
+#nav_zcb .navlist_zcb li#n_0 span{ background:url(./weTall/static/weixin/images/dingcan/bg1.png) no-repeat center center;}
+#nav_zcb .navlist_zcb li#n_1 span{ background:url(./weTall/static/weixin/images/dingcan/bg2.png) no-repeat center center;}
+#nav_zcb .navlist_zcb li#n_2 span{ background:url(./weTall/static/weixin/images/dingcan/bg3.png) no-repeat center center;}
+#nav_zcb .navlist_zcb li#n_3 span{ background:url(./weTall/static/weixin/images/dingcan/bg4.png) no-repeat center center;}
 
 
 </style>
