@@ -638,14 +638,14 @@ div.order_cancel_box p span {color: #f34; font-weight: bold;}
 .fill_in_fun .btn_fun { padding-left: 60px; }
 .fill_in_fun .btn_fun input { border: 0; width: 75px; height: 29px; font-weight: bold; color: #c53800; background: url(../images/enter_btn.gif) no-repeat; }
 
-.user_menu {height: 30px; padding-left: 20px;position: relative; border-bottom:3px solid #ddd;}
-.user_menu li { float: left; margin-right: 4px; border:2px solid #ddd; border-bottom:none; border-radius:5px 5px 0 0;}
+.user_menu {height: 30px; position: relative; border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;}
+.user_menu li { float: left; /* margin-right: 4px; */ /* border:2px solid #ddd; */ /* border: none; */ /* border-radius:5px 5px 0 0; */ width: 49.5%; text-align: center;}
 
 .user_menu .ornament1 { position: absolute; }
 .user_menu .ornament2 { position: absolute; }
 
-.user_menu .active { display: block; font-size: 12px; font-weight: bold; color: #3f4140; text-decoration: none;}
-.user_menu .active span { display: block; padding: 8px 20px 8px 22px; background:#f6f6f6;}
+.user_menu .active { display: block; /* font-size: 12px; */ font-weight: bold; /* color: #F80317; */ text-decoration: none; width: 49.5%; text-align: center;}
+.user_menu .active span { display: block; /* padding: 8px 20px 8px 22px; */ /* background:#f6f6f6; */ color: red;}
 .user_menu .normal { display: block; font-size: 12px; font-weight: bold; color: #3e403f; text-decoration: none; background: url(../images/user_menu_nav.gif) no-repeat right 0; }
 .user_menu .normal:hover { text-decoration: underline; }
 .user_menu .normal span { display: block; padding: 8px 20px 8px 22px; background: url(../images/user_menu_nav.gif) no-repeat left -150px; }
