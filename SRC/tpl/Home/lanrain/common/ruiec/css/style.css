@@ -2,12 +2,12 @@
 
 *{margin:0px; padding:0px;}
 body{ background:#fff; font:12px "微软雅黑",Arial, Helvetica, sans-serif; color:#333; overflow-x:hidden;}
-img{border:0px;}
+img{border:0px;margin-right:100px;}
 ul{list-style:none;position: relative;
 /*left: 30%;*/}
 a{text-decoration:none; cursor:pointer;}
 .fl{float:left;}
-.fr{float:right;}
+.fr{float:right;margin-right: 67px}
 .cl{clear:Both;}
 .resize{width:1200px; overflow:hidden; margin:0 auto; position:relative;}
 .over_v{overflow:visible;}
@@ -338,19 +338,19 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .product .pBox .p_text dl.dl1{background:url(../images/product_icon1.jpg) no-repeat;}
 .product .pBox .p_text dl.dl2{background:url(../images/product_icon2.jpg) no-repeat;}
 .product .pBox .p_text dl.dl3{background:url(../images/product_icon3.jpg) no-repeat;}
-.product .pBox .p_text dl.dl4{background:url(../images/product_icon4.jpg) no-repeat;}
+.product .pBox .p_text dl.dl4{background:url(../images/product_icon4.jpg) no-repeat;margin-right:200px;}
 .product .pBox .p_text dl.dl5{background:url(../images/product_icon5.jpg) no-repeat;}
 .product .pBox .p_text dl.dl6{background:url(../images/product_icon6.jpg) no-repeat;}
 .product .pBox .p_text dl.dl7{background:url(../images/product_icon7.jpg) no-repeat;}
 .product .pBox .p_text dl.dl8{background:url(../images/product_icon8.jpg) no-repeat;}
 .product .pBox .p_text dl.dl9{background:url(../images/product_icon9.jpg) no-repeat;}
-.product .pBox .p_text dl.dl10{background:url(../images/product_icon10.jpg) no-repeat;}
+.product .pBox .p_text dl.dl10{background:url(../images/product_icon10.jpg) no-repeat;margin-right: 160px;}
 .product .pBox .p_text dl.dl11{background:url(../images/product_icon11.jpg) no-repeat;}
-.product .pBox .p_text dl.dl12{background:url(../images/product_icon12.jpg) no-repeat;}
+.product .pBox .p_text dl.dl12{background:url(../images/product_icon12.jpg) no-repeat;margin-right: 160px;}
 .product .pBox .p_text dl.dl13{background:url(../images/product_icon13.jpg) no-repeat;}
-.product .pBox .p_text dl.dl14{background:url(../images/product_icon14.jpg) no-repeat;}
+.product .pBox .p_text dl.dl14{background:url(../images/product_icon14.jpg) no-repeat;margin-right: 160px;}
 .product .pBox .p_text dl.dl15{background:url(../images/product_icon15.jpg) no-repeat;}
-.product .pBox .p_text dl.dl16{background:url(../images/product_icon16.jpg) no-repeat;}
+.product .pBox .p_text dl.dl16{background:url(../images/product_icon16.jpg) no-repeat;margin-right: 160px;}
 .product .pBox .p_text dl dt{ font-size:34px; color:#000; font-weight:bold; padding-bottom:10px;}
 .product .pBox .p_text dl dd{font-size:16px; line-height:30px; padding-left:20px;}
 .product .pBox .p_text dl dd h3{ font-size:20px; font-weight:normal;}
