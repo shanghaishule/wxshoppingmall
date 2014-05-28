@@ -4,7 +4,7 @@
 	img {border:0;}
 
 	body {font-family: "Microsoft YaHei",SimHei ,Apple LiGothic Medium,Arial,Helvetica,sans-serif;-webkit-text-size-adjust:none;background:url("../images/background.png")  center;}
-	#global {min-width:1280px;margin-left:120px;}
+	#global {min-width:1280px;}
 	
 	#head {width:1070px;margin:0 auto;padding-bottom:10px;position:relative;}
 	.head_logo {font-size:20px;color:#8b8883;line-height:50px;padding:40px 0 10px 0;width:600px;}
