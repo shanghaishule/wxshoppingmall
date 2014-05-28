@@ -18,7 +18,7 @@
 
 	#content {width:1070px;margin:0 auto 25px auto;margin-right:300px;}
 
-	#footer {background:url("../images/background_bottom.png");}
+	#footer {background:url("../images/background_bottom.png");clear:both;}
 	.footer_center {width:1070px;margin:0 auto;padding:40px 0 0 0;}
 	.footer_contact {width:360px;display:inline-block;}
 	.footer_contact_head {color:#fff;font-size:22px;margin-bottom:28px;line-height:33px;}
