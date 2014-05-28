@@ -79,11 +79,11 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .loginbox .l_cont ul li .icon.i_qq{background:url(../images/wzc_img_19.jpg) center center no-repeat;}
 .loginbox .l_cont ul li p{color:#666; font-size:14px;}
 .loginbox .l_cont ul li p i{font-size:24px; color:#d58c3f; font-style:normal;}
-#container{width:100%; }
+#container{width:100%; background-color: rgb(198, 226, 255);}
 .box_lose .cont_left{width:460px;}
 .box_lose .cont_left ul li{margin-bottom:16px; background:url(../images/icon_cy.jpg) left center no-repeat; padding-left:18px; font-size:18px;}
 .box_lose .cont_left ul li.bg_none{background:none;}
-.box_lose .cont_right{width:730px;background-color:rgb(198, 226, 255);}
+.box_lose .cont_right{width:730px;}
 .box_lose .cont_right .loseAni{  width:720px; height:342px; position:relative;}
 .box_lose .cont_right .loseAni img{position:absolute; background:none;}
 .box_lose .cont_right .loseAni .Ani_hand{ left:350px; top:50px; opacity:0; filter:alpha(opacity=0);}
