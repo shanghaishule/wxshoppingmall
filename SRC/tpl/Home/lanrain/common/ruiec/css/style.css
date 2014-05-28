@@ -173,7 +173,7 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .zsBox .ty_tit h2 span{ color:#23aeed;}
 .zsBox .ty_cont{padding-top:20px; width:100%; overflow:hidden;}
 .zsBox .ty_cont .c_left{float:left;}
-.zsBox .ty_cont .c_right{float:left;}
+.zsBox .ty_cont .c_right{float:left;background-color:rgb(198, 226, 255);}
 .zsBox1{width:1200px; }
 .zsBox1 .zs_top{height:7px; width:1200px; background:url(../images/wzc_jmImg_47.png) repeat-x;}
 .zsBox1 .zs_cen{background:#1079f0; width:1142px; padding:30px 29px;}
