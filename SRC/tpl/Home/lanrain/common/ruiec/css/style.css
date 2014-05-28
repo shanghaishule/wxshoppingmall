@@ -83,7 +83,7 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .box_lose .cont_left{width:460px;}
 .box_lose .cont_left ul li{margin-bottom:16px; background:url(../images/icon_cy.jpg) left center no-repeat; padding-left:18px; font-size:18px;}
 .box_lose .cont_left ul li.bg_none{background:none;}
-.box_lose .cont_right{width:730px;}
+.box_lose .cont_right{width:730px;background-color:rgb(198, 226, 255);}
 .box_lose .cont_right .loseAni{  width:720px; height:342px; position:relative;}
 .box_lose .cont_right .loseAni img{position:absolute; background:none;}
 .box_lose .cont_right .loseAni .Ani_hand{ left:350px; top:50px; opacity:0; filter:alpha(opacity=0);}
@@ -173,7 +173,7 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .zsBox .ty_tit h2 span{ color:#23aeed;}
 .zsBox .ty_cont{padding-top:20px; width:100%; overflow:hidden;}
 .zsBox .ty_cont .c_left{float:left;}
-.zsBox .ty_cont .c_right{float:left;background-color:rgb(198, 226, 255);}
+.zsBox .ty_cont .c_right{float:left;}
 .zsBox1{width:1200px; }
 .zsBox1 .zs_top{height:7px; width:1200px; background:url(../images/wzc_jmImg_47.png) repeat-x;}
 .zsBox1 .zs_cen{background:#1079f0; width:1142px; padding:30px 29px;}
