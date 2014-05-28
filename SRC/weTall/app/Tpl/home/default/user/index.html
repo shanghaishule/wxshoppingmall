@@ -24,11 +24,11 @@ background: #2BD54D;
 <body>
 <include file="public:head" />
 <div class="content">
-    <h3 class="membertop">
-       <div class="my_name"><a>{$visitor.username}</a></div>
+    <div class="membertop">
+       <div class="my_name" style="height:40px; padding-left:15px;"><a>{$visitor.username}</a></div>
        <div class="logout"><a href="{:U('user/logout')}">注销</a> | <a href="{:U('user/favi')}">我的收藏</a></div>
-       <p class="my_address"><a href="{:U('user/address', array('tokenTall'=>$tokenTall))}">收货地址管理</a></p>
-    </h3>
+       <div class="my_address"><a href="{:U('user/address', array('tokenTall'=>$tokenTall))}">收货地址管理</a></div>
+    </div>
     <ul class="buyer_stat">
           <li class="btn_1 <if condition='$status eq 1'>active</if> "><a href="{:U('user/index',array('status'=>1,'tokenTall'=>$tokenTall))}">待付款</a><span>待付款</span></li>        
           <li class="btn_2 <if condition='$status eq 2'>active</if> "><a href="{:U('user/index',array('status'=>2,'tokenTall'=>$tokenTall))}">待发货</a><span>待发货</span></li>
