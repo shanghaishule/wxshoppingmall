@@ -44,11 +44,14 @@
 	.footer_nav a:hover {color:#fff;}
 	.footer_text {padding:30px 0 40px 320px;color:#afada9;font-size:12px;}
 	.footer_text a {color:#afada9;}
+	
 
 	.home_left {width:350px;display:inline-block;}
 	.home_middle {width:350px;display:inline-block;vertical-align:top;margin:0 10px;}
 	.home_right {width:350px;display:inline-block;vertical-align:top;}
+	
 
+	
 	.home_left .im{cursor:pointer;display:inline-block;width:344px;height:355px;background:url("../images/home_im.png");font-size:13px;color:#fff;border-radius:8px;position:relative;border:3px solid #C9D8E1;-webkit-transition:box-shadow 0.15s ease-out 0s;transition:box-shadow 0.15s ease-out 0s;}
 	.home_left .im:hover ,.home_left .example:hover ,.home_left .module:hover {border:3px solid #FFF; -moz-box-shadow:0 0 5px #aaa; -webkit-box-shadow:0 0 5px #aaa; box-shadow:0 0 5px #aaa;}
 	.home_left .im .title {margin-left:35px;color:#0f5f82;font-size:26px;margin-top:25px;}
