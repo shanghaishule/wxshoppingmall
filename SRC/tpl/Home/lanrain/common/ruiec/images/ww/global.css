@@ -16,7 +16,7 @@
 	#tab a:hover {color:#000;}
 	#tab .selected {color:#000;}
 
-	#content  {width:1071px;margin:0 auto 25px auto;margin-right:300px;}
+	#content  {width:1070px;margin:0 auto 25px auto;margin-right:300px;}
 
 	#footer {background:url("../images/background_bottom.png");}
 	.footer_center {width:1070px;margin:0 auto;padding:40px 0 0 0;}
@@ -234,7 +234,7 @@
 	.exam_p_head span,.exam_p span {font-size:12px;color:#7d7a75;white-space:nowrap;}
 	.exam_p_head img,.exam_p img {cursor:pointer;border:1px solid #eae9e6;-webkit-transition:box-shadow 0.15s ease-out 0s;transition:box-shadow 0.15s ease-out 0s;}
 	.exam_p_head img:hover,.exam_p img:hover {border:1px solid #fff;-moz-box-shadow:0 0 10px #333; -webkit-box-shadow:0 0 10px #333; box-shadow:0 0 10px #333;}
-	/*test ÁÙÊ±*/
+	/*test ï¿½ï¿½Ê±*/
 	.exam_p_test p {padding:12px 0 2px 0;color:#323333;}
 	.exam_p_test span{font-size:12px;color:#7d7a75;white-space:nowrap;}
 	.exam_p_test img {border:1px solid #eae9e6;-webkit-transition:box-shadow 0.15s ease-out 0s;transition:box-shadow 0.15s ease-out 0s;}
