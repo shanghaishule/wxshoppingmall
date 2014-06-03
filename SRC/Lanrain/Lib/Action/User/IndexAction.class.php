@@ -34,20 +34,55 @@ class IndexAction extends UserAction{
 					$this->assign('searcharr',$search);
 					//dump($wherestr);exit;
 					//dump($search);exit;
+					$start_z = $start_time;
+					$end_z = $end_time;
 				}else{
 					$wherestr .= " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
+					
+					$end_z = date("Y-m-d");
+					$d=strtotime('-6 days');
+					$start_z = date('Y-m-d',$d);
 				}
 				
-				
+				//dump($start_z); dump($end_z); exit;
+				for ($i = strtotime($start_z); $i <= strtotime($end_z); $i = $i + 86400){
+					$all[] = array('DT'=>date('Y-m-d',$i), 'CNT'=>0);
+				}
+				//dump($all);exit;
+				$all2 = $all;
+				$all3 = $all;
 				
 				$Model = M();
 				$query_pv = "SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');";
 				$stat_PV = $Model->query($query_pv);
-				$this->assign('stat_PV', $stat_PV);
+				foreach ($all as $key => $all_each_one){
+					foreach ($stat_PV as $each_one){
+						if ($each_one['DT'] == $all_each_one['DT']) {
+							//dump($each_one['DT']);
+							$all2[$key]['CNT'] = $each_one['CNT'];
+						}
+					}
+				}
+				//dump($all2);exit;
 				
 				$query_uv = "SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(DISTINCT remote_ip) CNT FROM slimstat where ".$wherestr." and resource like '%".$tokenTall."%' group by FROM_UNIXTIME(dt,'%Y-%m-%d');";
 				$stat_UV = $Model->query($query_uv);
-				$this->assign('stat_UV', $stat_UV);
+				foreach ($all as $key => $all_each_one){
+					foreach ($stat_UV as $each_one){
+						if ($each_one['DT'] == $all_each_one['DT']) {
+							//dump($each_one['DT']);
+							$all3[$key]['CNT'] = $each_one['CNT'];
+						}
+					}
+				}
+				//dump($all3);exit;
+				
+				$this->assign('stat_PV', $all2);
+				$this->assign('stat_UV', $all3);
+				
+				
+				//$this->assign('stat_PV', $stat_PV);
+				//$this->assign('stat_UV', $stat_UV);
 				
 				//dump($query_pv); dump($stat_PV); dump($query_uv); dump($stat_UV);exit;
 				
