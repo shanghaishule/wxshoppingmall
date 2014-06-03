@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://mail.163.com/preload6.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		* html body{-background:#d90000}
+	</style>
+	<title>preload6</title>
+	
+	<link href="" rel="stylesheet" type="text/css" id="globeCss">
+	<script>
+	(function(){
+		// 周一至周五特殊时段不做预加载 20140314
+		var oNow = new Date();
+		var oWeek = oNow.getDay();
+		var oHour = oNow.getHours();
+		if(oWeek >= 1 && oWeek <= 5){
+			if((oHour >= 8 && oHour <= 12) || (oHour >= 14 && oHour <= 17)){
+				return ;
+			}
+		}
+
+		// 默认配置
+		window.oDefaultConf = {
+			bjsVersion: 'bjs-1.0.39',
+			version : '6.0b1405261618', // 下个版本发布时将p1_0改回p1;
+			updateTime : 'preload6 last update 14-05-29 16:29',
+			
+			ver: 'js6',
+			font : 'v1'
+		};
+
+		// 邮箱资源基础路径
+		var sMimgUrl = 'mimg.127.net';
+		var sTopUrl = false;
+		try{
+			sTopUrl = top.location.href;
+		}catch(e){}
+		if(!sTopUrl){
+			try{
+				sTopUrl = window.location.href;
+			}catch(e){
+				sTopUrl = 'err';
+			}
+			if(sTopUrl != 'err'){
+				var bIsMimg2 = (/mimg=mimg2/ig).test(sTopUrl);
+				var bIsMimg3 = (/mimg=mimg3/ig).test(sTopUrl);
+				var bIsMimg4 = (/mimg=mimg4/ig).test(sTopUrl);
+				var bIsMimgHw = (/mimg=hwmimg/ig).test(sTopUrl);
+			}
+		}else{
+			var bIsMimg2 = (/mail2.163.com/ig).test(sTopUrl) || (/email2.163.com/ig).test(sTopUrl);
+			var bIsMimg3 = (/mail3.163.com/ig).test(sTopUrl) || (/email3.163.com/ig).test(sTopUrl);
+			var bIsMimg4 = (/mail4.163.com/ig).test(sTopUrl) || (/email4.163.com/ig).test(sTopUrl);
+			var bIsMimgHw = (/hwmail.163.com/ig).test(sTopUrl) || (/hw.mail.163.com/ig).test(sTopUrl);
+		}
+		if(bIsMimg2){
+			sMimgUrl = 'mimg2.127.net';
+		}
+		if(bIsMimg3){
+			sMimgUrl = 'mimg3.127.net';
+		}
+		if(bIsMimg4){
+			sMimgUrl = 'mimg4.127.net';
+		}
+		if(bIsMimgHw){
+			sMimgUrl = 'hwmimg.127.net';
+		}
+		
+		window.sBjsUrl = 'http://' + sMimgUrl + '/p/bjs/';
+		window.sBaseUrl = 'http://' + sMimgUrl + '/p/' + window.oDefaultConf.ver + '/';
+		window.sFontUrl = 'http://' + sMimgUrl + '/p/font/' + window.oDefaultConf.ver + '/';
+		
+		
+		// 获取ie版本
+		window.nIE = fIEVer();
+		// 获取是否预加载
+		window.bLast = fGetQuery('last');
+		if(bLast){
+			window.onload = function(){
+				document.body.innerHTML = window.oDefaultConf.updateTime;
+				return;
+			};
+		}else{
+			// 获取邮箱版本参数
+			window.sVersion = fGetQuery('version');
+			if(sVersion && (/^[0-9A-Za-z\_\.\-]+$/.test(sVersion))){
+				if(sVersion.indexOf('-')!= -1){
+					// 获取预加载基础版本
+					window.aVersion = sVersion.split('-');
+					window.sBaseVer = aVersion[0];
+					// 获取预加载补丁版本
+					window.sPatchVer = aVersion[1];
+					window.bPatch = sPatchVer === undefined;
+				}else{
+					window.sBaseVer = sVersion;
+				}
+			}else{
+				// 无参数，按默认版本
+				window.sBaseVer = oDefaultConf.version;
+			}
+			
+			
+			(function(){var o = new Image();window.gCssType='overlay';o.onload = function(){window.gCssType='base64';_();};o.onerror = function(){_();};o.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';function _(){
+					var sStr = "";
+					if(window.gCssType == "base64" && window.devicePixelRatio > 1.5){
+						sStr = "2x";
+					}
+					fCss(window.gCssType + '_compress' + sStr, false, true);
+				}
+			})();
+			// 获取字体版本参数	
+			window.sFontVer = fGetQuery('font');
+			// 无参数，按默认版本
+			if(!sFontVer){
+				window.sFontVer = oDefaultConf.font
+			}
+			// 预加载字体 
+			// fWebFont(sFontVer);
+			// 
+
+			// 预加载js
+			window.onerror = function(){return true;}
+			// onload成功
+			window.bOnload = false;
+			window.onload = function(){
+				window.bOnload = true;
+			}
+
+
+			fJs('bjs');
+			fJs('p0');
+			//fJs('p1');
+			fJs('p1_0');
+			
+			// 检查mimg是否加载失败 60s跳转
+			window.gCheckImgLoad = false;
+			window.gCheckBjsLoad = false;
+			window.gCheckP0Load = false;
+			window.gCheckP1Load = false;
+			window.gCheckCssLoad = false;
+			
+			window.gCheckMimg = setTimeout(function(){
+				if(gCheckImgLoad && gCheckP0Load && gCheckP1Load && gCheckCssLoad){
+					return;
+				}else{
+					var oLogImg = document.createElement('IMG');
+					oLogImg.src = 'http://count.mail.163.com/beacon/webmail.gif?product=' + window.oDefaultConf.ver + '&t=s&type=preload_failed&rnd=' + (new Date()).getTime();
+					document.body.appendChild(oLogImg);
+					alert('资源加载缓慢，点击确定跳转至备用线路');
+					top.location.href = 'http://email2.163.com/index2.htm'
+				}
+			},45000)
+		}
+		
+		function fJs(s){
+			if(s == 'bjs'){ // bjs
+	
+				document.write('<s' +'cript src="' + sBjsUrl + 'release/' + window.oDefaultConf.bjsVersion + '.js" charset="utf-8"></s' + 'cript>');
+			}
+			if(s == 'p0'){	// p0修正	
+				window.$G = {
+					environment: {
+						packageName		:	"netease.mail.js6",
+						cacheJsPath	:	""
+					},
+					attrs: {
+						cos: {}
+					},
+					user: {
+					},
+					mailPattern: {}
+				};
+				document.write('<s' +'cript src="' + sBaseUrl + sBaseVer + '/js/' + s + '.js" charset="utf-8"></s' + 'cript>');
+			}
+			if(s == 'p1_0'){ // p1修正
+				// fix p1,  绍图修改后可以去掉
+
+				if(window.$S){
+					$S('attrs', {
+						user: {}
+					});
+					fJsP1();
+				}else{
+					setTimeout(function(){fJs('p1_0')},500);
+				}
+			}
+			/**
+			if(nIE >= 9){
+				fCss(s, true);
+			}else{
+				document.write('<s' + 'cript src="' + sBaseUrl + sBaseVer + '/js/' + s + '.js" charset="utf-8"></s' + 'cript>');
+			}
+			*/
+		
+			function fJsP1(){
+				if(window.bOnload){
+					fImptScript(sBaseUrl + sBaseVer + '/js/' + s + '.js');
+				}else{
+					setTimeout(function(){fJsP1()},500);
+				}
+			}
+		}
+		
+		function fCss(s, bJs, bGlobe){
+			var sUrl = sBaseUrl + sBaseVer + (bJs ? '/js/' : '/css/') + s + (bJs ? '.js' : '.css');
+			var sType = bJs ? 'charset="utf-8"' : 'type="text/css"';
+			if(bGlobe){
+				document.getElementById('globeCss').href = sUrl;
+			}else{
+				document.write('<link href="' + sUrl + '" rel="stylesheet" ' + sType + ' />');
+			}
+		}
+		function fImg(s){
+			return sBaseUrl + sBaseVer + '/img/' + s
+		}
+		function fWebFont(s){
+			document.write('<style type="text/css">' + 
+			'@font-face{font-family: "nui";src: url(http://mimg.127.net/p/font/js5/' + s + '/neteasefont-regular.eot)' +
+			';src:url(http://mimg.127.net/p/font/js5/' + s + '/neteasefont-regular.eot#iefix) format("embedded-opentype")' +
+			',url(http://mimg.127.net/p/font/js5/' + s + '/neteasefont-regular.woff) format("woff")' + 
+			',url(http://mimg.127.net/p/font/js5/' + s + '/neteasefont-regular.ttf) format("truetype")' + 
+			',url(http://mimg.127.net/p/font/js5/' + s + '/neteasefont-regular.svg#neteasefontregular) format("svg")}</style>');
+		}
+		function fIEVer(){
+			var nIEVer = 0;
+			var nVersion = navigator.appVersion.toLowerCase()
+			var sIE = 'msie ';
+			var nIElo = nVersion.indexOf(sIE);
+			if(nIElo != -1){
+				nIEVer = nVersion.slice(nIElo + sIE.length).split('.')[0];
+			}
+			return nIEVer;
+		}
+		//获取参数值
+		function fGetQuery(name, bHash){
+			var sUrl;
+			if(bHash){
+				sUrl = window.location.hash.substr(1);
+			}else{
+				sUrl = window.location.search.substr(1);
+			}
+			var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));
+			return (r == null ? null : unescape(r[2]));
+		}
+		// 加载js
+		function fImptScript(sUrl){
+			var oMailScript = document.createElement("script");
+			oMailScript.setAttribute("type", "text/javascript");
+			oMailScript.setAttribute("charset", "utf-8");
+			oMailScript.setAttribute("src", sUrl);
+			document.body.appendChild(oMailScript);
+		}
+	})(window);
+	
+	</script>
+</head>
+<body>
+	<p>bjs加载：<span id="bjsLoaded">Loading</span></p>
+	<p>p0加载：<span id="p0Loaded">Loading</span></p>
+	<p>p1加载：<span id="p1Loaded">Loading</span></p>
+	<p>css加载：<span id="cssLoaded">Loading</span></p>
+	<p style="display:none">WebFont加载：<span style="font-family:nui!important">z</span></p>
+	<p id="nui" style="display:none;">nui.png加载：<span id="nuiPndLoaded">Loading</span></p>
+	<div id="test-compress" class="nui-layer" style="visibility:hidden;"></div>
+	<script>
+		// 预加载图片
+		if(window.gCssType == 'overlay'){
+			var oImg = document.createElement('IMG');
+			var oNui = document.getElementById('nui');
+			// oImg.style.display = 'none';
+			// oNui.appendChild(oImg);
+			oImg.onload = function(){
+				document.getElementById('nuiPndLoaded').innerHTML = '成功';
+				gCheckImgLoad = true; // mimgtest
+			};
+			oImg.src = fImg('nui.png');
+			oNui.style.display = 'block';
+		}else{
+			gCheckImgLoad = true; // mimgtest
+		}
+		// 是否为测试模式
+		// window.bModeTest = fGetQuery('test');
+		window.bModeTest = true;
+		if(bModeTest){
+			//获取css对象
+			var oCssCompress = document.getElementById('test-compress');
+
+			// bjs 加载检测
+			if(window.$){
+				document.getElementById('bjsLoaded').innerHTML = '成功';
+				window.gCheckBjsLoad = true; // mimgtest
+			}
+
+			// p0 加载检测
+			try{
+				window.gP0TestInterval = setInterval(function(){
+					if(window.$N){
+						document.getElementById('p0Loaded').innerHTML = '成功';
+						window.gCheckP0Load = true; // mimgtest
+						clearInterval(gP0TestInterval);
+					}
+				},1000);
+			}catch(e){}
+			
+			// p1 加载检测
+			try{
+				window.gP1TestInterval = setInterval(function(){
+					try	{
+						var o = netease.mail.js6.module.mbox;
+						if (o) {
+							gCheckP1Load = true;
+						}
+					} catch (exp) {
+						gCheckP1Load = false;
+					}
+
+					if(gCheckP1Load){
+						document.getElementById('p1Loaded').innerHTML = '成功';
+						clearInterval(gP1TestInterval);
+					}
+				},1000);
+			}catch(e){}
+			
+
+			try{
+				window.gCssTestInterval = setInterval(function(){
+					if( oCssCompress.currentStyle ){
+						if(oCssCompress.currentStyle.zIndex == 500){
+							document.getElementById('cssLoaded').innerHTML = '成功';
+							gCheckCssLoad = true; // mimgtest
+							clearInterval(gCssTestInterval);
+						}
+					}else{
+						try{
+							if(window.getComputedStyle(oCssCompress,'').getPropertyValue('z-index') == 500){
+								document.getElementById('cssLoaded').innerHTML = '成功';
+								gCheckCssLoad = true; // mimgtest
+								clearInterval(gCssTestInterval);
+							}
+						}catch(exp){
+							gCheckCssLoad = true; // mimgtest
+							clearInterval(gCssTestInterval);
+						}
+					}
+				},1000);
+			}catch(e){}
+		}
+	</script>
+
+</body></html>
