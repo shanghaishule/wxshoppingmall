@@ -37,6 +37,18 @@ class BaseAction extends Action
                     $data['keyword'] = $_POST['keyword'];
                     M('Keyword')->add($data);
                 }
+                
+                if ($name == "Classify") {
+                	//同步到商品分类
+                	$itemcatedata = array();
+                	$itemcatedata['name'] = $_POST['name'];
+                	$itemcatedata['tags'] = $id;
+                	$itemcatedata['status'] = 1;
+                	$itemcatedata['token'] = session('token');
+                	M('item_cate')->add($itemcatedata);
+                }
+
+                
                 $this->success('操作成功', U(MODULE_NAME . $back));
             } else {
                 $this->error('操作失败', U(MODULE_NAME . $back));
@@ -99,6 +111,15 @@ class BaseAction extends Action
                     $da['keyword']  = $_POST['keyword'];
                     M('Keyword')->where($data)->save($da);
                 }
+                
+                if ($name == "Classify") {
+                	//同步到商品分类
+                	$itemcatedata0['name'] = $_POST['name'];
+                	$itemcatedata1['tags'] = $_POST['id'];
+                	$itemcatedata1['token'] = session('token');
+                	M('item_cate')->where($itemcatedata1)->save($itemcatedata0);
+                }
+                
                 $this->success('操作成功', U(MODULE_NAME . $back));
             } else {
                 $this->error('操作失败', U(MODULE_NAME . $back));
