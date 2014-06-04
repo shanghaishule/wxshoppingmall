@@ -223,7 +223,7 @@ class bookAction extends frontendAction {
 		//M('item_like')->where($data)->delete();
 		$data['add_time']=time();
 		$flag=false;
-		if(!M('item_like')->where($data)->find()){
+		if(M('item_like')->where($data)->find()!=null){
 			if(M('item_like')->add($data)){
 				//$this->success('点赞成功！');
 				$flag=true;
