@@ -36,7 +36,7 @@ class ClassifyAction extends UserAction{
 			
 				//同步到商品分类
 				$itemcatewhere['tags'] = $where['id'];
-				$itemcatewhere['token'] = session('token');
+				$itemcatewhere['tokenTall'] = session('token');
 				M('item_cate')->where($itemcatewhere)->delete();
 			
 			

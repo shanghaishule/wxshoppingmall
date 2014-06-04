@@ -44,7 +44,7 @@ class BaseAction extends Action
                 	$itemcatedata['name'] = $_POST['name'];
                 	$itemcatedata['tags'] = $id;
                 	$itemcatedata['status'] = 1;
-                	$itemcatedata['token'] = session('token');
+                	$itemcatedata['tokenTall'] = session('token');
                 	M('item_cate')->add($itemcatedata);
                 }
 
@@ -116,7 +116,7 @@ class BaseAction extends Action
                 	//同步到商品分类
                 	$itemcatedata0['name'] = $_POST['name'];
                 	$itemcatedata1['tags'] = $_POST['id'];
-                	$itemcatedata1['token'] = session('token');
+                	$itemcatedata1['tokenTall'] = session('token');
                 	M('item_cate')->where($itemcatedata1)->save($itemcatedata0);
                 }
                 
