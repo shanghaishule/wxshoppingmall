@@ -66,7 +66,7 @@ $(function(){
 	$(".love").click(function(e){
 		var itemid=$(this).children(".itemid").val();
 		var val=$(this).children(".lv");
-		$.post("{:U('book/like_item')}",{item_id:itemid},function(data){
+		$.get("{:U('book/like_item')}",{item_id:itemid},function(data){
 			if(data){
 				anp(e);
 				val.html(parseInt(val.html())+1+0);
