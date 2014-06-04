@@ -46,7 +46,7 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
                      <h3>
                      	<a  href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
                      </h3>
-                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv">{:$item_like[$item['id']]|defalut='0'}</span></span></p>
+                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv">{:$item_like[$item['id']]}</span></span></p>
                      </div>
                      <span class="show_good">
                      	<a  href="{:U('Item/index',array('id'=>$item['id']))}"></a>
@@ -67,11 +67,15 @@ $(function(){
 		var itemid=$(this).children(".itemid").val();
 		var val=$(this).children(".lv");
 		$.get("{:U('book/like_item')}",{item_id:itemid},function(data){
-			if(data){
+			if(data==2){
 				anp(e);
 				val.html(parseInt(val.html())+1+0);
-			}else{
+			}else if(data==3){
+				alert("已赞过");
+			}else if(data==1){
 				alert("亲，你还没有登录哦！");
+			}else{
+				
 			}
 		});
 	});
