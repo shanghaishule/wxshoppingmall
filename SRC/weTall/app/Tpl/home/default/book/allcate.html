@@ -68,9 +68,9 @@ $(function(){
 		$.post("{:U('book/like_item')}",{item_id:itemid},function(data){
 			if(data){
 				anp(e);
-				var val=$(this).children(".lv").text();
+				var val=$(this).children(".lv").html();
 				alert(val);
-				$(this).children(".lv").text(parseInt(val)+1);
+				$(this).children(".lv").html(parseInt(val)+1);
 			}
 		});
 	});
