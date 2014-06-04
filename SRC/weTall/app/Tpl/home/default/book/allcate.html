@@ -12,10 +12,10 @@ $(function(){
 	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
 
 	$(".love").click(function(e){
-		alert($(this).attr('data-perc'));
-		$.post("{:U('book/like_item')}",{},function(data){
+		$.post("{:U('book/like_item')}",{item_id:'24'},function(data){
 			if(data){
-				anp(e);	
+				anp(e);
+				$(".lv").html("3");
 			}
 		});
 	});
@@ -69,7 +69,7 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
                      <h3>
                      	<a  href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
                      </h3>
-                     <p>¥{$item.price}<span style="float:right; margin-right:10px; font-weight: normal;"><img class="love" data-perc="{:$item['id']}" src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv">{:$item_like[$item['id']]}</span></span></p>
+                     <p>¥{$item.price}<span style="float:right; margin-right:10px; font-weight: normal;"><img class="love" src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv">{:$item_like[$item['id']]}</span></span></p>
                      </div>
                      <span class="show_good">
                      	<a  href="{:U('Item/index',array('id'=>$item['id']))}"></a>
