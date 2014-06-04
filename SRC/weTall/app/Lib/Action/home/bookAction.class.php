@@ -213,6 +213,7 @@ class bookAction extends frontendAction {
     
     public function like_item() {
     	$item_id = $this->_get('item_id', 'trim');
+    	dump($item_id);
 		//dump($_SESSION);exit;
     	$flag='1';//未登录
 		$uid = $_SESSION['user_info']['id'];
