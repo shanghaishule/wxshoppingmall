@@ -65,13 +65,11 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
 $(function(){
 	$(".love").click(function(e){
 		var itemid=$(this).children(".itemid").val();
-		var val=$(this).children(".lv").html();
+		var val=$(this).children(".lv");
 		$.post("{:U('book/like_item')}",{item_id:itemid},function(data){
 			if(data){
 				anp(e);
-				
-				alert(val);
-				$(this).children(".lv").html(parseInt(val)+1);
+				val.html(parseInt(val.html())+1);
 			}
 		});
 	});
