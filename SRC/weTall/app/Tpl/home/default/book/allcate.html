@@ -3,10 +3,10 @@
 <head>
 <include file="public:headtop" />
 </head>
-
 <body>
 <include file="public:head" />
 <div class="s_bottom"></div>
+<script src="__STATIC__/js/jquery/jquery10.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
 	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
@@ -27,7 +27,7 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
 		as[active].className='';
 		active=index;
 		as[active].className='active';
-	}});
+	}});	
 </script>
 
 
@@ -46,7 +46,7 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
                      <h3>
                      	<a  href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
                      </h3>
-                     <p>¥{$item.price}<span style="float:right; margin-right:5px;"><img src="__STATIC__/weixin/images/bg5.png" height="10px"></span></p>
+                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv">{:$item_like[$item['id']]}</span></span></p>
                      </div>
                      <span class="show_good">
                      	<a  href="{:U('Item/index',array('id'=>$item['id']))}"></a>
@@ -61,8 +61,33 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
     <div class="clear">
     </div>
 </div>
-
-
+<script>
+$(function(){
+	$(".love").click(function(e){
+		var itemid=$(this).children(".itemid").val();
+		var val=$(this).children(".lv");
+		$.post("{:U('book/like_item')}",{item_id:itemid},function(data){
+			if(data){
+				anp(e);
+				val.html(parseInt(val.html())+1+0);
+			}else{
+				alert("亲，你还没有登录哦！");
+			}
+		});
+	});
+	function anp(e){
+		//var n=Math.round(Math.random()*10);
+		var $i=$("<b>").text("+1");
+		var x=e.pageX,y=e.pageY;
+		$i.css({top:y-20,left:x,position:"absolute",color:"#E94F06"});
+		$("body").append($i);
+		$i.animate({top:y-180,opacity:0,"font-size":"1.5em"},1500,function(){
+			$i.remove();
+		});
+		e.stopPropagation();
+	}	
+});
+</script>
 <include file="public:footer" />
 
 </body>

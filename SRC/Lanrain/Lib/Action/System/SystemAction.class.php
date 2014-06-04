@@ -91,19 +91,57 @@ class SystemAction extends BackAction{
 			$this->assign('searcharr',$search);
 			//dump($wherestr);exit;
 			//dump($search);exit;
+			
+			$start_z = $start_time;
+			$end_z = $end_time;
 		}else{
 			$wherestr .= " and dt >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) ";
+			
+			$end_z = date("Y-m-d");
+			$d=strtotime('-6 days');
+			$start_z = date('Y-m-d',$d);
 		}
+		
+		//dump($start_z); dump($end_z); exit;
+		for ($i = strtotime($start_z); $i <= strtotime($end_z); $i = $i + 86400){
+			$all[] = array('DT'=>date('Y-m-d',$i), 'CNT'=>0);
+		}
+		//dump($all);exit;
+		$all2 = $all;
+		$all3 = $all;
+		
 		$Model = M();
-		$stat_PV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
-		//dump($stat_PV);exit;
-		$this->assign('stat_PV', $stat_PV);
+		$qqq = "SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(1) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');";
+		$stat_PV = $Model->query($qqq);
+		//dump($qqq);dump($stat_PV);exit;
+		foreach ($all as $key => $all_each_one){
+			foreach ($stat_PV as $each_one){
+				if ($each_one['DT'] == $all_each_one['DT']) {
+					//dump($each_one['DT']);
+					$all2[$key]['CNT'] = $each_one['CNT'];
+				}
+			}
+		}
+		//dump($all2);exit;
+		
+		
 		
 		$stat_UV = $Model->query("SELECT FROM_UNIXTIME(dt,'%Y-%m-%d') DT, COUNT(DISTINCT remote_ip) CNT FROM slimstat where ".$wherestr." group by FROM_UNIXTIME(dt,'%Y-%m-%d');");
 		//dump($stat_UV);exit;
-		$this->assign('stat_UV', $stat_UV);
+		foreach ($all as $key => $all_each_one){
+			foreach ($stat_UV as $each_one){
+				if ($each_one['DT'] == $all_each_one['DT']) {
+					//dump($each_one['DT']);
+					$all3[$key]['CNT'] = $each_one['CNT'];
+				}
+			}
+		}
+		//dump($all3);exit;
 		
-	
+		$this->assign('stat_PV', $all2);
+		$this->assign('stat_UV', $all3);
+		
+		
 		
 		$this->display();
 	}

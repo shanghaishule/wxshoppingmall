@@ -47,7 +47,7 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
                      <h3>
                      	<a  href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
                      </h3>
-                     <p>¥{$item.price}</p>
+                     <p>¥{$item.price}<span style="float:right; margin-right:10px; font-weight: normal;"><a href="{:U('book/like_item',array('item_id'=>$item['id']))}"><img class="love" src="__STATIC__/weixin/images/bg5.png" height="10px"></a>{:$item_like[$item['id']]}</span></p>
                      </div>
                      <span class="show_good">
                      	<a  href="{:U('Item/index',array('id'=>$item['id']))}"></a>

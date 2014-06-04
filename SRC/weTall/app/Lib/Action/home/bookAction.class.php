@@ -8,6 +8,14 @@ class bookAction extends frontendAction {
     public function _initialize() {
         parent::_initialize();
         $this->assign('nav_curr', 'book');
+        
+        $m = new Model();
+        $item_like_arr = $m->query('select item_id, count(1) cnt from tp_item_like group by item_id;');
+        foreach ($item_like_arr as $one_like){
+        	$item_like[$one_like['item_id']]=$one_like['cnt'];
+        }
+        //var_dump($item_like);exit;
+        $this->assign('item_like',$item_like);
     }
 
     /**
@@ -197,9 +205,35 @@ class bookAction extends frontendAction {
     	//var_dump($items);exit;
     	$this->assign('item_list',$items);
     	
+    	
+    	 
+    	
     	$this->display();
     }
     
+    public function like_item() {
+    	$item_id = $this->_get('item_id', 'trim');
+		//dump($_SESSION);exit;
+    	$flag=false;
+		$uid = $_SESSION['user_info']['id'];
+		dump($uid);exit;
+		if (! $uid) {
+			$uid = '0';
+		}else{
+			//dump($uid);exit;
+			$data = array('item_id'=>$item_id, 'uid'=>$uid);
+			//M('item_like')->where($data)->delete();
+			$data['add_time']=time();
+			
+			if(M('item_like')->where($data)->find()!=null){
+				if(M('item_like')->add($data)){
+					//$this->success('点赞成功！');
+					$flag=true;
+				}	
+			}
+		}
+		echo $flag;
+    }
 
     /**
      * 标签分类瀑布
