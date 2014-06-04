@@ -216,7 +216,6 @@ class bookAction extends frontendAction {
 		//dump($_SESSION);exit;
     	$flag=false;
 		$uid = $_SESSION['user_info']['id'];
-		dump($uid);exit;
 		if (! $uid) {
 			$uid = '0';
 		}else{
@@ -225,7 +224,7 @@ class bookAction extends frontendAction {
 			//M('item_like')->where($data)->delete();
 			$data['add_time']=time();
 			
-			if(M('item_like')->where($data)->find()!=null){
+			if(M('item_like')->where($data)->find()==null){
 				if(M('item_like')->add($data)){
 					//$this->success('点赞成功！');
 					$flag=true;
