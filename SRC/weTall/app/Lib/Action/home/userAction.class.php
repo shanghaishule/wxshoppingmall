@@ -627,7 +627,13 @@ class userAction extends userbaseAction {
     	$this->assign('comments_list', $comments_list); 
 	
     */
-    	$img_list = M('item_img')->field('url')->where(array('item_id' => $id))->order('ordid')->select();
+    	
+        $img_list = M('item_img')->field('url')->where(array('item_id' => $id))->order('ordid')->select();        
+        $comments_list = M('comments')->where(array('item_id' => $id))->order('create_time desc')->select();
+        
+        $this->assign('comments_list', $comments_list);        
+
+        $img_list = M('item_img')->field('url')->where(array('item_id' => $id))->order('ordid')->select();
         $this->assign('img_list', $img_list);
     	$item = $this->_get('item');    	    	
     	$this->assign('item',$item);

@@ -219,7 +219,6 @@ class bookAction extends frontendAction {
 		if (! $uid) {
 			$uid = '0';
 		}else{
-			//dump($uid);exit;
 			$data = array('item_id'=>$item_id, 'uid'=>$uid);
 			//M('item_like')->where($data)->delete();
 			
