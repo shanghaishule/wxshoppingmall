@@ -214,22 +214,23 @@ class bookAction extends frontendAction {
     public function like_item() {
     	$item_id = $this->_get('item_id', 'trim');
 		//dump($_SESSION);exit;
+    	$flag=false;
 		$uid = $_SESSION['user_info']['id'];
 		if (! $uid) {
 			$uid = '0';
+		}else{
+			//dump($uid);exit;
+			$data = array('item_id'=>$item_id, 'uid'=>$uid);
+			//M('item_like')->where($data)->delete();
+			$data['add_time']=time();
+			
+			if(M('item_like')->where($data)->find()!=null){
+				if(M('item_like')->add($data)){
+					//$this->success('点赞成功！');
+					$flag=true;
+				}	
+			}
 		}
-		//dump($uid);exit;
-		$data = array('item_id'=>$item_id, 'uid'=>$uid);
-		//M('item_like')->where($data)->delete();
-		$data['add_time']=time();
-		$flag=false;
-		if(M('item_like')->where($data)->find()!=null){
-			if(M('item_like')->add($data)){
-				//$this->success('点赞成功！');
-				$flag=true;
-			}	
-		}
-
 		echo $flag;
     }
 
