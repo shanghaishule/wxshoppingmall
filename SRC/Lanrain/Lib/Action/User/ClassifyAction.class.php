@@ -33,12 +33,12 @@ class ClassifyAction extends UserAction{
 		$where['uid']=session('uid');
 		if(D(MODULE_NAME)->where($where)->delete()){
 			
-			if ($name == "Classify") {
+			
 				//同步到商品分类
 				$itemcatewhere['tags'] = $where['id'];
 				$itemcatewhere['token'] = session('token');
 				M('item_cate')->where($itemcatewhere)->delete();
-			}
+			
 			
 			
 			$this->success('操作成功',U(MODULE_NAME.'/index'));
