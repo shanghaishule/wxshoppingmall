@@ -222,10 +222,12 @@ class bookAction extends frontendAction {
 		$data = array('item_id'=>$item_id, 'uid'=>$uid);
 		M('item_like')->where($data)->delete();
 		$data['add_time']=time();
+		$flag=false;
 		if(M('item_like')->add($data)){
-			$this->success('点赞成功！');
+			//$this->success('点赞成功！');
+			$flag=true;
 		}
-		
+		echo $flag;
     }
 
     /**
