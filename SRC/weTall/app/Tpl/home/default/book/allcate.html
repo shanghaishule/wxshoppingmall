@@ -67,11 +67,15 @@ $(function(){
 		var itemid=$(this).children(".itemid").val();
 		var val=$(this).children(".lv");
 		$.get("{:U('book/like_item')}",{item_id:itemid},function(data){
-			if(data){
+			if(data==2){
 				anp(e);
 				val.html(parseInt(val.html())+1+0);
-			}else{
+			}else if(data==3){
+				alert("已赞过");
+			}else if(data==1){
 				alert("亲，你还没有登录哦！");
+			}else{
+				
 			}
 		});
 	});

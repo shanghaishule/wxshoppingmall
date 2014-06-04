@@ -214,7 +214,7 @@ class bookAction extends frontendAction {
     public function like_item() {
     	$item_id = $this->_get('item_id', 'trim');
 		//dump($_SESSION);exit;
-    	$flag=false;
+    	$flag='1';//未登录
 		$uid = $_SESSION['user_info']['id'];
 		if (! $uid) {
 			$uid = '0';
@@ -227,8 +227,10 @@ class bookAction extends frontendAction {
 			if(M('item_like')->where($data)->find()==null){
 				if(M('item_like')->add($data)){
 					//$this->success('点赞成功！');
-					$flag=true;
+					$flag='2';
 				}	
+			}else{
+				$flag='3';//点过赞了
 			}
 		}
 		echo $flag;
