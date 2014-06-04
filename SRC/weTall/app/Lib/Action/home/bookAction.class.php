@@ -219,30 +219,16 @@ class bookAction extends frontendAction {
 		if (! $uid) {
 			$uid = '0';
 		}else{
-			//dump($uid);exit;
 			$data = array('item_id'=>$item_id, 'uid'=>$uid);
 			//M('item_like')->where($data)->delete();
-<<<<<<< HEAD
-			$data['add_time']=time();
-			$val=M('item_like')->where($data)->find();
-			if(empty($val)){
-<<<<<<< HEAD
-=======
-=======
 			
 			$f_val=M('item_like')->where($data)->find();
 			if(empty($f_val)){
->>>>>>> branch 'master' of https://github.com/shanghaishule/wxshoppingmall.git
-				echo $item_id.'++++'.$uid;
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/shanghaishule/wxshoppingmall.git
-=======
 				$data['add_time']=time();
->>>>>>> branch 'master' of https://github.com/shanghaishule/wxshoppingmall.git
-				//if(M('item_like')->add($data)){
-					$this->success('点赞成功！');
+				if(M('item_like')->add($data)){
+					//$this->success('点赞成功！');
 					$flag='2';
-				//}	
+				}	
 			}else{
 				$flag='3';//点过赞了
 			}
