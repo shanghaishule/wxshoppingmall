@@ -216,7 +216,7 @@ class bookAction extends frontendAction {
 		//dump($_SESSION);exit;
     	$flag=false;
 		$uid = $_SESSION['user_info']['id'];
-		echo $uid;exit;
+		dump($uid);exit;
 		if (! $uid) {
 			$uid = '0';
 		}else{
