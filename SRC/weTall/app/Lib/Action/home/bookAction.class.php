@@ -225,10 +225,10 @@ class bookAction extends frontendAction {
 			$data['add_time']=time();
 			$val=M('item_like')->where($data)->find();
 			if(empty($val)){
-				if(M('item_like')->add($data)){
-					//$this->success('点赞成功！');
+				//if(M('item_like')->add($data)){
+					$this->success('点赞成功！');
 					$flag='2';
-				}	
+				//}	
 			}else{
 				$flag='3';//点过赞了
 			}
