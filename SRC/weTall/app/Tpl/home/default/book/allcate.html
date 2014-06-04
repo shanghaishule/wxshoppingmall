@@ -12,6 +12,7 @@ $(function(){
 	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
 
 	$(".love").click(function(e){
+		alert("123");
 		$.post("{:U('book/like_item')}",{item_id:'24'},function(data){
 			if(data){
 				anp(e);
