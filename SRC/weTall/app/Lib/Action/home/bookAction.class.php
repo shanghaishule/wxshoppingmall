@@ -224,7 +224,7 @@ class bookAction extends frontendAction {
 			//M('item_like')->where($data)->delete();
 			$data['add_time']=time();
 			$val=M('item_like')->where($data)->find();
-			if(!isset($val)||$val==null||$val==''){
+			if(empty($val)){
 				if(M('item_like')->add($data)){
 					//$this->success('点赞成功！');
 					$flag='2';
