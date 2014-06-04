@@ -69,7 +69,7 @@ $(function(){
 		$.post("{:U('book/like_item')}",{item_id:itemid},function(data){
 			if(data){
 				anp(e);
-				val.html(parseInt(val.html())+1);
+				val.html(parseInt(val.html())+1+0);
 			}else{
 				alert("亲，你还没有登录哦！");
 			}
