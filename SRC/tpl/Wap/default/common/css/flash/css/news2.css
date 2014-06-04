@@ -1,4 +1,4 @@
-﻿
+
 html, body {
 	/*position:relative;
 	height:100%;*/
@@ -1077,7 +1077,6 @@ overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 padding:20px 5px;
-height:100%;
 text-align:center;
 }
 #cate9 .catemenu li:nth-child(3n) a{
