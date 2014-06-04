@@ -622,8 +622,13 @@ class userAction extends userbaseAction {
 	
     	$username = $this->visitor->info['username'];
     	$createtime = date('y-m-d H:i:m');
+    	
+    	$img_list = M('item_img')->field('url')->where(array('item_id' => $id))->order('ordid')->select();
+    	$this->assign('comments_list', $comments_list); 
 	
     */
+    	$img_list = M('item_img')->field('url')->where(array('item_id' => $id))->order('ordid')->select();
+        $this->assign('img_list', $img_list);
     	$item = $this->_get('item');    	    	
     	$this->assign('item',$item);
     	$this->assign('username',$this->visitor->info['username']);
