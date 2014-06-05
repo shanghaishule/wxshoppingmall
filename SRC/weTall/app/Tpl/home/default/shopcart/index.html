@@ -106,11 +106,11 @@ function decrease_quantity(id){
 	//alert(id);
 	var url = "{:U('shopcart/change_quantity')}";
 	
-	var quantity = $("#input_item_{$vo.id}").val();
-	var quty = parseInt(quantity);
-	if(quty > 0){
-		quty = qty - 1;
-		$("#input_item_{$vo.id}").val(quty);		
+	var qty = parseInt($("#input_item_{$vo.id}").val());
+	if(qty > 0){
+		
+		qty = qty - 1;
+		//$("#input_item_{$vo.id}").val(qty);
 	}
 	
 	//var qty = parseInt($("#input_item_{$vo.id}").val()) - 1;
