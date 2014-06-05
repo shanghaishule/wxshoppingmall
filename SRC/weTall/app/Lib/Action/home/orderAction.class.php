@@ -516,7 +516,6 @@ class orderAction extends userbaseAction {
 					// 商户的业务逻辑
 					if ($validResp){
 						// 服务器应答签名验证成功
-	
 						// 准备支付控件所需信息
 						// urlEncode(base64(tn=流水号,resultURL=urlEcode(交易结果展示url),usetestmode=true|false))
 						$strOrderInfo = "tn=".$resp['tn'].",ResultURL=".urlencode($this->_server('HTTP_ORIGIN')."/weTall/index.php?m=order&a=notify_kongjian&dingdanhao=".$alldingdanhao."&rid=").",UseTestMode=false";
