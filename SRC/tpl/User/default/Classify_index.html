@@ -2,12 +2,12 @@
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 
 <div class="cLineB">
-  <h4>文章分类管理 <span class="FAQ">设置好分类，在图文编辑的时候就可以选择分类，系统会自动生成一个3G网站。</span></h4>
-  
- </div>
-         <div class="cLineC" style="line-height: 32px;">
- <a  target="ddd" href="{lanrain::U('Classify/add')}" class="btnGrayS vm bigbtn" >添加文章分类</a>　 
+	<h4>商城分类管理</h4>
 </div>
+
+<!-- div class="cLineC" style="line-height: 32px;">
+	<a  target="ddd" href="{lanrain::U('Classify/add')}" class="btnGrayS vm bigbtn" >添加分类</a>　 
+</div -->
  
  <div class="msgWrap form">
 
@@ -30,7 +30,7 @@
 <p>直接填写活动外链地址：<a class="red">大转盘387</a></p>
 </span></span></th>
 <th style=" width:80px;"  >首页显示</th>
-                        <th style=" width:100px;" class="norightborder">操作</th>
+<!--th style=" width:100px;" class="norightborder">操作</th-->
 </tr>
 </thead>
 <volist name="info" id="vo">
@@ -41,11 +41,10 @@
 <td><div class="cateimg"><img src="{lanrain:$vo.img}" class="cateimg_small"  /><img src="{lanrain:$vo.img}" class="cateimg_big"  /></div></td>
 <td>{lanrain:$vo.url}</td>
 <td><eq name="vo.status" value="1">显示<else/>不显示</eq></td>
-<td class="norightborder">
-	<!--a target="ddd" href="{lanrain::U('Wap/Index/classify',array('token'=>$_SESSION['token']))}">查看</a-->
+<!--td class="norightborder">
 	<a target="ddd" href="{lanrain::U('Classify/edit',array('id'=>$vo['id']))}">编辑</a>
 	<a href="{lanrain::U('Classify/del',array('id'=>$vo['id']))}">删除</a>
-</td>
+</td-->
 </tr>
 </volist>
                
