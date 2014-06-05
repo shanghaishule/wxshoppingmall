@@ -65,64 +65,15 @@ return "/weTall/index.php?m=user&a=index&status=4&tokenTall={$tokenTall}";
 				</div>
 			</div>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			<div class="history">
 				<div class="history-date">
 					<ul class="history-ul">
 						<h2 class="first" style="position: relative;">请填写您的评论</h2>
-	            	<div class="commment_form">
+					<volist name='items' id='item' >
+	            		<div class="commment_form">
 	                    <p class="title">商品信息</p>
-	                    
-	                    <volist name='vo.items' id='item' >
-                    		<div class="con">
-                        		<p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p>
-                        		<p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p>
-                       			<p>大小: <span>{$item.size}</span></p>
-                      		  	<p>颜色: <span>{$item.color}</span></p>
-                        		<p class="price">价格: <span>¥{$item.price}</span></p>
-                        		<p class="amount">数量: <span>{$item.quantity}</span></p>
-                   	 		</div>
-                   	 		<div class="clear"></div>
-	                   		 <div class="foot">
-	                        <p class="title">评论内容</p>
-	                         <div class="handle">
-								<input name="itemtype" type="radio" value="1" onchange = "change();" checked><span class="pxradio">好</span>
-								<input name="itemtype" type="radio" value="2" onchange = "change();"><span class="pxradio">中</span>
-								<input name="itemtype" type="radio" value="3" onchange = "change();"><span class="pxradio">差</span>	
-								<div style="border: 1px solid #ddd;">
-									<ul>
-										<li>
-											<textarea name="info" class="pxtextarea" style="height:150px; margin-right:10px" id="info" placeholder="补充内容……"></textarea>
-										</li>
-									</ul>
-								</div>
-								 
-	                            <!-- <div>
-										<textarea name="info" class="pxtextarea" style="height:150px; margin-right:10px" id="info" placeholder="补充内容……"></textarea>
-										 <td height="32" align="center" valign="middle"><textarea name="newfourm" class="f" id="newfourm"></textarea></td>
-								</div> -->
-	
-	                        </div>
-	                        <br>
-	                        <div>
-									<a id="addcomm" class="submit" href="javascript:void(0)">提交评论</a>
-							</div>
-	                    </div>
-                   	 		
-             			 </volist>
-	                    
-	                    
-	                    <!--<div class="con">
-	                    {//{:attach(get_thumb($item['img'], '_b'), 'item')}             
-	                    	                                     
+	                    <div class="con">
+	                    {//{:attach(get_thumb($item['img'], '_b'), 'item')}  
 	                        <p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{$item['img']}" height="80" width="80"></a></p> 	                    
 	                        <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p>
 	                        <p>大小: <span>{$item.size}</span></p>
@@ -150,14 +101,14 @@ return "/weTall/index.php?m=user&a=index&status=4&tokenTall={$tokenTall}";
 										 <td height="32" align="center" valign="middle"><textarea name="newfourm" class="f" id="newfourm"></textarea></td>
 								</div> -->
 	
-	                      <!--    </div>
+	                        </div>
 	                        <br>
 	                        <div>
 									<a id="addcomm" class="submit" href="javascript:void(0)">提交评论</a>
 							</div>
-	                    </div>-->
+	                    </div>
 	            	</div>
-   											
+   				</volist>				
 					</ul>
 				</div>
 			</div>
