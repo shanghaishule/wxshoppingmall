@@ -152,8 +152,6 @@ class userAction extends userbaseAction {
     */
     public function register() {
     	$tokenTall = $this->getTokenTall();
-    	echo $tokenTall.'-----token值';exit;
-    	//$tokenTall = $this->_get('token', 'trim', '');
         $this->visitor->is_login && $this->redirect('user/index', array('tokenTall'=>$tokenTall));
         if (IS_POST) {
             $username = $this->_post('user_name', 'trim');
