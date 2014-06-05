@@ -11,7 +11,7 @@
 .ware_text { position: relative; z-index: 10;margin: 10px; }
 .title { height: 30px; line-height: 30px;font-weight: bold; margin: 0 auto;}
 
-.handle {font-size:15px; background: #FFFFFF; border: 1px solid #ddd; overflow: hidden; padding:5px 5px 5px 10px; border-radius:5px; height:400px;}
+.handle {font-size:15px; background: #FFFFFF; border: 1px solid #ddd; overflow: hidden; padding:5px 5px 5px 10px; border-radius:5px; height:250px;}
 
 .pxtextarea{
     width: 95%; 
