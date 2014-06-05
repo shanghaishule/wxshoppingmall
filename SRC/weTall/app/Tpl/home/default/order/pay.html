@@ -73,15 +73,15 @@ function submitaction() {
                         </eq>
                         <eq name="alipay_biz" value="ok">
                         <dd>
-                            <p class="radio"><input id="payment_alipay_biz" name="payment_id" value="5" type="radio"></p>
+                            <p class="radio"><input id="payment_alipay_biz" name="payment_id" value="5" checked='checked' type="radio"></p>
                             <p class="logo"><label for="payment_alipay"><img src="__STATIC__/weixin/images/zhi.png" ></label></p>
                             <p class="explain">商家即时到帐支付</p>
                         </dd>
                         </eq>
                         <eq name="alipay_person" value="ok">
                         <dd>
-                            <p class="radio"><input id="payment_alipay_person" name="payment_id" value="1" type="radio"></p>
-                            <p class="logo"><label for="payment_alipay"><img src="__STATIC__/weixin/images/zhi.png" ></label></p>
+                            <label for="payment_alipay"><p class="radio"><input id="payment_alipay_person" name="payment_id" value="1" type="radio"></p>
+                            <p class="logo"><img src="__STATIC__/weixin/images/zhi.png" ></p></label>
                             <p class="explain">个人转账支付</p>
                         </dd>
                         </eq>
@@ -96,8 +96,8 @@ function submitaction() {
                     <dl class="defray">
                         <dt>线下支付</dt>
                         <dd>
-                            <p class="radio"><input id="payment_cod" name="payment_id" value="2" type="radio"></p>
-                            <p class="logo"><label for="payment_cod"><img  src="__STATIC__/weixin/images/huodao.png"></label></p>
+                            <label for="payment_cod"><p class="radio"><input id="payment_cod" name="payment_id" value="2" type="radio"></p>
+                            <p class="logo"><img  src="__STATIC__/weixin/images/huodao.png"></p></label>
                             <p class="explain">欢迎使用货到付款</p>
                         </dd>
                     </dl>           
