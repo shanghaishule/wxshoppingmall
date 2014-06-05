@@ -29,15 +29,12 @@ function minus(){
 	var quantity = $("#input_item_{$vo.id}").val();
 	//alert(quantity);
 	var qty = parseInt(quantity);
-	//alert(qty);
+	alert(qty);
 	if(qty > 0){
 		qty = qty - 1;
 		//alert(qty);
 		$("#input_item_{$vo.id}").val(qty);
-	}else{
-		
-		alert("gfdgf");
-		die();
+	}
 	}
 }
 function plus(){
