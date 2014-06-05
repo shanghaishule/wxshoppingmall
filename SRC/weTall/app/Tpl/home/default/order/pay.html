@@ -43,7 +43,7 @@ function submitaction() {
 <include file="public:head" />
 <div id="content">
     <form action="" method="POST" id="goto_pay">
-        <input type="hidden" name="orderid" value="{$vo[0]}" />
+        <input type="hidden" name="orderid" value="{$allorderid}" />
         <input type="hidden" name="dingdanhao" value="{$dingdanhao}" />
         <div class="step_main">
         	<eq name="order_exist" value="1">
