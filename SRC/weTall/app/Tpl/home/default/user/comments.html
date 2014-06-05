@@ -69,7 +69,7 @@ return "/weTall/index.php?m=user&a=index&status=4&tokenTall={$tokenTall}";
 				<div class="history-date">
 					<ul class="history-ul">
 						<h2 class="first" style="position: relative;">请填写您的评论</h2>
-					<volist name='items' id='item' >
+					
 	            		<div class="commment_form">
 	                    <p class="title">商品信息</p>
 	                    <div class="con">
@@ -82,6 +82,7 @@ return "/weTall/index.php?m=user&a=index&status=4&tokenTall={$tokenTall}";
 	                        <p class="amount">数量: <span>{$item.quantity}</span></p>                                                
 	                  	</div>
 	                    <div class="clear"></div>
+	                    <volist name='items' id='item' >
 	                    <div class="foot">
 	                        <p class="title">评论内容</p>
 	                         <div class="handle">
@@ -107,8 +108,9 @@ return "/weTall/index.php?m=user&a=index&status=4&tokenTall={$tokenTall}";
 									<a id="addcomm" class="submit" href="javascript:void(0)">提交评论</a>
 							</div>
 	                    </div>
+	                   </volist>
 	            	</div>
-   				</volist>				
+   							
 					</ul>
 				</div>
 			</div>
