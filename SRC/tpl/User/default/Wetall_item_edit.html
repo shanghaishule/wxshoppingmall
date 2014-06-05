@@ -31,6 +31,97 @@
 		});
 		
 		
+		K('#upload1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic1').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic1').val(url);
+						}else{
+							K('#pic1').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#upload2').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic2').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic2').val(url);
+						}else{
+							K('#pic2').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#upload3').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic3').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic3').val(url);
+						}else{
+							K('#pic3').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#upload4').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic4').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic4').val(url);
+						}else{
+							K('#pic4').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#upload5').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic5').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic5').val(url);
+						}else{
+							K('#pic5').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#upload6').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic6').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic6').val(url);
+						}else{
+							K('#pic6').val('__ROOT__'+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		
 	});
 
 	$(function(){
@@ -97,10 +188,52 @@
 			</td>
 		</tr>
 		<tr>
-			<th>商品图片：</th>
+			<th>商品主图：</th>
 			<td>
 				<input type='text' class='px' id='pic' value='{lanrain:$info.img}' name='img' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
-				请上传250x350(px)的图片
+				<span class="red">请上传250x350(px)的图片</span>
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片1：</th>
+			<td>
+				<input type='text' class='px' id='pic1' value='{lanrain:$info.imgs.img1}' name='img1' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload1' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片2：</th>
+			<td>
+				<input type='text' class='px' id='pic2' value='{lanrain:$info.imgs.img2}' name='img2' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload2' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片3：</th>
+			<td>
+				<input type='text' class='px' id='pic3' value='{lanrain:$info.imgs.img3}' name='img3' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload3' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片4：</th>
+			<td>
+				<input type='text' class='px' id='pic4' value='{lanrain:$info.imgs.img4}' name='img4' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload4' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片5：</th>
+			<td>
+				<input type='text' class='px' id='pic5' value='{lanrain:$info.imgs.img5}' name='img5' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload5' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
+			</td>
+		</tr>
+		<tr>
+			<th>商品详情页图片6：</th>
+			<td>
+				<input type='text' class='px' id='pic6' value='{lanrain:$info.imgs.img6}' name='img6' style='width:500px' readonly='readonly'><span class='ke-button-common' id='upload6' style='margin-top: 3px;margin-left: 5px;'><input type='button' class='ke-button-common ke-button' value='上传'></span><br />
+				请上传250x250(px)的图片
 			</td>
 		</tr>
 		<tr>

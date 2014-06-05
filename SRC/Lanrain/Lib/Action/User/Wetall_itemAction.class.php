@@ -42,8 +42,32 @@ class Wetall_itemAction extends UserAction{
 			
 			//必须上传图片
 			if (empty($_POST['img'])) {
-				$this->error('请上传商品图片');
+				$this->error('请上传商品主图。');
 			}
+			if (empty($_POST['img1'])) {
+				$this->error('请至少上传1张商品详情页图片（图片1）。');
+			}else{
+				$imgs[] = $_POST['img1'];
+			}
+			if (! empty($_POST['img2'])) {
+				$imgs[] = $_POST['img2'];
+			}
+			if (! empty($_POST['img3'])) {
+				$imgs[] = $_POST['img3'];
+			}
+			if (! empty($_POST['img4'])) {
+				$imgs[] = $_POST['img4'];
+			}
+			if (! empty($_POST['img5'])) {
+				$imgs[] = $_POST['img5'];
+			}
+			if (! empty($_POST['img5'])) {
+				$imgs[] = $_POST['img5'];
+			}
+			
+			//dump($imgs);exit;
+			
+			
 			if(isset($_POST['news']))
 			{
 				$data['news']=1;
@@ -80,7 +104,7 @@ class Wetall_itemAction extends UserAction{
 					$data['add_time'] = time();
 					$result = $this->_mod->add($data);
 					if ($result !== false) {
-						//保存一份到相册
+						//保存详情页图片到相册
 						$_img['item_id'] = $result;
 						$_img['url'] = $data['img'];
 						$_img['add_time'] = time();
@@ -96,8 +120,15 @@ class Wetall_itemAction extends UserAction{
 					$result = $this->_mod->save($data);
 					if ($result !== false) {
 						//相册更新
-						$_img['url'] = $data['img'];
-						M('item_img')->where(array('item_id'=>$data['id']))->save($_img);
+						//$_img['url'] = $data['img'];
+						//M('item_img')->where(array('item_id'=>$data['id']))->save($_img);
+						M('item_img')->where(array('item_id'=>$data['id']))->delete();
+						$_img['item_id'] = $data['id'];
+						$_img['add_time'] = time();
+						foreach ($imgs as $oneimg){
+							$_img['url'] = $oneimg;
+							M('item_img')->add($_img);
+						}
 						$this->success('成功！', U('Wetall_item/index'));
 					} else {
 						$this->error('失败！');
@@ -108,11 +139,15 @@ class Wetall_itemAction extends UserAction{
 				$data['add_time'] = time();
 				$result = $this->_mod->add($data);
 				if ($result !== false) {
-					//保存一份到相册
+					//保存详情页图片到相册
 					$_img['item_id'] = $result;
-					$_img['url'] = $data['img'];
 					$_img['add_time'] = time();
-					M('item_img')->add($_img);
+					//$_img['url'] = $data['img'];
+					//M('item_img')->add($_img);
+					foreach ($imgs as $oneimg){
+						$_img['url'] = $oneimg;
+						M('item_img')->add($_img);
+					}
 					$this->success('成功！', U('Wetall_item/index'));
 				} else {
 					$this->error('失败！');
