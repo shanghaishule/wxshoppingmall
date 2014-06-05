@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		微信商城，致力于做最专业的微信电商开发运营服务商!
+	</title>
+	<link rel="stylesheet" type="text/css" href="./tpl/Home/lanrain/common/ruiec/css/style.css" />
+	<script type="text/javascript" src="./tpl/Home/lanrain/common/ruiec/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./tpl/Home/lanrain/common/ruiec/js/myself.js"></script>
+	<meta name="Keywords" content="微信营销|微信商城|微信公众平台" />
+	<meta name="Description" content="微信商城，致力于做最专业的微信电商开发运营服务商!" />
+	<script type="text/javascript" src="./tpl/Home/lanrain/common/ruiec/js/131212/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+</head>
+<body>
+	<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNjY4NjQ0NTdkZA==" />
+    <!--header头部-->
+    <div id="header">
+        <!--快捷导航块-->
+        <div class="shorcutbox">
+            <div class="resize">
+                <div class="s_left">
+                    <p>
+						您好， 欢迎您!&nbsp;<a href="{lanrain::U('Index/login')}">登录</a>
+						<!-- &nbsp; | &nbsp;<a href="{lanrain::U('Index/register')}">注册</a>  -->
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="{lanrain::U('User/Index/index')}">管理中心</a><span class="tel">0571-87901075</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--导航块-->
+        <div class="navbox">
+            <div class="resize over_v">`
+                <!--logo-->
+                <div class="logo">
+                    <a href="javascript:void(0)"><img src="./tpl/Home/lanrain/common/ruiec/images/logo.png" width="280" height="58" /></a>
+                </div>
+                <!--导航-->
+                <div class="nav">
+                    <ul>
+                        <li><a href="{lanrain::U('Index/index')}" <php>if(ACTION_NAME == 'index') echo 'class="select"'</php> >首页</a></li>
+                        <li><a href="{lanrain::U('Index/about')}" <php>if(ACTION_NAME == 'about') echo 'class="select"'</php> >走进淘天天</a> </li>
+                        <li><a href="{lanrain::U('Index/product')}" <php>if(ACTION_NAME == 'product') echo 'class="select"'</php> >产品特色</a> </li>
+                        <li><a href="{lanrain::U('Index/canvass')}" <php>if(ACTION_NAME == 'canvass') echo 'class="select"'</php> >渠道代理</a></li>
+                        <li><a href="{lanrain::U('Index/contact')}" <php>if(ACTION_NAME == 'contact') echo 'class="select"'</php> >联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
