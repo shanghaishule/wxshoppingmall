@@ -89,7 +89,7 @@ function plus(){
                            
                            <a href="javascript:minus();"><img src="__STATIC__/weixin/images/subtract.gif" onClick="decrease_quantity({$vo.id});" alt="decrease" style="vertical-align: middle;width=:16px"></a> 
                            <input id="aa" value="{$vo.num}" orig="1" changed="{$vo.num}" onKeyUp="change_quantity({$vo.id}, this);" class="text1 width3" type="text" style="height:20px;">
-                           <a style="float:left;" href="javascript:plus();"><img src="__STATIC__/weixin/images/adding.gif" onClick="add_quantity({$vo.id});" alt="increase" style="vertical-align: middle;width=:16px">
+                           <a href="javascript:plus();"><img src="__STATIC__/weixin/images/adding.gif" onClick="add_quantity({$vo.id});" alt="increase" style="vertical-align: middle;width=:16px">
                       </span><br>
                       <span>
                           <a class="del" href="javascript:void(0)" onClick="drop_cart_item({$vo.id});"> <img src="__STATIC__/weixin/images/del.png"  style="vertical-align: middle;height:20px;width=:20px"></a>
