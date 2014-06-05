@@ -21,7 +21,7 @@ function xian(){
 	 document.getElementById('tiduser').style.display="block";
 	 document.getElementById('quit').style.display="none";
 }
-setTimeout(xian,5000);
+//setTimeout(xian,5000);
 
 
 $(document).ready(function(){
@@ -71,7 +71,7 @@ $(document).ready(function(){
         <a href="{lanrain::U('Home/Index/contact')}" >联系我们</a>
         <a href="{lanrain::U('User/Index/index')}" >管理中心</a>
 		<a class="line" ></a>
-        <a href="#" class="a" id="tiduser" onmouseover="ying();" >您好：<span>{lanrain:$Think.session.uname|substr=0,3}</span></a>
+        <a href="#" class="a" id="tiduser" onmouseover="ying();" onmouseout="xian()" >您好：<span>{lanrain:$Think.session.uname|substr=0,3}</span></a>
 		<a href="{lanrain::U('Home/Users/logout')}" class="a1" id="quit" onLoad=setTimeout("abc.style.display='none'",5000) >安全退出</a>
 	</div>
 </div>
