@@ -419,7 +419,7 @@ class orderAction extends userbaseAction {
 		{	
 			//支付方式
 			$payment_id=$_POST['payment_id'];
-			//$orderid=$_POST['orderid'];
+			$orderid=$_POST['orderid'];
 			
 			$alldingdanhao=$_POST['dingdanhao']; //取得支付号
 			$all_order_arr = M('order_merge')->where("mergeid='".$alldingdanhao."'")->select();
@@ -560,7 +560,7 @@ class orderAction extends userbaseAction {
 						M('item_order')->where("orderId='".$dingdan['orderid']."' and status=1")->data($data)->save();
 					}
 					
-					echo "<script>location.href='alipay/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
+					echo "<script>location.href='alipay/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$orderid."&WIDsubject=".$orderid."&WIDtotal_fee=".$all_order_price."'</script>";
 				}else{
 					$this->error('未找到支付宝个人转账支付相关配置信息！');
 				}
