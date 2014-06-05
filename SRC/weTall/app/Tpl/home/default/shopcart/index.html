@@ -24,6 +24,29 @@ $(function(){
     });
 });
 
+
+function minus(){
+	var quantity = $("#quantity").val();
+	//alert(quantity);
+	var qty = parseInt(quantity);
+	//alert(qty);
+	if(qty > 0){
+		qty = qty - 1;
+		//alert(qty);
+		$("#quantity").val(qty);
+	}
+}
+function plus(){
+	var quantity = $("#quantity").val();
+	//alert(quantity);
+	var qty = parseInt(quantity);
+	//alert(qty);
+	qty = qty + 1;
+	//alert(qty);
+	$("#quantity").val(qty);
+	
+}
+
 </script>
 </head>
 
@@ -58,7 +81,8 @@ $(function(){
                       <span>价格:</span><span class="price1">¥{$vo.price}</span><br>
                       <span>数量:</span>
                       <span>
-                          <img src="__STATIC__/weixin/images/subtract.gif" onClick="decrease_quantity({$vo.id});" alt="decrease" style="vertical-align: middle;width=:16px">
+                      	 <img alt="" src="__STATIC__/images/minus.png" style="width:30px; height:30px;">
+                          <img src="__STATIC__/weixin/images/subtract.gif" onClick="decrease_quantity({$vo.id});" alt="decrease" style="vertical-align: middle;width=:16px"> 
                            <input id="input_item_{$vo.id}" value="{$vo.num}" orig="1" changed="{$vo.num}" onKeyUp="change_quantity({$vo.id}, this);" class="text1 width3" type="text" style="height:20px;">
                           <img src="__STATIC__/weixin/images/adding.gif" onClick="add_quantity({$vo.id});" alt="increase" style="vertical-align: middle;width=:16px">
                       </span><br>
