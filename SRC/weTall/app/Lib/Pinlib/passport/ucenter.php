@@ -52,7 +52,7 @@ class ucenter_passport
     /**
      * 注册新用户
      */
-    public function register($username, $password, $email, $gender) {
+    public function register($username, $password, $email, $gender,$tokenTall) {
         $this->_ucenter_init();
         $uc_uid = uc_user_register($username, $password, $email);
         if ($uc_uid < 0) {
@@ -84,7 +84,8 @@ class ucenter_passport
             'username' => $username,
             'password' => $password,
             'email' => $email,
-            'gender' => $gender
+            'gender' => $gender,
+        	'tokenTall'=>$tokenTall	
         );
     }
 
