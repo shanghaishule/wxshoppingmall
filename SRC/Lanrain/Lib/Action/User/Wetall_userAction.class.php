@@ -10,6 +10,7 @@ class Wetall_userAction extends UserAction{
 		$tokenTall = $this->getTokenTall();
 		$map = array();
 		$map['role'] = array('eq','0');
+		$map['tokenTall']=$tokenTall;
 		$mod = $this->_mod;
 		!empty($mod) && $this->_list($mod, $map);
 		$this->display();
