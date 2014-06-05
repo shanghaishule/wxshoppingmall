@@ -26,24 +26,24 @@ $(function(){
 
 
 function minus(){
-	var quantity = $("#quantity").val();
+	var quantity = $("#input_item_{$vo.id}").val();
 	//alert(quantity);
 	var qty = parseInt(quantity);
 	//alert(qty);
 	if(qty > 0){
 		qty = qty - 1;
 		//alert(qty);
-		$("#quantity").val(qty);
+		$("#input_item_{$vo.id}").val(qty);
 	}
 }
 function plus(){
-	var quantity = $("#quantity").val();
+	var quantity = $("#input_item_{$vo.id}").val();
 	//alert(quantity);
 	var qty = parseInt(quantity);
 	//alert(qty);
 	qty = qty + 1;
 	//alert(qty);
-	$("#quantity").val(qty);
+	$("#input_item_{$vo.id}").val(qty);
 	
 }
 
