@@ -11,7 +11,10 @@
               <THEAD>
                 <TR>
                   <TH>商城名称</TH>
+                 <!--  <TH>VIP等级</TH> -->
                   <TH>创建时间/到期时间</TH>
+                  <!--  <TH>已定义/上限</TH>
+                   <TH>请求数</TH> -->
                   <TH>操作</TH>
                 </TR>
               </THEAD>
@@ -20,10 +23,10 @@
                  <volist name="info" id="vo"> 
 					<TR>
 					  <TD><p><a href="javascript:void(0);"><img src="{lanrain:$vo.headerpic}" width="40" height="40"></a></p><p>{lanrain:$vo.wxname}</p></TD>
-					  <TD align="center"><php>if($_SESSION['gid']>1){echo $_SESSION['gid']-1;}else{echo 0;}</php></TD>
+					  <!-- <TD align="center"><php>if($_SESSION['gid']>1){echo $_SESSION['gid']-1;}else{echo 0;}</php></TD> -->
 					  <TD><p>创建时间:{lanrain:$vo.createtime|date="Y-m-d",###}</p><p>到期时间:{lanrain:$viptime|date="Y-m-d",###}</p><p><!--a   href="{lanrain::U('Alipay/index')}" id="smemberss" class="green"><em>升降级vip续费</em></a--></p></Td>
-					  <TD><p>图文：<php>echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did'];</php></p></TD>
-					   <TD><p>总请求数:<php>echo $_SESSION['connectnum']</php></p><p> 本月请求数:<php>echo $group[$_SESSION['gid']]['cid'];</php></p></TD>
+					  <!-- <TD><p>图文：<php>echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did'];</php></p></TD>
+					   <TD><p>总请求数:<php>echo $_SESSION['connectnum']</php></p><p> 本月请求数:<php>echo $group[$_SESSION['gid']]['cid'];</php></p></TD> -->
 					  
 					  <TD class="norightborder">　<a href="{lanrain::U('Myinfo/edit',array('id'=>$vo['id']))}">编辑</a>　<a  href="javascript:drop_confirm('你确定要本项目删除吗？', '{lanrain::U('Myinfo/del',array('id'=>$vo['id']))}');">删除</a>　
 					  
