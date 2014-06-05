@@ -30,7 +30,6 @@ class passport
             $this->_error = $this->_us->get_error();
             return false;
         }
-        dump($add_data);exit;
         //添加到本地
         return $this->_local_add($add_data);
     }
@@ -100,7 +99,6 @@ class passport
      */
     private function _local_add($add_data) {
         $user_mod = D('user');
-        dump($add_data);exit;
         if (false !== $user_mod->create($add_data)) {
             $uid = $user_mod->add();
             if (!$uid) {
