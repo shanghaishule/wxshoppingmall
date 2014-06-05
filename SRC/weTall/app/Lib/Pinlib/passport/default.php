@@ -25,7 +25,7 @@ class default_passport
     /**
      * 注册新用户
      */
-    public function register($username, $password, $email, $gender) {
+    public function register($username, $password, $email, $gender,$tokenTall) {
         if (!$this->check_username($username)) {
             $this->_error = L('username_exists');
             return false;
@@ -38,7 +38,8 @@ class default_passport
             'username' => $username,
             'password' => $password,
             'email' => $email,
-            'gender' => $gender
+            'gender' => $gender,
+        	'tokenTall'=>$tokenTall	
         );
     }
 
