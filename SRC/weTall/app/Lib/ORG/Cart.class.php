@@ -18,7 +18,7 @@ class Cart{
 	public  function addItem($id,$name,$price,$num,$img,$size,$color,$tokenTall,$free,$pingyou,$kuaidi,$ems) {
 		//如果该商品已存在则直接加其数量
 		if (isset($_SESSION['cart'][$id])) {
-			//$this->incNum($id,$num);
+			$this->incNum($id,$num);
 			
 			return 1;
 		}
