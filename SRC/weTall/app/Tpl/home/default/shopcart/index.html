@@ -25,29 +25,6 @@ $(function(){
 });
 
 
-function minus(){
-	var quantity = $("#aa").val();
-	//alert(quantity);
-	var qty = parseInt(quantity);
-	alert(qty);
-	if(qty > 0){
-		qty = qty - 1;
-		//alert(qty);
-		$("#aa").val(qty);
-		}
-	}
-}
-function plus(){
-	var quantity = $("#aa").val();
-	//alert(quantity);
-	var qty = parseInt(quantity);
-	//alert(qty);
-	qty = qty + 1;
-	//alert(qty);
-	$("#aa").val(qty);
-	
-}
-
 </script>
 </head>
 
@@ -82,20 +59,10 @@ function plus(){
                       <span>价格:</span><span class="price1">¥{$vo.price}</span><br>
                       <span>数量:</span>
                       <span>                      	 
-                        <!--<a style="float:left;" href="javascript:minus();"> <img src="__STATIC__/weixin/images/subtract.gif" onClick="decrease_quantity({$vo.id});" alt="decrease" style="vertical-align: middle;width=:16px"></a> 
+                       	 	<a style="float:left;" href="javascript:minus();"> <img src="__STATIC__/weixin/images/subtract.gif" onClick="decrease_quantity({$vo.id});" alt="decrease" style="vertical-align: middle;width=:16px"></a> 
                            <input id="input_item_{$vo.id}" value="{$vo.num}" orig="1" changed="{$vo.num}" onKeyUp="change_quantity({$vo.id}, this);" class="text1 width3" type="text" style="height:20px;">
-                           <a style="float:left;" href="javascript:plus();"><img src="__STATIC__/weixin/images/adding.gif" onClick="add_quantity({$vo.id});" alt="increase" style="vertical-align: middle;width=:16px"></a>-->
-                         <div>  
-                             <ul  style="font-size:12px; font-color:#999;">
-                    <li style="margin-right:10px;margin-top:10px;">数量</li>
-                    <li style="margin-top:5px;margin-left:5px;">
-                        <a style="float:left;" href="javascript:minus();"><img alt="" src="__STATIC__/images/minus.png" style="width:30px; height:30px;"></a>
-                        <input type="text" value="1" id="aa" name="" style="float:left;width:70px;height:30px;line-height:normal;border:1px solid #ddd;border-left:0;border-right:0;background:#fff;font-size:16px;background:#fff;text-align:center"/>
-                        <a style="float:left;" href="javascript:plus();"><img alt="" src="__STATIC__/images/plug.png" style="width:30px; height:30px;"></a>
-                    </li>
-                    <li style="margin-left:20px;margin-top:10px;">库存{$item.goods_stock}件</li>
-                </ul>
-           	 </div>
+                           <a style="float:left;" href="javascript:plus();"><img src="__STATIC__/weixin/images/adding.gif" onClick="add_quantity({$vo.id});" alt="increase" style="vertical-align: middle;width=:16px"></a>
+                           
                       </span><br>
                       <span>
                           <a class="del" href="javascript:void(0)" onClick="drop_cart_item({$vo.id});"> <img src="__STATIC__/weixin/images/del.png"  style="vertical-align: middle;height:20px;width=:20px"></a>
