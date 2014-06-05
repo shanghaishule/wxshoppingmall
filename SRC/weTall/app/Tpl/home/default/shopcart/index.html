@@ -101,10 +101,19 @@ function drop_cart_item(id){
 		window.location.reload();  
 	},"json");
 }
+
 function decrease_quantity(id){
 	//alert(id);
 	var url = "{:U('shopcart/change_quantity')}";
-	var qty = parseInt($("#input_item_{$vo.id}").val()) - 1;
+	
+	var quantity = $("#input_item_{$vo.id}").val();
+	var quty = parseInt(quantity);
+	if(quty > 0){
+		quty = qty - 1;
+		$("#input_item_{$vo.id}").val(quty);		
+	}
+	
+	//var qty = parseInt($("#input_item_{$vo.id}").val()) - 1;
 	$.post(url, {'itemId':id, quantity:qty}, function(data){
 		if(data.status == 0){
 			alert(data.msg);
