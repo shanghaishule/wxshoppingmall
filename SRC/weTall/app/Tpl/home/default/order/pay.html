@@ -26,9 +26,9 @@ $(function(){
 function submitaction() {
 	var paytype = $('input[name="payment_id"]:checked').val();
 	if(paytype == "4"){
-		$('#goto_pay').attr("action", "{:U('order/wxpay',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$dingdanhao, 'ordersumPrice'=>$order_sumPrice, 'showwxpaytitle'=>1))}");
+		$('#goto_pay').attr("action", "{:U('order/wxpay',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$vo, 'ordersumPrice'=>$order_sumPrice, 'showwxpaytitle'=>1))}");
 	}else{
-		$('#goto_pay').attr("action", "{:U('order/end',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$dingdanhao, 'ordersumPrice'=>$order_sumPrice))}");
+		$('#goto_pay').attr("action", "{:U('order/end',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$vo, 'ordersumPrice'=>$order_sumPrice))}");
 	}
 	
 	$('#goto_pay').submit();
