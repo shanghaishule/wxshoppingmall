@@ -35,12 +35,12 @@
 </thead>
 <volist name="info" id="vo">
 <tr>
-<td>{lanrain:$vo.name}</td>
-<td>{lanrain:$vo.info}</td>
-<td>{lanrain:$vo.sorts}</td>
-<td><div class="cateimg"><img src="{lanrain:$vo.img}" class="cateimg_small"  /><img src="{lanrain:$vo.img}" class="cateimg_big"  /></div></td>
-<td>{lanrain:$vo.url}</td>
-<td><eq name="vo.status" value="1">显示<else/>不显示</eq></td>
+<td align="center">{lanrain:$vo.name}</td>
+<td align="center">{lanrain:$vo.info}</td>
+<td align="center">{lanrain:$vo.sorts}</td>
+<td align="center"><div class="cateimg"><img src="{lanrain:$vo.img}" class="cateimg_small"  /><img src="{lanrain:$vo.img}" class="cateimg_big"  /></div></td>
+<td align="center">{lanrain:$vo.url}</td>
+<td align="center"><eq name="vo.status" value="1">显示<else/>不显示</eq></td>
 <!--td class="norightborder">
 	<a target="ddd" href="{lanrain::U('Classify/edit',array('id'=>$vo['id']))}">编辑</a>
 	<a href="{lanrain::U('Classify/del',array('id'=>$vo['id']))}">删除</a>
