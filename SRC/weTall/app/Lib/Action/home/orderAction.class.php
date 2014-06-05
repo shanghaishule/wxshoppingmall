@@ -570,7 +570,7 @@ class orderAction extends userbaseAction {
 				//支付宝商家即时到帐
 				$tokenTall = $this->getTokenTall();
 				$alipay=M('alipay_biz')->where(array('tokenTall'=>$tokenTall))->find();
-				echo "<script>location.href='wapapli/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$alldingdanhao."&WIDsubject=".$alldingdanhao."&WIDtotal_fee=".$all_order_price."'</script>";
+				echo "<script>location.href='wapapli/alipayapi.php?WIDseller_email=".$alipay['alipayname']."&WIDout_trade_no=".$orderid."&WIDsubject=".$orderid."&WIDtotal_fee=".$all_order_price."'</script>";
 			}
 			else 
 			{
