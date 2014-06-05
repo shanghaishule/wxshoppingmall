@@ -25,8 +25,8 @@ class passport
     /**
      * 注册新用户
      */
-    public function register($username, $password, $email, $gender) {
-        if (!$add_data = $this->_us->register($username, $password, $email, $gender)) {
+    public function register($username, $password, $email, $gender,$tokenTall) {
+        if (!$add_data = $this->_us->register($username, $password, $email, $gender,$tokenTall)) {
             $this->_error = $this->_us->get_error();
             return false;
         }

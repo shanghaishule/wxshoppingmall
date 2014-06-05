@@ -171,7 +171,7 @@ class userAction extends userbaseAction {
             //连接用户中心
             $passport = $this->_user_server();
             //注册
-            $uid = $passport->register($username, $password, $email, $gender);
+            $uid = $passport->register($username, $password, $email, $gender,$tokenTall);
             !$uid && $this->error($passport->get_error());
 
             //注册完成钩子
