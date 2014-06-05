@@ -7,7 +7,8 @@ class Wetall_userAction extends UserAction{
 	
 	
 	public function index(){
-		$tokenTall = $this->getTokenTall();
+		//$tokenTall = $this->getTokenTall();
+		$tokenTall = $this->_get('token', 'trim', '');
 		$map = array();
 		$map['role'] = array('eq','0');
 		$map['tokenTall']=$tokenTall;
