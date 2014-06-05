@@ -30,6 +30,7 @@ class passport
             $this->_error = $this->_us->get_error();
             return false;
         }
+        dump($add_data);exit;
         //添加到本地
         return $this->_local_add($add_data);
     }
