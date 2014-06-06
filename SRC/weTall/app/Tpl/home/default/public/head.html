@@ -67,4 +67,9 @@
         });
 
     </script>
+    <script>
+	$(function(){
+		$(window).scroll(function(){var aaa = $(window).scrollTop();if(aaa==0){$('#nav').css('position','relative');}else{$("#nav").css('position','fixed');}});	
+		});
+	</script>
 </div>
