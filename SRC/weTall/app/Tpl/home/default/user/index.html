@@ -68,8 +68,9 @@ background: #2BD54D;
                       <span style="margin-left:100px;">
                          <!-- <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>--> 
                     </div>
- 	               <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a>                    
+ 	                              
                     </volist>
+                      <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a>   
                     <div class="clear"></div>
                     <div class="foot">
                         <p class="time">添加时间:{$vo.add_time|date='Y-m-d H:i:s',###}</p>
