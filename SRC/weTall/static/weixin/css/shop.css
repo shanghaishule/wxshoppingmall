@@ -1008,3 +1008,5 @@ overflow: hidden;
 position: absolute;
 z-index: 890;
 }
+/**已完成定单**/
+.buy-num{margin-left:20px;}
