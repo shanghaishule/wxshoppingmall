@@ -997,3 +997,13 @@ font-size: 10px;
 background-image: url(images/base_bg.png);
 background-repeat: no-repeat;
 }
+#floatOrder {
+width: 50px;
+height: 50px;
+padding: 2px;
+background: white;
+border: solid 5px #E54144;
+overflow: hidden;
+position: absolute;
+z-index: 890;
+}

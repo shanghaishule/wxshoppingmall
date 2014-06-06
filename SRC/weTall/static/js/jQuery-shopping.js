@@ -1,13 +1,9 @@
-
 ;(function($){
 	$.extend($.fn,{
 		shoping:function(options){
 			var self=this,
 				$shop=$('#n_3'),
 				$goods-img=$('.goods-img');
-				//$title=$('.J-shoping-title'),
-				//$body=$('.J-shoping-body'),
-				//$num=$('.J-shoping-num'),
 				$close=$('.J-shoping-close');
 			var S={
 				init:function(){
