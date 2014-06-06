@@ -93,7 +93,9 @@
 	     			$('.J-shoping-num').text(data.count);
 	     			//$('.bold_mly').html(data.sumPrice);
 	     			//$('.ware_cen').slideDown('slow');
-	     			setTimeout(slideUp_fn, 3000);
+	     			//setTimeout(slideUp_fn, 3000);
+	     			$('.add-g-s').fadeIn("slow");
+	     			setTimeout(addHide,3000);
 	     		}else
 	     		{
 	     			//$('.dialog_title').html("<font color='red'>"+data.msg+"</font>");
@@ -101,11 +103,13 @@
 	     			$('.J-shoping-num').text(data.count);
 	     			//$('.bold_mly').html(data.sumPrice);
 	     			//$('.ware_cen').slideDown('slow');
-	     			setTimeout(slideUp_fn, 3000);
+	     			//setTimeout(slideUp_fn, 3000);	     			
 	     		}
 	     	},"json");	
 	    }
-	  
+	    function addHide(){
+	    	$('.add-g-s').fadeOut("slow");
+	    }
 	  
 		//xxl start
 		function showinfo(sheetnum)
