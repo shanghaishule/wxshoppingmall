@@ -63,9 +63,9 @@ background: #2BD54D;
                    		<div style="margin-left:20px;float:left;">
                    			<div style="float:left;display: inline">
                    				<ul>
-                   					<li> <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p></li>
-                   					<li> <p>颜色: <span>{$item.color}</p> <p>大小: <span>{$item.size}</p></li>
-                   					<li><p class="price">价格: <span>¥{$item.price}</p> <p class="amount">数量: <span>{$item.quantity}</p></li>
+                   					<li class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p></li>
+                   					<li>颜色:{$item.color}</p> <p>大小: <span>{$item.size}</li>
+                   					<li class="price">价格: <span>¥{$item.price}</p> <p class="amount">数量: <span>{$item.quantity}</p></li>
                    				</ul>
                    			</div>
                    			<div style="float:left;">
