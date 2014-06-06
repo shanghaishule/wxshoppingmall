@@ -67,6 +67,7 @@ background: #2BD54D;
                         <p class="amount">数量: <span>{$item.quantity}</span>
                         </p>
                     </div>
+ 	                 <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a>                   
                     </volist>
                     <div class="clear"></div>
                     <div class="foot">
@@ -88,8 +89,10 @@ background: #2BD54D;
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>	                           
 	                        </case>
 	                        <default />
+	                        
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
-	                           <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a>
+
+	                        
 	                    </switch>
 	                   </div>
                         </div>
