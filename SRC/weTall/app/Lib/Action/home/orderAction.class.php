@@ -341,8 +341,11 @@ class orderAction extends userbaseAction {
 
 			//支付号
 			$this->assign('dingdanhao', $merge);
-			
+			$alldingdanhao = $merge;
+				
 			$this->assign('order_sumPrice',$all_order_price);//总金额
+			$ordersumPrice = $all_order_price;
+
 			$this->assign('order_zhifu','0');
 	
 		}
@@ -368,10 +371,15 @@ class orderAction extends userbaseAction {
 			$merge = M('order_merge')->where(array('orderid'=>$orderId))->find();
 			//支付号
 			$this->assign('dingdanhao', $merge['mergeid']);
+			$alldingdanhao = $merge['mergeid'];
+			
 			//订单号
 			$this->assign('allorderid',array($orderId));
 			
+			//金额
 			$this->assign('order_sumPrice',$orders['order_sumPrice']);
+			$ordersumPrice = $orders['order_sumPrice'];
+			
 			$this->assign('order_exist','1');
 			
 			if(empty($orders['supportmetho']))//是否已有支付方式
@@ -407,6 +415,29 @@ class orderAction extends userbaseAction {
 		$this->assign('wxpay', $wxpay);
 		
 		$this->assign('current_user',$_SESSION['user_info']['username']);
+		
+		//微信支付
+		$all_order_price_100 = $ordersumPrice*100;  //支付用，精确到分
+		
+		//header('Content-Type:text/html;charset=utf-8');
+		include_once("WxPayphp/WxPayHelper.php");
+		$commonUtil = new CommonUtil();
+		$wxPayHelper = new WxPayHelper();
+		
+		$wxPayHelper->setParameter("bank_type", "WX");
+		$wxPayHelper->setParameter("body", "order");
+		$wxPayHelper->setParameter("partner", "1218886101");
+		$wxPayHelper->setParameter("out_trade_no", $alldingdanhao);
+		$wxPayHelper->setParameter("total_fee", "$all_order_price_100");
+		$wxPayHelper->setParameter("fee_type", "1");
+		$wxPayHelper->setParameter("notify_url", "http://www.kuyimap.com/weTall/wxpay/notify_url.php");
+		$wxPayHelper->setParameter("spbill_create_ip", "127.0.0.1");
+		$wxPayHelper->setParameter("input_charset", "GBK");
+		
+		$biz_package = $wxPayHelper->create_biz_package();
+		$this->assign('biz_package', $biz_package);
+		
+		
 		
 		$this->display();
 	}

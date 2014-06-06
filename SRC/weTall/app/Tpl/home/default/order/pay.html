@@ -26,16 +26,22 @@ $(function(){
 function submitaction() {
 	var paytype = $('input[name="payment_id"]:checked').val();
 	if(paytype == "4"){
-		$('#goto_pay').attr("action", "{:U('order/wxpay',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$dingdanhao,'ordersumPrice'=>$order_sumPrice, 'showwxpaytitle'=>1))}");
+		//$('#goto_pay').attr("action", "{:U('order/wxpay',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$dingdanhao, 'ordersumPrice'=>$order_sumPrice, 'showwxpaytitle'=>1))}");
+		callpay();
 	}else{
 		$('#goto_pay').attr("action", "{:U('order/end',array('tokenTall'=>$tokenTall, 'dingdanhao'=>$dingdanhao,'ordersumPrice'=>$order_sumPrice))}");
+		$('#goto_pay').submit();
 	}
-	
-	$('#goto_pay').submit();
-	
+
 }
 
-
+function callpay()
+{
+	WeixinJSBridge.invoke('getBrandWCPayRequest',{$biz_package},function(res){
+	WeixinJSBridge.log(res.err_msg);
+	alert(res.err_code+res.err_desc+res.err_msg);
+	});
+}
 </script>
 </head>
 
