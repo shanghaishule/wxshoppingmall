@@ -64,7 +64,7 @@ background: #2BD54D;
                    			<div style="float:left;display: inline">
                    				<ul>
                    					<li class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p></li>
-                   					<li>颜色:{$item.color}</p> <p>大小: <span>{$item.size}</li>
+                   					<li>颜色:{$item.color} 大小: <span>{$item.size}</li>
                    					<li class="price">价格: <span>¥{$item.price}</p> <p class="amount">数量: <span>{$item.quantity}</p></li>
                    				</ul>
                    			</div>
@@ -111,12 +111,11 @@ background: #2BD54D;
 	                        
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 
-	                        
 	                    </switch>
 	                   </div>
                         </div>
                     </div>
-            	<!-- </div>-->
+            	</div>
             </volist>
             <else/>
             <div class="order_form member_no_records">
