@@ -1,4 +1,9 @@
-﻿<div id="footer" style="min-width: 320px;">
+﻿<script>
+$(function(){
+	$(window).scroll(function(){var aaa = $(window).scrollTop();if(aaa==0){$('#nav').css('position','relative')}else{$("#nav").css('position','fixed')}});	
+});
+</script>
+<div id="footer" style="min-width: 320px;">
     <p class="foot_nav">
          <!--a href="{:U('index/index',array('tokenTall'=>$tokenTall))}">店铺首页</a-->
          <a href="__PARENTURL__/index.php?g=Wap&m=Index&a=index&token={$tokenTall}">店铺首页</a>
