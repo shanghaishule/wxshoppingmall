@@ -87,7 +87,7 @@ background: #2BD54D;
                         <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>
                     </div>
  	                <!-- <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> -->                    
-                   <!-- </volist>
+                   </volist>
                     <div class="clear"></div>
                     <div class="foot">
                         <p class="time">添加时间:{$vo.add_time|date='Y-m-d H:i:s',###}</p>
@@ -96,15 +96,15 @@ background: #2BD54D;
                             <div style="float:left;">
                             <switch name="vo.status" >
 	                       <case value="1"><!--待付款 -->
-	                          <!--   <a class="button_aaa" href="{:U('order/pay',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_pay" class="btn">付款</a>
+	                          <a class="button_aaa" href="{:U('order/pay',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_pay" class="btn">付款</a>
 	                           <a class="button_aaa" href="{:U('order/cancelOrder',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_cancel"> 取消订单</a>
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 	                        </case>
 	                        <case value="2"><!--待发货 -->
-	                        <!--     <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
+	                       <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 	                        </case>
 	                        <case value="3"><!-- 待收货 -->
-	                        <!--     <a class="button_aaa" href="{:U('order/confirmOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" id="order118_action_confirm" >确认收货</a>
+	                      <a class="button_aaa" href="{:U('order/confirmOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" id="order118_action_confirm" >确认收货</a>
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>	                           
 	                        </case>
 	                        <default />
@@ -116,7 +116,7 @@ background: #2BD54D;
 	                   </div>
                         </div>
                     </div>
-            	</div>-->
+            	<!-- </div>-->
             </volist>
             <else/>
             <div class="order_form member_no_records">
