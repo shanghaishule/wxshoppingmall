@@ -3,7 +3,7 @@
 	$.extend($.fn,{
 		shoping:function(options){
 			var self=this,
-				$shop=$('#n_3'),
+				$goods-img=$('.goods-img');
 				//$title=$('.J-shoping-title'),
 				//$body=$('.J-shoping-body'),
 				//$num=$('.J-shoping-num'),
@@ -30,7 +30,7 @@
 						Y = $shop.offset().top;
 					if(dis){
 						if ($('#floatOrder').length <= 0) {
-							$('body').append('<div id="floatOrder"><img src="images/pro1.jpg" width="50" height="50" /></div');
+							$('body').append('<div id="floatOrder"><img src="'+$goods-img+'" width="50" height="50" /></div');
 						};
 						var $obj=$('#floatOrder');
 						if(!$obj.is(':animated')){
