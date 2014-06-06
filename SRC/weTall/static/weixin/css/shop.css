@@ -343,7 +343,7 @@ div.order_cancel_box p span {color: #f34; font-weight: bold;}
 #nav .navlist li#n_0 span{ background:url(../images/dingcan/bg1.png) no-repeat center center;}
 #nav .navlist li#n_1 span{ background:url(../images/dingcan/bg2.png) no-repeat center center;}
 #nav .navlist li#n_2 span{ background:url(../images/dingcan/bg3.png) no-repeat center center;}
-#nav .navlist li#n_3 span{ background:url(../images/dingcan/bg4.png) no-repeat center center;}
+#nav .navlist li#n_3 a span{ background:url(../images/dingcan/bg4.png) no-repeat center center;}
 
 .banner{position: relative;}
 .banner .slider {z-index: 1; display:block; margin:0 auto; max-width:600px;overflow:hidden;position:relative;}
