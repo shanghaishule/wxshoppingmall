@@ -3,7 +3,7 @@
 		shoping:function(options){
 			var self=this,
 			    $shop=$('#n_3'),
-				$goods-img=$('.goods-img'),
+				$goods-img=$('.goods-img').attr('src'),
 				$close=$('.J-shoping-close');
 			var S={
 				init:function(){
