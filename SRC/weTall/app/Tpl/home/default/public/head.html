@@ -51,7 +51,7 @@
             <a href="__PARENTURL__/index.php?g=Wap&m=Index&a=index&token={$tokenTall}"><span></span></a>
         </li>
         <li class="r" id="n_2"><a href="{:U('user/index', array('tokenTall'=>$tokenTall))}"><span></span></a></li>
-        <li class="r" id="n_3"><a href="{:U('shopcart/index', array('tokenTall'=>$tokenTall))}"><span></span></a><span class="baseBg J-shoping-num">0</span></li>
+        <li class="r" id="n_3"><a href="{:U('shopcart/index', array('tokenTall'=>$tokenTall))}"><span></span></a><span class="baseBg J-shoping-num"><?php echo count($_SESSION['cart']);?></span></li>
         
     </ul>
     <script type="text/javascript">
