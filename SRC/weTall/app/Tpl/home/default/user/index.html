@@ -65,11 +65,11 @@ background: #2BD54D;
                     		<div style="float:left;display:imline;">
                     			<ul>
                     				<li> <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p></li>
-                    				<li>大小:{$item.size} 颜色: {$item.color}</li>
-                    				<li class="price">价格: ¥{$item.price}<p class="amount">数量: <span>{$item.quantity}</p></li>
+                    				<li>大小:{$item.size}　　　　 颜色: {$item.color}</li>
+                    				<li class="price">价格: ¥{$item.price}　　　　数量: {$item.quantity}</li>
                     			</ul>
                     		</div>
-                    		<div style="float:left;display:imline;">
+                    		<div style="float:left;display:imline;margin-top: 50px;">
                     		<if condition="$vo.status eq 4">
 	                          <span style="margin-left:100px; ">
 	                         		<a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> 
