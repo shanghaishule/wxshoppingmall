@@ -65,12 +65,15 @@ background: #2BD54D;
                         <p>颜色: <span>{$item.color}</p>
                         <p class="price">价格: <span>¥{$item.price}</p>
                         <p class="amount">数量: <span>{$item.quantity}</p></span>
-                      <span style="margin-left:100px;">
-                         <!-- <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>--> 
+                        <if condition="$vo.status eq 4">
+	                          <span style="margin-left:100px;">
+	                         		<a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> 
+	                          </span>                       
+                        </if> 
+
                     </div>
  	                              
                     </volist>
-                      <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a>   
                     <div class="clear"></div>
                     <div class="foot">
                         <p class="time">添加时间:{$vo.add_time|date='Y-m-d H:i:s',###}</p>

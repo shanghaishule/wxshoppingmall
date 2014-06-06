@@ -2,7 +2,6 @@
 	$.extend($.fn,{
 		shoping:function(options){
 			var self=this,
-				$shop=$('#n_3'),
 				$goods-img=$('.goods-img');
 				$close=$('.J-shoping-close');
 			var S={
