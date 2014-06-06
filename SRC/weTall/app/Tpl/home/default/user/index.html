@@ -55,7 +55,7 @@ background: #2BD54D;
         <div class="public">
             <notempty name="item_orders">
             <volist name='item_orders' id='vo' >
-            	<div class="order_form">            	
+            	<!--div class="order_form">            	
                     <p class="num">订单号: {$vo.orderId}</p>
                    <volist name='vo.items' id='item' >
                    <div style="clear:both">
@@ -74,8 +74,9 @@ background: #2BD54D;
                    		</div>
                    		<div style="clear:both;"></div>
                    		</div>
-                   </div>
-                     <!--<div class="con">
+                   </div>-->
+                   
+                     <div class="con">
                        <span style="margin-left:20px"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p>
                         <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p>
                          <p>颜色: <span>{$item.color}</p>
@@ -87,7 +88,7 @@ background: #2BD54D;
                         <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>
                     </div>
  	                <!-- <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> -->                    
-                   </volist>
+					</volist>
                     <div class="clear"></div>
                     <div class="foot">
                         <p class="time">添加时间:{$vo.add_time|date='Y-m-d H:i:s',###}</p>
