@@ -54,40 +54,22 @@ background: #2BD54D;
     <div class="wrap">
         <div class="public">
             <notempty name="item_orders">
-           <!-- <volist name='item_orders' id='vo' >
-            	<!--div class="order_form">            	
+            <volist name='item_orders' id='vo' >
+            	<div class="order_form">
                     <p class="num">订单号: {$vo.orderId}</p>
-                   <volist name='vo.items' id='item' >
-                   <div style="clear:both">
-                   		<div><span style="margin-left:20px;float:left;"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p></div>
-                   		<div style="margin-left:20px;float:left;">
-                   			<div style="float:left;display: inline">
-                   				<ul>
-                   					<li class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p></li>
-                   					<li>颜色:{$item.color} 大小: <span>{$item.size}</li>
-                   					<li class="price">价格: <span>¥{$item.price}</p> <p class="amount">数量: <span>{$item.quantity}</p></li>
-                   				</ul>
-                   			</div>
-                   			<div style="float:left;">
-                   				 <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>
-                   			</div>
-                   		</div>
-                   		<div style="clear:both;"></div>
-                   		</div>
-                   </div>-->                   
-                     <!--<div class="con">
+                    <volist name='vo.items' id='item' >
+                    <div class="con">
                        <span style="margin-left:20px"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p>
-                        <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p>
-                         <p>颜色: <span>{$item.color}</p>
+                        <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p>
                         <p>大小: <span>{$item.size}</p>
                         <p>颜色: <span>{$item.color}</p>
                         <p class="price">价格: <span>¥{$item.price}</p>
                         <p class="amount">数量: <span>{$item.quantity}</p></span>
                       <span style="margin-left:100px;">
                         <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>
-                    </div>-->
+                    </div>
  	                <!-- <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> -->                    
-					</volist>
+                    </volist>
                     <div class="clear"></div>
                     <div class="foot">
                         <p class="time">添加时间:{$vo.add_time|date='Y-m-d H:i:s',###}</p>
@@ -95,37 +77,26 @@ background: #2BD54D;
                             <div>订单总价: <b id="order118_order_amount" style="color:red;">¥{$vo.order_sumPrice}&nbsp;&nbsp;</b></div>
                             <div style="float:left;">
                             <switch name="vo.status" >
-	                       <case value="1"><!--待付款 -->
-	                          <a class="button_aaa" href="{:U('order/pay',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_pay" class="btn">付款</a>
+	                        <case value="1"><!--待付款 -->
+	                           <a class="button_aaa" href="{:U('order/pay',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_pay" class="btn">付款</a>
 	                           <a class="button_aaa" href="{:U('order/cancelOrder',array('orderId'=>$vo['orderId'],'tokenTall'=>$tokenTall))}" id="order118_action_cancel"> 取消订单</a>
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 	                        </case>
 	                        <case value="2"><!--待发货 -->
-	                       <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
+	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 	                        </case>
 	                        <case value="3"><!-- 待收货 -->
-	                      <a class="button_aaa" href="{:U('order/confirmOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" id="order118_action_confirm" >确认收货</a>
+	                           <a class="button_aaa" href="{:U('order/confirmOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" id="order118_action_confirm" >确认收货</a>
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>	                           
 	                        </case>
 	                        <default />
 	                        
 	                           <a class="button_aaa" href="{:U('order/checkOrder',array('orderId'=>$vo['orderId'],'status'=>$status,'tokenTall'=>$tokenTall))}" >查看订单</a>
 
+	                        
 	                    </switch>
 	                   </div>
                         </div>
-                    </div>
-                    <volist name='item_orders' id='vo' >
-                    <div class="con">
-                       <span style="margin-left:20px"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p>
-                        <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></p>
-                         <p>颜色: <span>{$item.color}</p>
-                        <p>大小: <span>{$item.size}</p>
-                        <p>颜色: <span>{$item.color}</p>
-                        <p class="price">价格: <span>¥{$item.price}</p>
-                        <p class="amount">数量: <span>{$item.quantity}</p></span>
-                      <span style="margin-left:100px;">
-                        <a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> </span>
                     </div>
             	</div>
             </volist>
