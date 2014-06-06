@@ -977,3 +977,19 @@ div.order_cancel_box p span {color: #f34; font-weight: bold;}
 	font-size:12px;
 }
 .love{cursor:pointer;}
+/**shop cart**/
+#n_3{position:relative;}
+.J-shoping-num {
+width: 14px;
+height: 14px;
+background-position: -28px -88px;
+text-align: center;
+overflow: hidden;
+line-height: 14px;
+display: block;
+position: absolute;
+left: 70px;
+top: 2px;
+color: white;
+font-size: 10px;
+}
