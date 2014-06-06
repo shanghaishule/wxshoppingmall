@@ -39,7 +39,26 @@ function callpay()
 {
 	WeixinJSBridge.invoke('getBrandWCPayRequest',{$biz_package},function(res){
 	WeixinJSBridge.log(res.err_msg);
-	alert(res.err_code+res.err_desc+res.err_msg);
+	//alert(res.err_code+res.err_desc+res.err_msg);
+	
+	if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+		//微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+		//因此微信团队建议，当收到ok返回时，向商户后台询问是否收到交易成功的通知，若收到通知，前端展示交易成功的界面；
+		//若此时未收到通知，商户后台主动调用查询订单接口，查询订单的当前状态，并反馈给前端展示相应的界面。
+		alert('支付成功！');
+		window.location.href="{:U('user/index',array('status'=>2))}";
+	}else if(res.err_msg == "get_brand_wcpay_request:fail" ) {
+		//失败
+		alert('支付失败！');
+		window.location.href="{:U('user/index',array('status'=>1))}";
+	}else if(res.err_msg == "get_brand_wcpay_request:cancel" ) {
+		//用户取消
+		alert('您取消了支付！');
+		window.location.href="{:U('user/index',array('status'=>1))}";
+	}else{
+		//其他
+		window.location.href="{:U('user/index',array('status'=>1))}";
+	}
 	});
 }
 </script>

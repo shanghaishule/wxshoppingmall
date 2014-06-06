@@ -425,7 +425,7 @@ class orderAction extends userbaseAction {
 		$wxPayHelper = new WxPayHelper();
 		
 		$wxPayHelper->setParameter("bank_type", "WX");
-		$wxPayHelper->setParameter("body", "order");
+		$wxPayHelper->setParameter("body", "BILL(NO:".$alldingdanhao.")");
 		$wxPayHelper->setParameter("partner", "1218886101");
 		$wxPayHelper->setParameter("out_trade_no", $alldingdanhao);
 		$wxPayHelper->setParameter("total_fee", "$all_order_price_100");
