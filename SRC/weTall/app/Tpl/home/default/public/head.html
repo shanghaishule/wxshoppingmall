@@ -38,8 +38,8 @@
 	}
 </style>
 
-
-<div id="nav" class="nav-r">
+<div class="navlist2"></div>
+<div id="nav">
 	<ul class="navlist">
 		<!-- li class="r" id="n_4"><a href="{:U('home/index/index', array('tokenTall'=>$tokenTall))}"><div class="home_page_logo"></div></a></li>
 		<li class="r" id="n_4"><a href="__PARENTURL__/index.php?g=Wap&m=Index&a=index&token={$tokenTall}"><div class="home_page_logo"></div></a></li -->
@@ -67,14 +67,4 @@
         });
 
     </script>
-    <script type="text/javascript">
-	$(window).scroll(function(){
-		var w_i = $(window).scrollTop();
-		if(w_i==0){
-			$('#nav').css('position','relative');
-		}else{
-			$('#nav').css('position','fixed');
-		}
-		});	
-	</script>
 </div>
