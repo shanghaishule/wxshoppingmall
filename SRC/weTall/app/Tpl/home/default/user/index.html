@@ -58,7 +58,29 @@ background: #2BD54D;
             	<div class="order_form">
                     <p class="num">订单号: {$vo.orderId}</p>
                     <volist name='vo.items' id='item' >
-                    <div class="con">
+                    
+                    <div style="clear:both">
+                    	<div style="float:left;display:inline;"> <span style="margin-left:20px"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p></div>
+                    	<div style="float:left;display:imline;">
+                    		<div style="float:left;display:imline;">
+                    			<ul>
+                    				<li> <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p></li>
+                    				<li> <p>大小: <span>{$item.size}</p>  <p>颜色: <span>{$item.color}</p></li>
+                    				<li><p class="price">价格: <span>¥{$item.price}</p><p class="amount">数量: <span>{$item.quantity}</p></span></li>
+                    			</ul>
+                    		</div>
+                    		<div style="float:left;display:imline;">
+                    		<if condition="$vo.status eq 4">
+	                          <span style="margin-left:100px;">
+	                         		<a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> 
+	                          </span>                       
+                        </if> 
+                    		</div>
+                    	</div>
+                    	<div style="clear:both;"></div>
+                    
+                    </div>
+                   <!--<div class="con">
                        <span style="margin-left:20px"><p class="ware_pic"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}" ><img src="{:$item['img']}" height="80" width="80"></a></p>
                         <p class="ware_text"><a href="{:U('Item/index',array('id'=>$item['itemId'],'tokenTall'=>$tokenTall))}">{$item.title}</a><br><span class="attr"></span></p>
                         <p>大小: <span>{$item.size}</p>
@@ -70,8 +92,7 @@ background: #2BD54D;
 	                         		<a class="button_aaa" href="{:U('user/comments',array('item'=>$item))}" >添加评论</a> 
 	                          </span>                       
                         </if> 
-
-                    </div>
+                    </div>-->
  	                              
                     </volist>
                     <div class="clear"></div>
