@@ -34,6 +34,9 @@ class UserAction extends BackAction{
             if($password != $repassword){
                 $this->error('两次输入密码不一致！');
             }
+            if(! is_numeric($_POST['remark'])){
+            	$this->error('可建用户数必须为数字！');
+            }
             //根据表单提交的POST数据创建数据对象
             if($UserDB->create()){
                 $user_id = $UserDB->add();
@@ -82,6 +85,9 @@ class UserAction extends BackAction{
                     $this->error('两次输入密码不一致！');
                 }
                 $_POST['password'] = md5($password);
+            }
+            if(! is_numeric($_POST['remark'])){
+            	$this->error('可建用户数必须为数字！');
             }
             if(empty($password) && empty($repassword)) unset($_POST['password']);   //不填写密码不修改
             //根据表单提交的POST数据创建数据对象
