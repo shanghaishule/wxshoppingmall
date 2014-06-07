@@ -33,7 +33,7 @@ class Wetall_itemAction extends UserAction{
 		
 		//提交，有id则为编辑，无id则为新增
 		if (IS_POST) {
-			//dump($_POST);exit;
+			//dump($_POST);die();
 			
 			//获取数据
 			if (false === $data = $this->_mod->create()) {
@@ -45,7 +45,7 @@ class Wetall_itemAction extends UserAction{
 				$this->error('请上传商品主图。');
 			}
 			if (empty($_POST['img1'])) {
-				$this->error('请至少上传1张商品详情页图片（图片1）。');
+				//$this->error('请至少上传1张商品详情页图片（图片1）。');
 			}else{
 				$imgs[] = $_POST['img1'];
 			}
@@ -65,8 +65,16 @@ class Wetall_itemAction extends UserAction{
 				$imgs[] = $_POST['img5'];
 			}
 			
-			//dump($imgs);exit;
+
+            //加入颜色和尺码
+            $data["size"]=$_POST['sizes_ar'];
+            $data["color"]=$_POST['colors_ar'];
 			
+			//库存细则
+			$detail_stock = $_POST['detail_stock'];//dump($colors);die();
+			if ($detail_stock != "") {
+				$data["detail_stock"] = $detail_stock;
+			}
 			
 			if(isset($_POST['news']))
 			{
@@ -160,6 +168,26 @@ class Wetall_itemAction extends UserAction{
 				$myaction = "编辑";
 				$info = $this->_mod->where(array('id'=>$id))->find();
 				$this->assign('info',$info);
+				
+				$sizestr = $info["size"];
+				$sizearr = explode("|",$sizestr);
+				$this->assign("sizearr",$sizearr);
+				
+				$colorstr = $info["color"];
+				$colorarr = explode("|",$colorstr);
+				$this->assign("colorarr",$colorarr);
+				
+				// 库存细则
+				$detail_stock_arr = array();
+				$detail_stock1 = $info["detail_stock"];
+				if ($detail_stock1 != null) {
+					$stockarr= explode(",",$detail_stock1);
+					foreach ($stockarr as $varstock){
+						$detail_stock_arr[] = explode("|",$varstock);
+					}
+				}
+				
+				$this->assign("detail_stock_arr",$detail_stock_arr);
 			}else{
 				$myaction = "新增";
 			}

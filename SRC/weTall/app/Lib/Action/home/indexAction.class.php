@@ -77,6 +77,32 @@ class indexAction extends frontendAction {
     
     	return $item=M('item_cate')->where($where)->select();
     }
+    
+    public function addressselect(){
+    	$upload_shop = M("item");
+    	$color = $_GET["color"];
+    	$size = $_GET["size"];
+    	 
+    	$where["id"] = $_GET["item_id"];
+    	$result2 = $upload_shop->where($where)->find();
+    	$detail_stock=explode(",", $result2["detail_stock"]);
+    	foreach ($detail_stock as $stock){
+    		$stock_real=explode("|",$stock);
+    		if ($stock_real[0] == $color and $stock_real[1] == $size) {
+    			$item_stcok = $stock_real[2];
+    		}
+    	}
+    
+    	$result = $item_stcok;
+    
+    	if ($result){
+    		// 成功后返回客户端新增的用户ID，并返回提示信息和操作状态
+    		$this->ajaxReturn($result,"新增成功！",1);
+    	}else{
+    		// 错误后返回错误的操作状态和提示信息
+    		$this->ajaxReturn(0,"新增错误！",0);
+    	}
+    }
     public function search() {
     	//排序字段和方式的获得
     	$sortByStr=$this->_get("sortid","trim");

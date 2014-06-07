@@ -154,10 +154,10 @@ class Wetall_importAction extends UserAction{
 				 
 			}elseif(strstr($tianmao_urls,"taobao") == true){
 				$content_page = file_get_contents($item_search);
-				preg_match('/class=\"page-info\".*span>/',$content_page,$total_page);
+				preg_match('/<a class=\"J_SearchAsync.*<\/a>/',$content_page,$total_page);
 			}else{
 				$total_page1 = 0;
-			}
+			}var_dump($total_page);die();
 			$total_page1 = explode("/",$total_page[0]);
 	
 			$total_pages = intval($total_page1[1]);
@@ -176,7 +176,7 @@ class Wetall_importAction extends UserAction{
 				}
 	
 			}
-			//var_dump($url_array);die();
+			var_dump($total_pages);die();
 			$failed_num = 0;
 			$success_num = 0;
 			$have = 0;

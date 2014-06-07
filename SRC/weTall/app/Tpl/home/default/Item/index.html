@@ -225,12 +225,32 @@
             <div class="handle">
 
            <script type="text/javascript">
+           var colorchoose = "";
+           var sizechoose = "";
 				function sizetitle(size_title){
+					sizechoose = size_title;
+	            	if(colorchoose != ""){
+			    		item_id=$("#goodId").val();
+			    		$.get('./index.php?g=home&m=index&a=addressselect&item_id='+item_id+'&color='+colorchoose+"&size="+size_title,function(data,status){
+			    			var obj = eval('('+  data +')');               		
+			    			$("#detail_stock").text(obj.status);
+	                	  });
+			    	}
 	              $(".size_title").css('background','none');
 		          $("#size" + size_title).css('background','url(__STATIC__/images/xiaokuang.png)');
 		          $("#sizeChoose").val(size_title);
 		        }
 		        function colortitle(color_title){
+		        	colorchoose = color_title;
+			    	if(sizechoose != ""){
+			    		item_id=$("#goodId").val();
+			    		$.get('./index.php?g=home&m=index&a=addressselect&item_id='+item_id+'&color='+color_title+"&size="+sizechoose,function(data,status){
+			    			var obj = eval('('+  data +')');               		
+			    			$("#detail_stock").text(obj.status);
+	                	  });
+			    	}
+		        	
+		        	
 	              $(".color_title").css('background','none');
 		          $("#color" + color_title).css('background','url(__STATIC__/images/xiaokuang.png)');
 		          $("#colorChoose").val(color_title);
@@ -249,7 +269,9 @@
                     <li style="margin-right:10px; margin-top:5px;">颜色</li>
                     <li>
                     <volist name='color' id='vo'>
+                        <if condition="$vo neq ''">
                     	<a href="javascript:void(0);" onclick="colortitle('{$vo}')" ><div class="color_title" id="color{$vo}">{$vo}</div></a>
+                    	</if>
                     </volist>
                     <input name="color" id="colorChoose" type="hidden" value="">
                     </li>
@@ -265,7 +287,9 @@
 
                     <li>
                     <volist name='size' id='vo'>
+                    	<if condition="$vo neq ''">
                     	 <a href="javascript:void(0);" onclick="sizetitle('{$vo}')" ><div class="size_title" id="size{$vo}">{$vo}</div></a>
+                    	 </if>
                     </volist>
                     <input name="size" id="sizeChoose" type="hidden" value="">
                     </li>
@@ -279,7 +303,7 @@
                         <input type="text" value="1" id="quantity" name="" style="float:left;width:70px;height:30px;line-height:normal;border:1px solid #ddd;border-left:0;border-right:0;background:#fff;font-size:16px;background:#fff;text-align:center"/>
                         <a style="float:left;" href="javascript:plus();"><img alt="" src="__STATIC__/images/plug.png" style="width:30px; height:30px;"></a>
                     </li>
-                    <li style="margin-left:20px;margin-top:10px;">库存{$item.goods_stock}件</li>
+                    <li style="margin-left:20px;margin-top:10px;"> 件（仅剩<span id="detail_stock" ectype="goods_stock" style="color:red;" class="stock">{$item.goods_stock}</span>件）</li>
                 </ul>
             </div>
             <div class="add-g-s">加入购物车成功</div>

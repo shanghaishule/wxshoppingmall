@@ -1,6 +1,193 @@
 <include file="public:header" />
 <script charset="utf-8" src="__STATIC__/weixin/js/jquery.js" type="text/javascript"></script>
 <script>
+//增加的颜色
+var colorAdd = 0;
+//增加的型号
+var sizeAdd = 0;
+//增加一个型号时颜色的个数
+var colorlength = 0;
+//增加一个颜色时型号的个数
+var sizelength = 0;
+//增加颜色时细则库存对应的型号计数器
+var size_stock=0;
+//增加型号时细则库存对应的颜色计数器
+var color_stock=0;
+function addSize()
+{
+	sizeAdd = sizeAdd + 1;
+  var colors = document.getElementsByName("color[]");
+  colorlength=colors.length;
+  for(i=0;i<colors.length;i++){
+  	color_stock=color_stock+1;
+  	$str='';
+      $str+="<tr align='center' style='border-left:5px solid #8B4513;' id='trcolor"+color_stock+"' class='stock_tr' title='"+colors[i].value+"|'>";
+      
+      $str+="<td>"+colors[i].value+"</td>";
+      $str+="<td><div name='ouptsize"+sizeAdd+"' class='ouptsize"+sizeAdd+"'></div></td>";
+      $str+="<td><input type='number' onchange='sum_stock()' value='0' id='stockcolor"+color_stock+"' title='"+colors[i].value+"|' name='stockcolor' /></td>";
+      $str+="</tr>";
+      $("#addTr").append($str);   
+
+  }
+  $("#addsize_action").attr("disabled",true);
+  $("#addcolor_action").attr("disabled",true);
+  var sizeid=$("#size");
+  sizeid.append("<input  onchange='keydown_size()' name='size[]' type='text' id='mysize" + sizeAdd + "' size='12'><img id='inpu_img" + sizeAdd + "' onclick='delete_sizetr(" + sizeAdd + ")' height='15' width='15' style='margin-right:3px;' src='/tpl/User/default/common/images/icons/delete.png' />");
+}
+function addColor()
+{
+	colorAdd = colorAdd + 1;
+  var sizeid=$("#color");
+  var sizes = document.getElementsByName("size[]");
+  sizelength = sizes.length;
+  for(i=0;i<sizes.length;i++){
+  	size_stock = size_stock + 1;
+  	$str='';
+      $str+="<tr align='center' style='border-left:5px solid #8968CD;' id='trsize"+size_stock+"' title='|"+sizes[i].value+"' class='stock_tr'>";
+      $str+="<td><div name='oupt"+colorAdd+"' class='oupt"+colorAdd+"'></div></td>";
+      $str+="<td>"+sizes[i].value+"</td>";
+      $str+="<td><input onchange='sum_stock()' type='number' id='stock"+size_stock+"' title='|"+sizes[i].value+"' value='0' name='stocksize' /></td>";
+      $str+="</tr>";
+      $("#addTr").append($str);   
+
+  }
+  $("#addsize_action").attr("disabled",true);
+  $("#addcolor_action").attr("disabled",true);
+  sizeid.append("<input onchange='keydown()' name='color[]' id='mycolor" + colorAdd + "' type='text' size='12'><img id='color_img" + colorAdd + "' onclick='delete_colortr(" + colorAdd + ")' height='15' width='15'  style='margin-right:3px;' src='/tpl/User/default/common/images/icons/delete.png' />");
+}
+/**
+* 删除型号，删除相应的其他相关的
+*/
+function delete_sizetr(sizename){
+	var stocktr=$(".stock_tr");
+	var sizestr="";
+	for(i=0;i<stocktr.length;i++){
+		sizestr=stocktr[i].title.split("|");
+		if(sizestr[1] == sizename){
+			stocktr[i].remove();
+		}else if(sizestr[1] == ""){
+			stocktr[i].remove();
+		}
+	}
+	if($("#mysize"+sizename).val() == ""){
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+
+	$("#mysize"+sizename).remove();
+	$("#inpu_img"+sizename).remove();
+}
+/**
+* 删除颜色，删除相应的其他相关的
+*/
+function delete_colortr(colorname){
+	var stocktr=$(".stock_tr");
+	var sizestr="";
+	for(i=0;i<stocktr.length;i++){
+		sizestr=stocktr[i].title.split("|");
+		if(sizestr[0] == colorname){
+			stocktr[i].remove();
+		}else if(sizestr[0] == ""){
+			stocktr[i].remove();
+		}
+	}
+	
+	$("#mycolor"+colorname).remove();
+	if($("#mycolor"+colorname).val() == ""){
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$("#color_img"+colorname).remove();
+}
+function keydown(){
+	//输入新颜色的时候改变新增库存行的 title
+	var min_stock = size_stock - sizelength;
+	var new_title = "";
+	var new_title_color = "";
+	for(i=size_stock;i>min_stock;i--){
+		new_title=$("#mycolor"+colorAdd).val() + document.getElementById("stock"+i).title;
+		new_title_color=colorAdd + document.getElementById("stock"+i).title;
+		$("#trsize"+i).attr("title",new_title_color);
+		 $("#stock"+i).attr("title",new_title);
+		// alert(new_title);
+	 }
+	if($("#mycolor"+colorAdd).val() == ""){
+		$("#addsize_action").attr("disabled",true);
+	    $("#addcolor_action").attr("disabled",true);
+	}else{
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$(".oupt"+colorAdd).html($("#mycolor"+colorAdd).val());
+	}
+function keydown_size(){
+	//输入新型号的时候改变新增库存行的 title
+	var min_stock = color_stock - colorlength;
+	var new_title = "";
+	var new_title_size="";
+	for(i=color_stock;i>min_stock;i--){
+		new_title=document.getElementById("stockcolor"+i).title + $("#mysize"+sizeAdd).val();
+		new_title_size=document.getElementById("stockcolor"+i).title + sizeAdd;
+		 $("#stockcolor"+i).attr("title",new_title); 
+		 $("#trcolor"+i).attr("title",new_title_size);
+		 //alert(new_title);
+	 }
+	if($("#mysize"+sizeAdd).val() == ""){
+		$("#addsize_action").attr("disabled",true);
+	    $("#addcolor_action").attr("disabled",true);
+	}else{
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$(".ouptsize"+sizeAdd).html($("#mysize"+sizeAdd).val());
+	}
+	
+	
+/*
+**下面的方法主要是把细则库存通过拼接字符串传入数据库
+**字符串的格式是  ‘颜色|型号|库存’
+**/
+function deal_stock(){
+	
+	var stock_detail = "";
+	 var sizescolor = document.getElementsByName("stockcolor");
+	 for(i=0;i<sizescolor.length;i++){
+		 if(sizescolor[i].value !=""){
+			 stock_detail = stock_detail + sizescolor[i].title + "|" + sizescolor[i].value + ",";
+		 }
+	 }
+	 var sizessize = document.getElementsByName("stocksize");
+	 for(i=0;i<sizessize.length;i++){
+		 if(sizessize[i].value !=""){
+			 stock_detail = stock_detail + sizessize[i].title + "|" + sizessize[i].value + ",";
+		 }
+	 }
+	 $("#detail_stock").val(stock_detail);
+	 $("#info_form").submit();
+}
+
+/*
+**下面的方法当细则库存任意一个改变时 总库存重新计算一下
+**/
+function sum_stock(){
+	 var sum_num = 0;
+	 
+	 var sizescolor = document.getElementsByName("stockcolor");
+	 for(i=0;i<sizescolor.length;i++){
+		 if(sizescolor[i].value !=""){
+		     sum_num = sum_num + parseInt(sizescolor[i].value);
+		 }
+	 }
+	 var sizessize = document.getElementsByName("stocksize");
+	 for(i=0;i<sizessize.length;i++){
+		 if(sizessize[i].value !=""){
+		     sum_num = sum_num + parseInt(sizessize[i].value);
+		 }
+	 }
+	$("#J_goods_stock").val(sum_num);
+}
+
 	$(function(){
     	$('#free').change(function(){
         	if($(this).val()==2)
@@ -57,38 +244,26 @@
                 <td><select class="J_cate_select mr10" data-pid="0" data-uri="{:U('item_cate/ajax_getchilds', array('type'=>0))}" data-selected=""></select><input type="hidden" name="cate_id" id="J_cate_id" value="" /></td>
 			</tr>
 			<tr>
-				<th width="120">型号:</th>
-                <td><!-- <input type="checkbox" name="size[]" value="34">34</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="35">35</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="36">36</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="37">37</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="38">38</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="39">39</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="40">40</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="41">41</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="42">42</input>&nbsp;
-                    <input type="checkbox" name="size[]" value="43">43</input>&nbsp;
-                    <input type="checkbox" name="size[]"value="44">44</input>&nbsp; -->
-                    <div id="size"><input type="button" value="  添加    " onclick="addSize()"></div>
+				<th width="120">型号 :</th>
+                <td> <div id="size"><input type="button" id="addsize_action" value="  添加    " onclick="addSize()">
+                     
+                     </div>
                     </td>
 			</tr>
 			<tr>
 				<th width="120">颜色 :</th>
-                <td><!-- <input type="checkbox" name="color[]" value="white">白色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="blue">蓝色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="yellow">黄色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="red">红色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="black">黑色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="orange">橙色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="coffee">咖啡色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="gold">金色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="piller">紫色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="green">绿色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="indigo">靛色</input>&nbsp;
-                    <input type="checkbox" name="color[]" value="mix">杂色</input> -->
-                    <div id="color"><input type="button" value="  添加    " onclick="addColor()"></div>
-                    </td>
+                <td><div id="color"><input type="button" id="addcolor_action" value="  添加    " onclick="addColor()">
+                     
+                     </div></td>
 			</tr>
+			<tr>
+			    <th width="120">库存细则：</th>
+			    <td>
+			    <table id="addTr">
+			    </table>
+			    <input type="hidden" id="detail_stock" name="detail_stock">
+			    </td>			
+			</tr> 
 			<tr>
 				<th width="120">所属品牌 :</th>
                 <td>
