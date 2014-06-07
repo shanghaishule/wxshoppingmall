@@ -11,9 +11,15 @@ class ClassifyAction extends UserAction{
 		$where['token']=session('token');
 		$count=$db->where($where)->count();
 		$page=new Page($count,25);
-		$info=$db->where($where)->order('sorts desc')->limit($page->firstRow.','.$page->listRows)->select();
+		$infotmp=$db->where($where)->order('id asc')->limit($page->firstRow.','.$page->listRows)->select();
+		$info = $infotmp;
+		foreach ($infotmp as $onekey=>$oneval){
+			$i = $onekey + 1;
+			$info[$onekey]["sorts"] = $i;
+		}
 		$this->assign('page',$page->show());
 		$this->assign('info',$info);
+		//dump($info);exit;
 		$this->display();
 	}
 	
