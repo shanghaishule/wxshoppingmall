@@ -599,7 +599,7 @@ div.order_cancel_box p span {color: #f34; font-weight: bold;}
 .aggregate { color: #50a5e5; }
 
 .ware_btn {position: relative; }
-.ware_btn li { float: left; margin-right: 20px; cursor: pointer; }
+.ware_btn li { float: left; /*margin-right: 20px;*/width:50%; cursor: pointer; }
 .btn_c1 a { display: block; width: 144px; height: 32px; background: url(../images/btn.gif) 0 -268px; }
 .btn_c2 a { display: block; width: 144px; height: 32px; background: url(../images/btn.gif) 0 -340px; }
 .btn_c3 a { display: block; width: 144px; height: 32px; background: url(../images/style1.gif); }
@@ -997,7 +997,7 @@ font-size: 10px;
 background-image: url(images/base_bg.png);
 background-repeat: no-repeat;
 }
-.add-g-s{position:fixed;width:112px;height:25px;top:50%;left:40%;display:none;background:rgba(0,0,0,0.5)}
+.add-g-s{position:fixed;width:112px;height:25px;top:50%;left:40%;display:none;z-index:999999;background:rgba(0,0,0,0.5)}
 #floatOrder {
 width: 50px;
 height: 50px;
