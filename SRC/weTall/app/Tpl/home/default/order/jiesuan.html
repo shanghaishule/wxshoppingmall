@@ -126,7 +126,7 @@
         </script>
        
          
-       <form method="post"  action="{:U('order/pay',array('tokenTall'=>$tokenTall))}" id="order_form" name="order_form" >
+       <form method="post"  action="{:U('order/pay',array('tokenTall'=>$tokenTall, 'showwxpaytitle'=>1))}" id="order_form" name="order_form" >
        <?php if(count($address_list)!=0){ ?>
 	        <volist name='address_list' id='vo' >
 	        <ul class="receive_add address_item selected_address">
