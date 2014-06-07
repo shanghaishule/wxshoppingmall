@@ -27,6 +27,14 @@ class UsersAction extends BackAction{
 	
 	// 添加用户
     public function add(){
+    	//检查是否可以创建用户
+    	$current_user = M('User')->where(array('id'=>$_SESSION['userid']))->find();
+    	$has_create_cnt = M(Users)->where(array('belonguser'=>$_SESSION['userid']))->count();
+    	//dump($current_user['remark']); dump($has_create_cnt); exit;
+    	if ($current_user['remark'] != "" && $has_create_cnt >= $current_user['remark']) {
+    		$this->error('您不能创建更多的前台用户！（最多创建'.$current_user['remark'].'个）');
+    	}
+    	
         $UserDB = D("Users");
         if(isset($_POST['dosubmit'])) {
             $password = $_POST['password'];
