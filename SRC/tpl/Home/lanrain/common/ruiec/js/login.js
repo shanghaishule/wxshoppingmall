@@ -1,7 +1,7 @@
 // JavaScript Document
 $(document).ready(function () {
     //001登录页手型效果
-    $("#rlBox").animate({ "top": "100px" }, 1000);
+    $("#rlBox").animate({ "top": "50px" }, 1000);
     var oFtext = $(".contbox .cont_right .r_cont ul li .r_text");
     oFtext.each(function () {
         if ($(this).val() != '') {
