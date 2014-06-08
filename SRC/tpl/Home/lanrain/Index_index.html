@@ -7,14 +7,62 @@
 <meta name="description" content="淘天天是一款专为传统商家带来更多价值的产品，专注于移动电商，让广大中小企业、个体户、淘宝店主都能轻松实现手机开店。">
 <meta name="keywords" content="移动电商、个体户、淘宝卖家、中小企业微信商城，O2O、实体店商城">
 <link rel="stylesheet" href="./tpl/Home/lanrain/css/style.css" type="text/css">
-<script type="text/javascript" src="./tpl/Home/lanrain/css/main.js"></script><style type="text/css">header,footer,section,aside,article,nav,hgroup,figure,figcaption,details,summary{display:block;margin:0;padding:0;border:none}time,mark,ruby,rt,rp,output,keygen,meter,progress,command,source{text-decoration:none;font-style:normal;font-weight:normal}</style>
-<script type="text/javascript" id="b5mmain" src="./tpl/Home/lanrain/css/b5m.main.js"></script>
-<style type="text/css"> 
-.kf { background-color:  #BAD379;; height: 50px;pading:0 10px;border-radius: 11%;position: fixed; //div定位方式—浏览器定位 top: 50%; //悬浮位置离顶端50% margin-top: -150px;//上边距 margin-right:10px;z-index:999;right:0;margin-right:25px;font-size: 24px;}
-</style> 
+<style type="text/css">
+.fixed {position:fixed;}
+#menu1 {width:100%; text-align:center; font-weight:bold; background:#000; color:#FFF; top:0; z-index:9999;}
+.resize {
+width: 1200px;
+overflow: hidden;
+margin: 0 auto;
+position: relative;
+}
+.resize .s_left {
+float: left;
+}
+.resize .s_right {
+float: right;
+}
+.resize p {
+color: #fff;
+}
+.resize p a {
+color: #15abf7;
+text-decoration: none;
+cursor: pointer;
+outline: None;
+}
+.resize .s_left a {
+margin: 0 5px;
+}
+.resize .s_right a {
+margin: 0 12px;
+}
+.resize .s_right .tel {
+display: inline-block;
+height: 15px;
+line-height: 15px;
+background: url(../images/wzc_icon_tel.png) left center no-repeat;
+padding-left: 20px;
+margin-left: 15px;
+}
+</style>
+
 </head>
 <body style="background-color:#000;">
-
+<div id="menu1" class="fixed">
+            <div class="resize">
+                <div class="s_left">
+                    <p>
+						您好， 欢迎您!&nbsp;<a href="{lanrain::U('Index/login')}">登录</a>
+                    </p>
+                </div>
+                <div class="s_right">
+                    <p>
+                        <a href="{lanrain::U('Home/Index/index')}">首页</a><a href="{lanrain::U('User/Index/index')}">管理中心</a><span class="tel">021-58649823</span>
+                    </p>
+                </div>
+            </div>
+</div>
     <nav class="navigation" id="js-nav">
         <ul>
             <li class="item" data-for="0">
@@ -85,7 +133,7 @@
             <div class="textArea">
                 <div class="star-wrapper">
                     <img id="SKY-star" class="star star-1 animation-breath" src="./tpl/Home/lanrain/css/pic_4.png">
-                    <img id="MailSmall" class="star star-2" src="./tpl/Home/lanrain/css/pic_5.png" style="top: -2181px; opacity: -9;">
+                    <img id="MailSmall" class="star star-2" src="" style="top: -2181px; opacity: 1;">
                 </div>
                 <h2 class="subTitle" id="SKY-subTitle" style="top: 416px;">
                     <p style="display: block;">不是天猫开店，不是京东开店，<br>也不是淘宝开店，更不是拍拍开店，而是一个完全属于企业自己的独立微信商城<br>成就无与伦比的出众品味，无可比拟的美妙体验。</p>
@@ -314,4 +362,3 @@
     <script type="text/javascript" src="./tpl/Home/lanrain/css/vender.js"></script>
     <script type="text/javascript" src="./tpl/Home/lanrain/css/main(1).js"></script>
 
-<object id="b5tplugin" type="application/x-bang5taoplugin" style="position:absolute;left:-9000px;top:-9000px;" width="0" height="0"></object></body></html>
