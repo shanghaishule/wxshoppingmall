@@ -39,29 +39,14 @@ var myScroll,
 
 function pullDownAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-		var el, li, i;
-		el = document.getElementById('thelist');
 
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.insertBefore(li, el.childNodes[0]);
-		}
-		
+	
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
 }
 
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-		var el, li, i;
-		el = document.getElementById('thelist');
-
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.appendChild(li, el.childNodes[0]);
-		}
 		
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
