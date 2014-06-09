@@ -94,7 +94,6 @@ class indexAction extends frontendAction {
     	}
     
     	$result = $item_stcok;
-       dump($result);exit;
     	if ($result){
     		// 成功后返回客户端新增的用户ID，并返回提示信息和操作状态
     		$this->ajaxReturn($result,"新增成功！",1);
