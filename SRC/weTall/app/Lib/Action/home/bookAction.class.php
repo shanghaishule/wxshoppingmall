@@ -201,7 +201,7 @@ class bookAction extends frontendAction {
     	
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
-    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->select();
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit(0,2)->select();
     	//var_dump($items);exit;
     	$this->assign('item_list',$items);
     	
