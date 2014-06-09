@@ -244,8 +244,9 @@ class orderAction extends userbaseAction {
 		$result[0]['pingyou'] = $pingyou;
 		$result[0]['kuaidi'] = $kuaidi;
 		$result[0]['ems'] = $ems;
-		
-		$this->display();
+		$this->assign('allinfo',$result);
+		//$this->display();
+		$this->redirect('order/jiesuan', array('tokenTall'=>$tokenTall));
 	}
 	
 	public function pay()//出订单
