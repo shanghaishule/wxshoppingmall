@@ -129,30 +129,34 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
         <div class="wrap">
             <div class="wrap_child">
                 <div class="major">
-               		<div id="pullDown">
-						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-					</div>
-                     <ul class="list">
-                     <volist name="item_list" id="item">
-                     <li>
-                     <div class="pic">
-                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}"><img  src="{:$item['img']}"></a>
-                     </div>
-                     <div class="good_content">
-                     <h3>
-                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
-                     </h3>
-                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv"><if condition="$item_like[$item['id']] eq ''">0<else/>{:$item_like[$item['id']]}</if></span></span></p>
-                     </div>
-                     <span class="show_good">
-                     	<a href="{:U('Item/index',array('id'=>$item['id']))}"></a>
-                     </span>
-                     </li>
-                     </volist>
-                    </ul>
-			 		<div id="pullUp">
-						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉刷新...</span>
-					</div>                   
+                    <div id="wrapper">
+						<div id="scroller">
+		               		<div id="pullDown">
+								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+							</div>
+		                     <ul class="list">
+		                     <volist name="item_list" id="item">
+		                     <li>
+		                     <div class="pic">
+		                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}"><img  src="{:$item['img']}"></a>
+		                     </div>
+		                     <div class="good_content">
+		                     <h3>
+		                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
+		                     </h3>
+		                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv"><if condition="$item_like[$item['id']] eq ''">0<else/>{:$item_like[$item['id']]}</if></span></span></p>
+		                     </div>
+		                     <span class="show_good">
+		                     	<a href="{:U('Item/index',array('id'=>$item['id']))}"></a>
+		                     </span>
+		                     </li>
+		                     </volist>
+		                    </ul>
+					 		<div id="pullUp">
+								<span class="pullUpIcon"></span><span class="pullUpLabel">上拉刷新...</span>
+							</div> 
+						</div>
+					</div>                  
                 </div>
             </div>
         </div>
