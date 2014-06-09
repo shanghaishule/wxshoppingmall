@@ -224,7 +224,6 @@ class orderAction extends userbaseAction {
 			$result=$cart->return_addItem($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
 		}
 		//$result=array($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
-		dump($result);exit;
 		//购物车按店铺分组
 		//$result = $this->cart_by_group();
 		$user_address_mod = M('user_address');
