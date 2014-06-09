@@ -247,7 +247,7 @@ class orderAction extends userbaseAction {
 		$result['ems'] = $ems;
 		//dump($result);exit;
 		$this->assign('allinfo',$result);
-		$this->display('order/jiesuan');
+		$this->display('order:jiesuan');
 		//$this->redirect('order/jiesuan', array('tokenTall'=>$tokenTall));
 	}
 	
