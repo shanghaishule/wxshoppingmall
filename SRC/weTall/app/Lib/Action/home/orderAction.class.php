@@ -193,8 +193,8 @@ class orderAction extends userbaseAction {
 		{
 			$this->redirect('shopcart/index', array('tokenTall'=>$tokenTall));
 		}
+
 	}
-	
 	
 	public function pay()//出订单
 	{
