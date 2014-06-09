@@ -242,10 +242,10 @@ class orderAction extends userbaseAction {
 				$ems += floatval($items['ems']);
 			}
 		}
-		$result[0]['free'] = $free_style;
-		$result[0]['pingyou'] = $pingyou;
-		$result[0]['kuaidi'] = $kuaidi;
-		$result[0]['ems'] = $ems;
+		$result['free'] = $free_style;
+		$result['pingyou'] = $pingyou;
+		$result['kuaidi'] = $kuaidi;
+		$result['ems'] = $ems;
 		$this->assign('allinfo',$result);
 		//$this->display();
 		$this->redirect('order/jiesuan', array('tokenTall'=>$tokenTall));
