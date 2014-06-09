@@ -124,12 +124,10 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
 </script>
-<div id="content">
-    <div id="wrapper">
-		<div id="scroller">    
+<div id="content">  
 		    <div class="module_special tbr">
-		        <div class="wrap">
-		            <div class="wrap_child">
+		        <div class="wrap" id="wrapper">
+		            <div class="wrap_child" id="scroller">
 		                <div class="major">
 
 		               		<div id="pullDown">
@@ -155,9 +153,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 		                    </ul>
 					 		<div id="pullUp">
 								<span class="pullUpIcon"></span><span class="pullUpLabel">上拉刷新...</span>
-							</div> 
-						</div>
-					</div>                  
+							</div>                
                 </div>
             </div>
         </div>
