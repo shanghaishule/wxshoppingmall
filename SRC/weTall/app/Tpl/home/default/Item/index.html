@@ -37,6 +37,11 @@
 	<script type="text/javascript">
 	    function buys()
 	    {
+	    	var goodId = $("#goodId").val();
+	        var quantity = $("#quantity").val();
+
+	        var size =  $("#sizeChoose").val();
+	        var color = $("#colorChoose").val();
             if(check_buy()){
 	        add_cart(goodId, quantity, size, color);
             }
