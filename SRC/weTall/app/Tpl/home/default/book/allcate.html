@@ -47,12 +47,11 @@ function pullDownAction () {
 
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-		alert('test');
+		//('test');
 		$.post("{:U('book/pull_up')}",function(data){
-			alert(data);
 			var array = eval(data);
 			for(var i =0;i<array.length;i++){
-				alert(arrray.img);
+				alert(array[i].id);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
