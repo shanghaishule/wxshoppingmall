@@ -210,6 +210,18 @@ class bookAction extends frontendAction {
     	
     	$this->display();
     }
+    //下拉加载
+    public function pull_up(){
+    	$index=4;
+    	$tokenTall = $this->getTokenTall();
+    	$where['status']=array('eq',1);
+    	$where['tokenTall']=array('eq',$tokenTall);
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($index,4)->select();
+    	$index+=4;
+    	//var_dump($items);exit;
+    	echo json_encode($items);
+    	 
+    }
     
     public function like_item() {
     	$item_id = $this->_get('item_id', 'trim');

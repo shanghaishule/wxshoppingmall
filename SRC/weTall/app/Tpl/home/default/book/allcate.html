@@ -47,7 +47,12 @@ function pullDownAction () {
 
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-		
+		$.post("{:U('book/pull_up')}",function(data){
+			var array = eval(data);
+			for(var i =0;i<array.length;i++){
+				alert(arrray.img);
+			}
+		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 }
@@ -85,7 +90,7 @@ function loaded() {
 				this.maxScrollY = this.maxScrollY;
 			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
 				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = '下拉加载更多...';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
 				this.maxScrollY = pullUpOffset;
 			}
 		},
