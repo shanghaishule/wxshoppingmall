@@ -229,7 +229,7 @@ class orderAction extends userbaseAction {
 		$user_address_mod = M('user_address');
 		$address_list = $user_address_mod->where(array('uid' => $this->visitor->info['id']))->select();
 		$this->assign('address_list', $address_list);
-		$free_style = 1;
+		/*$free_style = 1;
 		$pingyou = 0;
 		$kuaidi = 0;
 		$ems = 0;
@@ -244,7 +244,7 @@ class orderAction extends userbaseAction {
 		$result['free'] = $free_style;
 		$result['pingyou'] = $pingyou;
 		$result['kuaidi'] = $kuaidi;
-		$result['ems'] = $ems;
+		$result['ems'] = $ems;*/
 		//dump($result);exit;
 		$this->assign('allinfo',$result);
 		$this->display('order:jiesuan');
