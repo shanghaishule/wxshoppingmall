@@ -206,10 +206,10 @@ class orderAction extends userbaseAction {
 		import('Think.ORG.Cart');// 导入分页类
 		$cart=new Cart();
 		 
-		$goodId= $this->_get('goodId', 'intval');//商品ID
-		$quantity=$this->_get('quantity', 'intval');//购买数量
-		$size= $this->_get('size', 'intval');//大小
-		$color=$this->_get('color', 'trim');//颜色
+		$goodId= $this->_post('goodId', 'intval');//商品ID
+		$quantity=$this->_post('quantity', 'intval');//购买数量
+		$size= $this->_post('size', 'intval');//大小
+		$color=$this->_post('color', 'trim');//颜色
 	
 		$item=M('item')->field('id,title,img,price,goods_stock,tokenTall,free,pingyou,kuaidi,ems')->find($goodId);
 		$item['size'] = $size;

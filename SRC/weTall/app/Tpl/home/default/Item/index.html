@@ -37,7 +37,6 @@
 	<script type="text/javascript">
 	    function buys()
 	    {
-	    	
             check_buy();
 	        add_cart(goodId, quantity, size, color);
 	    }
@@ -75,7 +74,8 @@
 	    }
 	    function buy_now(){
 	    	check_buy();
-	    	//$("#form1").action;
+	    	document.getElementById('form1').action="{:U('order/item_buy',array('tokenTall'=>$tokenTall))}";
+	    	document.getElementById('form1').submit();
 	    }
 	    function check_buy(){
 	    	var goodId = $("#goodId").val();
