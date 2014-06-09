@@ -212,7 +212,7 @@ class bookAction extends frontendAction {
     }
     //下拉加载
     public function pull_up(){
-    	$index=4;
+    	$index=2;
     	$tokenTall = $this->getTokenTall();
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
