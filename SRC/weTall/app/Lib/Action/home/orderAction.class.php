@@ -193,8 +193,60 @@ class orderAction extends userbaseAction {
 		{
 			$this->redirect('shopcart/index', array('tokenTall'=>$tokenTall));
 		}
+
 	}
 	
+	//直接购买
+	public function item_buy()
+	{
+		$tokenTall = $this->getTokenTall();
+		$this->assign('tokenTall',$tokenTall);
+		header("content-Type: text/html; charset=Utf-8");
+		 
+		import('Think.ORG.Cart');// 导入分页类
+		$cart=new Cart();
+		 
+		$goodId= $this->_get('goodId', 'intval');//商品ID
+		$quantity=$this->_get('quantity', 'intval');//购买数量
+		$size= $this->_get('size', 'intval');//大小
+		$color=$this->_get('color', 'trim');//颜色
+	
+		$item=M('item')->field('id,title,img,price,goods_stock,tokenTall,free,pingyou,kuaidi,ems')->find($goodId);
+		$item['size'] = $size;
+		$item['color'] = $color; //mb_convert_encoding($color, "UTF-8", "GBK");
+		 
+		if(!is_array($item))
+		{
+			$data=array('status'=>0,'msg'=>'不存在该商品','count'=>$cart->getCnt(),'sumPrice'=>$cart->getPrice());
+		}elseif($item['goods_stock']<$quantity){
+			$data=array('status'=>0,'msg'=>'没有足够的库存','count'=>$cart->getCnt(),'sumPrice'=>$cart->getPrice());
+		}else {
+			$result= $cart->addItem($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
+		}
+		//购物车按店铺分组
+		//$result = $this->cart_by_group();
+		$user_address_mod = M('user_address');
+		$address_list = $user_address_mod->where(array('uid' => $this->visitor->info['id']))->select();
+		$this->assign('address_list', $address_list);
+		$free_style = 1;
+		$pingyou = 0;
+		$kuaidi = 0;
+		$ems = 0;
+		foreach ($result['item'] as $items){
+			if ($items['free'] == '2') {
+				$free_style = 2;
+				$pingyou += floatval($items['pingyou']);
+				$kuaidi += floatval($items['kuaidi']);
+				$ems += floatval($items['ems']);
+			}
+		}
+		$result[0]['free'] = $free_style;
+		$result[0]['pingyou'] = $pingyou;
+		$result[0]['kuaidi'] = $kuaidi;
+		$result[0]['ems'] = $ems;
+		
+		$this->display();
+	}
 	
 	public function pay()//出订单
 	{
