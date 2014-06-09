@@ -39,32 +39,7 @@ class Cart{
 		
 		$_SESSION['cart'][$id] = $item;
 	}
-	//直接购买商品，如果购物车有返回该商品
-	public  function return_addItem($id,$name,$price,$num,$img,$size,$color,$tokenTall,$free,$pingyou,$kuaidi,$ems) {
-		//如果该商品已存在则直接加其数量
-		if (isset($_SESSION['cart'][$id])) {
-			$this->incNum($id,$num);
-				
-			//return 1;
-		}
-	
-		$item = array();
-		$item['id'] = $id;
-		$item['name'] = $name;
-		$item['price'] = $price;
-		$item['num'] = $num;
-		$item['img'] = $img;
-		$item['size'] = $size;
-		$item['color'] = $color;
-		$item['tokenTall'] = $tokenTall;
-		$item['free'] = $free;
-		$item['pingyou'] = $pingyou;
-		$item['kuaidi'] = $kuaidi;
-		$item['ems'] = $ems;
-	
-		$_SESSION['cart'][$id] = $item;
-		return $_SESSION['cart'][$id];
-	}
+
 	/*
 	修改购物车中的商品数量
 	int $id 商品主键

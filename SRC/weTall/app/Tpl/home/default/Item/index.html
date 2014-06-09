@@ -80,7 +80,7 @@
 	    }
 	    function buy_now(){
 	    	if(check_buy()){
-	    	document.getElementById('form1').action="{:U('order/item_buy',array('tokenTall'=>$tokenTall))}";
+	    	document.getElementById('form1').action="{:U('shopcart/index',array('tokenTall'=>$tokenTall))}";
 	    	document.getElementById('form1').submit();
 	    	}
 	    }
