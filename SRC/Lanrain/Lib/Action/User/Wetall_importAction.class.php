@@ -2,7 +2,7 @@
 class Wetall_importAction extends UserAction{
 	public function _initialize() {
 		parent::_initialize();
-		$this->_mod = D('item_taobao');
+		$this->_mod = D('item');
 		
 		$catelist = M('item_cate')->where(array('status'=>1, 'tokenTall'=>$this->getTokenTall()))->order('ordid asc,id asc')->select();
 		foreach ($catelist as $val){
@@ -129,7 +129,7 @@ class Wetall_importAction extends UserAction{
 
 	
 	public function data_excel() {
-		$mod_taobao = D("item_taobao");
+		$mod_taobao = D("item");
 		$message = M("message_check");
 		if (IS_POST) {
 			if (false === $data = $mod_taobao->create()) {
@@ -245,7 +245,7 @@ class Wetall_importAction extends UserAction{
 		}
 		 
 		if (!empty($item["Uninum"])) {
-			if( M("item_taobao")->where($item)->find() ){
+			if( M("item")->where($item)->find() ){
 				return "Y";
 			} else {
 				return "M";
@@ -258,7 +258,7 @@ class Wetall_importAction extends UserAction{
 	 * *获取商品数据
 	 */
 	public function get_good_attr($url,$brand){
-		$mod_taobao = M("item_taobao");
+		$mod_taobao = M("item");
 		if($this->check_good_attr($url) == "M"){//正常商品未同步至数据库
 			$text=file_get_contents($url);
 			//商品货号
@@ -403,6 +403,7 @@ class Wetall_importAction extends UserAction{
 			$item["Huohao"] = preg_replace('/<\/li>/',"",$huohaoresult);
 			$item["brand"] = $brand;
 			$item["add_time"] = time();
+			$item["tokenTall"] = $this->getTokenTall();
 			//$item["imagesDetail"] = $description;
 			//var_dump($item);die();
 	
@@ -511,7 +512,7 @@ class Wetall_importAction extends UserAction{
 	}
 	
 	public function data_update() {
-		$mod_taobao = D("item_taobao");
+		$mod_taobao = D("item");
 		$message = M("message_check");
 		if (IS_POST) {
 			if (false === $data = $mod_taobao->create()) {
