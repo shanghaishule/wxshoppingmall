@@ -1015,7 +1015,8 @@ z-index: 890;
 
 /**下拉刷新**/
 #wrapper {
-	position:absolute; z-index:1;
+	/*position:absolute;*/
+	 z-index:1;
 	top:45px; bottom:48px; left:-9999px;
 	width:100%;
 	background:#aaa;
