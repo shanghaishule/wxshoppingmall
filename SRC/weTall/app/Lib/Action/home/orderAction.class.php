@@ -177,7 +177,6 @@ class orderAction extends userbaseAction {
 		}
 	}
 	
-	
 	public function pay()//出订单
 	{
 		//取商家token值，取不到则默认为空
