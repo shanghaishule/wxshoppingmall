@@ -247,7 +247,7 @@
 			    		item_id=$("#goodId").val();
 			    		$.get('./index.php?g=home&m=index&a=addressselect&item_id='+item_id+'&color='+colorchoose+"&size="+size_title,function(data,status){
 			    			var obj = eval('('+  data +')');               		
-			    			$("#detail_stock").text(obj.status);
+			    			$("#detail_stock").text(obj);
 	                	  });
 			    	}
 	              $(".size_title").css('background','none');
@@ -260,7 +260,7 @@
 			    		item_id=$("#goodId").val();
 			    		$.get('./index.php?g=home&m=index&a=addressselect&item_id='+item_id+'&color='+color_title+"&size="+sizechoose,function(data,status){
 			    			var obj = eval('('+  data +')');               		
-			    			$("#detail_stock").text(obj.status);
+			    			$("#detail_stock").text(obj);
 	                	  });
 			    	}
 		        	
