@@ -49,7 +49,7 @@ class IndexAction extends BaseAction{
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
 		//dump($where);
-		$info=M('Classify')->where(array('token'=>$this->_get('token'),'status'=>1))->order('sorts desc')->select();
+		$info=M('Classify')->where(array('token'=>$this->_get('token'),'status'=>1))->order('id asc')->select();
 		$info=$this->convertLinks($info);//加外链等信息
 		$gid=D('Users')->field('gid')->find($tpl['uid']);
 		$this->userGroup=M('User_group')->where(array('id'=>$gid['gid']))->find();

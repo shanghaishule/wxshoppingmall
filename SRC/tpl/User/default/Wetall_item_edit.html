@@ -5,6 +5,227 @@
 <script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
 <script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
 <script>
+//增加的颜色
+var colorAdd = 0;
+//增加的型号
+var sizeAdd = 0;
+//增加一个型号时颜色的个数
+var colorlength = 0;
+//增加一个颜色时型号的个数
+var sizelength = 0;
+//增加颜色时细则库存对应的型号计数器
+var size_stock=0;
+//增加型号时细则库存对应的颜色计数器
+var color_stock=0;
+function addSize()
+{
+	sizeAdd = sizeAdd + 1;
+  var colors = document.getElementsByName("color[]");
+  colorlength=colors.length;
+  for(i=0;i<colors.length;i++){
+  	color_stock=color_stock+1;
+  	$str='';
+      $str+="<tr align='center' style='border-left:5px solid #8B4513;' id='trcolor"+color_stock+"' class='stock_tr' title='"+colors[i].value+"|'>";
+      
+      $str+="<td>"+colors[i].value+"</td>";
+      $str+="<td><div name='ouptsize"+sizeAdd+"' class='ouptsize"+sizeAdd+"'></div></td>";
+      $str+="<td><input type='number' class='px' onchange='sum_stock()' value='0' id='stockcolor"+color_stock+"' title='"+colors[i].value+"|' name='stockcolor' /></td>";
+      $str+="</tr>";
+      $("#addTr").append($str);   
+
+  }
+  $("#addsize_action").attr("disabled",true);
+  $("#addcolor_action").attr("disabled",true);
+  var sizeid=$("#size");
+  sizeid.append("<input  onchange='keydown_size()' class='px' name='size[]' type='text' id='mysize" + sizeAdd + "' size='12'><img id='inpu_img" + sizeAdd + "' onclick='delete_sizetr(" + sizeAdd + ")' height='15' width='15' style='margin-right:3px;' src='/tpl/User/default/common/images/icons/delete.png' />");
+}
+function addColor()
+{
+	colorAdd = colorAdd + 1;
+  var sizeid=$("#color");
+  var sizes = document.getElementsByName("size[]");
+  sizelength = sizes.length;
+  for(i=0;i<sizes.length;i++){
+  	size_stock = size_stock + 1;
+  	$str='';
+      $str+="<tr align='center' style='border-left:5px solid #8968CD;' id='trsize"+size_stock+"' title='|"+sizes[i].value+"' class='stock_tr'>";
+      $str+="<td><div name='oupt"+colorAdd+"' class='oupt"+colorAdd+"'></div></td>";
+      $str+="<td>"+sizes[i].value+"</td>";
+      $str+="<td><input onchange='sum_stock()' class='px' type='number' id='stock"+size_stock+"' title='|"+sizes[i].value+"' value='0' name='stocksize' /></td>";
+      $str+="</tr>";
+      $("#addTr").append($str);   
+
+  }
+  $("#addsize_action").attr("disabled",true);
+  $("#addcolor_action").attr("disabled",true);
+  sizeid.append("<input onchange='keydown()' class='px' name='color[]' id='mycolor" + colorAdd + "' type='text' size='12'><img id='color_img" + colorAdd + "' onclick='delete_colortr(" + colorAdd + ")' height='15' width='15'  style='margin-right:3px;' src='/tpl/User/default/common/images/icons/delete.png' />");
+}
+/**
+* 删除型号，删除相应的其他相关的
+*/
+function delete_sizetr(sizename){
+	var stocktr=$(".stock_tr");
+	var sizestr="";
+	for(i=0;i<stocktr.length;i++){
+		sizestr=stocktr[i].title.split("|");
+		if(sizestr[1] == sizename){
+			stocktr[i].remove();
+		}else if(sizestr[1] == ""){
+			stocktr[i].remove();
+		}
+	}
+	if($("#mysize"+sizename).val() == ""){
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+
+	$("#mysize"+sizename).remove();
+	$("#inpu_img"+sizename).remove();
+}
+/**
+* 删除颜色，删除相应的其他相关的
+*/
+function delete_colortr(colorname){
+	var stocktr=$(".stock_tr");
+	var sizestr="";
+	for(i=0;i<stocktr.length;i++){
+		sizestr=stocktr[i].title.split("|");
+		if(sizestr[0] == colorname){
+			stocktr[i].remove();
+		}else if(sizestr[0] == ""){
+			stocktr[i].remove();
+		}
+	}
+	
+	$("#mycolor"+colorname).remove();
+	if($("#mycolor"+colorname).val() == ""){
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$("#color_img"+colorname).remove();
+}
+function keydown(){
+	//输入新颜色的时候改变新增库存行的 title
+	var min_stock = size_stock - sizelength;
+	var new_title = "";
+	var new_title_color = "";
+	for(i=size_stock;i>min_stock;i--){
+		new_title=$("#mycolor"+colorAdd).val() + document.getElementById("stock"+i).title;
+		new_title_color=colorAdd + document.getElementById("stock"+i).title;
+		$("#trsize"+i).attr("title",new_title_color);
+		 $("#stock"+i).attr("title",new_title);
+		// alert(new_title);
+	 }
+	if($("#mycolor"+colorAdd).val() == ""){
+		$("#addsize_action").attr("disabled",true);
+	    $("#addcolor_action").attr("disabled",true);
+	}else{
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$(".oupt"+colorAdd).html($("#mycolor"+colorAdd).val());
+	}
+function keydown_size(){
+	//输入新型号的时候改变新增库存行的 title
+	var min_stock = color_stock - colorlength;
+	var new_title = "";
+	var new_title_size="";
+	for(i=color_stock;i>min_stock;i--){
+		new_title=document.getElementById("stockcolor"+i).title + $("#mysize"+sizeAdd).val();
+		new_title_size=document.getElementById("stockcolor"+i).title + sizeAdd;
+		 $("#stockcolor"+i).attr("title",new_title); 
+		 $("#trcolor"+i).attr("title",new_title_size);
+		 //alert(new_title);
+	 }
+	if($("#mysize"+sizeAdd).val() == ""){
+		$("#addsize_action").attr("disabled",true);
+	    $("#addcolor_action").attr("disabled",true);
+	}else{
+		$("#addsize_action").attr("disabled",false);
+	    $("#addcolor_action").attr("disabled",false);
+	}
+	$(".ouptsize"+sizeAdd).html($("#mysize"+sizeAdd).val());
+	}
+	
+	
+/*
+**下面的方法主要是把细则库存通过拼接字符串传入数据库
+**字符串的格式是  ‘颜色|型号|库存’
+**/
+function deal_stock(){
+	
+	var stock_detail = "";
+	var colors_ar = "";
+	var sizes_ar = "";
+	var colors_ars = document.getElementsByName("color[]");
+	var sizes_ars = document.getElementsByName("size[]");
+	
+	var sizes = document.getElementsByName("stock");
+	var stock_detail = "";
+	 for(i=0;i<sizes.length;i++){
+		 if(sizes[i].value !=""){
+			 stock_detail = stock_detail + sizes[i].title + "|" + sizes[i].value + ",";
+		 }
+	 }
+	
+	//将数组组成字符串
+	for(i=0;i<colors_ars.length;i++){
+		 if(colors_ars[i].value !=""){	
+			 colors_ar = colors_ar + colors_ars[i].value + "|";
+		 }
+	 }
+	for(i=0;i<sizes_ars.length;i++){
+		 if(sizes_ars[i].value !=""){	
+			 sizes_ar = sizes_ar + sizes_ars[i].value + "|";
+		 }
+	 }
+	
+	 var sizescolor = document.getElementsByName("stockcolor");	 
+	 for(i=0;i<sizescolor.length;i++){
+		 if(sizescolor[i].value !=""){
+			 stock_detail = stock_detail + sizescolor[i].title + "|" + sizescolor[i].value + ",";
+		 }
+	 }
+	 var sizessize = document.getElementsByName("stocksize");
+	 for(i=0;i<sizessize.length;i++){
+		 if(sizessize[i].value !=""){
+			 stock_detail = stock_detail + sizessize[i].title + "|" + sizessize[i].value + ",";
+		 }
+	 }
+	 $("#sizes_ar").val(sizes_ar);
+	 $("#colors_ar").val(colors_ar);
+	 $("#detail_stock").val(stock_detail);
+	 $("#info_form").submit();
+}
+
+/*
+**下面的方法当细则库存任意一个改变时 总库存重新计算一下
+**/
+function sum_stock(){
+	 var sum_num = 0;
+	 
+	 var sizes = document.getElementsByName("stock");
+	 for(i=0;i<sizes.length;i++){
+		 if(sizes[i].value !=""){
+		     sum_num = sum_num + parseInt(sizes[i].value);
+		 }
+	 }
+	 
+	 var sizescolor = document.getElementsByName("stockcolor");
+	 for(i=0;i<sizescolor.length;i++){
+		 if(sizescolor[i].value !=""){
+		     sum_num = sum_num + parseInt(sizescolor[i].value);
+		 }
+	 }
+	 var sizessize = document.getElementsByName("stocksize");
+	 for(i=0;i<sizessize.length;i++){
+		 if(sizessize[i].value !=""){
+		     sum_num = sum_num + parseInt(sizessize[i].value);
+		 }
+	 }
+	$("#J_goods_stock").val(sum_num);
+}
+
 	KindEditor.ready(function(K){
 		var editor = K.editor({
 			allowFileManager:true
@@ -155,7 +376,7 @@
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 	<div class="cLineB"><h4>商品{lanrain:$myaction}</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
 	<div class="msgWrap">
-	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_item/edit')}">
+	<form id="info_form" class="form" method="post" action="{lanrain::U('Wetall_item/edit')}" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="{lanrain:$info.id}" />
 	<TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
 	<TBODY>
@@ -237,25 +458,80 @@
 			</td>
 		</tr>
 		<tr>
-			<th>型号：</th>
-			<td>
-				<input type="text" class="px" name="size" value="{lanrain:$info.size}" style="width:500px"><br/>多个型号请以“|”号分隔，例如：大号|中号|小号
-			</td>
-		</tr>
+				<th width="120">颜色 :</th>
+                <td><div id="color"><input type="button" id="addcolor_action" class="btnGreen left" value="添加 " onclick="addColor()">
+                     <volist name="colorarr" id="color">
+                      <if condition="$color neq ''">
+                      <input type="text" class="px" name="color[]" id="mycolor{lanrain:$color}" value="{lanrain:$color}" size='12' readOnly><img id="color_img{lanrain:$color}" onclick="delete_colortr('{lanrain:$color}')"  style='margin-right:3px;' height="15" width="15" src="/tpl/User/default/common/images/icons/delete.png" />
+                      </if>
+                     </volist>
+                     </div></td>
+			</tr>
 		<tr>
-			<th>颜色：</th>
-			<td>
-				<input type="text" class="px" name="color" value="{lanrain:$info.color}" style="width:500px"><br/>多种颜色请以“|”号分隔，例如：红色|蓝色|黄色
-			</td>
+				<th width="120">型号 :</th>
+                <td> <div id="size"><input type="button" id="addsize_action" class="btnGreen left" value="添加 " onclick="addSize()">
+                      <volist name="sizearr" id="sizear">
+                      <if condition="$sizear neq ''">
+                        <input type="text" class="px" name="size[]" id="mysize{lanrain:$sizear}" value="{lanrain:$sizear}" size='12' readOnly><img id="inpu_img{lanrain:$sizear}" onclick="delete_sizetr('{lanrain:$sizear}')" style='margin-right:3px;' height="15" width="15" src="/tpl/User/default/common/images/icons/delete.png" />
+                      </if>
+                     </volist>
+                     </div>
+                    </td>
+			</tr>
+			
+			<tr>
+			    <th width="120">库存细则：</th>
+			    <td>
+			    <style>
+				#addTr{
+			     border:1px solid green;
+				}
+				#addTr tr td{
+					padding:2px 10px;
+			     } 
+			    </style>
+			    <table id="addTr">
+			    <if condition="count($detail_stock_arr) eq 0">
+			    <volist name="colorarr" id="color2">
+			        <if condition="$color2 neq ''">
+			        <volist name="sizearr" id="size2">
+			          <if condition="$size2 neq ''">
+				          <tr title="{lanrain:$color2}|{lanrain:$size2}" class="stock_tr">
+				            <td>{lanrain:$color2}</td>
+				            <td>{lanrain:$size2}</td>
+				            <td><input type="number" class='px' title="{lanrain:$color2}|{lanrain:$size2}" value="0" name='stock' onchange='sum_stock()' value="0"></td>
+				          </tr>
+			          </if>
+			        </volist>
+			        </if>
+			    </volist>
+			     <else/>
+			        <volist name="detail_stock_arr" id="stock">
+			           <if condition="$stock[0] neq '' and $stock[1] neq ''">
+			              <tr title="{lanrain:$stock[0]}|{lanrain:$stock[1]}" class="stock_tr">
+				            <td>{lanrain:$stock[0]}</td>
+				            <td>{lanrain:$stock[1]}</td>
+				            <td><input type="number" class='px' title="{lanrain:$stock[0]}|{lanrain:$stock[1]}" value="{lanrain:$stock[2]}" name='stock' onchange='sum_stock()' ></td>
+				          </tr>
+				          </if>
+			          
+			        </volist>
+			    </if>
+			    </table>
+			    <input type="hidden" id="detail_stock" name="detail_stock">
+			    <input type="hidden" id="sizes_ar" name="sizes_ar">
+			    <input type="hidden" id="colors_ar" name="colors_ar">
+			    </td>			
+			</tr> 
+		<tr>
+			<th>商品库存：</th>
+			<td><input onkeyup="this.value=this.value.replace(/\D/g,'')" type="text" id="J_goods_stock" name="goods_stock" class="px" value="{lanrain:$info.goods_stock}" style="width:250px"> </td>
 		</tr>
 		<tr>
 			<th>商品价格：</th>
 			<td><input onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" type="text" id="price" name="price" class="px" value="{lanrain:$info.price}" style="width:250px"> 元</td>
 		</tr>
-		<tr>
-			<th>商品库存：</th>
-			<td><input onkeyup="this.value=this.value.replace(/\D/g,'')" type="text" id="goods_stock" name="goods_stock" class="px" value="{lanrain:$info.goods_stock}" style="width:250px"> </td>
-		</tr>
+		
 		<tr>
 			<th>是否推荐：</th>
 			<td>
@@ -287,7 +563,7 @@
 		</tr>
 		<TR>
 			<TH></TH>
-			<TD><button type="submit"  name="button"  class="btnGreen left" >保存</button>
+			<TD><button type="button" onclick="deal_stock()"  name="button"  class="btnGreen left" >保存</button>
 	  		<div class="clr"></div>
 	  		</TD>
 		</TR>
