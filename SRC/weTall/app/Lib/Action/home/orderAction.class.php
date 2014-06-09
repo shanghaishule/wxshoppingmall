@@ -221,8 +221,9 @@ class orderAction extends userbaseAction {
 		}elseif($item['goods_stock']<$quantity){
 			$data=array('status'=>0,'msg'=>'没有足够的库存','count'=>$cart->getCnt(),'sumPrice'=>$cart->getPrice());
 		}else {
-			$result=$cart->return_addItem($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
+			$res=$cart->return_addItem($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
 		}
+		$result[$tokenTall]['item'][]=$res;
 		//$result=array($item['id'],$item['title'],$item['price'],$quantity,$item['img'],$item['size'],$item['color'],$item['tokenTall'],$item['free'],$item['pingyou'],$item['kuaidi'],$item['ems']);
 		//购物车按店铺分组
 		//$result = $this->cart_by_group();
