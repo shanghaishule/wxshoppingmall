@@ -247,8 +247,8 @@ class orderAction extends userbaseAction {
 		$result['ems'] = $ems;
 		dump($result);exit;
 		$this->assign('allinfo',$result);
-		//$this->display();
-		$this->redirect('order/jiesuan', array('tokenTall'=>$tokenTall));
+		$this->display('order/jiesuan');
+		//$this->redirect('order/jiesuan', array('tokenTall'=>$tokenTall));
 	}
 	
 	public function pay()//出订单
