@@ -37,8 +37,9 @@
 	<script type="text/javascript">
 	    function buys()
 	    {
-            check_buy();
+            if(check_buy()){
 	        add_cart(goodId, quantity, size, color);
+            }
 	    }
 	    
 	    function add_cart(goodId,quantity,size,color)//商品ID，购买数量
@@ -73,9 +74,10 @@
 	    	$('.add-g-s').fadeOut("slow");
 	    }
 	    function buy_now(){
-	    	check_buy();
+	    	if(check_buy()){
 	    	document.getElementById('form1').action="{:U('order/item_buy',array('tokenTall'=>$tokenTall))}";
 	    	document.getElementById('form1').submit();
+	    	}
 	    }
 	    function check_buy(){
 	    	var goodId = $("#goodId").val();
@@ -88,31 +90,32 @@
 	        if (size == "")
 	        {
 	            alert('请选择大小');
-	            return;
+	            return false;
 	        }
 
 	        if (color == "")
 	        {
 	            alert('请选择颜色');
-	            return;
+	            return false;
         	}
 	        
 	        
 	        if (quantity == '')
 	        {
 	            alert('请输入购买数量');
-	            return;
+	            return false;
 	        }
 	        if (parseInt(quantity) < 1)
 	        {
 	            alert("购买数量不能小于1");
-	            return;
+	            return false;
 	        }
 	        if(isNaN(quantity))
 	        {
 	          alert("请输入数字!");
-	           return;
+	           return false;
 	        }
+	        return true;
 	    }
 		//xxl start
 		function showinfo(sheetnum)
