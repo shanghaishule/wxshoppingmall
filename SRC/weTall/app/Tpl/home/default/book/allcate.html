@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <include file="public:headtop" />
@@ -12,6 +12,7 @@
 $(function(){
 	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
 });
+/*
 var active=0,
 	as=document.getElementById('pagenavi').getElementsByTagName('a');
 	
@@ -28,7 +29,8 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
 		as[active].className='';
 		active=index;
 		as[active].className='active';
-	}});	
+	}});
+	*/	
 </script>
 <script type="text/javascript">
 
@@ -44,28 +46,29 @@ function pullDownAction () {
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
 }
-
+var curr_page=1;
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 		//('test');
-		$.post("{:U('book/pull_up')}",function(data){
+		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
+			
 			var array = eval(data);
+			el = document.getElementById('list');
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array.id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array.img+"\"></a>"+
-             "</div><div class=\"good_content\"><h3>"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array.id+",'tokenTall'=>$tokenTall))}\">"+array.title+"</a>"+
-             "</h3><p>¥"+array.price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array.id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\"><if condition=\"$item_like[$item['id']] eq ''\">0<else/>{:$item_like[$item['id']]}</if></span></span></p>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
+             "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
              "</div><span class=\"show_good\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array.id+"))}\"></a>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
-             $('.list').appendChild(string);
+             $(".list").append(string);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
+	curr_page++;
 }
 
 function loaded() {
@@ -111,7 +114,7 @@ function loaded() {
 				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
 				pullDownAction();	// Execute custom function (ajax call?)
 			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loading';
+				pullUpEl.className = '加载中';
 				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
 				pullUpAction();	// Execute custom function (ajax call?)
 			}
@@ -127,16 +130,16 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 </script>
 <div id="wrapper">
 	<div id="scroller">
-		<div id="content">
-		    <div class="module_special tbr">
+		<!--<div id="content" style="position:relative">
+		     <div class="module_special tbr">
 		        <div class="wrap">
 		            <div class="wrap_child">
-		                <div class="major">	
+		                <div class="major">	 -->
 		               		<div id="pullDown">
 								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 							</div>
-							    <div class="clear"></div>
-		                     <ul class="list">
+							
+		                     <ul class="list" id="list">
 		                     <volist name="item_list" id="item">
 		                     <li>
 		                     <div class="pic">
@@ -157,12 +160,12 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 					 		<div id="pullUp">
 								<span class="pullUpIcon"></span><span class="pullUpLabel">上拉刷新...</span>
 							</div>
-							    <div class="clear"></div>
-						</div>	
+							    
+						<!-- </div>	
 					</div>		                
                  </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="clear">
     </div>

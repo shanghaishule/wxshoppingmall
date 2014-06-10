@@ -452,6 +452,19 @@ div.order_cancel_box p span {color: #f34; font-weight: bold;}
 .major h3 { color:#ababab; text-align:left; overflow: hidden; margin: 5px; line-height: 18px; font-weight: normal; font-size: 12px; height:18px;}
 .major h3 a { color: #646665; text-decoration: none; }
 
+/**/
+#wrapper .list {overflow: hidden; display:block; }
+#wrapper .list li {/*margin:2%;*/margin-left:3%;margin-top:2%; width:45.5%; float:left;/*border:1px solid #c5c5c5;*/  text-align:center; -webkit-box-shadow:0 1px 5px #7A7A7A;box-shadow:0px 0px 1px #7A7A7A; background:#fff;border-radius: 4px;}
+#wrapper .list li span.show_good{display: none;}
+#wrapper .pic {margin: 0 auto; text-align:center; width:100%;/* height:300px;*/}
+#wrapper .pic img { width:100%; /*height:300px;*/}
+#wrapper .pic a { display: block; text-align:center;}
+#wrapper h3 { color:#ababab; text-align:left; overflow: hidden; margin: 5px; line-height: 18px; font-weight: normal; font-size: 12px; height:18px;}
+#wrapper h3 a { color: #646665; text-decoration: none; }
+
+/**/
+
+
 .group_major .list {margin: 15px; overflow: hidden; background:#fff; padding:10px 0;-webkit-box-shadow:0 0 5px #ccc;}
 .group_major .list li {}
 .group_major .pic { width: 214px; margin: 0 auto; }
@@ -1015,6 +1028,7 @@ z-index: 890;
 
 /**下拉刷新**/
 #wrapper {
+	margin-top:10px;
 	position:absolute;
 	 z-index:1;
 	top:45px; bottom:48px; left:-9999px;

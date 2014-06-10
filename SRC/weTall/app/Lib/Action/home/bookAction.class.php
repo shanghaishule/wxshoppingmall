@@ -4,7 +4,8 @@
  * 逛宝贝页面
  */
 class bookAction extends frontendAction {
-
+    private $page=1;
+    private $row = 2;
     public function _initialize() {
         parent::_initialize();
         $this->assign('nav_curr', 'book');
@@ -204,21 +205,21 @@ class bookAction extends frontendAction {
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit(0,2)->select();
     	//var_dump($items);exit;
     	$this->assign('item_list',$items);
-    	
-    	
-    	 
-    	
     	$this->display();
     }
     //下拉加载
-    public function pull_up(){
-    	$index=2;
+       public function pull_up(){
     	$tokenTall = $this->getTokenTall();
+    	$this->page=$this->_post("page","intval");
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
-    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($index,4)->select();
-    	$index+=4;
-    	//var_dump($items);exit;
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();
+    
+    	foreach($items as $item => $value){
+    		$lv=M('item_like')->where("item_id='".$value['id']."'")->count();
+    	    $items[$item]['lv']=$lv;
+    	    
+    	}
     	echo json_encode($items);
     	 
     }
