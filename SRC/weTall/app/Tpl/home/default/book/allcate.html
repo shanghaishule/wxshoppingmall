@@ -51,12 +51,12 @@ function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 		//('test');
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
-			
 			var array = eval(data);
-			el = document.getElementById('list');
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
+             "</div><div class=\"good_content\"><h3>"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
              "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
              "</div><span class=\"show_good\">"+
@@ -81,7 +81,7 @@ function loaded() {
 		useTransition: true,
 		topOffset: pullDownOffset,
 		onRefresh: function () {
-			if (pullDownEl.className.match('加载中')) {
+			if (pullDownEl.className.match('loading')) {
 				pullDownEl.className = '';
 				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
 			} else if (pullUpEl.className.match('loading')) {
@@ -110,11 +110,11 @@ function loaded() {
 		},
 		onScrollEnd: function () {
 			if (pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'loding';
+				pullDownEl.className = 'loading';
 				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
 				pullDownAction();	// Execute custom function (ajax call?)
 			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loding';
+				pullUpEl.className = 'loading';
 				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
 				pullUpAction();	// Execute custom function (ajax call?)
 			}
