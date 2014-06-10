@@ -52,7 +52,7 @@ function pullUpAction () {
 			
 			var array = eval(data);
 			var el, li;
-			el = document.getElementById('list');
+			el=document.getElementById('list');
 			for(var i =0;i<array.length;i++){
 				var string = "<div class=\"pic\">"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
@@ -62,10 +62,9 @@ function pullUpAction () {
              "</div><span class=\"show_good\">"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>";
-             li = document.createElement('li');
-             li.innerText = string;
+             li=document.createElement('li');
+             li.append(string);
              el.appendChild(li, el.childNodes[0]);
-             //$(".list").append(string);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
