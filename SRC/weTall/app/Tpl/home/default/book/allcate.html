@@ -53,7 +53,6 @@ function pullUpAction () {
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
-			var el, li;
 			el = document.getElementById('list');
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
@@ -66,12 +65,7 @@ function pullUpAction () {
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
-             //$(".list").append(string);
- 			li = document.createElement('li');
- 			li.innerText = "sdfafsdfsdfsdfsdfsdfesedfefseffffff"+
- 			+"dsfdfjsdlkjflsdjfisdjflksdjflksdjflksdjflksjdflksdjflksjdfsadfsss";
- 			el.appendChild(li, el.childNodes[0]);
-             
+             $(".list").append(string);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
