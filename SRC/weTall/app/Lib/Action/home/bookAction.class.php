@@ -210,7 +210,7 @@ class bookAction extends frontendAction {
     //下拉加载
     public function pull_up(){
     	$tokenTall = $this->getTokenTall();
-    	$this->page=$this->_get("page","intval");
+    	$this->page=$this->_post("page","intval");
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();

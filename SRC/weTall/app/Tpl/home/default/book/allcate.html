@@ -48,7 +48,7 @@ var curr_page=1;
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 		//('test');
-		$.post("{:U('book/pull_up',array('page'=>"+curr_page+"))}",function(data){
+		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
 			alert(array);
