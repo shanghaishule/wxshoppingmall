@@ -214,10 +214,10 @@ class bookAction extends frontendAction {
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();
-    	$this->page++;
-    	echo $this->page;
+    	//$this->page++;
+    	//echo $this->page;
     	//var_dump($items);exit;
-    	//echo json_encode($items);
+    	echo json_encode($items);
     	 
     }
     
