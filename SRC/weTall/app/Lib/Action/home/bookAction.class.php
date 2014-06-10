@@ -5,7 +5,7 @@
  */
 class bookAction extends frontendAction {
     private $page=1;
-    private $row = 1;
+    private $row = 2;
     public function _initialize() {
         parent::_initialize();
         $this->assign('nav_curr', 'book');
