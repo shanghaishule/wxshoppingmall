@@ -110,11 +110,11 @@ function loaded() {
 		},
 		onScrollEnd: function () {
 			if (pullDownEl.className.match('flip')) {
-				pullDownEl.className = '加载中';
+				pullDownEl.className = 'loding';
 				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
 				pullDownAction();	// Execute custom function (ajax call?)
 			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = '加载中';
+				pullUpEl.className = 'loding';
 				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
 				pullUpAction();	// Execute custom function (ajax call?)
 			}
