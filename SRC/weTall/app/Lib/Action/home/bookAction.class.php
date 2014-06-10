@@ -205,10 +205,6 @@ class bookAction extends frontendAction {
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit(0,2)->select();
     	//var_dump($items);exit;
     	$this->assign('item_list',$items);
-    	
-    	
-    	 
-    	
     	$this->display();
     }
     //下拉加载
@@ -216,10 +212,11 @@ class bookAction extends frontendAction {
     	$tokenTall = $this->getTokenTall();
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
-    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),2)->select();
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();
     	$this->page++;
+    	echo $this->page;
     	//var_dump($items);exit;
-    	echo json_encode($items);
+    	//echo json_encode($items);
     	 
     }
     
