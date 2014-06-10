@@ -51,7 +51,8 @@ function pullUpAction () {
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
-			//alert(array);
+			var el, li;
+			el = document.getElementById('list');
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
@@ -63,6 +64,8 @@ function pullUpAction () {
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
+ 			li = document.createElement('li');
+ 			el.appendChild(li, el.childNodes[0]);
              $(".list").append(string);
 			}
 		});
@@ -114,7 +117,7 @@ function loaded() {
 				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
 				pullDownAction();	// Execute custom function (ajax call?)
 			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loading';
+				pullUpEl.className = '加载中';
 				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
 				pullUpAction();	// Execute custom function (ajax call?)
 			}
@@ -139,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 							</div>
 							    <div class="clear"></div>
-		                     <ul class="list">
+		                     <ul class="list" id="list">
 		                     <volist name="item_list" id="item">
 		                     <li>
 		                     <div class="pic">
