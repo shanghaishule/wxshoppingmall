@@ -51,6 +51,7 @@ function pullUpAction () {
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
+			alert(array);
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
