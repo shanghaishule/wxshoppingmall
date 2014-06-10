@@ -53,12 +53,12 @@ function pullUpAction () {
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}\"><img  src=\"{:$item['img']}\"></a>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
              "</div><div class=\"good_content\"><h3>"+
-             	"<a href=\"{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}\">{$item.title}</a>"+
-             "</h3><p>¥{$item.price}<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\"{:$item['id']}\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\"><if condition=\"$item_like[$item['id']] eq ''\">0<else/>{:$item_like[$item['id']]}</if></span></span></p>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
+             "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\"><if condition=\"$item_like["+array[i].id+"] eq ''\">0<else/>{:$item_like["+array[i].id+"]}</if></span></span></p>"+
              "</div><span class=\"show_good\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>$item['id']))}\"></a>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
 			}
