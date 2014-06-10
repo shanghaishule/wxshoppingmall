@@ -66,9 +66,10 @@ function pullUpAction () {
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
+             $(".list").append(string);
  			li = document.createElement('li');
  			el.appendChild(li, el.childNodes[0]);
-             $(".list").append(string);
+             
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
@@ -135,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 </script>
 <div id="wrapper">
 	<div id="scroller">
-		<div id="content" style="position:relative">
-		   <!--  <div class="module_special tbr">
+		<!--<div id="content" style="position:relative">
+		     <div class="module_special tbr">
 		        <div class="wrap">
 		            <div class="wrap_child">
 		                <div class="major">	 -->
@@ -169,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 						<!-- </div>	
 					</div>		                
                  </div>
-            </div> -->
-        </div>
+            </div>
+        </div> -->
     </div>
     <div class="clear">
     </div>
