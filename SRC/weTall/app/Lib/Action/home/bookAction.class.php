@@ -4,7 +4,8 @@
  * 逛宝贝页面
  */
 class bookAction extends frontendAction {
-
+    private $page=1;
+    private $row = 1;
     public function _initialize() {
         parent::_initialize();
         $this->assign('nav_curr', 'book');
@@ -212,12 +213,11 @@ class bookAction extends frontendAction {
     }
     //下拉加载
     public function pull_up(){
-    	$index=2;
     	$tokenTall = $this->getTokenTall();
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
-    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($index,4)->select();
-    	$index+=4;
+    	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->page*($this->page-1),$this->row)->select();
+    	$this->page++;
     	//var_dump($items);exit;
     	echo json_encode($items);
     	 
