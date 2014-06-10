@@ -51,21 +51,21 @@ function pullUpAction () {
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
-			//alert(array);
+			var el, li;
+			el = document.getElementById('list');
 			for(var i =0;i<array.length;i++){
-				var string = "<li>"+
-                    "<div class=\"pic\">"+
+				var string = "<div class=\"pic\">"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
              "</div><div class=\"good_content\"><h3>"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
              "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
              "</div><span class=\"show_good\">"+
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
-             "</span>"+
-             "</li>";
-             alert($(".list").length);
-             $(".list").append(string);
-             alert($(".list").length);
+             "</span>";
+             li = document.createElement('li');
+             li.innerText = string;
+             el.appendChild(li, el.childNodes[0]);
+             //$(".list").append(string);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 							</div>
 							    <div class="clear"></div>
-		                     <ul class="list">
+		                     <ul class="list" id="list">
 		                     <volist name="item_list" id="item">
 		                     <li>
 		                     <div class="pic">
