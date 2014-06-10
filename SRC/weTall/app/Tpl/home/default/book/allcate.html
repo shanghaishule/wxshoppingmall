@@ -51,7 +51,6 @@ function pullUpAction () {
 		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
 			
 			var array = eval(data);
-			alert(array.length);
 			for(var i =0;i<array.length;i++){
 				var string = "<li>"+
                     "<div class=\"pic\">"+
@@ -63,7 +62,7 @@ function pullUpAction () {
              	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
              "</span>"+
              "</li>";
-             $(".list").appendChild(string);
+             $(".list").append(string);
 			}
 		});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
