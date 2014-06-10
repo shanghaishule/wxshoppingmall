@@ -216,7 +216,7 @@ class bookAction extends frontendAction {
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();
     
     	foreach($items as $item => $value){
-    		$lv=M('item_like')->where("item_id='".$item['id']."'")->count();
+    		$lv=M('item_like')->where("item_id='".$value['id']."'")->count();
     	    $items[$item]['lv']=$lv;
     	    
     	}
