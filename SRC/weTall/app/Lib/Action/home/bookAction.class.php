@@ -208,17 +208,17 @@ class bookAction extends frontendAction {
     	$this->display();
     }
     //下拉加载
-    public function pull_up(){
+       public function pull_up(){
     	$tokenTall = $this->getTokenTall();
     	$this->page=$this->_post("page","intval");
     	$where['status']=array('eq',1);
     	$where['tokenTall']=array('eq',$tokenTall);
     	$items = M('item')->field('id,title,img,price')->order('ordid asc,id desc')->where($where)->limit($this->row*($this->page-1),$this->row)->select();
-    	$index=0;
+    
     	foreach($items as $item => $value){
     		$lv=M('item_like')->where("item_id='".$item['id']."'")->count();
-    	    $items[$index]['lv']=$lv;
-    	    $index++;
+    	    $items[$item]['lv']=$lv;
+    	    
     	}
     	echo json_encode($items);
     	 
