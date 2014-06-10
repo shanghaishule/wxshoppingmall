@@ -220,7 +220,7 @@ class bookAction extends frontendAction {
     	    $items[$index]['lv']=$lv;
     	    $index++;
     	}
-    	//echo json_encode($items);
+    	echo json_encode($items);
     	 
     }
     
