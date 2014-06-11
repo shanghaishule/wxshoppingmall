@@ -25,7 +25,7 @@ ty_box .ty_cont{width:100%; overflow:Hidden; padding-top:25px;position:relative}
 .ty_box .ty_cont .cont_right{float:right;}
 
 #header{width:100%; position:relative; z-index:1000; background:rgb(198, 226, 255);}
-.shorcutbox{height:30px; line-height:30px; width:100%; background:#2b2b2b;}
+.shorcutbox{height:20px; line-height:20px; width:100%; background:#2b2b2b;}
 .shorcutbox .s_left{float:left;}
 .shorcutbox .s_right{float:right;}
 .shorcutbox p{color:#fff;}
