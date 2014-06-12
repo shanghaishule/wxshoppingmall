@@ -6,7 +6,7 @@ ul{
 
 ul.container{
 	/* The topmost UL */
-	width:240px;
+	width:260px;
 	margin:0 auto;
 	
 }
@@ -31,7 +31,7 @@ li.button a{
 	overflow:hidden;
 	padding:10px 20px 0;
 	position:relative;
-	width:200px;
+	width:220px;
 }
 
 li.button a:hover{
@@ -54,8 +54,8 @@ li.button a span{
 li.button a.blue{background:url(../img/blue.png) repeat-x top left; color:white;}
 li.button a.blue span{ background:url(../img/blue.png) repeat-x top right;}
 
-li.button a.green{background:url(../img/green.png) repeat-x top left; color:white;}
-li.button a.green span{ background:url(../img/green.png) repeat-x top right;}
+li.button a.green{/*background:url(../img/green.png) repeat-x top left;*/background: #1C62F7; color:white;}
+/*li.button a.green span{ background:url(../img/green.png) repeat-x top right;}*/
 
 li.button a.orange{background:url(../img/orange.png) repeat-x top left; color:white;}
 li.button a.orange span{ background:url(../img/orange.png) repeat-x top right;}
@@ -70,7 +70,8 @@ li.button a:hover span{ background-position:bottom right;}
 
 .dropdown{
 	/* The expandable lists */
-	display:none;
+	/*display:none;*/
+	background: #9BBFFF;
 	padding-top:5px;
 	width:100%;
 }
@@ -83,6 +84,8 @@ li.button a:hover span{ background-position:bottom right;}
 	margin:5px 0;
 	padding:4px 28px;
 }
-
+.dropdown ul{border-bottom: 1px dashed #ffffff;}
+.dropdown .current{padding-left: 50px;
+font-size: 19px;}
 
 
