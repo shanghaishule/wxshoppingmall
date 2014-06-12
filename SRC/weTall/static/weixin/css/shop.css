@@ -118,7 +118,7 @@ a:visited{ color:#666;}
 #content .buy-now{background-color:#D94600}
 #content .enter,#content .login_btn{ width:100%; display:block; text-align:center; margin:0; height:30px; line-height:30px; border:1px solid #ddd; 
 
-border-radius:10px; color:#fff; font-size:16px; cursor:pointer;/* margin-top: 100px;*/}
+border-radius:5px; color:#fff; font-size:16px; cursor:pointer;/* margin-top: 100px;*/}
 /*
 #content .ware_btn .enter{background-color: #f52f40;
 background-image: -webkit-gradient(linear,left top,left bottom,from(#ff4747),to(#f52f40));background-image: -webkit-linear-gradient(top,#ff4747,#f52f40);background-image: linear-gradient(to bottom,#ff4747,#f52f40);}
@@ -1132,5 +1132,7 @@ z-index: 890;
 .cart-buy-f{position:fixed;min-width: 320px;
 max-width: 640px;
 width: 100%;bottom:0;
+-webkit-box-shadow: 0 -5px 5px #888888;
+box-shadow: 0 -5px 5px #888888;
 }
-.foot-bot{height:42px;width:100%;}
+.foot-bot{height:30px;width:100%;}
