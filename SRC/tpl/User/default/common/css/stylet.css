@@ -185,7 +185,8 @@ ul{
 #Frame{
 	overflow:hidden;
 	width:1210px;
-	background:#e1e1e1 url(../images/menu_bg.png) -3px 0px repeat-y;
+	/*background:#e1e1e1 url(../images/menu_bg.png) -3px 0px repeat-y;*/
+	bcckground:#ccc;
 	margin:0px auto;
   clear:both;
 }
