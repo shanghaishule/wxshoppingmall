@@ -54,7 +54,7 @@ li.button a span{
 li.button a.blue{background:url(../img/blue.png) repeat-x top left; color:white;}
 li.button a.blue span{ background:url(../img/blue.png) repeat-x top right;}
 
-li.button a.green{/*background:url(../img/green.png) repeat-x top left;*/background: #1C62F7; color:white;}
+li.button a.green{/*background:url(../img/green.png) repeat-x top left;*/background: #2a77ff; color:white;}
 /*li.button a.green span{ background:url(../img/green.png) repeat-x top right;}*/
 
 li.button a.orange{background:url(../img/orange.png) repeat-x top left; color:white;}
