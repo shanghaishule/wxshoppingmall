@@ -329,7 +329,7 @@ function u(V){
 	var W=V;
 	var R=W.offset().top;
 	var T=W.height();
-	var Q=W.find(".title-1");
+	//var Q=W.find(".title-1");
 	var X=W.find(".title-2");
 	var U=W.find(".btn");
 	var S=W.find(".pic");
