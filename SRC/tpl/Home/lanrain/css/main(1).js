@@ -329,12 +329,17 @@ function u(V){
 	var W=V;
 	var R=W.offset().top;
 	var T=W.height();
-	var Q=W.find(".title-1");
+	//var Q=W.find(".title-1");
 	var X=W.find(".title-2");
 	var U=W.find(".btn");
 	var S=W.find(".pic");
-	q({dom:Q,sectionHeight:T,positionTop:parseInt(Q.css("top"),10),topBorderPos:R,speed:1});
-	q({dom:X,sectionHeight:T,positionTop:parseInt(X.css("top"),10),topBorderPos:R,speed:2});
+	//q({dom:Q,sectionHeight:T,positionTop:parseInt(Q.css("top"),10),topBorderPos:R,speed:1});
+	g({dom:Q,sectionHeight:T,topBorderPos:R,positionTop:parseInt(Q.css("top"),10),trsans:true,speed:20});
+	//m({dom:Q,sectionHeight:T,opacity:0.5,topBorderPos:R,speed:10})
+	
+	//q({dom:X,sectionHeight:T,positionTop:parseInt(X.css("top"),10),topBorderPos:R,speed:2});
+	g({dom:X,sectionHeight:T,topBorderPos:R,positionTop:parseInt(X.css("top"),10),trsans:true,speed:2});
+	
 	q({dom:U,sectionHeight:T,positionTop:parseInt(U.css("top"),10),topBorderPos:R,speed:4});
 	q({dom:S,sectionHeight:T,positionTop:parseInt(S.css("top"),10),topBorderPos:R,speed:0.1})
 }

@@ -37,44 +37,14 @@
 	<script type="text/javascript">
 	    function buys()
 	    {
-	    	
-	        var goodId = $("#goodId").val();
+	    	var goodId = $("#goodId").val();
 	        var quantity = $("#quantity").val();
 
 	        var size =  $("#sizeChoose").val();
 	        var color = $("#colorChoose").val();
-	        //alert(size);
-
-	        if (size == "")
-	        {
-	            alert('请选择大小');
-	            return;
-	        }
-
-	        if (color == "")
-	        {
-	            alert('请选择颜色');
-	            return;
-        	}
-	        
-	        
-	        if (quantity == '')
-	        {
-	            alert('请输入购买数量');
-	            return;
-	        }
-	        if (parseInt(quantity) < 1)
-	        {
-	            alert("购买数量不能小于1");
-	            return;
-	        }
-	        if(isNaN(quantity))
-	        {
-	          alert("请输入数字!");
-	           return;
-	        }
-	        
+            if(check_buy()){
 	        add_cart(goodId, quantity, size, color);
+            }
 	    }
 	    
 	    function add_cart(goodId,quantity,size,color)//商品ID，购买数量
@@ -108,7 +78,50 @@
 	    function addHide(){
 	    	$('.add-g-s').fadeOut("slow");
 	    }
-	  
+	    function buy_now(){
+	    	if(check_buy()){
+	    	document.getElementById('form1').action="{:U('shopcart/index',array('tokenTall'=>$tokenTall))}";
+	    	document.getElementById('form1').submit();
+	    	}
+	    }
+	    function check_buy(){
+	    	var goodId = $("#goodId").val();
+	        var quantity = $("#quantity").val();
+
+	        var size =  $("#sizeChoose").val();
+	        var color = $("#colorChoose").val();
+	        //alert(size);
+
+	        if (size == "")
+	        {
+	            alert('请选择大小');
+	            return false;
+	        }
+
+	        if (color == "")
+	        {
+	            alert('请选择颜色');
+	            return false;
+        	}
+	        
+	        
+	        if (quantity == '')
+	        {
+	            alert('请输入购买数量');
+	            return false;
+	        }
+	        if (parseInt(quantity) < 1)
+	        {
+	            alert("购买数量不能小于1");
+	            return false;
+	        }
+	        if(isNaN(quantity))
+	        {
+	          alert("请输入数字!");
+	           return false;
+	        }
+	        return true;
+	    }
 		//xxl start
 		function showinfo(sheetnum)
 		{
@@ -213,7 +226,8 @@
              }});
 		         
          </script>
-         <input type="hidden" value="{$item.id}" id="goodId" >
+         <form name="form1" id="form1" action="" method="post">
+         <input type="hidden" value="{$item.id}" name="goodId" id="goodId" >
          <div class="ware_text">
              <div class="rate">
                 <h2 class="ware_title">{$item.title}</h2>       	
@@ -300,7 +314,7 @@
                     <li style="margin-right:10px;margin-top:10px;">数量</li>
                     <li style="margin-top:5px;margin-left:5px;">
                         <a style="float:left;" href="javascript:minus();"><img alt="" src="__STATIC__/images/minus.png" style="width:30px; height:30px;"></a>
-                        <input type="text" value="1" id="quantity" name="" style="float:left;width:70px;height:30px;line-height:normal;border:1px solid #ddd;border-left:0;border-right:0;background:#fff;font-size:16px;background:#fff;text-align:center"/>
+                        <input type="text" value="1" id="quantity" name="quantity" style="float:left;width:70px;height:30px;line-height:normal;border:1px solid #ddd;border-left:0;border-right:0;background:#fff;font-size:16px;background:#fff;text-align:center"/>
                         <a style="float:left;" href="javascript:plus();"><img alt="" src="__STATIC__/images/plug.png" style="width:30px; height:30px;"></a>
                     </li>
                     <li style="margin-left:20px;margin-top:10px;"> 件（仅剩<span id="detail_stock" ectype="goods_stock" style="color:red;" class="stock">{$item.goods_stock}</span>件）</li>
@@ -308,7 +322,7 @@
                 <div class="clear"></div>
             </div>
             <div class="add-g-s">加入成功</div>
-            <div>
+            <div class="cart-buy-f">
             <ul class="ware_btn">
                 <div style="display:none;" class="ware_cen">
                 	
@@ -327,12 +341,13 @@
                     </div>
                     <div class="ware_cen_bottom"></div>
                 </div>
-                	<li><a href="#" title="立即购买" class="buy-now enter">立即购买</a></li>                
-                	<li><a href="javascript:void(0)" onclick="javascript:buys();" title="加入购物车" class="enter">加入购物车</a></li>
+                	<li style="margin-left:20%;"><a href="javascript:void(0)" onclick="javascript:buy_now();" title="立即购买" class="buy-now enter">立即购买</a></li>                
+                	<li style="margin-left:5%;"><a href="javascript:void(0)" onclick="javascript:buys();" title="加入购物车" class="add-ent enter">加入购物车</a></li>
             </ul>
             </div>
         </div>
         <div class="clear"></div>
+        </form>
     </div>
     <a name="module"></a>
     <ul class="user_menu">
@@ -380,5 +395,6 @@
 </div>
 
 <include file="public:footer" />
+<div class="foot-bot"></div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <include file="public:headtop" />
@@ -7,10 +7,14 @@
 <include file="public:head" />
 <div class="s_bottom"></div>
 <script src="__STATIC__/js/jquery/jquery10.js" type="text/javascript"></script>
+<script src="__STATIC__/js/iscroll.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
+	$('#footer').css("position","absolute");
+	$('#footer p').css("padding-bottom","0");
 	$("div.module_special .wrap .major ul.list li:last-child").addClass("remove_bottom_line");
 });
+/*
 var active=0,
 	as=document.getElementById('pagenavi').getElementsByTagName('a');
 	
@@ -27,34 +31,143 @@ var t2=new TouchSlider({id:'sliderlist', speed:600, timeout:6000, before:functio
 		as[active].className='';
 		active=index;
 		as[active].className='active';
-	}});	
+	}});
+	*/	
 </script>
-<div id="content">
-    <div class="module_special tbr">
-        <div class="wrap">
-            <div class="wrap_child">
-                <div class="major">
-                     <ul class="list">
-                     <volist name="item_list" id="item">
-                     <li>
-                     <div class="pic">
-                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}"><img  src="{:$item['img']}"></a>
-                     </div>
-                     <div class="good_content">
-                     <h3>
-                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
-                     </h3>
-                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv"><if condition="$item_like[$item['id']] eq ''">0<else/>{:$item_like[$item['id']]}</if></span></span></p>
-                     </div>
-                     <span class="show_good">
-                     	<a href="{:U('Item/index',array('id'=>$item['id']))}"></a>
-                     </span>
-                     </li>
-                     </volist>
-                    </ul>
-                </div>
+<script type="text/javascript">
+
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
+
+function pullDownAction () {
+	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
+       //下拉动作
+	
+		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
+	}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
+}
+var curr_page=1;
+function pullUpAction () {
+	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
+		//('test');
+		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
+			var array = eval(data);
+			for(var i =0;i<array.length;i++){
+				var string = "<li>"+
+                    "<div class=\"pic\">"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
+             "</div><div class=\"good_content\"><h3>"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
+             "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
+             "</div><span class=\"show_good\">"+
+             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
+             "</span>"+
+             "</li>";
+             $(".list").append(string);
+			}
+		});
+		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
+	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
+	curr_page++;
+}
+
+function loaded() {
+	pullDownEl = document.getElementById('pullDown');
+	pullDownOffset = pullDownEl.offsetHeight;
+	pullUpEl = document.getElementById('pullUp');	
+	pullUpOffset = pullUpEl.offsetHeight;
+	
+	myScroll = new iScroll('wrapper', {
+		useTransition: true,
+		topOffset: pullDownOffset,
+		onRefresh: function () {
+			if (pullDownEl.className.match('loading')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+			} else if (pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '下拉加载更多...';
+			}
+		},
+		onScrollMove: function () {
+			if (this.y > 5 && !pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'flip';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '释放刷新...';
+				this.minScrollY = 0;
+			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+				this.minScrollY = -pullDownOffset;
+			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放刷新...';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function () {
+			if (pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'loading';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
+				pullDownAction();	// Execute custom function (ajax call?)
+			} else if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';				
+				pullUpAction();	// Execute custom function (ajax call?)
+			}
+		}
+	});
+	
+	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+</script>
+<div id="wrapper">
+	<div id="scroller">
+		<!--<div id="content" style="position:relative">
+		     <div class="module_special tbr">
+		        <div class="wrap">
+		            <div class="wrap_child">
+		                <div class="major">	 -->
+		               		<div id="pullDown">
+								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+							</div>
+							
+		                     <ul class="list" id="list">
+		                     <volist name="item_list" id="item">
+		                     <li>
+		                     <div class="pic">
+		                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}"><img  src="{:$item['img']}"></a>
+		                     </div>
+		                     <div class="good_content">
+		                     <h3>
+		                     	<a href="{:U('Item/index',array('id'=>$item['id'],'tokenTall'=>$tokenTall))}">{$item.title}</a>
+		                     </h3>
+		                     <p>¥{$item.price}<span class="love" style="float:right; margin-right:10px; font-weight: normal;"><input class="itemid" type="hidden" value="{:$item['id']}"><img src="__STATIC__/weixin/images/bg5.png" height="10px"><span class="lv"><if condition="$item_like[$item['id']] eq ''">0<else/>{:$item_like[$item['id']]}</if></span></span></p>
+		                     </div>
+		                     <span class="show_good">
+		                     	<a href="{:U('Item/index',array('id'=>$item['id']))}"></a>
+		                     </span>
+		                     </li>
+		                     </volist>
+		                    </ul>
+					 		<div id="pullUp">
+								<span class="pullUpIcon"></span><span class="pullUpLabel">上拉刷新...</span>
+							</div>
+							    
+						<!-- </div>	
+					</div>		                
+                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="clear">
     </div>
