@@ -65,6 +65,7 @@ if (empty($_FILES) === false) {
 		$save_url .= $dir_name . "/";
 		if (!file_exists($save_path)) mkdir($save_path);
 	}
+	date_default_timezone_set('UTC');
 	$ymd = date("Ymd");
 	$save_path .= $ymd . "/";
 	$save_url .= $ymd . "/";
