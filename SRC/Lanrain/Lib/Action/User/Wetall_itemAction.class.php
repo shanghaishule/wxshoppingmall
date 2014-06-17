@@ -69,7 +69,7 @@ class Wetall_itemAction extends UserAction{
             //加入颜色和尺码
             $data["size"]=$_POST['sizes_ar'];
             $data["color"]=$_POST['colors_ar'];
-			
+            $data["info"]=_post('info');
 			//库存细则
 			$detail_stock = $_POST['detail_stock'];//dump($colors);die();
 			if ($detail_stock != "") {
@@ -119,7 +119,6 @@ class Wetall_itemAction extends UserAction{
 						M('item_img')->add($_img);
 						//从导入表里删除
 						M('item_taobao')->where(array('id'=>$dataid))->delete();
-						dump('1');exit;
 						$this->success('成功！', U('Wetall_item/index'));
 					} else {
 						$this->error('失败！');
@@ -138,7 +137,6 @@ class Wetall_itemAction extends UserAction{
 							$_img['url'] = $oneimg;
 							M('item_img')->add($_img);
 						}
-						dump('2');exit;
 						$this->success('成功！', U('Wetall_item/index'));
 					} else {
 						$this->error('失败！');
@@ -158,7 +156,6 @@ class Wetall_itemAction extends UserAction{
 						$_img['url'] = $oneimg;
 						M('item_img')->add($_img);
 					}
-					dump('3');exit;
 					$this->success('成功！', U('Wetall_item/index'));
 				} else {
 					$this->error('失败！');
