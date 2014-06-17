@@ -152,8 +152,8 @@ function keydown_size(){
 **下面的方法主要是把细则库存通过拼接字符串传入数据库
 **字符串的格式是  ‘颜色|型号|库存’
 **/
-var editor;
-function deal_stock(){
+
+function deal_stock(info){
 	
 	var stock_detail = "";
 	var colors_ar = "";
@@ -196,7 +196,7 @@ function deal_stock(){
 	 $("#sizes_ar").val(sizes_ar);
 	 $("#colors_ar").val(colors_ar);
 	 $("#detail_stock").val(stock_detail);
-	 $('#info').val(editor.html());
+	 $('#info').val(info);
 	 $("#info_form").submit();
 }
 
@@ -227,12 +227,15 @@ function sum_stock(){
 	 }
 	$("#J_goods_stock").val(sum_num);
 }
-
+var editor;
 	KindEditor.ready(function(K){
 		editor = K.editor({
 			allowFileManager:true
 		});
-        
+		K('input[name=button]').click(function(e) {
+			var htm=editor.html();
+			deal_stock(htm);
+		});
 		K('#upload').click(function() {
 			editor.loadPlugin('image', function() {
 				editor.plugin.imageDialog({
@@ -565,7 +568,7 @@ function sum_stock(){
 		</tr>
 		<TR>
 			<TH></TH>
-			<TD><button type="button" onclick="deal_stock()"  name="button"  class="btnGreen left" >保存</button>
+			<TD><button type="button" name="button"  class="btnGreen left" >保存</button>
 	  		<div class="clr"></div>
 	  		</TD>
 		</TR>
