@@ -82,7 +82,7 @@ function pullUpAction () {
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 	curr_page++;
-
+	$(".list").listview("refresh");
 }
 
 function loaded() {
