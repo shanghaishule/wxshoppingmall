@@ -55,9 +55,9 @@ function pullUpAction () {
 		//('test');
 		$.ajax({
 			type:'post',
-			async : false,
+			async:false,
 			url:"{:U('book/pull_up')}",
-			data:{page:curr_page},
+			data:'page='+curr_page,
 			success:function(data){    	
 				var array = eval(data);
 				alert(array);
