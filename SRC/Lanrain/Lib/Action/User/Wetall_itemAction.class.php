@@ -119,6 +119,7 @@ class Wetall_itemAction extends UserAction{
 						M('item_img')->add($_img);
 						//从导入表里删除
 						M('item_taobao')->where(array('id'=>$dataid))->delete();
+						dump('1');exit;
 						$this->success('成功！', U('Wetall_item/index'));
 					} else {
 						$this->error('失败！');
@@ -137,6 +138,7 @@ class Wetall_itemAction extends UserAction{
 							$_img['url'] = $oneimg;
 							M('item_img')->add($_img);
 						}
+						dump('2');exit;
 						$this->success('成功！', U('Wetall_item/index'));
 					} else {
 						$this->error('失败！');
@@ -156,6 +158,7 @@ class Wetall_itemAction extends UserAction{
 						$_img['url'] = $oneimg;
 						M('item_img')->add($_img);
 					}
+					dump('3');exit;
 					$this->success('成功！', U('Wetall_item/index'));
 				} else {
 					$this->error('失败！');
