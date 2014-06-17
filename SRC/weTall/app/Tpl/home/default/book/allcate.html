@@ -58,8 +58,9 @@ function pullUpAction () {
 			async : false,
 			url:'{:U('book/pull_up')}',
 			data:{page:curr_page},
-			success:function(data){     
+			success:function(data){    	
 				var array = eval(data);
+				alert(array);
 				for(var i =0;i<array.length;i++){
 					var string = "<li>"+
 	                    "<div class=\"pic\">"+
