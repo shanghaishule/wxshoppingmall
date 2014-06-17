@@ -145,20 +145,16 @@ function keydown_size(){
 	    $("#addcolor_action").attr("disabled",false);
 	}
 	$(".ouptsize"+sizeAdd).html($("#mysize"+sizeAdd).val());
-}
+	}
 	
-var editor;
-KindEditor.ready(function(K){
-	editor = K.editor({
-		allowFileManager:true
-	});	
-}
+	
 /*
 **下面的方法主要是把细则库存通过拼接字符串传入数据库
 **字符串的格式是  ‘颜色|型号|库存’
 **/
+var editor;
 function deal_stock(){
-	//alert(editor.html());
+	
 	var stock_detail = "";
 	var colors_ar = "";
 	var sizes_ar = "";
@@ -231,7 +227,12 @@ function sum_stock(){
 	 }
 	$("#J_goods_stock").val(sum_num);
 }
- 
+
+	KindEditor.ready(function(K){
+		editor = K.editor({
+			allowFileManager:true
+		});
+        
 		K('#upload').click(function() {
 			editor.loadPlugin('image', function() {
 				editor.plugin.imageDialog({
