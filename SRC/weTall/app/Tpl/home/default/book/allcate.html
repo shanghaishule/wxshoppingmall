@@ -41,12 +41,12 @@ var myScroll,
 	pullUpEl, pullUpOffset,
 	generatedCount = 0;
 
-function pullDownAction () {
-	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-       //下拉动作
+//function pullDownAction () {
+	//setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
+      
 	
-		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
-	}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
+		//myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
+	//}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
 	
 }
 var curr_page=1;
@@ -149,9 +149,9 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 		        <div class="wrap">
 		            <div class="wrap_child">
 		                <div class="major">	 -->
-		               		<div id="pullDown">
+		               		<!-- -<div id="pullDown">
 								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-							</div>
+							</div>- -->
 							
 		                     <ul class="list" id="list">
 		                     <volist name="item_list" id="item">
