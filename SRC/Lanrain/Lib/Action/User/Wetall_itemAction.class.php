@@ -70,6 +70,7 @@ class Wetall_itemAction extends UserAction{
             $data["size"]=$_POST['sizes_ar'];
             $data["color"]=$_POST['colors_ar'];
             $data["info"]=$_POST['info'];
+            dump($data["info"]);exit;
 			//库存细则
 			$detail_stock = $_POST['detail_stock'];//dump($colors);die();
 			if ($detail_stock != "") {
