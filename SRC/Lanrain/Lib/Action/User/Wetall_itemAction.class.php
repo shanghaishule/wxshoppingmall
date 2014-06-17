@@ -69,6 +69,7 @@ class Wetall_itemAction extends UserAction{
             //加入颜色和尺码
             $data["size"]=$_POST['sizes_ar'];
             $data["color"]=$_POST['colors_ar'];
+			
 			//库存细则
 			$detail_stock = $_POST['detail_stock'];//dump($colors);die();
 			if ($detail_stock != "") {
@@ -124,8 +125,7 @@ class Wetall_itemAction extends UserAction{
 					}
 				}else{
 					//编辑
-					dump($_POST['info']);
-					$result = $this->_mod->create()->save($data);
+					$result = $this->_mod->save($data);
 					if ($result !== false) {
 						//相册更新
 						//$_img['url'] = $data['img'];
