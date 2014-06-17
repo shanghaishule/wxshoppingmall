@@ -169,11 +169,13 @@ class Wetall_itemAction extends UserAction{
 				$info = $this->_mod->where(array('id'=>$id))->find();
 				$imgsarr = M('item_img')->where(array('item_id'=>$id))->select();
 				foreach ($imgsarr as $key => $oneimg){
-					$imgs['img'.$key] = $oneimg['url'];
+					$k = $key+1;
+					$imgs['img'.$k] = $oneimg['url'];
 				}
+				//dump($imgs);exit;
 				$info['imgs']=$imgs;
 				$this->assign('info',$info);
-				
+				//dump($info);exit;
 				
 				$sizestr = $info["size"];
 				$sizearr = explode("|",$sizestr);

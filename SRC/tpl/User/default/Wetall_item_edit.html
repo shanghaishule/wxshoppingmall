@@ -254,6 +254,10 @@ function sum_stock(){
 		
 		K.create('#info', {
 			uploadJson : '{lanrain::STATICS}/kindeditor/php/upload_json2.php',
+			//经测试，下面这行代码可有可无，不影响获取textarea的值
+	        //afterCreate: function(){this.sync();}
+	        //下面这行代码就是关键的所在，当失去焦点时执行 this.sync();
+	        afterBlur: function(){this.sync();}
 		});
 		
 		
