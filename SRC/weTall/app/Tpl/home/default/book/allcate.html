@@ -47,30 +47,42 @@ function pullDownAction () {
 	
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	//  模拟网络拥塞，从生产中删除setTimeout的！
+	
 }
 var curr_page=1;
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 		//('test');
-		$.post("{:U('book/pull_up')}",{'page':curr_page},function(data){
-			var array = eval(data);
-			for(var i =0;i<array.length;i++){
-				var string = "<li>"+
-                    "<div class=\"pic\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
-             "</div><div class=\"good_content\"><h3>"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
-             "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
-             "</div><span class=\"show_good\">"+
-             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
-             "</span>"+
-             "</li>";
-             $(".list").append(string);
+		$.ajax({
+			type:'post',
+			async : false,
+			url:'{:U('book/pull_up')}',
+			data:{page:curr_page},
+			success:function(data){     
+				var array = eval(data);
+				for(var i =0;i<array.length;i++){
+					var string = "<li>"+
+	                    "<div class=\"pic\">"+
+	             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\"><img  src=\""+array[i].img+"\"></a>"+
+	             "</div><div class=\"good_content\"><h3>"+
+	             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+",'tokenTall'=>$tokenTall))}\">"+array[i].title+"</a>"+
+	             "</h3><p>¥"+array[i].price+"<span class=\"love\" style=\"float:right; margin-right:10px; font-weight: normal;\"><input class=\"itemid\" type=\"hidden\" value=\""+array[i].id+"\"><img src=\"__STATIC__/weixin/images/bg5.png\" height=\"10px\"><span class=\"lv\">"+array[i].lv+"</span></span></p>"+
+	             "</div><span class=\"show_good\">"+
+	             	"<a href=\"{:U('Item/index',array('id'=>"+array[i].id+"))}\"></a>"+
+	             "</span>"+
+	             "</li>";
+	             $(".list").append(string);     
+			    }
 			}
 		});
+	//	$.ajax("",{'page':curr_page},function(data){
+			
+	//		}
+	//	});
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 	curr_page++;
+	$(".list").listview("refresh");
 }
 
 function loaded() {
