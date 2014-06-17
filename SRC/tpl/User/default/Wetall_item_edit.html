@@ -145,7 +145,7 @@ function keydown_size(){
 	    $("#addcolor_action").attr("disabled",false);
 	}
 	$(".ouptsize"+sizeAdd).html($("#mysize"+sizeAdd).val());
-	}
+}
 	
 var editor;
 KindEditor.ready(function(K){
@@ -157,7 +157,7 @@ KindEditor.ready(function(K){
 **字符串的格式是  ‘颜色|型号|库存’
 **/
 function deal_stock(){
-	
+	alert(editor.html());
 	var stock_detail = "";
 	var colors_ar = "";
 	var sizes_ar = "";
@@ -199,7 +199,7 @@ function deal_stock(){
 	 $("#sizes_ar").val(sizes_ar);
 	 $("#colors_ar").val(colors_ar);
 	 $("#detail_stock").val(stock_detail);
-	 $('#info').val(editor.html());
+	// $('#info').val(editor.html());
 	 $("#info_form").submit();
 }
 
