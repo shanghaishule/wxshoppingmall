@@ -69,7 +69,7 @@ class Wetall_itemAction extends UserAction{
             //加入颜色和尺码
             $data["size"]=$_POST['sizes_ar'];
             $data["color"]=$_POST['colors_ar'];
-            $data["info"]=_post('info');
+            $data["info"]=$_POST['info'];
 			//库存细则
 			$detail_stock = $_POST['detail_stock'];//dump($colors);die();
 			if ($detail_stock != "") {
