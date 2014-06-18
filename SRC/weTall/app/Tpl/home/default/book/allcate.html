@@ -59,7 +59,6 @@ function pullUpAction () {
 			data:'page='+curr_page,
 			success:function(data){    	
 				var array = eval(data);
-				alert(array);
 				for(var i =0;i<array.length;i++){
 					var string = "<li>"+
 	                    "<div class=\"pic\">"+
@@ -78,7 +77,7 @@ function pullUpAction () {
 		myScroll.refresh();		// 请记住，当刷新内容加载（即：在阿贾克斯完成）
 	}, 1000);	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
 	curr_page++;
-	$(".list").listview("refresh");
+	//$(".list").listview("refresh");
 }
 
 function loaded() {
