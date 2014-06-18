@@ -52,7 +52,6 @@ var myScroll,
 var curr_page=1;
 function pullUpAction () {
 	setTimeout(function () {	// <-- 模拟网络拥塞，从生产中删除setTimeout的！
-		//('test');
 		$.ajax({
 			type:'post',
 			async:false,
@@ -146,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 2
 		        <div class="wrap">
 		            <div class="wrap_child">
 		                <div class="major">	 -->
-		               		<!-- -<div id="pullDown">
+		               		<div id="pullDown">
 								<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-							</div>- -->
+							</div>
 							
 		                     <ul class="list" id="list">
 		                     <volist name="item_list" id="item">
