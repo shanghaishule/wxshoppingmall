@@ -81,17 +81,14 @@ class shopcartAction extends frontendAction {
 
     //直接购买
     public function item_buy()
-    {
-    	header("content-Type: text/html; charset=Utf-8");
-    	 
+    {	 
     	import('Think.ORG.Cart');// 导入分页类
     	$cart=new Cart();
-    	 
     	$goodId= $this->_post('goodId', 'intval');//商品ID
     	$quantity=$this->_post('quantity', 'intval');//购买数量
     	$size= $this->_post('size', 'intval');//大小
     	$color=$this->_post('color', 'trim');//颜色
-    
+      // dump($goodId.'--'.$quantity.'--'.$size.'--'.$color);
     	$item=M('item')->field('id,title,img,price,goods_stock,tokenTall,free,pingyou,kuaidi,ems')->find($goodId);
     	$item['size'] = $size;
     	$item['color'] = $color; //mb_convert_encoding($color, "UTF-8", "GBK");
@@ -111,7 +108,7 @@ class shopcartAction extends frontendAction {
     		}
     	}
     	 
-    	$this->display('index');
+    	$this->redirect("index");
     }
     
     public function remove_cart_item()//删除购物车商品

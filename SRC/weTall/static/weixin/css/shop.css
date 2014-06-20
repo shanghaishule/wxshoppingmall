@@ -102,7 +102,7 @@ a:visited{ color:#666;}
 #content .cart_list li span.tit input{width: 28px;height: 16px;padding: 2px;border: 1px solid #EAEAEA;color: #999;text-align: center;line-height: 14px;font-size: 12px;}
 
 #content .buy_foot p.jiesuan_btn a img{display: none;}
-#content .buy_foot p.jiesuan_btn a{border-radius: 5px; display: block;height: 40px;line-height: 40px;font-size: 17px;border: 0;background: -moz-linear-gradient(top, #ff4747, #f52f40);background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff4747), to(#f52f40));text-align: center;text-decoration: none;-webkit-appearance: none;}
+#content .buy_foot p.jiesuan_btn a{background:##ff4747;border-radius: 5px; display: block;height: 40px;line-height: 40px;font-size: 17px;border: 0;background: -moz-linear-gradient(top, #ff4747, #f52f40);background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff4747), to(#f52f40));text-align: center;text-decoration: none;-webkit-appearance: none;}
 
 
 /*登陆*/
