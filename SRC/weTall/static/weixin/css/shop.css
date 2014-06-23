@@ -123,6 +123,10 @@ border-radius:5px; color:#fff; font-size:16px; cursor:pointer;/* margin-top: 100
 #content .ware_btn .enter{background-color: #f52f40;
 background-image: -webkit-gradient(linear,left top,left bottom,from(#ff4747),to(#f52f40));background-image: -webkit-linear-gradient(top,#ff4747,#f52f40);background-image: linear-gradient(to bottom,#ff4747,#f52f40);}
 */
+.enter-login,.login_btn{background-color: #ff8700;
+background-image: -webkit-gradient(linear,left top,left bottom,from(#ffbf00),to(#ff8700));
+background-image: -webkit-linear-gradient(top,#ffbf00,#ff8700);
+background-image: linear-gradient(to bottom,#ffbf00,#ff8700);}
 #content .login_right h4{ margin-bottom:10px;}
 #content .login_right ol{ margin:0 0 15px; height:20px; line-height:20px;}
 #content #login_text b{ color:#0C3; font-size:16px;}

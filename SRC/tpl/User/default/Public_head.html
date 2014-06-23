@@ -44,13 +44,13 @@ $(document).ready(function(){
 		e.preventDefault();
 	})
 		//ranyi新加
-	$("ul.container li:first .dropdown").css('display','block');
 	$('a[href="index.php'+window.location.search+'"]').parent('li').addClass('current');
+	$('a[href="index.php'+window.location.search+'"]').parent('li').parent('ul').parent('li').css('display','block');
 	//$('.button').click(function(){
 	//	$(this).next('.dropdown').toggle('500');
 	//});
-	//$('li .dropdown:first').slideDown('slow');
-	
+	//$('li .dropdown:first').slideDown('hide');
+	/*
 	<?php $result=''; 
 		foreach($allfunction as $allval){ 
 			if(MODULE_NAME == $allval['funname']){ 
@@ -59,7 +59,7 @@ $(document).ready(function(){
 		}
 		echo $result;
 	?>
-	
+	*/
 });
 </script>
 
