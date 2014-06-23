@@ -70,7 +70,7 @@ li.button a:hover span{ background-position:bottom right;}
 
 .dropdown{
 	/* The expandable lists */
-	/*display:none;*/
+	display:none;
 	background: #9BBFFF;
 	padding-top:5px;
 	width:100%;

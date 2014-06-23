@@ -31,24 +31,24 @@ $(document).ready(function(){
 	//$.easing.def = "easeOutBounce";
 
 	/* Binding a click event handler to the links: */
-	//$('li.button a').click(function(e){
+	$('li.button a').click(function(e){
 	
 		/* Finding the drop down list that corresponds to the current section: */
-		//var dropDown = $(this).parent().next();
+		var dropDown = $(this).parent().next();
 		
 		/* Closing all other drop down sections, except the current one */
-		//$('.dropdown').not(dropDown).slideUp('slow');
-		//dropDown.slideToggle('slow');
+		$('.dropdown').not(dropDown).slideUp('slow');
+		dropDown.slideToggle('slow');
 		
 		/* Preventing the default event (which would be to navigate the browser to the link's address) */
-		//e.preventDefault();
-	//})
+		e.preventDefault();
+	})
 		//ranyi新加
-	
+	$("ul.container li:first .dropdown").css('display','block');
 	$('a[href="index.php'+window.location.search+'"]').parent('li').addClass('current');
-	$('.button').click(function(){
-		$(this).next('.dropdown').toggle('500');
-	});
+	//$('.button').click(function(){
+	//	$(this).next('.dropdown').toggle('500');
+	//});
 	//$('li .dropdown:first').slideDown('slow');
 	
 	<?php $result=''; 
