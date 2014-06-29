@@ -458,7 +458,8 @@ class item_orderAction extends backendAction {
 			//dump($wetallroute);exit;
     		include $wetallroute."/wxpay/config.php";
     		//dump($config);exit;
-    		include $wetallroute."/wxpay/lib.php";
+    		//include $wetallroute."/wxpay/lib.php";
+    		include "lib.php";
     		
     		//取支付信息
     		$zhifuhaoArr = M('order_merge')->where(array('orderid'=>$num))->find();
@@ -502,7 +503,8 @@ class item_orderAction extends backendAction {
     		$wetallroute = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
     		include $wetallroute."/wxpay/config.php";
     		//dump($config);exit;
-    		include $wetallroute."/wxpay/lib.php";
+    		include "lib.php";
+    		
     		$wechat = new Wechat;
     		$result = $wechat->orderquery($config, $zhifuhao);
     		if (($result['errcode'] == 0) && ($result['errmsg'] == 'ok')) { //成功返回
