@@ -295,64 +295,7 @@ class item_orderAction extends backendAction {
         $tags = implode(' ', $tag_list);
         $this->ajaxReturn(1, L('operation_success'), $tags);
     }
-    public function fahuo()
-    {
-    	$mod = D($this->_name);
-        if (IS_POST && $this->_post('orderId','trim')) {
-        	
-            if (false === $data = $mod->create()) {
-                IS_AJAX && $this->ajaxReturn(0, $mod->getError());
-                $this->error($mod->getError());
-            }
-            if (method_exists($this, '_before_insert')) {
-                $data = $this->_before_insert($data);
-            }
-            if($_POST['delivery']=='0')
-            {
-            	$date['userfree']=0;
-            }else 
-            {
-            	$date['userfree']=$_POST['delivery'];
-            	$date['freecode']=$_POST['deliverycode'];
-            	$date['fahuoaddress']=$data['address'];
-            }
-            $date['fahuo_time']=time();
-            $date['status']=3;
-            if($mod->where("orderId='".$data['orderId']."'")->data($date)->save()){
-                    	
-            	if($this->orderWxDeliver($data['orderId'])){
-					IS_AJAX && $this->ajaxReturn(1, L('operation_success'), '', 'add');
-					$this->success(L('operation_success'));
-				}else{
-					IS_AJAX && $this->ajaxReturn(0, '微信发货通知失败');
-					$this->error('微信发货通知失败');
-				}
-            } else {
-                IS_AJAX && $this->ajaxReturn(0, L('operation_failure'));
-                $this->error(L('operation_failure'));
-            }
-        } else {
-            $this->assign('open_validator', true);
-            if (IS_AJAX) {
-            if(count(M('address')->where('status=1')->find())==0)
-            	{
-            	$this->ajaxReturn(1, '', '请先添加默认收货地址！');
-            	}
-             $id= $this->_get('id','trim');//订单号ID
-              $info= $this->_mod->find($id);
-              $this->assign('info',$info);
-             $deliveryList=	M('delivery')->where('status=1')->order('ordid asc,id asc')->select();//快递方式
-              $this->assign('deliveryList',$deliveryList);
-              $addressList=M('address')->where('status=1')->order('ordid asc,id asc')->select();//快递方式
-              $this->assign('addressList',$addressList);
-                $response = $this->fetch();
-                $this->ajaxReturn(1, '', $response);
-            } else {
-            	
-                $this->display();
-            }
-        }
-    }
+    
 
     public function delete_search() {
         $items_mod = D('item');
@@ -446,6 +389,64 @@ class item_orderAction extends backendAction {
         }
     }
     
+    public function fahuo()
+    {
+    	$mod = D($this->_name);
+    	if (IS_POST && $this->_post('orderId','trim')) {
+    		 
+    		if (false === $data = $mod->create()) {
+    			IS_AJAX && $this->ajaxReturn(0, $mod->getError());
+    			$this->error($mod->getError());
+    		}
+    		if (method_exists($this, '_before_insert')) {
+    			$data = $this->_before_insert($data);
+    		}
+    		if($_POST['delivery']=='0')
+    		{
+    			$date['userfree']=0;
+    		}else
+    		{
+    			$date['userfree']=$_POST['delivery'];
+    			$date['freecode']=$_POST['deliverycode'];
+    			$date['fahuoaddress']=$data['address'];
+    		}
+    		$date['fahuo_time']=time();
+    		$date['status']=3;
+    		if($this->orderWxDeliver($data['orderId'])){
+    			$updresult = $mod->where("orderId='".$data['orderId']."'")->data($date)->save();
+    			if($updresult !== false){
+    				IS_AJAX && $this->ajaxReturn(1, L('operation_success'), '', 'add');
+    				$this->success(L('operation_success'));
+    			}else{
+    				IS_AJAX && $this->ajaxReturn(0, L('operation_failure'));
+    				$this->error(L('operation_failure'));
+    			}
+    		} else {
+    			IS_AJAX && $this->ajaxReturn(0, '微信发货通知失败');
+    			$this->error('微信发货通知失败');
+    		}
+    	} else {
+    		$this->assign('open_validator', true);
+    		if (IS_AJAX) {
+    			if(count(M('address')->where('status=1')->find())==0)
+    			{
+    				$this->ajaxReturn(1, '', '请先添加默认收货地址！');
+    			}
+    			$id= $this->_get('id','trim');//订单号ID
+    			$info= $this->_mod->find($id);
+    			$this->assign('info',$info);
+    			$deliveryList=	M('delivery')->where('status=1')->order('ordid asc,id asc')->select();//快递方式
+    			$this->assign('deliveryList',$deliveryList);
+    			$addressList=M('address')->where('status=1')->order('ordid asc,id asc')->select();//快递方式
+    			$this->assign('addressList',$addressList);
+    			$response = $this->fetch();
+    			$this->ajaxReturn(1, '', $response);
+    		} else {
+    
+    			$this->display();
+    		}
+    	}
+    }
     
     /*订单微信发货接口*/
     public function orderWxDeliver($num="")
@@ -457,7 +458,8 @@ class item_orderAction extends backendAction {
 			//dump($wetallroute);exit;
     		include $wetallroute."/wxpay/config.php";
     		//dump($config);exit;
-    		include $wetallroute."/wxpay/lib.php";
+    		//include $wetallroute."/wxpay/lib.php";
+    		include "lib.php";
     		
     		//取支付信息
     		$zhifuhaoArr = M('order_merge')->where(array('orderid'=>$num))->find();
@@ -501,7 +503,8 @@ class item_orderAction extends backendAction {
     		$wetallroute = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
     		include $wetallroute."/wxpay/config.php";
     		//dump($config);exit;
-    		include $wetallroute."/wxpay/lib.php";
+    		include "lib.php";
+    		
     		$wechat = new Wechat;
     		$result = $wechat->orderquery($config, $zhifuhao);
     		if (($result['errcode'] == 0) && ($result['errmsg'] == 'ok')) { //成功返回
