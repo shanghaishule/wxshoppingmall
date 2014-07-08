@@ -86,9 +86,11 @@
 var count = document.getElementById("thelist").getElementsByTagName("img").length;	
 var count2 = document.getElementsByClassName("menuimg").length;
 
+//因为margin了1%的原因，所以图片的宽度不能等于屏幕宽度，否则会出现轮播不到位的问题。
+var mywidth = document.body.clientWidth*0.98;
 
 for(i=0;i<count;i++){
- document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+ document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+mywidth+"px";
 
 }
 for(i=0;i<count2;i++){
@@ -101,7 +103,7 @@ document.getElementsByClassName("menumesg").item(i).style.cssText = " HEIGHT:48p
  }
 }
 
-document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+document.getElementById("scroller").style.cssText = " width:"+mywidth*count+"px";
 
 
  setInterval(function(){
@@ -110,7 +112,7 @@ myScroll.scrollToPage('next', 0,400,count);
 
 window.onresize = function(){ 
 for(i=0;i<count;i++){
-document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+mywidth+"px";
 
 }
 for(i=0;i<count2;i++){
@@ -124,7 +126,7 @@ document.getElementsByClassName("menumesg").item(i).style.cssText = " HEIGHT:48p
  }
 }
 
- document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+ document.getElementById("scroller").style.cssText = " width:"+mywidth*count+"px";
 } 
 
 </script>
